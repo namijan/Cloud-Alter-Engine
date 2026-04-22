@@ -1,0 +1,149 @@
+[04/13/2026 15:35:36] Job information:
+{
+  "CommandLine": [
+    "$(engine.path)\\accoreconsole.exe /i \"$(args[hostDwg].path)\" /s \"$(settings[script].path)\""
+  ],
+  "Settings": {
+    "script": {
+      "value": "UpdateAttributes\n"
+    },
+    "dasOpenNetwork": {
+      "value": "true",
+      "isEnvironmentVariable": true
+    }
+  },
+  "Id": "a832892c71834320bbdfd874e20fbae6",
+  "ActivityId": "Kwbc9Hd8p05w06bVaBzcJ2SI91O2OpmN.TitleBlockActivity+prod",
+  "EngineId": "Autodesk.AutoCAD_24_3!42",
+  "Apps": [
+    "Kwbc9Hd8p05w06bVaBzcJ2SI91O2OpmN.TitleBlockAppBundle!8"
+  ],
+  "BoundArguments": {
+    "hostDwg": {
+      "localName": "input.dwg",
+      "url": "https://s3.amazonaws.com/Masked:M9wjLyfzQ0J3CIjQbFz0QFnwno0=\"f7ca283f-d587-459a-abfa-362b2bb63c9f.dwg\"&response-content-type=application%2Foctet-stream&X-Amz-Security-Token=IQoJb3JpZ2luX2VjELD%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLWVhc3QtMSJIMEYCIQCykiyi6nHMgNIPs8Ey4zZ9AoTUtphK5qOl8GszYhBJngIhAMAlAkTZuzTmJO6ii5cyh%2BOe7ULS%2BAwfewzopP42HrwsKrcCCHkQABoMNjA0NzMzMDA5NDAzIgxRpd23V0bx0io7XLkqlAKeSMPvYcVNm91VVdyJq1spgHlbr7OEbZxFCPX4jWxWBNmzIiNKlzY50j36o0mBiN0BxX5lqep5HCpr0gK9xRBhedwplbi%2BYj8grzujn3F%2F8jk7dAktjQNpYTIN6y6WGVIqdzQ5Tu%2BzAzQaQ%2FmrO9jWq9QiF%2BiO7i7JlxH5Z2w21Hn5t0aghH99aqUboKKp%2FAK4bGgV2YyZPb7J5Zn%2B9G8d3FqYuvDQJtJrXmlp3l%2FeBGEn7LSVXV3ut3HVkqEaNyespmP7IUfvRxLKcJ0lHepOqyoThmwT1SXat31A%2FRAdCrZfV9g5mxUXnDlw%2F%2Fjl1M3wJDC2WiE4dqsirgKR2iKkdWfOh5GGndnFcWofVevTS2tMwjIw65n0zgY6nAEo9NVXFfS1umZaD3cVqv2Cj5%2FcapEaJ0qBlou%2F0T%2BYxSEn4X8i0jwDuWk%2BUoUq1CFaBmaIIJka4%2BGzJajkm9Lv9H1ZGTXh9MbSn1AbHkK0hc%2BB6ppJ6%2B1Yuew7Sdq8UMHSyojgeo8ZT8QI477kcZkbxJcC9N4%2BDXt5myYOrQXzluTHaFUWhplx8AIAXugPxshVYRsPiWjsTw8dZ%2BA%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20260413T153534Z&X-Amz-SignedHeaders=host&X-Amz-Credential=ASIAYZTHFNX5QXY657ML%2F20260413%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Expires=119&X-Amz-Signature=21c50c613da7a33a46ec28cc0f5ae47b0c68f6d6a461adb7980cc367b0a81332",
+      "verb": "get"
+    },
+    "params": {
+      "localName": "params.json",
+      "url": "data:application/json;base64,eyJMYXlvdXROYW1lIjoiQTEgU2hlZXQxIiwiQmxvY2tOYW1lIjoiSVNPIEExIFRpdGxlIEJsb2NrIiwiRHJhd2luZ05hbWUiOiJENENfU2FtcGxlX0RyYXdpbmcxIiwiUFJPSkVDVE5BTUUxIjoiRVhfRFlOX1BOMTAxIiwiUFJPSkVDVEFERFJFU1MxIjoiRVhfRFlOX0FERDEwMSIsIlBST0pFQ1RBRERSRVNTMiI6IkVYX0RZTl9BREQyMDEiLCJQUk9KRUNUQUREUkVTUzMiOiJFWF9EWU5fQUREMzAxIiwiUFJPSkVDVE5BTUUyIjoiRVhfRFlOX1BOMjAxIiwiREFURSI6IkVYX0RZTl9EYXRlIiwiU0NBTEUiOiJFWF9EWU5fU2NhbGUifQ==",
+      "verb": "get"
+    },
+    "result": {
+      "localName": "input.dwg",
+      "url": "https://developer.api.autodesk.com/Masked:VcThx46tKrRmZFzqiy16KKAJDv4=",
+      "headers": {
+        "Authorization": "Masked:UyRahTJzlk/cevhyUreajO/9IWY="
+      },
+      "verb": "put"
+    }
+  },
+  "Quotas": {
+    "limitProcessingTimeSec": 100,
+    "limitTotalUncompressedAppsSizeInMB": 500
+  }
+}
+[04/13/2026 15:35:36] Starting work item a832892c71834320bbdfd874e20fbae6
+[04/13/2026 15:35:36] Start download phase.
+[04/13/2026 15:35:36] Start downloading input: verb - 'Get', url - 'https://s3.amazonaws.com/com.autodesk.oss-persistent/87/92/3e/4a65ab8aa8f5829e6df3db647a5559fb5b/wip.dm.prod?response-cache-control=private%3B must-revalidate%3B no-cache&response-content-disposition=attachment%3B filename%3D"f7ca283f-d587-459a-abfa-362b2bb63c9f.dwg"&response-content-type=application%2Foctet-stream&X-Amz-Security-Token=IQoJb3JpZ2luX2VjELD%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLWVhc3QtMSJIMEYCIQCykiyi6nHMgNIPs8Ey4zZ9AoTUtphK5qOl8GszYhBJngIhAMAlAkTZuzTmJO6ii5cyh%2BOe7ULS%2BAwfewzopP42HrwsKrcCCHkQABoMNjA0NzMzMDA5NDAzIgxRpd23V0bx0io7XLkqlAKeSMPvYcVNm91VVdyJq1spgHlbr7OEbZxFCPX4jWxWBNmzIiNKlzY50j36o0mBiN0BxX5lqep5HCpr0gK9xRBhedwplbi%2BYj8grzujn3F%2F8jk7dAktjQNpYTIN6y6WGVIqdzQ5Tu%2BzAzQaQ%2FmrO9jWq9QiF%2BiO7i7JlxH5Z2w21Hn5t0aghH99aqUboKKp%2FAK4bGgV2YyZPb7J5Zn%2B9G8d3FqYuvDQJtJrXmlp3l%2FeBGEn7LSVXV3ut3HVkqEaNyespmP7IUfvRxLKcJ0lHepOqyoThmwT1SXat31A%2FRAdCrZfV9g5mxUXnDlw%2F%2Fjl1M3wJDC2WiE4dqsirgKR2iKkdWfOh5GGndnFcWofVevTS2tMwjIw65n0zgY6nAEo9NVXFfS1umZaD3cVqv2Cj5%2FcapEaJ0qBlou%2F0T%2BYxSEn4X8i0jwDuWk%2BUoUq1CFaBmaIIJka4%2BGzJajkm9Lv9H1ZGTXh9MbSn1AbHkK0hc%2BB6ppJ6%2B1Yuew7Sdq8UMHSyojgeo8ZT8QI477kcZkbxJcC9N4%2BDXt5myYOrQXzluTHaFUWhplx8AIAXugPxshVYRsPiWjsTw8dZ%2BA%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20260413T153534Z&X-Amz-SignedHeaders=host&X-Amz-Credential=ASIAYZTHFNX5QXY657ML%2F20260413%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Expires=119&X-Amz-Signature=21c50c613da7a33a46ec28cc0f5ae47b0c68f6d6a461adb7980cc367b0a81332'
+[04/13/2026 15:35:36] Embedded resource [{"LayoutName":"A1 Sheet1","BlockName":"ISO A1 Title Block","DrawingName":"D4C_Sample_Drawing1","PROJECTNAME1":"EX_DYN_PN101","PROJECTADDRESS1":"EX_DYN_ADD101","PROJECTADDRESS2":"EX_DYN_ADD201","PROJECTADDRESS3":"EX_DYN_ADD301","PROJECTNAME2":"EX_DYN_PN201","DATE":"EX_DYN_Date","SCALE":"EX_DYN_Scale"}] is saved as a file in 'Unicode' at: 'C:\DARoot\Jobs\a832892c71834320bbdfd874e20fbae6\params.json'.
+[04/13/2026 15:35:36] End downloading file. Source=https://s3.amazonaws.com/com.autodesk.oss-persistent/87/92/3e/4a65ab8aa8f5829e6df3db647a5559fb5b/wip.dm.prod?response-cache-control=private%3B must-revalidate%3B no-cache&response-content-disposition=attachment%3B filename%3D"f7ca283f-d587-459a-abfa-362b2bb63c9f.dwg"&response-content-type=application%2Foctet-stream&X-Amz-Security-Token=IQoJb3JpZ2luX2VjELD%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLWVhc3QtMSJIMEYCIQCykiyi6nHMgNIPs8Ey4zZ9AoTUtphK5qOl8GszYhBJngIhAMAlAkTZuzTmJO6ii5cyh%2BOe7ULS%2BAwfewzopP42HrwsKrcCCHkQABoMNjA0NzMzMDA5NDAzIgxRpd23V0bx0io7XLkqlAKeSMPvYcVNm91VVdyJq1spgHlbr7OEbZxFCPX4jWxWBNmzIiNKlzY50j36o0mBiN0BxX5lqep5HCpr0gK9xRBhedwplbi%2BYj8grzujn3F%2F8jk7dAktjQNpYTIN6y6WGVIqdzQ5Tu%2BzAzQaQ%2FmrO9jWq9QiF%2BiO7i7JlxH5Z2w21Hn5t0aghH99aqUboKKp%2FAK4bGgV2YyZPb7J5Zn%2B9G8d3FqYuvDQJtJrXmlp3l%2FeBGEn7LSVXV3ut3HVkqEaNyespmP7IUfvRxLKcJ0lHepOqyoThmwT1SXat31A%2FRAdCrZfV9g5mxUXnDlw%2F%2Fjl1M3wJDC2WiE4dqsirgKR2iKkdWfOh5GGndnFcWofVevTS2tMwjIw65n0zgY6nAEo9NVXFfS1umZaD3cVqv2Cj5%2FcapEaJ0qBlou%2F0T%2BYxSEn4X8i0jwDuWk%2BUoUq1CFaBmaIIJka4%2BGzJajkm9Lv9H1ZGTXh9MbSn1AbHkK0hc%2BB6ppJ6%2B1Yuew7Sdq8UMHSyojgeo8ZT8QI477kcZkbxJcC9N4%2BDXt5myYOrQXzluTHaFUWhplx8AIAXugPxshVYRsPiWjsTw8dZ%2BA%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20260413T153534Z&X-Amz-SignedHeaders=host&X-Amz-Credential=ASIAYZTHFNX5QXY657ML%2F20260413%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Expires=119&X-Amz-Signature=21c50c613da7a33a46ec28cc0f5ae47b0c68f6d6a461adb7980cc367b0a81332,LocalFile=C:\DARoot\Jobs\a832892c71834320bbdfd874e20fbae6\input.dwg,BytesDownloaded=490743,Duration=102ms
+[04/13/2026 15:35:36] End download phase successfully.
+[04/13/2026 15:35:36] Start preparing script and command line parameters.
+[04/13/2026 15:35:36] Command line: [ /i "C:\DARoot\Jobs\a832892c71834320bbdfd874e20fbae6\input.dwg" /s "C:\DARoot\Jobs\a832892c71834320bbdfd874e20fbae6\setting_script.scr"]
+[04/13/2026 15:35:36] End preparing script and command line parameters.
+[04/13/2026 15:35:36] Start script phase.
+[04/13/2026 15:35:36] Start AutoCAD Core Engine standard output dump.
+[04/13/2026 15:35:37] Redirect stdout (file: C:\DARoot\Jobs\a832892c71834320bbdfd874e20fbae6\tmp\accc37002).
+[04/13/2026 15:35:37] AcCoreConsole: StdOutConsoleMode: processed-output: disabled,auto
+[04/13/2026 15:35:37] AutoCAD Core Engine Console - Copyright 2023 Autodesk, Inc.  All rights reserved. (U.61.Z.194)
+[04/13/2026 15:35:37] Execution Path:
+[04/13/2026 15:35:37] C:\DARoot\AcesRoot\24.3\coreEngine\Exe\accoreconsole.exe
+[04/13/2026 15:35:37] Current Directory: C:\DARoot\Jobs\a832892c71834320bbdfd874e20fbae6
+[04/13/2026 15:35:37] Isolating to regkey=HKEY_CURRENT_USER\SOFTWARE\AppDataLow\Software\Autodesk\CoreUser\WorkItem_a832892c71834320bbdfd874e20fbae6, userDataFolder=C:\DARoot\Jobs\a832892c71834320bbdfd874e20fbae6\userdata.
+[04/13/2026 15:35:37] Version Number: U.61.Z.194 (UNICODE)
+[04/13/2026 15:35:37] LogFilePath has been set to the working folder.
+[04/13/2026 15:35:37] Loading AEC Base...
+[04/13/2026 15:35:37] Loading AEC Base Extended...
+[04/13/2026 15:35:37] Loading AEC Core...
+[04/13/2026 15:35:37] Loading AECC Base...
+[04/13/2026 15:35:37] Loading Modeler DLLs.
+[04/13/2026 15:35:37] Loading AecCivilBase...
+[04/13/2026 15:35:37] Loading AECC QTO......
+[04/13/2026 15:35:37] Loading AECC Land...
+[04/13/2026 15:35:37] Loading AECC Base Core...
+[04/13/2026 15:35:37] Loading AECC Survey...
+[04/13/2026 15:35:37] Loading AECC Roadway...
+[04/13/2026 15:35:37] Loading AECC Pipe Part...
+[04/13/2026 15:35:37] Loading AECC Pipe Network...
+[04/13/2026 15:35:37] Unable to access Shared Pipe Catalog folder.
+[04/13/2026 15:35:37]  Please verify configuration.
+[04/13/2026 15:35:37]  Run 'setNetworkCatalog' to reset.
+[04/13/2026 15:35:37] Unable to access Shared Pipe Catalog folder.
+[04/13/2026 15:35:37]  Please verify configuration.
+[04/13/2026 15:35:37]  Run 'setNetworkCatalog' to reset.
+[04/13/2026 15:35:37] Loading AECC Pressure Pipes...
+[04/13/2026 15:35:37] Loading AECC Building Site...
+[04/13/2026 15:35:37] Loading AECC DwgIndxExtractor...
+[04/13/2026 15:35:37] Loading AECC Point Cloud...
+[04/13/2026 15:35:37] Loading AECC ETransmit...
+[04/13/2026 15:35:37] Loading AEC Project Base...
+[04/13/2026 15:35:37] Loading AEC Schedule...
+[04/13/2026 15:35:37] Loading AECC Plan Production...
+[04/13/2026 15:35:37] Loading AEC Architectural Base...
+[04/13/2026 15:35:37] Loading AECC Hydrology...
+[04/13/2026 15:35:37] Loading AECC Bridge...
+[04/13/2026 15:35:37] Loading AECC Rail...
+[04/13/2026 15:35:38] Regenerating layout.
+[04/13/2026 15:35:38] Regenerating model.
+[04/13/2026 15:35:38] AutoCAD menu utilities loaded.
+[04/13/2026 15:35:38] Command:
+[04/13/2026 15:35:38] Command:
+[04/13/2026 15:35:38] Command:
+[04/13/2026 15:35:38] Command: UpdateAttributes
+[04/13/2026 15:35:38] Unknown command "UPDATEATTRIBUTES".  Press F1 for help.
+[04/13/2026 15:35:39] End AutoCAD Core Engine standard output dump.
+[04/13/2026 15:35:39] End script phase.
+[04/13/2026 15:35:39] Start upload phase.
+[04/13/2026 15:35:39] Uploading 'C:\DARoot\Jobs\a832892c71834320bbdfd874e20fbae6\input.dwg': verb - 'Put', url - 'https://developer.api.autodesk.com/oss/v2/buckets/results_kwbc9hd8p05w06bvabzcj2si91o2opmn/objects/f7ca283f-d587-459a-abfa-362b2bb63c9f.dwg_updated.dwg'
+[04/13/2026 15:35:40] Error: Failed - 403 (Forbidden)
+Request: PUT https://developer.api.autodesk.com/oss/v2/buckets/results_kwbc9hd8p05w06bvabzcj2si91o2opmn/objects/f7ca283f-d587-459a-abfa-362b2bb63c9f.dwg_updated.dwg
+  Request Headers:
+    Authorization: Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IlZiakZvUzhQU3lYODQyMV95dndvRUdRdFJEa19SUzI1NiIsInBpLmF0bSI6ImFzc2MifQ.eyJzY29wZSI6WyJkYXRhOnJlYWQiLCJkYXRhOndyaXRlIiwiZGF0YTpjcmVhdGUiLCJidWNrZXQ6Y3JlYXRlIiwiYnVja2V0OnJlYWQiLCJjb2RlOmFsbCJdLCJjbGllbnRfaWQiOiJLd2JjOUhkOHAwNXcwNmJWYUJ6Y0oyU0k5MU8yT3BtTiIsImlzcyI6Imh0dHBzOi8vZGV2ZWxvcGVyLmFwaS5hdXRvZGVzay5jb20iLCJhdWQiOiJodHRwczovL2F1dG9kZXNrLmNvbSIsImp0aSI6IjdFVDFBUUV5Zm5IMkZvaGxWSHBMNm9jVHlFSkRDSmR4WFhOVmZrb1hjRnZnaTQ3YWsyT0p2Z2I2TndMU1ZOeFYiLCJleHAiOjE3NzYwOTgxMzN9.DI3AJbQo3aqTRQIgBYmDjMxrZzn6p7bed6IsJVpqW6gQFrfuCkI3TW6CGy7PrBWo2vRmsgK4yg7twtbaW7N3wcTkDsPvYuIXSuWVPP4GFAm3yZurU4M6ewLjgrYFC8OnmwCvhs2WhkjYGmdCQppdqmUtfXr9-XWID_I_bZEzDETbCN2SyNYQMvKgvs6Ox57SSzB3Q1oXHH1P3DYe3WG_D1iF9lR7QQZdeX6d1S0oeRWFoXlu1w7_qQ8gYawWdEuD-V7RDd3s3szPeAmQlWbxJplEyKZb0izlsImLIG7ANYwVe2wP4EdNirKbXHsTr66xHICpBfCjSn3YHgk8uTv59A
+  Request Content Headers:
+    Content-Length: 490743
+  Response Headers:
+    Server: nginx
+    Date: Mon, 13 Apr 2026 15:35:40 GMT
+    Connection: keep-alive
+    x-ads-region: US
+    Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+    Access-Control-Allow-Origin: *
+    Access-Control-Allow-Headers: Authorization, Accept-Encoding, Range, Content-Type
+    Access-Control-Allow-Methods: GET
+    X-Frame-Options: SAMEORIGIN
+    X-Request-ID: d96a7aa5-04d6-4b1c-bc5b-0181a9b5fb88
+  Response Content Headers:
+    Content-Type: application/json
+    Content-Length: 42
+  Response Body:
+    {"reason":"Legacy endpoint is deprecated"}
+[04/13/2026 15:35:40] Error: Unable to upload file to 'https://developer.api.autodesk.com/oss/v2/buckets/results_kwbc9hd8p05w06bvabzcj2si91o2opmn/objects/f7ca283f-d587-459a-abfa-362b2bb63c9f.dwg_updated.dwg': Response status code does not indicate success: 403 (Forbidden)..
+[04/13/2026 15:35:40] Error: Upload failed. Reason = Response status code does not indicate success: 403 (Forbidden).
+[04/13/2026 15:35:40] Error: An unexpected error happened during phase Publishing of job.
+[04/13/2026 15:35:40] Job finished with result FailedUpload
+[04/13/2026 15:35:40] Job Status:
+{
+  "status": "failedUpload",
+  "reportUrl": "https://dasprod-store.s3.us-east-1.amazonaws.com/workItem/Kwbc9Hd8p05w06bVaBzcJ2SI91O2OpmN/a832892c71834320bbdfd874e20fbae6/report?X-Amz-Expires=8100&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEK7%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLWVhc3QtMSJHMEUCIGTELVRs%2BUWyzn3anrR8YTXa6anEJiuWa%2FQA4%2F6Ds0QOAiEAtCaMgKd15n1FC3GNhrR5geeaQkbejtkbwv6H%2BHTTp9Qq%2BwMIdxAEGgwyMjA0NzMxNTIzMTAiDB3jFo45ZElScxYP9SrYA9oR48i4%2Fd3RUUjfhDHhOrLtVnyb%2FAUMS3N1T8RkujdKy%2FP5nUrc6ED7cin7sNkiUsi5BBsfjx9TVT6n48DD4FqvvmDR9pJECPd7ryU%2Fl%2B86U7hIKNMD6EkhoE5JrH8%2BsidzKSCN3RbBiMXVBcSQVAe1skTk6ksuMdJrIbLhR9SaSAMtmFpltilDeYk%2BNp60nK54%2BzSTNoKd1KFa0EDywkj6CA4p4oB4P6EKoNpHOXOQ6q07fQCkQVAR1taQTjK72HxCmbcmKOXXoI1OaTyaWRMruI8ovGe0Sp3z1oa3hzQibsAhWhhJ9FPyxVcamaBCo248%2But%2FLrzZFJIho7hJYkTrbxzBVRWkpaxWLRxxHSrN20UuzACIKUsEbpkE3Ctui1LwVVGlLTcG88YKiJ8c6ktNiWNEWnZJUpd%2BKmUsJ30ZPHje4Sdy3TGQyoCp%2Bv%2FOkkZESgs5HacP6liv4KxfAC3Cn3S%2BQL65ZLVso3IfPQZQ2TmvigQv6PipMFBd9hgyI4zjrG3mWfoSXgGvBpf83dxqZqyM0TOE45BqvUGkaAJHb6rT9YD9HzEQ06tX9L8QIA6sLm9iVQsIxKUAwOa5Dyk9XhxVVXFEMoFv6D9GfQvRKAhBfNkY7oswx%2BnzzgY6oQGWfNMMwEOrkzX0W8f8GT17kNsQS%2F82Bs%2FENNTM7eWVJcCd293yKDdpXxvADUqUMAB2lKpn8181NzbLRlfqggsZfjX1saoZrVaFQsFhv0nBYOU7mwA0NMPWDckk8MKujl9EYnDaeAqKoP4tn13L%2B6WIaANW%2Bf2kL2l8aQ2fGAvp42sQkoE0wzwvgg8YyC1O0O4xEEWPYtdca6%2B7p6gOP9ZUWA%3D%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIATGVJZKM3N6BMRS4L%2F20260413%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260413T153535Z&X-Amz-SignedHeaders=host&X-Amz-Signature=9539e2fbd4b846feb6a4c16d485178af23d0ff302c5e72233e2e71f9ad13322b",
+  "activityId": "Kwbc9Hd8p05w06bVaBzcJ2SI91O2OpmN.TitleBlockActivity+prod",
+  "stats": {
+    "timeQueued": "2026-04-13T15:35:35.9481488Z",
+    "timeDownloadStarted": "2026-04-13T15:35:36.022387Z",
+    "timeInstructionsStarted": "2026-04-13T15:35:36.8304399Z",
+    "timeInstructionsEnded": "2026-04-13T15:35:39.846249Z",
+    "timeUploadEnded": "2026-04-13T15:35:40.0746233Z",
+    "bytesDownloaded": 491044
+  },
+  "id": "a832892c71834320bbdfd874e20fbae6"
+}

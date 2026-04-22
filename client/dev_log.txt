@@ -1,0 +1,199 @@
+
+> client@1.0.0 dev
+> vite --port 5175 --host
+
+
+  VITE v8.0.3  ready in 175 ms
+
+  ➜  Local:   http://localhost:5175/
+  ➜  Network: http://192.168.68.72:5175/
+  ➜  press h + enter to show help
+1:47:26 AM [vite] (client) [Unhandled error] TypeError: Cannot read properties of undefined (reading 'Viewing')
+ > initViewer src/App.jsx:39:28
+    37 |              };
+    38 |  
+    39 |              window.Autodesk.Viewing.Initializer(options, () => {
+       |                              ^
+    40 |                  const div = viewerContainer.current;
+    41 |                  viewer.current = new window.Autodesk.Viewing.GuiViewer3D(div);
+ > src/App.jsx:67:12
+ > Object.react_stack_bottom_frame node_modules/react-dom/cjs/react-dom-client.development.js:25989:19
+ > runWithFiberInDEV node_modules/react-dom/cjs/react-dom-client.development.js:871:29
+ > commitHookEffectListMount node_modules/react-dom/cjs/react-dom-client.development.js:13249:28
+ > commitHookPassiveMountEffects node_modules/react-dom/cjs/react-dom-client.development.js:13336:10
+ > reconnectPassiveEffects node_modules/react-dom/cjs/react-dom-client.development.js:15832:10
+ > doubleInvokeEffectsOnFiber node_modules/react-dom/cjs/react-dom-client.development.js:18703:10
+ > runWithFiberInDEV node_modules/react-dom/cjs/react-dom-client.development.js:871:29
+ > recursivelyTraverseAndDoubleInvokeEffectsInDEV node_modules/react-dom/cjs/react-dom-client.development.js:18667:16
+
+1:47:26 AM [vite] (client) [console.warn] An error occurred in the <APSViewer> component.
+
+Consider adding an error boundary to your tree to customize error handling behavior.
+Visit https://react.dev/link/error-boundaries to learn more about error boundaries.
+
+1:47:38 AM [vite] (client) [Unhandled error] TypeError: Cannot read properties of undefined (reading 'Viewing')
+ > initViewer src/App.jsx:39:28
+    37 |              };
+    38 |  
+    39 |              window.Autodesk.Viewing.Initializer(options, () => {
+       |                              ^
+    40 |                  const div = viewerContainer.current;
+    41 |                  viewer.current = new window.Autodesk.Viewing.GuiViewer3D(div);
+ > src/App.jsx:67:12
+ > Object.react_stack_bottom_frame node_modules/react-dom/cjs/react-dom-client.development.js:25989:19
+ > runWithFiberInDEV node_modules/react-dom/cjs/react-dom-client.development.js:871:29
+ > commitHookEffectListMount node_modules/react-dom/cjs/react-dom-client.development.js:13249:28
+ > commitHookPassiveMountEffects node_modules/react-dom/cjs/react-dom-client.development.js:13336:10
+ > reconnectPassiveEffects node_modules/react-dom/cjs/react-dom-client.development.js:15832:10
+ > doubleInvokeEffectsOnFiber node_modules/react-dom/cjs/react-dom-client.development.js:18703:10
+ > runWithFiberInDEV node_modules/react-dom/cjs/react-dom-client.development.js:871:29
+ > recursivelyTraverseAndDoubleInvokeEffectsInDEV node_modules/react-dom/cjs/react-dom-client.development.js:18667:16
+
+1:47:38 AM [vite] (client) [console.warn] An error occurred in the <APSViewer> component.
+
+Consider adding an error boundary to your tree to customize error handling behavior.
+Visit https://react.dev/link/error-boundaries to learn more about error boundaries.
+
+1:48:54 AM [vite] (client) [Unhandled error] TypeError: Cannot read properties of undefined (reading 'Viewing')
+ > initViewer src/App.jsx:39:28
+    37 |              };
+    38 |  
+    39 |              window.Autodesk.Viewing.Initializer(options, () => {
+       |                              ^
+    40 |                  const div = viewerContainer.current;
+    41 |                  viewer.current = new window.Autodesk.Viewing.GuiViewer3D(div);
+ > src/App.jsx:67:12
+ > Object.react_stack_bottom_frame node_modules/react-dom/cjs/react-dom-client.development.js:25989:19
+ > runWithFiberInDEV node_modules/react-dom/cjs/react-dom-client.development.js:871:29
+ > commitHookEffectListMount node_modules/react-dom/cjs/react-dom-client.development.js:13249:28
+ > commitHookPassiveMountEffects node_modules/react-dom/cjs/react-dom-client.development.js:13336:10
+ > reconnectPassiveEffects node_modules/react-dom/cjs/react-dom-client.development.js:15832:10
+ > doubleInvokeEffectsOnFiber node_modules/react-dom/cjs/react-dom-client.development.js:18703:10
+ > runWithFiberInDEV node_modules/react-dom/cjs/react-dom-client.development.js:871:29
+ > recursivelyTraverseAndDoubleInvokeEffectsInDEV node_modules/react-dom/cjs/react-dom-client.development.js:18667:16
+
+1:48:54 AM [vite] (client) [console.warn] An error occurred in the <APSViewer> component.
+
+Consider adding an error boundary to your tree to customize error handling behavior.
+Visit https://react.dev/link/error-boundaries to learn more about error boundaries.
+
+1:49:55 AM [vite] (client) [Unhandled error] TypeError: Cannot read properties of undefined (reading 'Viewing')
+ > initViewer src/App.jsx:39:28
+    37 |              };
+    38 |  
+    39 |              window.Autodesk.Viewing.Initializer(options, () => {
+       |                              ^
+    40 |                  const div = viewerContainer.current;
+    41 |                  viewer.current = new window.Autodesk.Viewing.GuiViewer3D(div);
+ > src/App.jsx:67:12
+ > Object.react_stack_bottom_frame node_modules/react-dom/cjs/react-dom-client.development.js:25989:19
+ > runWithFiberInDEV node_modules/react-dom/cjs/react-dom-client.development.js:871:29
+ > commitHookEffectListMount node_modules/react-dom/cjs/react-dom-client.development.js:13249:28
+ > commitHookPassiveMountEffects node_modules/react-dom/cjs/react-dom-client.development.js:13336:10
+ > reconnectPassiveEffects node_modules/react-dom/cjs/react-dom-client.development.js:15832:10
+ > doubleInvokeEffectsOnFiber node_modules/react-dom/cjs/react-dom-client.development.js:18703:10
+ > runWithFiberInDEV node_modules/react-dom/cjs/react-dom-client.development.js:871:29
+ > recursivelyTraverseAndDoubleInvokeEffectsInDEV node_modules/react-dom/cjs/react-dom-client.development.js:18667:16
+
+1:49:55 AM [vite] (client) [console.warn] An error occurred in the <APSViewer> component.
+
+Consider adding an error boundary to your tree to customize error handling behavior.
+Visit https://react.dev/link/error-boundaries to learn more about error boundaries.
+
+1:51:55 AM [vite] (client) [Unhandled error] TypeError: Cannot read properties of undefined (reading 'Viewing')
+ > initViewer src/App.jsx:39:28
+    37 |              };
+    38 |  
+    39 |              window.Autodesk.Viewing.Initializer(options, () => {
+       |                              ^
+    40 |                  const div = viewerContainer.current;
+    41 |                  viewer.current = new window.Autodesk.Viewing.GuiViewer3D(div);
+ > src/App.jsx:67:12
+ > Object.react_stack_bottom_frame node_modules/react-dom/cjs/react-dom-client.development.js:25989:19
+ > runWithFiberInDEV node_modules/react-dom/cjs/react-dom-client.development.js:871:29
+ > commitHookEffectListMount node_modules/react-dom/cjs/react-dom-client.development.js:13249:28
+ > commitHookPassiveMountEffects node_modules/react-dom/cjs/react-dom-client.development.js:13336:10
+ > reconnectPassiveEffects node_modules/react-dom/cjs/react-dom-client.development.js:15832:10
+ > doubleInvokeEffectsOnFiber node_modules/react-dom/cjs/react-dom-client.development.js:18703:10
+ > runWithFiberInDEV node_modules/react-dom/cjs/react-dom-client.development.js:871:29
+ > recursivelyTraverseAndDoubleInvokeEffectsInDEV node_modules/react-dom/cjs/react-dom-client.development.js:18667:16
+
+1:51:55 AM [vite] (client) [console.warn] An error occurred in the <APSViewer> component.
+
+Consider adding an error boundary to your tree to customize error handling behavior.
+Visit https://react.dev/link/error-boundaries to learn more about error boundaries.
+
+1:53:33 AM [vite] (client) [Unhandled error] TypeError: Cannot read properties of undefined (reading 'Viewing')
+ > initViewer src/App.jsx:39:28
+    37 |              };
+    38 |  
+    39 |              window.Autodesk.Viewing.Initializer(options, () => {
+       |                              ^
+    40 |                  const div = viewerContainer.current;
+    41 |                  viewer.current = new window.Autodesk.Viewing.GuiViewer3D(div);
+ > src/App.jsx:67:12
+ > Object.react_stack_bottom_frame node_modules/react-dom/cjs/react-dom-client.development.js:25989:19
+ > runWithFiberInDEV node_modules/react-dom/cjs/react-dom-client.development.js:871:29
+ > commitHookEffectListMount node_modules/react-dom/cjs/react-dom-client.development.js:13249:28
+ > commitHookPassiveMountEffects node_modules/react-dom/cjs/react-dom-client.development.js:13336:10
+ > reconnectPassiveEffects node_modules/react-dom/cjs/react-dom-client.development.js:15832:10
+ > doubleInvokeEffectsOnFiber node_modules/react-dom/cjs/react-dom-client.development.js:18703:10
+ > runWithFiberInDEV node_modules/react-dom/cjs/react-dom-client.development.js:871:29
+ > recursivelyTraverseAndDoubleInvokeEffectsInDEV node_modules/react-dom/cjs/react-dom-client.development.js:18667:16
+
+1:53:33 AM [vite] (client) [console.warn] An error occurred in the <APSViewer> component.
+
+Consider adding an error boundary to your tree to customize error handling behavior.
+Visit https://react.dev/link/error-boundaries to learn more about error boundaries.
+
+1:53:51 AM [vite] (client) [Unhandled error] TypeError: Cannot read properties of undefined (reading 'Viewing')
+ > initViewer src/App.jsx:39:28
+    37 |              };
+    38 |  
+    39 |              window.Autodesk.Viewing.Initializer(options, () => {
+       |                              ^
+    40 |                  const div = viewerContainer.current;
+    41 |                  viewer.current = new window.Autodesk.Viewing.GuiViewer3D(div);
+ > src/App.jsx:67:12
+ > Object.react_stack_bottom_frame node_modules/react-dom/cjs/react-dom-client.development.js:25989:19
+ > runWithFiberInDEV node_modules/react-dom/cjs/react-dom-client.development.js:871:29
+ > commitHookEffectListMount node_modules/react-dom/cjs/react-dom-client.development.js:13249:28
+ > commitHookPassiveMountEffects node_modules/react-dom/cjs/react-dom-client.development.js:13336:10
+ > reconnectPassiveEffects node_modules/react-dom/cjs/react-dom-client.development.js:15832:10
+ > doubleInvokeEffectsOnFiber node_modules/react-dom/cjs/react-dom-client.development.js:18703:10
+ > runWithFiberInDEV node_modules/react-dom/cjs/react-dom-client.development.js:871:29
+ > recursivelyTraverseAndDoubleInvokeEffectsInDEV node_modules/react-dom/cjs/react-dom-client.development.js:18667:16
+
+1:53:51 AM [vite] (client) [console.warn] An error occurred in the <APSViewer> component.
+
+Consider adding an error boundary to your tree to customize error handling behavior.
+Visit https://react.dev/link/error-boundaries to learn more about error boundaries.
+
+1:54:18 AM [vite] (client) [Unhandled error] TypeError: Cannot read properties of undefined (reading 'Viewing')
+ > initViewer src/App.jsx:39:28
+    37 |              };
+    38 |  
+    39 |              window.Autodesk.Viewing.Initializer(options, () => {
+       |                              ^
+    40 |                  const div = viewerContainer.current;
+    41 |                  viewer.current = new window.Autodesk.Viewing.GuiViewer3D(div);
+ > src/App.jsx:67:12
+ > Object.react_stack_bottom_frame node_modules/react-dom/cjs/react-dom-client.development.js:25989:19
+ > runWithFiberInDEV node_modules/react-dom/cjs/react-dom-client.development.js:871:29
+ > commitHookEffectListMount node_modules/react-dom/cjs/react-dom-client.development.js:13249:28
+ > commitHookPassiveMountEffects node_modules/react-dom/cjs/react-dom-client.development.js:13336:10
+ > reconnectPassiveEffects node_modules/react-dom/cjs/react-dom-client.development.js:15832:10
+ > doubleInvokeEffectsOnFiber node_modules/react-dom/cjs/react-dom-client.development.js:18703:10
+ > runWithFiberInDEV node_modules/react-dom/cjs/react-dom-client.development.js:871:29
+ > recursivelyTraverseAndDoubleInvokeEffectsInDEV node_modules/react-dom/cjs/react-dom-client.development.js:18667:16
+
+1:54:18 AM [vite] (client) [console.warn] An error occurred in the <APSViewer> component.
+
+Consider adding an error boundary to your tree to customize error handling behavior.
+Visit https://react.dev/link/error-boundaries to learn more about error boundaries.
+
+1:54:27 AM [vite] (client) hmr update /src/App.jsx
+1:54:57 AM [vite] (client) [console.error] [Viewer] Autodesk not defined
+1:55:47 AM [vite] (client) [console.error] [Viewer] Autodesk not defined
+1:57:49 AM [vite] (client) hmr update /src/App.jsx
+1:57:59 AM [vite] (client) hmr update /src/App.jsx

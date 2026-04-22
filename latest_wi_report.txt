@@ -1,0 +1,63 @@
+[04/13/2026 18:44:38] Job information:
+{
+  "CommandLine": [
+    "$(engine.path)\\accoreconsole.exe /i \"$(args[hostDwg].path)\" /al \"$(appbundles[TitleBlockAppBundle].path)\" /s \"$(settings[script].path)\""
+  ],
+  "Settings": {
+    "script": {
+      "value": "NETLOAD \"$(appbundles[TitleBlockAppBundle].path)\\\\Contents\\\\TitleBlockAutomation.dll\"\nUpdateAttributes\nQSAVE\n"
+    },
+    "dasOpenNetwork": {
+      "value": "true",
+      "isEnvironmentVariable": true
+    }
+  },
+  "Id": "23cd164f02b344fd9e26ba6af67f9074",
+  "ActivityId": "Kwbc9Hd8p05w06bVaBzcJ2SI91O2OpmN.TitleBlockActivity+prod",
+  "EngineId": "Autodesk.AutoCAD_24_3!42",
+  "Apps": [
+    "Kwbc9Hd8p05w06bVaBzcJ2SI91O2OpmN.TitleBlockAppBundle!14"
+  ],
+  "BoundArguments": {
+    "hostDwg": {
+      "localName": "input.dwg",
+      "url": "https://s3.amazonaws.com/Masked:M9wjLyfzQ0J3CIjQbFz0QFnwno0=\"f7ca283f-d587-459a-abfa-362b2bb63c9f.dwg\"&response-content-type=application%2Foctet-stream&X-Amz-Security-Token=IQoJb3JpZ2luX2VjELP%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLWVhc3QtMSJIMEYCIQD92Sb%2B0u5GLir2bHKk0rznUzZVrvpcQZ817u7CxXifugIhAIIqx4FdOVP5DESgdHQQ67mc5j9ZA4DjIp1PRDY6rJo0KrgCCHwQABoMNjA0NzMzMDA5NDAzIgyXMGxf3P5b9Loq8s8qlQI8miGAB87i5E%2F7c8NvFgN627WBF2bNUp8jd1PLnwkz1ePRqRDFSGxd6%2F7brNDRXsAuRjIiCNKxbMqkvQYdhASqtJBwImOkCgp%2FKluyhR0MczuQJLlX0pwMXpD7qA3iyD6am3PAvobWwsDx%2BLiaLQfVPXOQquMRu%2Bl1VMjpbPadxFwKFLEWwgU8msQb329TArZBZATP7got1JdScy2YNYvndMZ0acF8RUOULcKNJGwmr6VGxOqFuBiTiYqpQDQD5%2BVotctoqVccZMEhQZE5pangJc2F6mixH9U%2F7huwGeRyA2lVzMk75xDZvyvBmafqGhPASengJG9t%2F6pAyYNGgYrYFnfp8nZ3GlsXsDkBwzJsXy6NX9dAML%2Fx9M4GOpwBMuZjTbUqHq7Q%2FGFf7zQ8O%2BS7pN2ezfO0C2YLLjG76lcP2vudOZAHJ86BFfyfP8ylXfJe7B9l4ahF4QPWeCUJOooMaBtCcUw%2BJcJHL%2Fu63gUykfq09o8zmCukGw2Ysd1doLi9pISBXbS3k16VerERATdgSHaLKiVNmLl8y%2BOgQ%2BRD2s9KON04WUFBPH0Dp3%2BERgt5Pyf0dnQ2koNJ&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20260413T184437Z&X-Amz-SignedHeaders=host&X-Amz-Credential=ASIAYZTHFNX5QYOZXWQV%2F20260413%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Expires=119&X-Amz-Signature=ca3c7216e7c57962aa6c7016dd8ade7e010ea0b62e80592697bb3471194280ac",
+      "verb": "get"
+    },
+    "params": {
+      "localName": "params.json",
+      "url": "data:application/json;base64,eyJMYXlvdXROYW1lIjoiQTEgU2hlZXQxIiwiQmxvY2tOYW1lIjoiSVNPIEExIFRpdGxlIEJsb2NrIiwiRHJhd2luZ05hbWUiOiJENENfU2FtcGxlX0RyYXdpbmcxIiwiUFJPSkVDVE5BTUUxIjoiRVhfRFlOX1BOMTAxIiwiUFJPSkVDVEFERFJFU1MxIjoiRVhfRFlOX0FERDEwMSIsIlBST0pFQ1RBRERSRVNTMiI6IkVYX0RZTl9BREQyMDEiLCJQUk9KRUNUQUREUkVTUzMiOiJFWF9EWU5fQUREMzAxIiwiUFJPSkVDVE5BTUUyIjoiRVhfRFlOX1BOMjAxIiwiREFURSI6IkVYX0RZTl9EYXRlIiwiU0NBTEUiOiJFWF9EWU5fU2NhbGUifQ==",
+      "verb": "get"
+    },
+    "result": {
+      "localName": "input.dwg",
+      "url": "https://com-autodesk-oss-direct-upload.s3-accelerate.amazonaws.com/Masked:LrN6wfMPueDvYtIcquN61xFsxTE=",
+      "verb": "put"
+    }
+  },
+  "Quotas": {
+    "limitProcessingTimeSec": 100,
+    "limitTotalUncompressedAppsSizeInMB": 500
+  }
+}
+[04/13/2026 18:44:38] Starting work item 23cd164f02b344fd9e26ba6af67f9074
+[04/13/2026 18:44:38] Start download phase.
+[04/13/2026 18:44:38] Start downloading input: verb - 'Get', url - 'https://s3.amazonaws.com/com.autodesk.oss-persistent/87/92/3e/4a65ab8aa8f5829e6df3db647a5559fb5b/wip.dm.prod?response-cache-control=private%3B must-revalidate%3B no-cache&response-content-disposition=attachment%3B filename%3D"f7ca283f-d587-459a-abfa-362b2bb63c9f.dwg"&response-content-type=application%2Foctet-stream&X-Amz-Security-Token=IQoJb3JpZ2luX2VjELP%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLWVhc3QtMSJIMEYCIQD92Sb%2B0u5GLir2bHKk0rznUzZVrvpcQZ817u7CxXifugIhAIIqx4FdOVP5DESgdHQQ67mc5j9ZA4DjIp1PRDY6rJo0KrgCCHwQABoMNjA0NzMzMDA5NDAzIgyXMGxf3P5b9Loq8s8qlQI8miGAB87i5E%2F7c8NvFgN627WBF2bNUp8jd1PLnwkz1ePRqRDFSGxd6%2F7brNDRXsAuRjIiCNKxbMqkvQYdhASqtJBwImOkCgp%2FKluyhR0MczuQJLlX0pwMXpD7qA3iyD6am3PAvobWwsDx%2BLiaLQfVPXOQquMRu%2Bl1VMjpbPadxFwKFLEWwgU8msQb329TArZBZATP7got1JdScy2YNYvndMZ0acF8RUOULcKNJGwmr6VGxOqFuBiTiYqpQDQD5%2BVotctoqVccZMEhQZE5pangJc2F6mixH9U%2F7huwGeRyA2lVzMk75xDZvyvBmafqGhPASengJG9t%2F6pAyYNGgYrYFnfp8nZ3GlsXsDkBwzJsXy6NX9dAML%2Fx9M4GOpwBMuZjTbUqHq7Q%2FGFf7zQ8O%2BS7pN2ezfO0C2YLLjG76lcP2vudOZAHJ86BFfyfP8ylXfJe7B9l4ahF4QPWeCUJOooMaBtCcUw%2BJcJHL%2Fu63gUykfq09o8zmCukGw2Ysd1doLi9pISBXbS3k16VerERATdgSHaLKiVNmLl8y%2BOgQ%2BRD2s9KON04WUFBPH0Dp3%2BERgt5Pyf0dnQ2koNJ&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20260413T184437Z&X-Amz-SignedHeaders=host&X-Amz-Credential=ASIAYZTHFNX5QYOZXWQV%2F20260413%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Expires=119&X-Amz-Signature=ca3c7216e7c57962aa6c7016dd8ade7e010ea0b62e80592697bb3471194280ac'
+[04/13/2026 18:44:38] Embedded resource [{"LayoutName":"A1 Sheet1","BlockName":"ISO A1 Title Block","DrawingName":"D4C_Sample_Drawing1","PROJECTNAME1":"EX_DYN_PN101","PROJECTADDRESS1":"EX_DYN_ADD101","PROJECTADDRESS2":"EX_DYN_ADD201","PROJECTADDRESS3":"EX_DYN_ADD301","PROJECTNAME2":"EX_DYN_PN201","DATE":"EX_DYN_Date","SCALE":"EX_DYN_Scale"}] is saved as a file in 'Unicode' at: 'C:\DARoot\Jobs\23cd164f02b344fd9e26ba6af67f9074\params.json'.
+[04/13/2026 18:44:39] End downloading file. Source=https://s3.amazonaws.com/com.autodesk.oss-persistent/87/92/3e/4a65ab8aa8f5829e6df3db647a5559fb5b/wip.dm.prod?response-cache-control=private%3B must-revalidate%3B no-cache&response-content-disposition=attachment%3B filename%3D"f7ca283f-d587-459a-abfa-362b2bb63c9f.dwg"&response-content-type=application%2Foctet-stream&X-Amz-Security-Token=IQoJb3JpZ2luX2VjELP%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLWVhc3QtMSJIMEYCIQD92Sb%2B0u5GLir2bHKk0rznUzZVrvpcQZ817u7CxXifugIhAIIqx4FdOVP5DESgdHQQ67mc5j9ZA4DjIp1PRDY6rJo0KrgCCHwQABoMNjA0NzMzMDA5NDAzIgyXMGxf3P5b9Loq8s8qlQI8miGAB87i5E%2F7c8NvFgN627WBF2bNUp8jd1PLnwkz1ePRqRDFSGxd6%2F7brNDRXsAuRjIiCNKxbMqkvQYdhASqtJBwImOkCgp%2FKluyhR0MczuQJLlX0pwMXpD7qA3iyD6am3PAvobWwsDx%2BLiaLQfVPXOQquMRu%2Bl1VMjpbPadxFwKFLEWwgU8msQb329TArZBZATP7got1JdScy2YNYvndMZ0acF8RUOULcKNJGwmr6VGxOqFuBiTiYqpQDQD5%2BVotctoqVccZMEhQZE5pangJc2F6mixH9U%2F7huwGeRyA2lVzMk75xDZvyvBmafqGhPASengJG9t%2F6pAyYNGgYrYFnfp8nZ3GlsXsDkBwzJsXy6NX9dAML%2Fx9M4GOpwBMuZjTbUqHq7Q%2FGFf7zQ8O%2BS7pN2ezfO0C2YLLjG76lcP2vudOZAHJ86BFfyfP8ylXfJe7B9l4ahF4QPWeCUJOooMaBtCcUw%2BJcJHL%2Fu63gUykfq09o8zmCukGw2Ysd1doLi9pISBXbS3k16VerERATdgSHaLKiVNmLl8y%2BOgQ%2BRD2s9KON04WUFBPH0Dp3%2BERgt5Pyf0dnQ2koNJ&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20260413T184437Z&X-Amz-SignedHeaders=host&X-Amz-Credential=ASIAYZTHFNX5QYOZXWQV%2F20260413%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Expires=119&X-Amz-Signature=ca3c7216e7c57962aa6c7016dd8ade7e010ea0b62e80592697bb3471194280ac,LocalFile=C:\DARoot\Jobs\23cd164f02b344fd9e26ba6af67f9074\input.dwg,BytesDownloaded=490743,Duration=124ms
+[04/13/2026 18:44:39] End download phase successfully.
+[04/13/2026 18:44:39] Error: Failed to prepare app package(s). C:\DARoot\Applications\0f4823cdcd96c205ffdf174392084382.Kwbc9Hd8p05w06bVaBzcJ2SI91O2OpmN.TitleBlockAppBundle[14].package is has no PackageContents.xml. Searched recursively.
+[04/13/2026 18:44:47] Error: An unexpected error happened during phase Downloading of job.
+[04/13/2026 18:44:47] Job finished with result FailedEnvironmentSetup
+[04/13/2026 18:44:47] Job Status:
+{
+  "status": "failedDownload",
+  "reportUrl": "https://dasprod-store.s3.us-east-1.amazonaws.com/workItem/Kwbc9Hd8p05w06bVaBzcJ2SI91O2OpmN/23cd164f02b344fd9e26ba6af67f9074/report?X-Amz-Expires=8100&X-Amz-Security-Token=IQoJb3JpZ2luX2VjELP%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLWVhc3QtMSJIMEYCIQDwS8ZItYwzUj4GPl2RZdd89bt0IgcBzdrgPQpKle2epwIhAImAvfpQqauK%2FH2xu9fyltqW9ZGC4u%2FG2qBbMcaXAUHYKvsDCHwQBBoMMjIwNDczMTUyMzEwIgx0YBGdl9xpV2xsga8q2AOqVvZGu6tAEliULV8S44IySFLVqL9pDyL24lpc84EgQrh4bfMeXz5gGpAkNrs0VA%2BOm8xIymr8CXFHYcReHtujfeVKI8Qnjev9lsl6bflZqECSe0UgUvknozzgi%2BT3FiUY2JsGkRkoKatrpmh63w5pevEJpe9kdoYxtj5GbgGDPdssaaV4U9836SB%2BF9e5YNbNdjdPpfqQPvemRWDfr2eGs0apM6KEEvJFq9CWcWFSycqPVnQPnvft9pI0AmWjP5y7Niclv%2F4pOYtxuRQY82iWSY%2Ft8pYKK4BPaL39kNcjxNDALNAZG7Rd5hxjtQTTIC%2Be2yDcciRSCBlOP1SELNJ0A98Ah1eYHVNNjV8twi1ANYzgp%2BhF8aQT7eIGuDPAJzZbmFELbvDj87DBYQZozaIYHx6iqinnkOefmIZW9XyZz1GOedFGVJRgTpLPnuaBm1Dcj9RlqmM6pjNFgwdon4i8%2B0Em9U%2BmD3%2Bli7Y%2F%2FtlraZAzwiI%2FCIVjD%2FqIUryb4%2F2Z%2B%2F88ggOZAmlqwx5LaxFzrpR7%2FMaTY56Q8x%2BQfsgRW8%2BJ7iBLvUVMg6RM0sNWbXGZlthl%2Bpy0WMV18eAuFo1lRHstKUidKeLwKrRN8oCH2fWpYeB5KW4eMJPs9M4GOqABPqVq6OHGW0GRpaq7l%2BQdIJnuLikwRzU5Q1pDAGqzy5ZMo%2B%2B7dIrG5PXLSf5OBtcykBJcIXE14T2w9J8AHU3wg0t9SO6zx8RkC1IO1OZQVZfqB1FlFRspOnDw3SII114YIN%2Bndt0iVjZCPl%2F8HxCpSGKt%2FCiDFExF6xUAKIHqow6qe1OnAV1BLBwSBNSfdhE8ZHHhtVnAfQEKQr9vhECaZQ%3D%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIATGVJZKM3BPVU72R3%2F20260413%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260413T184438Z&X-Amz-SignedHeaders=host&X-Amz-Signature=07c06fceaa19d0f085e9de2df9f18639edff6f693c7fe191ae5fc7d20a81be34",
+  "activityId": "Kwbc9Hd8p05w06bVaBzcJ2SI91O2OpmN.TitleBlockActivity+prod",
+  "stats": {
+    "timeQueued": "2026-04-13T18:44:38.7840229Z",
+    "timeDownloadStarted": "2026-04-13T18:44:38.8620464Z",
+    "bytesDownloaded": 491044
+  },
+  "id": "23cd164f02b344fd9e26ba6af67f9074"
+}

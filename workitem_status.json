@@ -1,0 +1,15 @@
+{
+  "status": "failedUpload",
+  "reportUrl": "https://dasprod-store.s3.us-east-1.amazonaws.com/workItem/Kwbc9Hd8p05w06bVaBzcJ2SI91O2OpmN/a832892c71834320bbdfd874e20fbae6/report?X-Amz-Expires=3600&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEK7%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLWVhc3QtMSJHMEUCIQCvBTTFnWOiNwJpc4yfvISjUUQQ9KINv%2Bq2ifPh4PinrAIgUxtwlbBuvdN5dfGFEqkrCdB5smfqsta%2BZkdX%2BjbBxmAq%2BwMIdxAEGgwyMjA0NzMxNTIzMTAiDOOsHazR7J7tCKNHairYA72H8GLbpS1Fh9dVCdUH6%2FaaeUknvIdljop13I4Xq3c8XSDlU0TtxWsV3DGSvFy2RQ9BUp22ygTZO8yUOYd1RnzoOfCmywsKgElGnbT%2FWd6IUJqHhtnvyEg6Mumo44C22%2BPTldBckkhagJp7ctlE8Q69GE2uWxEE6gS9MAoPfTAGE%2F%2BJWstVT1%2FLuXHQa4HQjoOP5r4iBhdMI0nVMMFvVg6n7qqv9zuSgV30EGg2F7st0ZiCIPWx%2B%2B04g7gB6mLxwGrPKNqXi1FLMv%2FIA%2BBHbrCgEB1bhvm3B2%2FYSq5Kz0jZyKEmgWnRGFDygEMCkeO963q%2F0ppj3U0eYRIKGOML7p53Dm9MRRwqN8gtBSPuqCF%2BCijnF1BDBwSAKkqlJlgsJu%2BqKfmRPg4dOHkqJgSbCNW1K3Yzk2E5RmhbvIgT6qiITXKi0lzHHV3gjriSonZ%2BhgTUKwcaWu7ST%2F%2F959PTV%2BMGFRD3SkUhal9zvGfPQSvdbgqkwM1XrVL2gLmR5oD6JTN7VVxGyzkJ9mgLZCk5VOHXk8BZNKZypjG5raJfe%2FP3DY1VplvSF52ToEpU%2FALvvnwlEDbdmry%2BndVSkLuSIxV3kYxdexmiU%2BDfo1xlL%2FfFEXCn4GcSOHswiuvzzgY6oQFmc2OAMUOV%2F5wMoI0wxj%2Fk9RRcSfMRaSvcexZ0C8pxgPYyhP1vaVGyNexzrCAuMOU0Mh7FYBr2%2BeoPujkUpZGcKGe2%2FeDswIcocxTiDSaWGbZMAiUrX969YpobGJ8J5aJpGCR87meG88zJmK9lzundiHL9WrTejBgYHdbnYyxllpcfPYMw%2Fqel5FQZH%2Fb1D0lGwDxYsQiqOkFn4n%2BqytUENA%3D%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIATGVJZKM3A7GVIM4W%2F20260413%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260413T153601Z&X-Amz-SignedHeaders=host&X-Amz-Signature=3348e0e0afe447f4c1d7a9e8b6406f6ceddbf43bb063d2bc2ec585e9eab50bde",
+  "activityId": "Kwbc9Hd8p05w06bVaBzcJ2SI91O2OpmN.TitleBlockActivity+prod",
+  "stats": {
+    "timeQueued": "2026-04-13T15:35:35.9481488Z",
+    "timeDownloadStarted": "2026-04-13T15:35:36.022387Z",
+    "timeInstructionsStarted": "2026-04-13T15:35:36.8304399Z",
+    "timeInstructionsEnded": "2026-04-13T15:35:39.846249Z",
+    "timeUploadEnded": "2026-04-13T15:35:40.0746233Z",
+    "timeFinished": "2026-04-13T15:35:40.3694443Z",
+    "bytesDownloaded": 491044
+  },
+  "id": "a832892c71834320bbdfd874e20fbae6"
+}

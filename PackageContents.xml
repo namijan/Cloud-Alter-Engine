@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ApplicationPackage SchemaVersion="1.0" Version="1.0" Description="Title Block Automation" Name="Title Block Automation">
+  <Components>
+    <RuntimeRequirements OS="Win64" Platform="AutoCAD" SeriesMin="R18.0" SeriesMax="R24.3" />
+    <ComponentEntry AppName="TitleBlockAutomation" Version="1.0" ModuleName="./Contents/TitleBlockAutomation.dll" AppDescription="Title Block Automation Plugin" LoadOnAutoCADStartup="True">
+      <Commands GroupName="TitleBlock">
+        <Command Local="UpdateAttributes" Global="UpdateAttributes" />
+      </Commands>
+    </ComponentEntry>
+  </Components>
+</ApplicationPackage>
