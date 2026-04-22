@@ -899,7 +899,7 @@ const App = () => {
                     <div style={{ background: ACC_THEME.primary, width: '60px', height: '60px', borderRadius: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 24px' }}>
                         <Globe size={32} color="white" />
                     </div>
-                    <h1 style={{ color: ACC_THEME.text, margin: '0 0 8px', fontSize: '24px', fontWeight: '700' }}>Cloud Alter Engine</h1>
+                    <h1 style={{ color: ACC_THEME.text, margin: '0 0 8px', fontSize: '24px', fontWeight: '700' }}>DWG Cloud Alter Engine</h1>
                     <p style={{ color: ACC_THEME.textSecondary, margin: '0 0 40px', fontSize: '14px' }}>Enterprise Automation Console</p>
                     <button
                         onClick={() => window.location.href = `/api/auth/login?v=${Date.now()}`}
@@ -933,7 +933,7 @@ const App = () => {
                     <div style={{ background: ACC_THEME.primary, padding: '6px', borderRadius: '6px' }}>
                         <Zap size={22} color="white" />
                     </div>
-                    <h2 style={{ fontSize: '18px', margin: 0, fontWeight: '700', color: ACC_THEME.text }}>Cloud Alter</h2>
+                    <h2 style={{ fontSize: '18px', margin: 0, fontWeight: '700', color: ACC_THEME.text }}>DWG Cloud Alter</h2>
                 </div>
 
                 <div style={{ padding: '24px', flex: 1, overflowY: 'auto' }}>
@@ -1045,7 +1045,7 @@ const App = () => {
             <div style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
                 <header style={{ padding: '12px 32px', borderBottom: `1px solid ${ACC_THEME.border}`, display: 'flex', justifyContent: 'space-between', alignItems: 'center', background: 'white', minHeight: '64px' }}>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
-                        <h1 style={{ fontSize: '18px', margin: 0, fontWeight: '500' }}>Cloud Alter Engine / Assets</h1>
+                        <h1 style={{ fontSize: '18px', margin: 0, fontWeight: '500' }}>DWG Cloud Alter Engine / Assets</h1>
                         <span style={{ fontSize: '12px', color: ACC_THEME.textSecondary, borderLeft: `1px solid ${ACC_THEME.border}`, paddingLeft: '16px' }}> {status}</span>
                     </div>
 
