@@ -550,7 +550,21 @@ const App = () => {
                     setExcelFiles(excelRes.data);
 
                     if (prefs.excelVersionId) {
-                        setSelectedExcel(prefs.excelVersionId);
+                        const exists = excelRes.data.find(f => f.versionId === prefs.excelVersionId);
+                        if (exists) {
+                            setSelectedExcel(prefs.excelVersionId);
+                        } else {
+                            // Try to find by extracting the base URN (ignore ?version=...)
+                            const oldBaseId = prefs.excelVersionId.split('?')[0];
+                            const updatedFile = excelRes.data.find(f => f.id === oldBaseId || f.versionId.startsWith(oldBaseId));
+                            if (updatedFile) {
+                                console.log(`[UI] Prefs had old version. Auto-pivoting to latest: ${updatedFile.versionId}`);
+                                setSelectedExcel(updatedFile.versionId);
+                                savePreference({ ...prefs, excelVersionId: updatedFile.versionId });
+                            } else {
+                                setSelectedExcel('');
+                            }
+                        }
                     }
                 }
             }
@@ -602,12 +616,14 @@ const App = () => {
             if (selectedExcel) {
                 const currentFile = newFiles.find(f => f.versionId === selectedExcel);
                 if (!currentFile) {
-                    // Find by name if versionId changed
-                    const oldFileName = excelFiles.find(f => f.versionId === selectedExcel)?.name;
-                    const updatedFile = newFiles.find(f => f.name === oldFileName);
+                    // Find by base URN if versionId changed
+                    const oldBaseId = selectedExcel.split('?')[0];
+                    const updatedFile = newFiles.find(f => f.id === oldBaseId || f.versionId.startsWith(oldBaseId));
                     if (updatedFile) {
                         console.log(`[UI] Auto-pivoting to new Excel version: ${updatedFile.versionId}`);
                         setSelectedExcel(updatedFile.versionId);
+                    } else {
+                        setSelectedExcel('');
                     }
                 }
             }
