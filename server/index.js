@@ -85,9 +85,28 @@ async function extractDrawingAttributes(versionId, token) {
     // Await success
     console.log(`[MD Extract] Awaiting rigorous SVF Translation...`);
     for (let i = 0; i < 60; i++) {
-        const manifestRes = await axios.get(`https://developer.api.autodesk.com/modelderivative/v2/designdata/${urn}/manifest`, { headers: { Authorization: `Bearer ${token}` } });
-        if (manifestRes.data.status === 'success') break;
-        if (manifestRes.data.status === 'failed') break;
+        try {
+            const manifestRes = await axios.get(`https://developer.api.autodesk.com/modelderivative/v2/designdata/${urn}/manifest`, { headers: { Authorization: `Bearer ${token}` } });
+            if (manifestRes.data.status === 'success') break;
+            if (manifestRes.data.status === 'failed') break;
+        } catch (manifestErr) {
+            console.error(`[MD Extract Manifest Error]`, manifestErr.response?.data || manifestErr.message);
+            // If it's a 401 or 403, try with internal token as fallback
+            if (manifestErr.response?.status === 401 || manifestErr.response?.status === 403) {
+                console.log(`[MD Extract] Falling back to internal token...`);
+                try {
+                    const internalToken = await getInternalToken();
+                    const fallbackRes = await axios.get(`https://developer.api.autodesk.com/modelderivative/v2/designdata/${urn}/manifest`, { headers: { Authorization: `Bearer ${internalToken}` } });
+                    if (fallbackRes.data.status === 'success') break;
+                    if (fallbackRes.data.status === 'failed') break;
+                } catch (fallbackErr) {
+                    console.error(`[MD Extract Fallback Error]`, fallbackErr.response?.data || fallbackErr.message);
+                    throw fallbackErr; // If fallback fails too, throw it
+                }
+            } else {
+                throw manifestErr;
+            }
+        }
         await new Promise(r => setTimeout(r, 2000));
     }
 
@@ -218,14 +237,14 @@ app.post('/api/automation/preview-sync', async (req, res) => {
         });
         res.json({ success: true, drawingName, diff, sourceData, targetData });
     } catch (err) {
-        console.error('[Preview Sync Error]', err.response?.data || err.message);
+        console.error('[Preview Sync Error]', err.response ? JSON.stringify(err.response.data) : err.message);
         res.status(500).json({ error: err.message });
     }
 });
 
 app.get('/api/auth/login', (req, res) => res.redirect('/api/auth/renew-login'));
 app.get('/api/auth/renew-login', (req, res) => {
-    const scopes = 'data:read data:write data:create bucket:create bucket:read';
+    const scopes = 'data:read data:write data:create bucket:create bucket:read viewables:read';
     const url = `https://developer.api.autodesk.com/authentication/v2/authorize?response_type=code&client_id=${APS_CLIENT_ID}&redirect_uri=${encodeURIComponent(APS_CALLBACK_URL)}&scope=${encodeURIComponent(scopes)}`;
     res.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate, proxy-revalidate');
     res.redirect(url);
