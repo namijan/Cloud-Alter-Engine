@@ -63,19 +63,27 @@ app.get('/api/test', (req, res) => res.send('OK'));
 
 async function extractDrawingAttributes(versionId, token) {
     const urn = Buffer.from(versionId).toString('base64').replace(/\+/g, '-').replace(/\//g, '_').replace(/=/g, '');
+    
+    // Determine regional endpoint based on URN
+    let regionPath = '';
+    if (versionId.includes('wipprodem')) regionPath = 'regions/eu/';
+    else if (versionId.includes('wipprodanz')) regionPath = 'regions/apac/';
+    
+    const mdBaseUrl = `https://developer.api.autodesk.com/modelderivative/v2/${regionPath}designdata`;
+    
     let views = [];
-    console.log(`[MD Extract] Starting extraction for URN: ${urn}`);
+    console.log(`[MD Extract] Starting extraction for URN: ${urn} (Region: ${regionPath || 'US'})`);
 
     // 1. Ensure Translation is triggered and finished
     try {
-        const metadataTest = await axios.get(`https://developer.api.autodesk.com/modelderivative/v2/designdata/${urn}/metadata`, { headers: { Authorization: `Bearer ${token}` } });
+        const metadataTest = await axios.get(`${mdBaseUrl}/${urn}/metadata`, { headers: { Authorization: `Bearer ${token}` } });
         views = metadataTest.data.data?.metadata || [];
     } catch (e) { }
 
     if (views.length === 0) {
         console.log(`[MD Extract] No metadata found. Triggering Translation Job...`);
         try {
-            await axios.post('https://developer.api.autodesk.com/modelderivative/v2/designdata/job', {
+            await axios.post(`${mdBaseUrl}/job`, {
                 input: { urn },
                 output: { formats: [{ type: 'svf', views: ['2d', '3d'], advanced: { convertAutocadDrawingsToV7: true } }] }
             }, { headers: { Authorization: `Bearer ${token}` } });
@@ -86,7 +94,7 @@ async function extractDrawingAttributes(versionId, token) {
     console.log(`[MD Extract] Awaiting rigorous SVF Translation...`);
     for (let i = 0; i < 60; i++) {
         try {
-            const manifestRes = await axios.get(`https://developer.api.autodesk.com/modelderivative/v2/designdata/${urn}/manifest`, { headers: { Authorization: `Bearer ${token}` } });
+            const manifestRes = await axios.get(`${mdBaseUrl}/${urn}/manifest`, { headers: { Authorization: `Bearer ${token}` } });
             if (manifestRes.data.status === 'success') break;
             if (manifestRes.data.status === 'failed') break;
         } catch (manifestErr) {
@@ -96,7 +104,7 @@ async function extractDrawingAttributes(versionId, token) {
                 console.log(`[MD Extract] Falling back to internal token...`);
                 try {
                     const internalToken = await getInternalToken();
-                    const fallbackRes = await axios.get(`https://developer.api.autodesk.com/modelderivative/v2/designdata/${urn}/manifest`, { headers: { Authorization: `Bearer ${internalToken}` } });
+                    const fallbackRes = await axios.get(`${mdBaseUrl}/${urn}/manifest`, { headers: { Authorization: `Bearer ${internalToken}` } });
                     if (fallbackRes.data.status === 'success') break;
                     if (fallbackRes.data.status === 'failed') break;
                 } catch (fallbackErr) {
@@ -111,7 +119,7 @@ async function extractDrawingAttributes(versionId, token) {
     }
 
     if (views.length === 0) {
-        const metadataRes = await axios.get(`https://developer.api.autodesk.com/modelderivative/v2/designdata/${urn}/metadata`, { headers: { Authorization: `Bearer ${token}` } });
+        const metadataRes = await axios.get(`${mdBaseUrl}/${urn}/metadata`, { headers: { Authorization: `Bearer ${token}` } });
         views = metadataRes.data.data?.metadata || [];
     }
 
@@ -122,7 +130,7 @@ async function extractDrawingAttributes(versionId, token) {
         try {
             for (let polls = 0; polls < 15; polls++) {
                 if (discoveryComplete) return;
-                const propRes = await axios.get(`https://developer.api.autodesk.com/modelderivative/v2/designdata/${urn}/metadata/${view.guid}/properties?forceget=true`, { headers: { Authorization: `Bearer ${token}` }, validateStatus: s => s < 500 });
+                const propRes = await axios.get(`${mdBaseUrl}/${urn}/metadata/${view.guid}/properties?forceget=true`, { headers: { Authorization: `Bearer ${token}` }, validateStatus: s => s < 500 });
                 if (propRes.status === 200 && propRes.data?.data?.collection) {
                     const collection = propRes.data.data.collection;
                     if (collection.length > 10 || polls === 14) {
@@ -146,7 +154,7 @@ async function extractDrawingAttributes(versionId, token) {
         console.log(`[MD Extract] Forensic Mode...`);
         for (const skeleton of allObjects.slice(0, 10)) {
             try {
-                const singleRes = await axios.get(`https://developer.api.autodesk.com/modelderivative/v2/designdata/${urn}/metadata/${views[0].guid}/properties?objectid=${skeleton.objectid}`, { headers: { Authorization: `Bearer ${token}` } });
+                const singleRes = await axios.get(`${mdBaseUrl}/${urn}/metadata/${views[0].guid}/properties?objectid=${skeleton.objectid}`, { headers: { Authorization: `Bearer ${token}` } });
                 const fullObj = singleRes.data?.data?.collection?.[0];
                 if (fullObj?.properties && Object.keys(fullObj.properties).length > 5) {
                     const n = (fullObj.name || "").toLowerCase();
