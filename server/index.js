@@ -312,7 +312,7 @@ app.get('/api/auth/token', async (req, res) => {
     try {
         const token = await getUserToken(req);
         res.json({ access_token: token, expires_in: 3599 });
-    } catch (err) { res.status(500).send(err.message); }
+    } catch (err) { console.error('[Commit Extract Error]', err.response ? err.response.data : err.message); res.status(500).send(err.message); }
 });
 
 app.get('/api/auth/profile', async (req, res) => {
@@ -331,7 +331,7 @@ app.get('/api/acc/hubs', async (req, res) => {
         const token = await getUserToken(req);
         const response = await axios.get('https://developer.api.autodesk.com/project/v1/hubs', { headers: { Authorization: `Bearer ${token}` } });
         res.json(response.data.data.map(h => ({ id: h.id, name: h.attributes.name })));
-    } catch (err) { res.status(500).send(err.message); }
+    } catch (err) { console.error('[Commit Extract Error]', err.response ? err.response.data : err.message); res.status(500).send(err.message); }
 });
 
 app.get('/api/acc/projects', async (req, res) => {
@@ -340,7 +340,7 @@ app.get('/api/acc/projects', async (req, res) => {
         const token = await getUserToken(req);
         const response = await axios.get(`https://developer.api.autodesk.com/project/v1/hubs/${hubId}/projects`, { headers: { Authorization: `Bearer ${token}` } });
         res.json(response.data.data.map(p => ({ id: p.id, name: p.attributes.name })));
-    } catch (err) { res.status(500).send(err.message); }
+    } catch (err) { console.error('[Commit Extract Error]', err.response ? err.response.data : err.message); res.status(500).send(err.message); }
 });
 
 app.get('/api/user/preferences', async (req, res) => {
@@ -348,7 +348,7 @@ app.get('/api/user/preferences', async (req, res) => {
         const token = await getUserToken(req);
         const profileRes = await axios.get('https://developer.api.autodesk.com/userprofile/v1/users/@me', { headers: { Authorization: `Bearer ${token}` } });
         res.json(getPreferences()[profileRes.data.emailId || profileRes.data.userName] || {});
-    } catch (err) { res.status(500).send(err.message); }
+    } catch (err) { console.error('[Commit Extract Error]', err.response ? err.response.data : err.message); res.status(500).send(err.message); }
 });
 
 app.post('/api/user/preferences', async (req, res) => {
@@ -358,7 +358,7 @@ app.post('/api/user/preferences', async (req, res) => {
         const userId = profileRes.data.emailId || profileRes.data.userName;
         const currentPrefs = getPreferences(); currentPrefs[userId] = { ...currentPrefs[userId], ...req.body }; savePreferences(currentPrefs);
         res.json({ success: true });
-    } catch (err) { res.status(500).send(err.message); }
+    } catch (err) { console.error('[Commit Extract Error]', err.response ? err.response.data : err.message); res.status(500).send(err.message); }
 });
 
 app.get('/api/acc/excel-files', async (req, res) => {
@@ -400,7 +400,7 @@ app.get('/api/acc/excel-files', async (req, res) => {
 });
 
 app.get('/api/acc/excel-data', async (req, res) => {
-    try { res.json(await getCachedExcelRows(req.query.projectId, req.query.versionId, await getUserToken(req))); } catch (err) { res.status(500).send(err.message); }
+    try { res.json(await getCachedExcelRows(req.query.projectId, req.query.versionId, await getUserToken(req))); } catch (err) { console.error('[Commit Extract Error]', err.response ? err.response.data : err.message); res.status(500).send(err.message); }
 });
 
 app.post('/api/automation/match', async (req, res) => {
@@ -436,7 +436,7 @@ app.post('/api/automation/match', async (req, res) => {
             };
         });
         res.json(matches);
-    } catch (err) { res.status(500).send(err.message); }
+    } catch (err) { console.error('[Commit Extract Error]', err.response ? err.response.data : err.message); res.status(500).send(err.message); }
 });
 
 
@@ -476,8 +476,8 @@ app.post('/api/automation/commit-extract', async (req, res) => {
         await axios.put(signedRes.data.urls[0], outBuffer);
         await axios.post(`https://developer.api.autodesk.com/oss/v2/buckets/${bucketKey}/objects/${encodeURIComponent(objectKey)}/signeds3upload`, { uploadKey: signedRes.data.uploadKey }, { headers: { Authorization: `Bearer ${token}` } });
         const versionsRes = await axios.post(`https://developer.api.autodesk.com/data/v1/projects/${projectId}/versions`, { jsonapi: { version: '1.0' }, data: { type: 'versions', attributes: { name: excelVersionDetails.data.data.attributes.displayName, displayName: excelVersionDetails.data.data.attributes.displayName, extension: { type: 'versions:autodesk.bim360:File', version: '1.0' } }, relationships: { item: { data: { type: 'items', id: excelItemId } }, storage: { data: { type: 'objects', id: storageId } } } } }, { headers: { Authorization: `Bearer ${token}` } });
-        res.json({ success: true, newExcelVersion: versionsRes.data.data.attributes.versionNumber });
-    } catch (err) { res.status(500).send(err.message); }
+        res.json({ success: true, newExcelVersion: versionsRes.data.data.attributes.versionNumber, newExcelVersionId: versionsRes.data.data.id });
+    } catch (err) { console.error('[Commit Extract Error]', err.response ? err.response.data : err.message); res.status(500).send(err.message); }
 });
 
 app.post('/api/automation/push-attributes', async (req, res) => {
@@ -615,7 +615,7 @@ app.post('/api/automation/update', async (req, res) => {
         }, { headers: { Authorization: `Bearer ${internalToken}` } });
         pendingCommits.set(wiRes.data.id, { projectId, itemId, versionId, excelRow, storageId: accStorageId, uploadKey: signedUpload.data.uploadKey, extensionType: versionRes.data.data.attributes.extension.type, fileName: versionRes.data.data.attributes.displayName });
         res.json({ workItemId: wiRes.data.id });
-    } catch (err) { res.status(500).send(err.message); }
+    } catch (err) { console.error('[Commit Extract Error]', err.response ? err.response.data : err.message); res.status(500).send(err.message); }
 });
 
 async function commitVersionInternal(workItemId, req) {
@@ -651,7 +651,7 @@ app.get('/api/automation/status/:id', async (req, res) => {
         if (status === 'success' && commitInfo && !commitInfo.committed && !commitInfo.committing) { commitInfo.committing = true; commitVersionInternal(req.params.id, req); }
         let finalStatus = status; if (commitInfo?.committed) finalStatus = 'finished'; else if (commitInfo?.committing) finalStatus = 'committing';
         res.json({ status: finalStatus, committed: commitInfo?.committed || false, newVersion: commitInfo?.newVersion });
-    } catch (err) { res.status(500).send(err.message); }
+    } catch (err) { console.error('[Commit Extract Error]', err.response ? err.response.data : err.message); res.status(500).send(err.message); }
 });
 
 // PORT is defined at the top

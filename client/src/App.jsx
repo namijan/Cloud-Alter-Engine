@@ -179,19 +179,18 @@ const UnifiedSyncModal = ({ syncModalConfig, setSyncModalConfig, selectedProject
             } else if (target === 'excel') {
                 // Drawing -> Excel
                 const updates = previewData.diff.filter(d => d.changed).map(d => ({ key: d.key, proposed: d.source }));
-                await axios.post('/api/automation/commit-extract', {
+                const commitRes = await axios.post('/api/automation/commit-extract', {
                     projectId: selectedProject,
                     excelVersionId: selectedExcel,
                     drawingName: match.excelRow.DrawingName,
                     updates
                 });
+                const newExcelId = commitRes.data.newExcelVersionId;
                 // Refresh excel and matches
-                fetchExcelFiles(selectedHub, selectedProject);
-                startMatching(true);
+                await fetchExcelFiles(selectedHub, selectedProject);
+                await startMatching(true, newExcelId);
             }
             setSyncStatus('success');
-            // Re-match after a short delay to ensure backend cache is ready
-            setTimeout(() => startMatching(true), 1000);
         } catch (e) {
             setSyncStatus('error');
         } finally {
@@ -640,8 +639,9 @@ const App = () => {
         } catch (e) { console.error('Pref Save Error:', e); }
     };
 
-    const startMatching = async (isRefresh = false) => {
-        if (!selectedExcel || !selectedProject) return;
+    const startMatching = async (isRefresh = false, overrideExcelVersionId = null) => {
+        const targetExcelId = overrideExcelVersionId || selectedExcel;
+        if (!targetExcelId || !selectedProject) return;
         setLoading(true);
         setStatus(isRefresh ? 'Synchronizing project state...' : 'Orchestrating asset alignment...');
 
@@ -655,7 +655,7 @@ const App = () => {
             const res = await axios.post('/api/automation/match', {
                 hubId: selectedHub,
                 projectId: selectedProject,
-                excelVersionId: selectedExcel
+                excelVersionId: targetExcelId
             });
             setMatches(res.data.map(m => ({ ...m, status: 'idle' })));
             setStatus(`Console Synced. Found ${res.data.filter(m => m.matchedFile).length} identified variants.`);
@@ -797,7 +797,9 @@ const App = () => {
                 return next;
             });
 
-            setTimeout(() => fetchExcelFiles(selectedHub, selectedProject), 2000);
+            const newExcelId = commitRes.data.newExcelVersionId;
+            await fetchExcelFiles(selectedHub, selectedProject);
+            await startMatching(true, newExcelId);
         } catch (e) {
             setMatches(prev => {
                 const next = [...prev];
