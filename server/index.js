@@ -237,6 +237,7 @@ app.get('/api/auth/callback', async (req, res) => {
         const response = await axios.post('https://developer.api.autodesk.com/authentication/v2/token', new URLSearchParams({ client_id: APS_CLIENT_ID, client_secret: APS_CLIENT_SECRET, grant_type: 'authorization_code', code, redirect_uri: APS_CALLBACK_URL }).toString(), { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } });
         req.session.token = response.data.access_token;
         req.session.refresh_token = response.data.refresh_token;
+        req.session.expires_at = Date.now() + (response.data.expires_in * 1000);
         res.redirect(CLIENT_URL || '/');
     } catch (err) { res.status(500).send('Login failed'); }
 });
@@ -245,20 +246,39 @@ app.use(express.static(path.join(__dirname, '../client/dist')));
 
 async function refreshToken(req) {
     if (!req.session.refresh_token) throw new Error('No refresh token');
-    const response = await axios.post('https://developer.api.autodesk.com/authentication/v2/token', new URLSearchParams({ client_id: APS_CLIENT_ID, client_secret: APS_CLIENT_SECRET, grant_type: 'refresh_token', refresh_token: req.session.refresh_token }).toString(), { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } });
-    req.session.token = response.data.access_token;
-    req.session.refresh_token = response.data.refresh_token;
-    return response.data.access_token;
+    try {
+        const response = await axios.post('https://developer.api.autodesk.com/authentication/v2/token', new URLSearchParams({ client_id: APS_CLIENT_ID, client_secret: APS_CLIENT_SECRET, grant_type: 'refresh_token', refresh_token: req.session.refresh_token }).toString(), { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } });
+        req.session.token = response.data.access_token;
+        req.session.refresh_token = response.data.refresh_token;
+        req.session.expires_at = Date.now() + (response.data.expires_in * 1000);
+        return response.data.access_token;
+    } catch (e) {
+        req.session = null;
+        throw new Error('Failed to refresh token: Unauthorized');
+    }
 }
 
 async function getUserToken(req) {
-    if (!req.session.token) { if (req.session.refresh_token) return await refreshToken(req); throw new Error('Unauthorized'); }
+    if (!req.session.token || !req.session.expires_at || Date.now() >= req.session.expires_at - 60000) { 
+        if (req.session.refresh_token) {
+            return await refreshToken(req); 
+        }
+        throw new Error('Unauthorized'); 
+    }
     return req.session.token;
 }
 
+let cachedInternalToken = null;
+let internalTokenExpiresAt = 0;
+
 async function getInternalToken() {
+    if (cachedInternalToken && Date.now() < internalTokenExpiresAt - 60000) {
+        return cachedInternalToken;
+    }
     const response = await axios.post('https://developer.api.autodesk.com/authentication/v2/token', new URLSearchParams({ client_id: APS_CLIENT_ID, client_secret: APS_CLIENT_SECRET, grant_type: 'client_credentials', scope: 'data:read data:write data:create bucket:create bucket:read code:all' }).toString(), { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } });
-    return response.data.access_token;
+    cachedInternalToken = response.data.access_token;
+    internalTokenExpiresAt = Date.now() + (response.data.expires_in * 1000);
+    return cachedInternalToken;
 }
 
 app.get('/api/auth/token', async (req, res) => {
