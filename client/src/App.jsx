@@ -186,7 +186,7 @@ const UnifiedSyncModal = ({ syncModalConfig, setSyncModalConfig, selectedProject
                     updates
                 });
                 // Refresh excel and matches
-                fetchExcelFiles(selectedProject);
+                fetchExcelFiles(selectedHub, selectedProject);
                 startMatching(true);
             }
             setSyncStatus('success');
@@ -546,7 +546,7 @@ const App = () => {
 
                 if (prefs.projectId) {
                     setSelectedProject(prefs.projectId);
-                    const excelRes = await axios.get(`/api/acc/excel-files?projectId=${prefs.projectId}`);
+                    const excelRes = await axios.get(`/api/acc/excel-files?projectId=${prefs.projectId}&hubId=${prefs.hubId}`);
                     setExcelFiles(excelRes.data);
 
                     if (prefs.excelVersionId) {
@@ -574,7 +574,7 @@ const App = () => {
 
     useEffect(() => {
         if (!isInitializing && selectedProject) {
-            fetchExcelFiles(selectedProject);
+            fetchExcelFiles(selectedHub, selectedProject);
             savePreference({ projectId: selectedProject, excelVersionId: '' });
             setSelectedExcel('');
             setMatches([]);
@@ -588,13 +588,13 @@ const App = () => {
         } catch (e) { console.error(e); }
     };
 
-    const fetchExcelFiles = async (projectId) => {
-        if (!projectId) return;
+    const fetchExcelFiles = async (hubId, projectId) => {
+        if (!projectId || !hubId) return;
         setIsRefreshingExcel(true);
         try {
             // Force 1.5s delay to make spin very obvious
             await new Promise(r => setTimeout(r, 1500));
-            const res = await axios.get(`/api/acc/excel-files?projectId=${projectId}`);
+            const res = await axios.get(`/api/acc/excel-files?projectId=${projectId}&hubId=${hubId}`);
             const newFiles = res.data;
             setExcelFiles(newFiles);
 
@@ -781,7 +781,7 @@ const App = () => {
                 return next;
             });
 
-            setTimeout(() => fetchExcelFiles(selectedProject), 2000);
+            setTimeout(() => fetchExcelFiles(selectedHub, selectedProject), 2000);
         } catch (e) {
             setMatches(prev => {
                 const next = [...prev];

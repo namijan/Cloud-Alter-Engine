@@ -315,10 +315,10 @@ app.post('/api/user/preferences', async (req, res) => {
 });
 
 app.get('/api/acc/excel-files', async (req, res) => {
-    const { projectId } = req.query;
+    const { projectId, hubId: queryHubId } = req.query;
     try {
         const token = await getUserToken(req);
-        let hubId = HUB_ID;
+        let hubId = queryHubId || HUB_ID;
         if (!hubId) {
             const hubsRes = await axios.get('https://developer.api.autodesk.com/project/v1/hubs', { headers: { Authorization: `Bearer ${token}` } });
             hubId = hubsRes.data.data.find(h => h.attributes.name.trim() === HUB_NAME.trim())?.id;
@@ -333,7 +333,7 @@ app.get('/api/acc/excel-files', async (req, res) => {
         async function getFilesRecursive(folderId, currentToken) {
             const contentsUrl = `https://developer.api.autodesk.com/data/v1/projects/${projectId}/folders/${folderId}/contents`;
             const res = await axios.get(contentsUrl, { headers: { Authorization: `Bearer ${currentToken}` } });
-            let excels = res.data.data.filter(i => i.type === 'items' && i.attributes.displayName.toLowerCase().endsWith('.xlsx'));
+            let excels = res.data.data.filter(i => i.type === 'items' && i.attributes.displayName.toLowerCase().endsWith('.xlsx') && i.attributes.displayName.toUpperCase().startsWith('D4C'));
             for (const sub of res.data.data.filter(i => i.type === 'folders')) excels = excels.concat(await getFilesRecursive(sub.id, currentToken));
             return excels;
         }
@@ -367,7 +367,7 @@ app.post('/api/automation/match', async (req, res) => {
         const drawingsFolder = contentsRes.data.data.find(f => f.attributes.displayName === 'Drawings');
         let files = [];
         if (drawingsFolder) {
-            files = (await axios.get(`https://developer.api.autodesk.com/data/v1/projects/${projectId}/folders/${drawingsFolder.id}/contents`, { headers: { Authorization: `Bearer ${token}` } })).data.data.filter(i => i.type === 'items' && i.attributes.displayName.endsWith('.dwg'));
+            files = (await axios.get(`https://developer.api.autodesk.com/data/v1/projects/${projectId}/folders/${drawingsFolder.id}/contents`, { headers: { Authorization: `Bearer ${token}` } })).data.data.filter(i => i.type === 'items' && i.attributes.displayName.toLowerCase().endsWith('.dwg') && i.attributes.displayName.toUpperCase().startsWith('D4C'));
         }
         const tracker = getTracker();
         const matches = rows.map(row => {
