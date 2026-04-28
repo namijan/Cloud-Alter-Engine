@@ -315,10 +315,10 @@ app.post('/api/user/preferences', async (req, res) => {
 });
 
 app.get('/api/acc/excel-files', async (req, res) => {
-    const { projectId, hubId: queryHubId } = req.query;
+    const { projectId } = req.query;
     try {
         const token = await getUserToken(req);
-        let hubId = queryHubId || HUB_ID;
+        let hubId = HUB_ID;
         if (!hubId) {
             const hubsRes = await axios.get('https://developer.api.autodesk.com/project/v1/hubs', { headers: { Authorization: `Bearer ${token}` } });
             hubId = hubsRes.data.data.find(h => h.attributes.name.trim() === HUB_NAME.trim())?.id;
@@ -333,7 +333,7 @@ app.get('/api/acc/excel-files', async (req, res) => {
         async function getFilesRecursive(folderId, currentToken) {
             const contentsUrl = `https://developer.api.autodesk.com/data/v1/projects/${projectId}/folders/${folderId}/contents`;
             const res = await axios.get(contentsUrl, { headers: { Authorization: `Bearer ${currentToken}` } });
-            let excels = res.data.data.filter(i => i.type === 'items' && i.attributes.displayName.toLowerCase().endsWith('.xlsx') && i.attributes.displayName.toUpperCase().startsWith('D4C'));
+            let excels = res.data.data.filter(i => i.type === 'items' && i.attributes.displayName.toLowerCase().endsWith('.xlsx'));
             for (const sub of res.data.data.filter(i => i.type === 'folders')) excels = excels.concat(await getFilesRecursive(sub.id, currentToken));
             return excels;
         }
@@ -367,7 +367,7 @@ app.post('/api/automation/match', async (req, res) => {
         const drawingsFolder = contentsRes.data.data.find(f => f.attributes.displayName === 'Drawings');
         let files = [];
         if (drawingsFolder) {
-            files = (await axios.get(`https://developer.api.autodesk.com/data/v1/projects/${projectId}/folders/${drawingsFolder.id}/contents`, { headers: { Authorization: `Bearer ${token}` } })).data.data.filter(i => i.type === 'items' && i.attributes.displayName.toLowerCase().endsWith('.dwg') && i.attributes.displayName.toUpperCase().startsWith('D4C'));
+            files = (await axios.get(`https://developer.api.autodesk.com/data/v1/projects/${projectId}/folders/${drawingsFolder.id}/contents`, { headers: { Authorization: `Bearer ${token}` } })).data.data.filter(i => i.type === 'items' && i.attributes.displayName.endsWith('.dwg'));
         }
         const tracker = getTracker();
         const matches = rows.map(row => {
@@ -574,12 +574,17 @@ app.post('/api/automation/update', async (req, res) => {
 async function commitVersionInternal(workItemId, req) {
     const commitInfo = pendingCommits.get(workItemId); if (!commitInfo || commitInfo.committed) return;
     try {
-        const userToken = await getUserToken(req); const accObjectKey = commitInfo.storageId.split('/')[1];
-        if (commitInfo.uploadKey) await axios.post(`https://developer.api.autodesk.com/oss/v2/buckets/wip.dm.prod/objects/${encodeURIComponent(accObjectKey)}/signeds3upload`, { uploadKey: commitInfo.uploadKey }, { headers: { Authorization: `Bearer ${userToken}` } });
+        const userToken = await getUserToken(req); 
+        const accBucket = commitInfo.storageId.split('/')[0].split(':').pop();
+        const accObjectKey = commitInfo.storageId.split('/')[1];
+        if (commitInfo.uploadKey) await axios.post(`https://developer.api.autodesk.com/oss/v2/buckets/${accBucket}/objects/${encodeURIComponent(accObjectKey)}/signeds3upload`, { uploadKey: commitInfo.uploadKey }, { headers: { Authorization: `Bearer ${userToken}` } });
         const commitRes = await axios.post(`https://developer.api.autodesk.com/data/v1/projects/${commitInfo.projectId}/versions`, { jsonapi: { version: '1.0' }, data: { type: 'versions', attributes: { name: commitInfo.fileName, displayName: commitInfo.fileName, extension: { type: commitInfo.extensionType || 'versions:autodesk.bim360:File', version: '1.0' } }, relationships: { item: { data: { type: 'items', id: commitInfo.itemId } }, storage: { data: { type: 'objects', id: commitInfo.storageId } } } } }, { headers: { Authorization: `Bearer ${userToken}` } });
         const tracker = getTracker(); tracker[commitInfo.itemId] = { excelHash: calculateHash(commitInfo.excelRow), version: commitRes.data.data.attributes.versionNumber, updatedAt: new Date().toISOString() }; saveTracker(tracker);
         commitInfo.committed = true; commitInfo.newVersion = commitRes.data.data.attributes.versionNumber;
-    } catch (err) { }
+    } catch (err) { 
+        console.error(`[Commit Error]`, err.response?.data || err.message);
+        commitInfo.committing = false; 
+    }
 }
 
 app.get('/api/automation/status/:id', async (req, res) => {
