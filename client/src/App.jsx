@@ -972,7 +972,7 @@ const App = () => {
                         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
                             <label style={{ display: 'block', fontSize: '11px', fontWeight: '700', color: ACC_THEME.textSecondary, textTransform: 'uppercase' }}>Source Data (Excel)</label>
                             <button
-                                onClick={() => fetchExcelFiles(selectedProject)}
+                                onClick={() => fetchExcelFiles(selectedHub, selectedProject)}
                                 disabled={!selectedProject || isRefreshingExcel}
                                 style={{ background: 'none', border: 'none', color: isRefreshingExcel ? '#999' : ACC_THEME.primary, cursor: (selectedProject && !isRefreshingExcel) ? 'pointer' : 'not-allowed', display: 'flex', alignItems: 'center', gap: '6px', fontSize: '11px', fontWeight: '800' }}
                             >
