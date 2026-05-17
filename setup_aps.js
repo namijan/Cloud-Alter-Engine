@@ -4,6 +4,7 @@ const path = require('path');
 const FormData = require('form-data');
 const dotenv = require('dotenv');
 
+dotenv.config({ path: path.join(__dirname, 'server', '.env.local') });
 dotenv.config({ path: path.join(__dirname, 'server', '.env') });
 
 const {
@@ -15,7 +16,7 @@ const APP_BUNDLE_NAME = 'TitleBlockAppBundle';
 const ACTIVITY_NAME = 'TitleBlockActivity';
 const ALIAS = 'prod';
 const ENGINE = 'Autodesk.AutoCAD+24_3'; // AutoCAD 2024
-const ZIP_PATH = path.join(__dirname, 'bundles', 'TitleBlockAutomation.zip');
+const ZIP_PATH = path.join(__dirname, 'plugin', 'bundles', 'TitleBlockAutomation.zip');
 
 async function getInternalToken() {
     const response = await axios.post('https://developer.api.autodesk.com/authentication/v2/token',

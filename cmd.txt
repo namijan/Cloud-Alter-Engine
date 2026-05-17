@@ -1,0 +1,2 @@
+"cat << 'EOF' > server/index.js\nconst express = require('express');\nconst axios = require('axios');\nconst path = require('path');\nconst session = require('cookie-session');\nconst xlsx = require('xlsx');\nconst dotenv = require('dotenv');\n\ndotenv.con
+<truncated 10617 bytes>

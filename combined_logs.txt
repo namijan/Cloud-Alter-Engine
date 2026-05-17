@@ -1,0 +1,2474 @@
+
+> aps-titleblock-automation-stable-2-0@1.0.0 dev
+> npm run dev:server & npm run dev:client
+
+
+> aps-titleblock-automation-stable-2-0@1.0.0 dev:server
+> cd server && node index.js
+
+
+> aps-titleblock-automation-stable-2-0@1.0.0 dev:client
+> cd client && npm run dev
+
+
+> client@1.0.0 dev
+> vite
+
+[dotenv@17.3.1] injecting env (6) from .env.local -- tip: ⚡️ secrets for agents: https://dotenvx.com/as2
+[dotenv@17.3.1] injecting env (6) from .env -- tip: ⚙️  enable debug logging with { debug: true }
+Stable Forensic Engine on 5175
+
+  VITE v8.0.3  ready in 137 ms
+
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: use --host to expose
+5:45:55 PM [vite] (client) [Unhandled rejection] ReferenceError: setStatus is not defined
+ > startMatching src/App.jsx:670:8
+    668 |          }
+    669 |          setLoading(true);
+    670 |          setStatus(isRefresh === true ? 'Synchronizing project state...' : 'Orchestrating asset alignment...');
+        |          ^
+    671 |  
+    672 |          // Don't clear the UI for a simple refresh to avoid flickering
+ > onClick src/App.jsx:1143:32
+ > executeDispatch node_modules/react-dom/cjs/react-dom-client.development.js:19116:8
+ > runWithFiberInDEV node_modules/react-dom/cjs/react-dom-client.development.js:871:29
+ > processDispatchQueue node_modules/react-dom/cjs/react-dom-client.development.js:19166:18
+ > node_modules/react-dom/cjs/react-dom-client.development.js:19767:8
+ > batchedUpdates$1 node_modules/react-dom/cjs/react-dom-client.development.js:3255:39
+ > dispatchEventForPluginEventSystem node_modules/react-dom/cjs/react-dom-client.development.js:19320:6
+ > dispatchEvent node_modules/react-dom/cjs/react-dom-client.development.js:23585:10
+ > dispatchDiscreteEvent node_modules/react-dom/cjs/react-dom-client.development.js:23553:10
+
+5:46:12 PM [vite] (client) hmr update /src/App.jsx
+
+> aps-titleblock-automation-stable-2-0@1.0.0 dev
+> npm run dev:server & npm run dev:client
+
+
+> aps-titleblock-automation-stable-2-0@1.0.0 dev:server
+> cd server && node index.js
+
+
+> aps-titleblock-automation-stable-2-0@1.0.0 dev:client
+> cd client && npm run dev
+
+
+> client@1.0.0 dev
+> vite
+
+[dotenv@17.3.1] injecting env (6) from .env.local -- tip: ⚙️  suppress all logs with { quiet: true }
+[dotenv@17.3.1] injecting env (6) from .env -- tip: ⚙️  specify custom .env file path with { path: '/custom/path/.env' }
+Stable Forensic Engine on 5175
+Port 5173 is in use, trying another one...
+
+  VITE v8.0.3  ready in 129 ms
+
+  ➜  Local:   http://localhost:5174/
+  ➜  Network: use --host to expose
+
+> aps-titleblock-automation-stable-2-0@1.0.0 dev
+> npm run dev:server & npm run dev:client
+
+
+> aps-titleblock-automation-stable-2-0@1.0.0 dev:server
+> cd server && node index.js
+
+
+> aps-titleblock-automation-stable-2-0@1.0.0 dev:client
+> cd client && npm run dev
+
+
+> client@1.0.0 dev
+> vite
+
+[dotenv@17.3.1] injecting env (6) from .env.local -- tip: 🔐 prevent building .env in docker: https://dotenvx.com/prebuild
+[dotenv@17.3.1] injecting env (6) from .env -- tip: ⚙️  specify custom .env file path with { path: '/custom/path/.env' }
+Stable Forensic Engine on 5175
+
+  VITE v8.0.3  ready in 125 ms
+
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: use --host to expose
+[Backend Log] GET /api/auth/profile
+[Backend Log] GET /api/auth/profile
+[Backend Log] GET /api/acc/hubs
+[Backend Log] GET /api/acc/hubs
+[Backend Log] GET /api/user/preferences
+[Backend Log] GET /api/acc/projects?hubId=b.ae8c2a83-81e1-438a-8a59-4540e84779c0
+[Backend Log] GET /api/user/preferences
+[Backend Log] GET /api/acc/projects?hubId=b.ae8c2a83-81e1-438a-8a59-4540e84779c0
+[Backend Log] GET /api/acc/excel-files?projectId=b.04697a63-6349-4946-b928-9d5a05be99b0&hubId=b.ae8c2a83-81e1-438a-8a59-4540e84779c0
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.hcMKjKZ8QYaObhqUAam88g (Depth: 0)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.yZMO8EXeR5KlGQOIphOlxQ (Depth: 1)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.XuaiV4DnTG6WnclBHbBsGA (Depth: 2)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.ZC3TdrP4QL2boKQKlO9K7w (Depth: 2)
+[Backend Log] GET /api/acc/excel-files?projectId=b.04697a63-6349-4946-b928-9d5a05be99b0&hubId=b.ae8c2a83-81e1-438a-8a59-4540e84779c0
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.hcMKjKZ8QYaObhqUAam88g (Depth: 0)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.yZMO8EXeR5KlGQOIphOlxQ (Depth: 1)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.XuaiV4DnTG6WnclBHbBsGA (Depth: 2)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.ZC3TdrP4QL2boKQKlO9K7w (Depth: 2)
+[Backend Log] GET /api/auth/profile
+[Backend Log] GET /api/auth/profile
+[Backend Log] GET /api/auth/profile
+[Backend Log] GET /api/acc/hubs
+[Backend Log] GET /api/acc/hubs
+[Backend Log] GET /api/user/preferences
+[Backend Log] GET /api/acc/projects?hubId=b.ae8c2a83-81e1-438a-8a59-4540e84779c0
+[Backend Log] GET /api/user/preferences
+[Backend Log] GET /api/acc/excel-files?projectId=b.04697a63-6349-4946-b928-9d5a05be99b0&hubId=b.ae8c2a83-81e1-438a-8a59-4540e84779c0
+[Backend Log] GET /api/acc/projects?hubId=b.ae8c2a83-81e1-438a-8a59-4540e84779c0
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.hcMKjKZ8QYaObhqUAam88g (Depth: 0)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.yZMO8EXeR5KlGQOIphOlxQ (Depth: 1)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.XuaiV4DnTG6WnclBHbBsGA (Depth: 2)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.ZC3TdrP4QL2boKQKlO9K7w (Depth: 2)
+[Backend Log] GET /api/acc/excel-files?projectId=b.04697a63-6349-4946-b928-9d5a05be99b0&hubId=b.ae8c2a83-81e1-438a-8a59-4540e84779c0
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.hcMKjKZ8QYaObhqUAam88g (Depth: 0)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.yZMO8EXeR5KlGQOIphOlxQ (Depth: 1)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.XuaiV4DnTG6WnclBHbBsGA (Depth: 2)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.ZC3TdrP4QL2boKQKlO9K7w (Depth: 2)
+[Backend Log] POST /api/automation/match
+[Matches] Request Received: {"hubId":"b.ae8c2a83-81e1-438a-8a59-4540e84779c0","projectId":"b.04697a63-6349-4946-b928-9d5a05be99b0","excelVersionId":"urn:adsk.wipprod:fs.file:vf.vcXiYLBrRjOqvDIFbiirlQ?version=81"}
+[Matches] Starting Match Process for project b.04697a63-6349-4946-b928-9d5a05be99b0
+[Excel] Fetching version details for urn:adsk.wipprod:fs.file:vf.vcXiYLBrRjOqvDIFbiirlQ?version=81
+Fetch Excel: 1.686s
+[Matches] Excel rows: 5
+Fetch Top Folders: 437.364ms
+Recursive Search: 1.196s
+[Matches] Total DWG files found: 5
+Mapping: 1.795ms
+[Matches] Completed in 3324ms. Found 5 matches.
+[Backend Log] POST /api/automation/match
+[Matches] Request Received: {"hubId":"b.ae8c2a83-81e1-438a-8a59-4540e84779c0","projectId":"b.04697a63-6349-4946-b928-9d5a05be99b0","excelVersionId":"urn:adsk.wipprod:fs.file:vf.vcXiYLBrRjOqvDIFbiirlQ?version=81"}
+[Matches] Starting Match Process for project b.04697a63-6349-4946-b928-9d5a05be99b0
+[Excel Cache] Using cached rows for urn:adsk.wipprod:fs.file:vf.vcXiYLBrRjOqvDIFbiirlQ?version=81
+Fetch Excel: 0.545ms
+[Matches] Excel rows: 5
+Fetch Top Folders: 548.572ms
+Recursive Search: 1.263s
+[Matches] Total DWG files found: 5
+Mapping: 0.861ms
+[Matches] Completed in 1815ms. Found 5 matches.
+[Backend Log] POST /api/automation/preview-sync
+[Excel] Fetching version details for urn:adsk.wipprod:fs.file:vf.vcXiYLBrRjOqvDIFbiirlQ?version=81
+[ACC Internal] Result keys: 25
+[Backend Log] POST /api/automation/update
+
+
+[DA Update Target] Dispatching update for D4C_Sample_Drawing2
+[DA Target Fix] Injecting default 'A1 Sheet1' LayoutName for D4C_Sample_Drawing2
+[DA Payload] Raw Excel Row Properties: {
+  "DrawingName": "D4C_Sample_Drawing2",
+  "LayoutName": "A1 Sheet1",
+  "BlockName": "ISO A1 Title Block",
+  "PROJECTNAME1": "EX_Namit 3",
+  "PROJECTADDRESS1": "EX_DYN_ADD102",
+  "PROJECTADDRESS2": "EX_DYN_ADD202",
+  "PROJECTADDRESS3": "EX_DYN_ADD302",
+  "PROJECTNAME2": "EX_DYN_PN202",
+  "DATE": "EX_DYN_Date",
+  "SCALE": "EX_DYN_Scale",
+  "Block Unit": "Millimeters",
+  "Handle": "249b",
+  "Layer": "Title Block",
+  "Name ": "Block Reference",
+  "Color": "",
+  "Linetype": "",
+  "Linetype scale": "",
+  "Plot style": "",
+  "Lineweight": "",
+  "Transparency": "",
+  "Material": "",
+  "Annotative": "",
+  "Scale X": "",
+  "Scale Y": "",
+  "Scale Z": "",
+  "Rotation": "",
+  "Unit factor": ""
+}
+[Backend Log] GET /api/automation/status/428d9d5b68c3444cadf315560b0a0e4b
+[Backend Log] GET /api/automation/status/428d9d5b68c3444cadf315560b0a0e4b
+[Backend Log] GET /api/automation/status/428d9d5b68c3444cadf315560b0a0e4b
+[Backend Log] GET /api/automation/status/428d9d5b68c3444cadf315560b0a0e4b
+
+[DA Execution Report] WorkItem 428d9d5b68c3444cadf315560b0a0e4b completed with status: success
+[DA Execution Report] LOG URL: https://dasprod-store.s3.us-east-1.amazonaws.com/workItem/ZroG86fKk5oQ0g8RI2V05pydMh7BpawS2JiV1ZAQPtU3F6rF/428d9d5b68c3444cadf315560b0a0e4b/report?X-Amz-Expires=3600&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEJX%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLWVhc3QtMSJIMEYCIQDMTNf6HXDKlWDBna0WtT9dFwMmug8rJr0KWHNoLimZQAIhAItBnsJjIZ8ABqs06qRll9ZUYGezVH%2F3GSX71MN6zpjiKoUECF0QBBoMMjIwNDczMTUyMzEwIgzDAS6qU2fSE3pD3Toq4gN7kCLSrZGYrDygRbjFLdc6PiGhqCA0K00nVoKuVHOOJE%2BIe2cJWWXb%2Bth9dUIiSIUD1u6myn2unaRuOeoP1cUxRH40CnS%2BugvjEFsBXZKp1DaVUZRqC16Gfowy3OFK904Ye1Gs5a2swfm2mJR5lTXpo0Wkj5%2BlDz4Cb2SEMYzhqSm1W1yLkLhXEyXG5xTTbqi2jVc%2F2wpZiNJXVT5ZawqPuifeA3dyw8l3YxCCTGBM0Jxa8rfqwyK4GpiqGWcrUSKCl7ID6mNMZAe0bBJdOCs2R3FxFH3jST6%2Bwv0kbPGTshxDeT1ZVwi8odbz8FoAaINog8GgsCiP%2F4qYPQZtG7uW6Fg4%2FwKZJlNQ9rJP3kQQ2JkXmDjOwIsEZhUX2MA23VDMQQ%2FT7Tnic4gu3agHGtj61xXVqeDosY41k4dd%2FyX4mYZ52WAtZZ5mpmpQpeiRGXNhuCfcU13x6q8orD3qMTXQR%2BrwqWaeR3vB19gn39NywDYYSACoVU99T2%2FAZacrAqZaoOsVmQQExcSx0zf6CXHbGkSaxaLr2lzPuVsCaTvtSyoB2YQNhg%2FO9dR1qj1451E8%2BjiBahwvyjH%2FijfetEizdDwBkNukws%2BWuXajT8hyJ46FzgGaI4Om60q8%2BadCtMikSTCM%2B5bQBjqcAcKPezyYY0QGYE0QddLmKLT1bBHh%2B1s19vQKwCTDiaJrGvH%2FoM%2FE629ob0vJVXFsgnexhPutJSkJKLZ2BCdoeRWl6RHO5y7aS3sXD8mP23WpNN%2FPOpP7lDAqc8NzIhSkPU2WShHfz%2BZQ6dRNkAwDaxp7BGc39ZlUsdX%2Buj82ATwvIY3nHf7qpTIvK1%2FbmS6ieN%2FUZllWYcZaM9QT9A%3D%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIATGVJZKM3HO5N7SDF%2F20260514%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260514T121820Z&X-Amz-SignedHeaders=host&X-Amz-Signature=df2d7ab6c8e098b77a39b24273146364a223603b03872b099a11f4520fde6a57
+[Backend Log] GET /api/automation/status/428d9d5b68c3444cadf315560b0a0e4b
+[Backend Log] GET /api/automation/status/428d9d5b68c3444cadf315560b0a0e4b
+[Backend Log] POST /api/automation/push-attributes
+[ACC Push] Incoming request for project b.04697a63-6349-4946-b928-9d5a05be99b0, version urn:adsk.wipprod:fs.file:vf.95Cc6JMVRJ6VBZWuQZddLA?version=52
+[ACC Push] Resolved IDs - Project: 04697a63-6349-4946-b928-9d5a05be99b0, Folder: urn:adsk.wipprod:fs.folder:co.yZMO8EXeR5KlGQOIphOlxQ, Version: urn:adsk.wipprod:fs.file:vf.95Cc6JMVRJ6VBZWuQZddLA
+[ACC Push] Found 25 existing definitions
+[ACC Push] Sending batch-update for 25 attributes...
+[ACC Push] Payload Preview: [{"id":8650130,"value":""},{"id":8685628,"value":"EX_Namit 3"}]...
+[ACC Push] Attempting primary update with: urn:adsk.wipprod:fs.file:vf.95Cc6JMVRJ6VBZWuQZddLA?version=52
+[ACC Push] Success!
+[Backend Log] POST /api/automation/preview-sync
+[Excel] Fetching version details for urn:adsk.wipprod:fs.file:vf.vcXiYLBrRjOqvDIFbiirlQ?version=81
+[ACC Internal] Result keys: 25
+[Backend Log] POST /api/automation/update
+
+
+[DA Update Target] Dispatching update for D4C_Sample_Drawing1
+[DA Target Fix] Injecting default 'A1 Sheet1' LayoutName for D4C_Sample_Drawing1
+[DA Payload] Raw Excel Row Properties: {
+  "DrawingName": "D4C_Sample_Drawing1",
+  "LayoutName": "A1 Sheet1",
+  "BlockName": "ISO A1 Title Block",
+  "PROJECTNAME1": "EX_Jowenn01",
+  "PROJECTADDRESS1": "EX_DYN_ADD101",
+  "PROJECTADDRESS2": "EX_DYN_ADD201",
+  "PROJECTADDRESS3": "EX_DYN_ADD301",
+  "PROJECTNAME2": "EX_DYN_PN201",
+  "DATE": "EX_DYN_Date",
+  "SCALE": "EX_DYN_Scale",
+  "Block Unit": "Millimeters",
+  "Handle": "249b",
+  "Layer": "Title Block",
+  "Name ": "Block Reference",
+  "Color": "",
+  "Linetype": "",
+  "Linetype scale": "",
+  "Plot style": "",
+  "Lineweight": "",
+  "Transparency": "",
+  "Material": "",
+  "Annotative": "",
+  "Scale X": "",
+  "Scale Y": "",
+  "Scale Z": "",
+  "Rotation": "",
+  "Unit factor": ""
+}
+[Backend Log] GET /api/automation/status/46bfea09fe6247d8b700265c35dcd76b
+[Backend Log] GET /api/automation/status/46bfea09fe6247d8b700265c35dcd76b
+[Backend Log] GET /api/automation/status/46bfea09fe6247d8b700265c35dcd76b
+
+[DA Execution Report] WorkItem 46bfea09fe6247d8b700265c35dcd76b completed with status: success
+[DA Execution Report] LOG URL: https://dasprod-store.s3.us-east-1.amazonaws.com/workItem/ZroG86fKk5oQ0g8RI2V05pydMh7BpawS2JiV1ZAQPtU3F6rF/46bfea09fe6247d8b700265c35dcd76b/report?X-Amz-Expires=3600&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEJX%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLWVhc3QtMSJHMEUCIQCu6Ivy8QbwUMb8m%2BTflY8yxTTBn1d24JFCYzsmxa8gmQIgBMo61eeqrUrakiiSNxJNczcgOpP4sEBLbHQIdpmTRYIqhQQIXRAEGgwyMjA0NzMxNTIzMTAiDPszWaDHIDlCQV2BYSriA2k%2FG092i2yhn9zkm%2Be3%2FaIoBB2m%2BSyh8TqpSwgb5IVHI3nRObjzVo5Ccij5Ob%2Ft%2BBxRnlkd9PLLAInkt9e5upMrFa%2FbciPcg2FfPfEbgNToQrhHqONi%2F4vTSithcRR18Pn5wx%2Fzrr9a09PnKvLCtIZWzICxpgTM3nKiFTmUYCThVplL7%2FzKY%2Bh6HQ0TQ2MuMv06yGUgmo3AIx7GR76LOgEtCRYwoYHvlckced%2FWOIZR1ZNQCn%2B9fmGohOn58yTBMgPRzo80ILOJkJgc4n3h86ZZTQC6Famg0%2FJgdMdXo0DfH4nEdjvtYLBtshVt%2F8WD%2Bj6rTvtrsHeqBnMwIwMi2FoCzo%2FLveJbJARh9Au05%2F5zIEUrS4II2bop4i%2BEjLmlBxduABiSLJ%2B7jA6CFV3KxM7DzzcFhuiK851pPoSz0o3P8l5zR9C2a1AdpmExYRcNfmkxdtXChtwwl0uEnsECoH%2BbHI1ahlcppjSB2FbdETXakX00u7KWfWDbZBLkVrodfPoihQmPJtgIaRtFqVm%2FFAKrg2RO%2FeQqQn6%2FGZ3h7f4OXVoZHVdefQsnn0VXxfSQ982rymscXKpOOqA4efNRc7rM%2BSyPgrJj7ThmN6EkkX1akm%2BtS4R6%2FHr5Z7fgH7t6%2FxkmMI%2F8ltAGOp0BXTMU33PUHJaSWuaOifwnX%2FDU7uI0Yt2K8FVSFXT2Ys1m3vdzkLmYS22OiyVaUHClknc8E1V7aEllejVI8ONDntmmyWNXZ0Xy4CxchCyYmEem%2FI2Yx7o52pJahG2x1Y5SqX%2FW%2F8BrzuYqUEj0Y%2FTLCgDwhDf%2F1kLAaJ%2BpvtpampiLDZHqZ445Xp68zLSr6H13L7PM%2FXxgBlwj9SiG1w%3D%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIATGVJZKM3EF5R3HQU%2F20260514%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260514T122031Z&X-Amz-SignedHeaders=host&X-Amz-Signature=83a9d99544ca355a23bf0ad132199047cfcd1f7842dad4941727877f329428fa
+[Backend Log] GET /api/automation/status/46bfea09fe6247d8b700265c35dcd76b
+[Backend Log] POST /api/automation/push-attributes
+[ACC Push] Incoming request for project b.04697a63-6349-4946-b928-9d5a05be99b0, version urn:adsk.wipprod:fs.file:vf.5mg_kov3QEy0D0FOiV09Bg?version=40
+[ACC Push] Resolved IDs - Project: 04697a63-6349-4946-b928-9d5a05be99b0, Folder: urn:adsk.wipprod:fs.folder:co.yZMO8EXeR5KlGQOIphOlxQ, Version: urn:adsk.wipprod:fs.file:vf.5mg_kov3QEy0D0FOiV09Bg
+[ACC Push] Found 25 existing definitions
+[ACC Push] Sending batch-update for 25 attributes...
+[ACC Push] Payload Preview: [{"id":8650130,"value":""},{"id":8685628,"value":"EX_Jowenn01"}]...
+[ACC Push] Attempting primary update with: urn:adsk.wipprod:fs.file:vf.5mg_kov3QEy0D0FOiV09Bg?version=40
+[ACC Push] Success!
+[Backend Log] GET /api/auth/profile
+[Backend Log] GET /api/auth/profile
+[Backend Log] GET /api/acc/hubs
+[Backend Log] GET /api/acc/hubs
+[Backend Log] GET /api/user/preferences
+[Backend Log] GET /api/acc/projects?hubId=b.ae8c2a83-81e1-438a-8a59-4540e84779c0
+[Backend Log] GET /api/user/preferences
+[Backend Log] GET /api/acc/excel-files?projectId=b.04697a63-6349-4946-b928-9d5a05be99b0&hubId=b.ae8c2a83-81e1-438a-8a59-4540e84779c0
+[Backend Log] GET /api/acc/projects?hubId=b.ae8c2a83-81e1-438a-8a59-4540e84779c0
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.hcMKjKZ8QYaObhqUAam88g (Depth: 0)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.yZMO8EXeR5KlGQOIphOlxQ (Depth: 1)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.XuaiV4DnTG6WnclBHbBsGA (Depth: 2)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.ZC3TdrP4QL2boKQKlO9K7w (Depth: 2)
+[Backend Log] GET /api/acc/excel-files?projectId=b.04697a63-6349-4946-b928-9d5a05be99b0&hubId=b.ae8c2a83-81e1-438a-8a59-4540e84779c0
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.hcMKjKZ8QYaObhqUAam88g (Depth: 0)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.yZMO8EXeR5KlGQOIphOlxQ (Depth: 1)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.XuaiV4DnTG6WnclBHbBsGA (Depth: 2)
+[Backend Log] POST /api/automation/match
+[Matches] Request Received: {"hubId":"b.ae8c2a83-81e1-438a-8a59-4540e84779c0","projectId":"b.04697a63-6349-4946-b928-9d5a05be99b0","excelVersionId":"urn:adsk.wipprod:fs.file:vf.vcXiYLBrRjOqvDIFbiirlQ?version=82"}
+[Matches] Starting Match Process for project b.04697a63-6349-4946-b928-9d5a05be99b0
+[Excel] Fetching version details for urn:adsk.wipprod:fs.file:vf.vcXiYLBrRjOqvDIFbiirlQ?version=82
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.ZC3TdrP4QL2boKQKlO9K7w (Depth: 2)
+Fetch Excel: 1.788s
+[Matches] Excel rows: 5
+Fetch Top Folders: 438.85ms
+Recursive Search: 1.120s
+[Matches] Total DWG files found: 5
+Mapping: 0.843ms
+[Matches] Completed in 3349ms. Found 5 matches.
+[Backend Log] POST /api/automation/preview-sync
+[Excel Cache] Using cached rows for urn:adsk.wipprod:fs.file:vf.vcXiYLBrRjOqvDIFbiirlQ?version=82
+[ACC Internal] Result keys: 25
+[Backend Log] POST /api/automation/update
+
+
+[DA Update Target] Dispatching update for D4C_Sample_Drawing1
+[DA Target Fix] Injecting default 'A1 Sheet1' LayoutName for D4C_Sample_Drawing1
+[DA Payload] Raw Excel Row Properties: {
+  "DrawingName": "D4C_Sample_Drawing1",
+  "LayoutName": "A1 Sheet1",
+  "BlockName": "ISO A1 Title Block",
+  "PROJECTNAME1": "EX_Namit",
+  "PROJECTADDRESS1": "EX_DYN_ADD101",
+  "PROJECTADDRESS2": "EX_DYN_ADD201",
+  "PROJECTADDRESS3": "EX_DYN_ADD301",
+  "PROJECTNAME2": "EX_DYN_PN201",
+  "DATE": "EX_DYN_Date",
+  "SCALE": "EX_DYN_Scale",
+  "Block Unit": "Millimeters",
+  "Handle": "249b",
+  "Layer": "Title Block",
+  "Name ": "Block Reference",
+  "Color": "",
+  "Linetype": "",
+  "Linetype scale": "",
+  "Plot style": "",
+  "Lineweight": "",
+  "Transparency": "",
+  "Material": "",
+  "Annotative": "",
+  "Scale X": "",
+  "Scale Y": "",
+  "Scale Z": "",
+  "Rotation": "",
+  "Unit factor": ""
+}
+[Backend Log] GET /api/automation/status/e43c5bfbaca14b01b1d01648dddf56dc
+[Backend Log] GET /api/automation/status/e43c5bfbaca14b01b1d01648dddf56dc
+
+[DA Execution Report] WorkItem e43c5bfbaca14b01b1d01648dddf56dc completed with status: success
+[DA Execution Report] LOG URL: https://dasprod-store.s3.us-east-1.amazonaws.com/workItem/ZroG86fKk5oQ0g8RI2V05pydMh7BpawS2JiV1ZAQPtU3F6rF/e43c5bfbaca14b01b1d01648dddf56dc/report?X-Amz-Expires=3600&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEJX%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLWVhc3QtMSJGMEQCIEcwoFvNomEEUdATV7iPzMbsUVJ%2BCVlekd6BLpVhsqDpAiBRFUYx6Zu5BkYWoo52MJhHP3fh%2BLlybbpyFPeHzH2UsyqEBAheEAQaDDIyMDQ3MzE1MjMxMCIMkVWXQytb4OVvLMrLKuEDkMOMiIDUp1ao1bimSqk18ZAkHyAMu99FpxT2ibKGq1nvYLv6vJ%2BHCtTejRqrMC9MjkaLSzCDGF%2FzdAQHw4VmDHSvUbQhU1bSECqQlTBU0MPSaNC2X3Ug5XWm6O2xwDIoc%2FpWybyX6kR9EvK83ajFneeMLng5U71HvnLoimwfp%2BjDtFWDrQnWKV%2FYwxboq86znW6XHFrQ9h0SEfb7%2F9yI%2BmhX%2FzACul%2F%2BGxdwm6CuoDhrDVsIN5i8YWAc9IjUAtYDmEfDDaDelEKZNU4r9ZTuUVZNx%2FD7kGOX7mNU8oe5jIIkhw2SYlyoXnIap5u7B5iNrYcyRSF4bGvee0r%2B7SRBwqah3XJ0fGHaEZmUyY%2Bi1%2FO1E21JxJqbHjpDN9XjKKDgD5pBAbNDVfT3Q95OetBGkV8E4cH0ATx1%2BMFDnjYGuC0jWKyO7H%2FjArFI5AGBNh99L9yHTrmYWFqL1fIseAVlWFSXaG6UHBEFXpYO8yu%2F5DtmbC5edT2bLEHYr7q6c7d5cV62mYVS9KvgSdtaZeheWuFIbmy3n0fSoBpHDMJ4ijFyWP5ekbU4VbUERrZMnmlD6kX8VQE2Vddbv1%2FrbMBQ1V%2FC4Z31uB2Zia4l6RQzCurLE2gqiswlaoBJkqt9w8RW9zCogJfQBjqeAYW7uDOuNmQcNSwfuWcz9fhWq4uVfO3Tip3AjtXV1CPa58dJC75bZNNY1wqj8CNHrpM0t13FYI9Z2wIPN6pnG70rCfIMDq7EFci16Zf8yk%2BVvMWsNqitCIZ3T3ZdT%2BABbKx%2FtvPFNsGsgSykuH73A0wGpZoDDWJlFszxsKUxifcdUAJ6oWaj1oRP75R6DPABH1XIjMqc3k4HJMYoRAd3&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIATGVJZKM3GEBULBNN%2F20260514%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260514T122928Z&X-Amz-SignedHeaders=host&X-Amz-Signature=b1c32b24b53d1f0b5fc981f00c24c48fbad1e6f62a350f90c9753a023cd08388
+[Backend Log] GET /api/automation/status/e43c5bfbaca14b01b1d01648dddf56dc
+[Backend Log] POST /api/automation/push-attributes
+[ACC Push] Incoming request for project b.04697a63-6349-4946-b928-9d5a05be99b0, version urn:adsk.wipprod:fs.file:vf.5mg_kov3QEy0D0FOiV09Bg?version=41
+[ACC Push] Resolved IDs - Project: 04697a63-6349-4946-b928-9d5a05be99b0, Folder: urn:adsk.wipprod:fs.folder:co.yZMO8EXeR5KlGQOIphOlxQ, Version: urn:adsk.wipprod:fs.file:vf.5mg_kov3QEy0D0FOiV09Bg
+[ACC Push] Found 25 existing definitions
+[ACC Push] Sending batch-update for 25 attributes...
+[ACC Push] Payload Preview: [{"id":8650130,"value":""},{"id":8685628,"value":"EX_Namit"}]...
+[ACC Push] Attempting primary update with: urn:adsk.wipprod:fs.file:vf.5mg_kov3QEy0D0FOiV09Bg?version=41
+[ACC Push] Success!
+[Backend Log] GET /api/auth/profile
+[Backend Log] GET /api/auth/profile
+[Backend Log] GET /api/acc/hubs
+[Backend Log] GET /api/acc/hubs
+[Backend Log] GET /api/user/preferences
+[Backend Log] GET /api/acc/projects?hubId=b.ae8c2a83-81e1-438a-8a59-4540e84779c0
+[Backend Log] GET /api/user/preferences
+[Backend Log] GET /api/acc/excel-files?projectId=b.04697a63-6349-4946-b928-9d5a05be99b0&hubId=b.ae8c2a83-81e1-438a-8a59-4540e84779c0
+[Backend Log] GET /api/acc/projects?hubId=b.ae8c2a83-81e1-438a-8a59-4540e84779c0
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.hcMKjKZ8QYaObhqUAam88g (Depth: 0)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.yZMO8EXeR5KlGQOIphOlxQ (Depth: 1)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.XuaiV4DnTG6WnclBHbBsGA (Depth: 2)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.ZC3TdrP4QL2boKQKlO9K7w (Depth: 2)
+[Backend Log] GET /api/acc/excel-files?projectId=b.04697a63-6349-4946-b928-9d5a05be99b0&hubId=b.ae8c2a83-81e1-438a-8a59-4540e84779c0
+[Backend Log] GET /skill-demands
+NotFoundError: Not Found
+    at createHttpError (/Users/ranjann/.gemini/antigravity/scratch/aps-titleblock-automation-Stable-2.0/server/node_modules/send/index.js:861:12)
+    at SendStream.error (/Users/ranjann/.gemini/antigravity/scratch/aps-titleblock-automation-Stable-2.0/server/node_modules/send/index.js:168:31)
+    at SendStream.pipe (/Users/ranjann/.gemini/antigravity/scratch/aps-titleblock-automation-Stable-2.0/server/node_modules/send/index.js:468:14)
+    at sendfile (/Users/ranjann/.gemini/antigravity/scratch/aps-titleblock-automation-Stable-2.0/server/node_modules/express/lib/response.js:1014:8)
+    at ServerResponse.sendFile (/Users/ranjann/.gemini/antigravity/scratch/aps-titleblock-automation-Stable-2.0/server/node_modules/express/lib/response.js:411:3)
+    at /Users/ranjann/.gemini/antigravity/scratch/aps-titleblock-automation-Stable-2.0/server/index.js:762:13
+    at Layer.handleRequest (/Users/ranjann/.gemini/antigravity/scratch/aps-titleblock-automation-Stable-2.0/server/node_modules/router/lib/layer.js:152:17)
+    at trimPrefix (/Users/ranjann/.gemini/antigravity/scratch/aps-titleblock-automation-Stable-2.0/server/node_modules/router/index.js:342:13)
+    at /Users/ranjann/.gemini/antigravity/scratch/aps-titleblock-automation-Stable-2.0/server/node_modules/router/index.js:297:9
+    at processParams (/Users/ranjann/.gemini/antigravity/scratch/aps-titleblock-automation-Stable-2.0/server/node_modules/router/index.js:582:12)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.hcMKjKZ8QYaObhqUAam88g (Depth: 0)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.yZMO8EXeR5KlGQOIphOlxQ (Depth: 1)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.XuaiV4DnTG6WnclBHbBsGA (Depth: 2)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.ZC3TdrP4QL2boKQKlO9K7w (Depth: 2)
+[Backend Log] GET /
+[Backend Log] GET /assets/index-ksfXy-CW.css
+[Backend Log] GET /assets/index-DrqrkDT2.js
+[Backend Log] GET /api/auth/profile
+[Backend Log] GET /vite.svg
+NotFoundError: Not Found
+    at createHttpError (/Users/ranjann/.gemini/antigravity/scratch/aps-titleblock-automation-Stable-2.0/server/node_modules/send/index.js:861:12)
+    at SendStream.error (/Users/ranjann/.gemini/antigravity/scratch/aps-titleblock-automation-Stable-2.0/server/node_modules/send/index.js:168:31)
+    at SendStream.pipe (/Users/ranjann/.gemini/antigravity/scratch/aps-titleblock-automation-Stable-2.0/server/node_modules/send/index.js:468:14)
+    at sendfile (/Users/ranjann/.gemini/antigravity/scratch/aps-titleblock-automation-Stable-2.0/server/node_modules/express/lib/response.js:1014:8)
+    at ServerResponse.sendFile (/Users/ranjann/.gemini/antigravity/scratch/aps-titleblock-automation-Stable-2.0/server/node_modules/express/lib/response.js:411:3)
+    at /Users/ranjann/.gemini/antigravity/scratch/aps-titleblock-automation-Stable-2.0/server/index.js:762:13
+    at Layer.handleRequest (/Users/ranjann/.gemini/antigravity/scratch/aps-titleblock-automation-Stable-2.0/server/node_modules/router/lib/layer.js:152:17)
+    at trimPrefix (/Users/ranjann/.gemini/antigravity/scratch/aps-titleblock-automation-Stable-2.0/server/node_modules/router/index.js:342:13)
+    at /Users/ranjann/.gemini/antigravity/scratch/aps-titleblock-automation-Stable-2.0/server/node_modules/router/index.js:297:9
+    at processParams (/Users/ranjann/.gemini/antigravity/scratch/aps-titleblock-automation-Stable-2.0/server/node_modules/router/index.js:582:12)
+[Backend Log] GET /api/acc/hubs
+[Backend Log] GET /api/user/preferences
+[Backend Log] GET /api/acc/projects?hubId=b.ae8c2a83-81e1-438a-8a59-4540e84779c0
+[Backend Log] GET /api/acc/excel-files?projectId=b.04697a63-6349-4946-b928-9d5a05be99b0&hubId=b.ae8c2a83-81e1-438a-8a59-4540e84779c0
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.hcMKjKZ8QYaObhqUAam88g (Depth: 0)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.yZMO8EXeR5KlGQOIphOlxQ (Depth: 1)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.XuaiV4DnTG6WnclBHbBsGA (Depth: 2)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.ZC3TdrP4QL2boKQKlO9K7w (Depth: 2)
+6:03:11 PM [vite] (client) hmr update /src/App.jsx
+sh: line 1: 92457 Terminated: 15          node index.js
+
+> aps-titleblock-automation-stable-2-0@1.0.0 dev
+> npm run dev:server & npm run dev:client
+
+
+> aps-titleblock-automation-stable-2-0@1.0.0 dev:server
+> cd server && node index.js
+
+
+> aps-titleblock-automation-stable-2-0@1.0.0 dev:client
+> cd client && npm run dev
+
+
+> client@1.0.0 dev
+> vite
+
+[dotenv@17.3.1] injecting env (6) from .env.local -- tip: ⚙️  override existing env vars with { override: true }
+[dotenv@17.3.1] injecting env (6) from .env -- tip: ⚡️ secrets for agents: https://dotenvx.com/as2
+Stable Forensic Engine on 5175
+
+  VITE v8.0.3  ready in 141 ms
+
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: use --host to expose
+[Backend Log] GET /api/auth/profile
+[Backend Log] GET /api/auth/profile
+[Backend Log] GET /api/acc/hubs
+[Backend Log] GET /api/acc/hubs
+[Backend Log] GET /api/user/preferences
+[Backend Log] GET /api/acc/projects?hubId=b.ae8c2a83-81e1-438a-8a59-4540e84779c0
+[Backend Log] GET /api/user/preferences
+[Backend Log] GET /api/acc/excel-files?projectId=b.04697a63-6349-4946-b928-9d5a05be99b0&hubId=b.ae8c2a83-81e1-438a-8a59-4540e84779c0
+[Backend Log] GET /api/acc/projects?hubId=b.ae8c2a83-81e1-438a-8a59-4540e84779c0
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.hcMKjKZ8QYaObhqUAam88g (Depth: 0)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.yZMO8EXeR5KlGQOIphOlxQ (Depth: 1)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.XuaiV4DnTG6WnclBHbBsGA (Depth: 2)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.ZC3TdrP4QL2boKQKlO9K7w (Depth: 2)
+[Backend Log] GET /api/acc/excel-files?projectId=b.04697a63-6349-4946-b928-9d5a05be99b0&hubId=b.ae8c2a83-81e1-438a-8a59-4540e84779c0
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.hcMKjKZ8QYaObhqUAam88g (Depth: 0)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.yZMO8EXeR5KlGQOIphOlxQ (Depth: 1)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.XuaiV4DnTG6WnclBHbBsGA (Depth: 2)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.ZC3TdrP4QL2boKQKlO9K7w (Depth: 2)
+[Backend Log] POST /api/automation/match
+[Matches] Request Received: {"hubId":"b.ae8c2a83-81e1-438a-8a59-4540e84779c0","projectId":"b.04697a63-6349-4946-b928-9d5a05be99b0","excelVersionId":"urn:adsk.wipprod:fs.file:vf.vcXiYLBrRjOqvDIFbiirlQ?version=82"}
+[Matches] Starting Match Process for project b.04697a63-6349-4946-b928-9d5a05be99b0
+[Excel] Fetching version details for urn:adsk.wipprod:fs.file:vf.vcXiYLBrRjOqvDIFbiirlQ?version=82
+Fetch Excel: 1.821s
+[Matches] Excel rows: 5
+Fetch Top Folders: 530.605ms
+Recursive Search: 1.204s
+[Matches] Total DWG files found: 5
+Mapping: 1.62ms
+[Matches] Completed in 3559ms. Found 5 matches.
+[Backend Log] POST /api/automation/match
+[Matches] Request Received: {"hubId":"b.ae8c2a83-81e1-438a-8a59-4540e84779c0","projectId":"b.04697a63-6349-4946-b928-9d5a05be99b0","excelVersionId":"urn:adsk.wipprod:fs.file:vf.vcXiYLBrRjOqvDIFbiirlQ?version=82"}
+[Matches] Starting Match Process for project b.04697a63-6349-4946-b928-9d5a05be99b0
+[Excel Cache] Using cached rows for urn:adsk.wipprod:fs.file:vf.vcXiYLBrRjOqvDIFbiirlQ?version=82
+Fetch Excel: 0.051ms
+[Matches] Excel rows: 5
+Fetch Top Folders: 635.07ms
+Recursive Search: 1.166s
+[Matches] Total DWG files found: 5
+Mapping: 1.072ms
+[Matches] Completed in 1804ms. Found 5 matches.
+[Backend Log] POST /api/automation/preview-sync
+[Excel Cache] Using cached rows for urn:adsk.wipprod:fs.file:vf.vcXiYLBrRjOqvDIFbiirlQ?version=82
+[ACC Internal] Result keys: 25
+[Backend Log] POST /api/automation/update
+
+
+[DA Update Target] Dispatching update for D4C_Sample_Drawing1
+[DA Target Fix] Injecting default 'A1 Sheet1' LayoutName for D4C_Sample_Drawing1
+[DA Payload] Raw Excel Row Properties: {
+  "DrawingName": "D4C_Sample_Drawing1",
+  "LayoutName": "A1 Sheet1",
+  "BlockName": "ISO A1 Title Block",
+  "PROJECTNAME1": "EX_Namit",
+  "PROJECTADDRESS1": "EX_DYN_ADD101",
+  "PROJECTADDRESS2": "EX_DYN_ADD201",
+  "PROJECTADDRESS3": "EX_DYN_ADD301",
+  "PROJECTNAME2": "EX_DYN_PN201",
+  "DATE": "EX_DYN_Date",
+  "SCALE": "EX_DYN_Scale",
+  "Block Unit": "Millimeters",
+  "Handle": "249b",
+  "Layer": "Title Block",
+  "Name ": "Block Reference",
+  "Color": "",
+  "Linetype": "",
+  "Linetype scale": "",
+  "Plot style": "",
+  "Lineweight": "",
+  "Transparency": "",
+  "Material": "",
+  "Annotative": "",
+  "Scale X": "",
+  "Scale Y": "",
+  "Scale Z": "",
+  "Rotation": "",
+  "Unit factor": ""
+}
+[Backend Log] POST /api/automation/push-attributes
+[ACC Push] Incoming request for project b.04697a63-6349-4946-b928-9d5a05be99b0, version urn:adsk.wipprod:fs.file:vf.5mg_kov3QEy0D0FOiV09Bg?version=42
+[ACC Push] Resolved IDs - Project: 04697a63-6349-4946-b928-9d5a05be99b0, Folder: urn:adsk.wipprod:fs.folder:co.yZMO8EXeR5KlGQOIphOlxQ, Version: urn:adsk.wipprod:fs.file:vf.5mg_kov3QEy0D0FOiV09Bg
+[ACC Push] Found 25 existing definitions
+[Backend Log] GET /api/automation/status/e1882d279c724b7e84f5c362439db700
+[ACC Push] Sending batch-update for 25 attributes...
+[ACC Push] Payload Preview: [{"id":8650130,"value":""},{"id":8685628,"value":"EX_Namit"}]...
+[ACC Push] Attempting primary update with: urn:adsk.wipprod:fs.file:vf.5mg_kov3QEy0D0FOiV09Bg?version=42
+[ACC Push] Success!
+[Backend Log] GET /api/automation/status/e1882d279c724b7e84f5c362439db700
+
+[DA Execution Report] WorkItem e1882d279c724b7e84f5c362439db700 completed with status: success
+[DA Execution Report] LOG URL: https://dasprod-store.s3.us-east-1.amazonaws.com/workItem/ZroG86fKk5oQ0g8RI2V05pydMh7BpawS2JiV1ZAQPtU3F6rF/e1882d279c724b7e84f5c362439db700/report?X-Amz-Expires=3600&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEJX%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLWVhc3QtMSJGMEQCIDoY%2BoLt5LaactbcyGf1J2XjKBTTYtrHzyxvMvVCIbRGAiA5%2FPb3rU%2BsdWXQkHYjKC37%2BGCtgyPZPgFcE5u5jcK6uSqGBAheEAQaDDIyMDQ3MzE1MjMxMCIMlJ8WAYmcuwdD7IokKuMD4DZ%2BhRcZwy4Cr0pXWjJwSnM0%2F57OPBktoLXbtH8EIHtP%2BN5g9QB%2FTE1eiiIKICh43PFcxns3Lbye35B2et6X77jpvj%2BsjwENp9huOvRgUr6Jq7oRGoUwQOOuQgLz5SAd1l711cpKjOeubKGjQsZ5%2Fzb%2Behk6Qc8ABS6Czw9Zhqo0ecI0V7fPwjGkgoyzlN1bgZkyJ9DOxZjhlM7sU64Y2gVkESu%2FVC7AqEHfqoof2qpfEmfN5KRjfQ%2B9Zo0kWPNHANn2tQ62m%2F2fygLxh%2B3zE8oSGdui7r7DX7TIyQlnzi5kRRSc%2BBpDlDMsmjCyt1yBlxjDyfcbjgFXDnGHg%2FSgJmHTzA1eL0K2j%2Bq8ccorfFUKjiBWAo3Sugm11NHSkQI4rkXom7O1CyntBU0dXFAHBTrezj6pME4TJQC9YJk%2FwaSdJqOtoqzR1vJpAcFZNIQVaZgbWqUCVucVN03m5gsIr2bMgGFeStAtgyKHTXirimYWZzMl4nPm%2FS9Iwq2sv2qJrib%2Fu4YcxHNgCE2MIyiA71qWEGcftANffR8VybE%2B66Yc%2FJCtmCv3KPSRe0rYVTTxtXinPJd1j%2FkB80K1kSGoD234Z0hTgRv%2FLPnotnFfeu3CuLA4GenXVFLGUcq3%2FDNbbGZGMNuFl9AGOp4BZ5CGMmkapmi1zyBYl8Q2uW9VDj48NOYL2r1E6BLFW27gEe%2B7nWcil38xhrrGv4nz2adIlo3BBl%2B4PdtXzi9nPrBDynhm4vFf66ql0bOHX7LKGBSP3oBpyKh%2BvUcRcOOdffYJ89rSmrmEF4nHQ3skqxYiSQ8F1pnKtjZfSr89AZjG1dmYiJymgvbo2JQbl7H9fcpZ%2Bn1UUQ6azFHIb%2FM%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIATGVJZKM3CH75Z7EZ%2F20260514%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260514T124059Z&X-Amz-SignedHeaders=host&X-Amz-Signature=dce23546b007acb0f765e171a32fed742597a347a15d21262f5134bc52c0fe56
+[Commit Success] WorkItem e1882d279c724b7e84f5c362439db700 committed as version 43. URN: urn:adsk.wipprod:fs.file:vf.5mg_kov3QEy0D0FOiV09Bg?version=43
+[Backend Log] GET /api/automation/status/e1882d279c724b7e84f5c362439db700
+[Backend Log] GET /api/auth/profile
+[Backend Log] GET /api/auth/login?v=1778762536432
+[Backend Log] GET /api/auth/renew-login
+[Backend Log] GET /api/auth/profile
+[Backend Log] GET /api/acc/hubs
+[Backend Log] GET /api/acc/hubs
+[Backend Log] GET /api/user/preferences
+[Backend Log] GET /api/acc/projects?hubId=b.ae8c2a83-81e1-438a-8a59-4540e84779c0
+[Backend Log] GET /api/user/preferences
+[Backend Log] GET /api/acc/excel-files?projectId=b.04697a63-6349-4946-b928-9d5a05be99b0&hubId=b.ae8c2a83-81e1-438a-8a59-4540e84779c0
+[Backend Log] GET /api/acc/projects?hubId=b.ae8c2a83-81e1-438a-8a59-4540e84779c0
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.hcMKjKZ8QYaObhqUAam88g (Depth: 0)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.yZMO8EXeR5KlGQOIphOlxQ (Depth: 1)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.XuaiV4DnTG6WnclBHbBsGA (Depth: 2)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.ZC3TdrP4QL2boKQKlO9K7w (Depth: 2)
+[Backend Log] GET /api/auth/callback?code=ue1c1.J7Ei4HfNnntUSZN9hECtTiGcqp38xBz2J5UB9XdX
+[Auth Callback] Successfully fetched token, redirecting to http://localhost:5175
+[Backend Log] GET /
+[Backend Log] GET /assets/index-DrqrkDT2.js
+[Backend Log] GET /assets/index-ksfXy-CW.css
+[Backend Log] GET /api/auth/profile
+[Backend Log] GET /api/acc/hubs
+[Backend Log] GET /api/user/preferences
+[Backend Log] GET /api/acc/projects?hubId=b.ae8c2a83-81e1-438a-8a59-4540e84779c0
+[Backend Log] GET /api/acc/excel-files?projectId=b.04697a63-6349-4946-b928-9d5a05be99b0&hubId=b.ae8c2a83-81e1-438a-8a59-4540e84779c0
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.hcMKjKZ8QYaObhqUAam88g (Depth: 0)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.yZMO8EXeR5KlGQOIphOlxQ (Depth: 1)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.XuaiV4DnTG6WnclBHbBsGA (Depth: 2)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.ZC3TdrP4QL2boKQKlO9K7w (Depth: 2)
+[Backend Log] POST /api/automation/match
+[Matches] Request Received: {"hubId":"b.ae8c2a83-81e1-438a-8a59-4540e84779c0","projectId":"b.04697a63-6349-4946-b928-9d5a05be99b0","excelVersionId":"urn:adsk.wipprod:fs.file:vf.vcXiYLBrRjOqvDIFbiirlQ?version=83"}
+[Matches] Starting Match Process for project b.04697a63-6349-4946-b928-9d5a05be99b0
+[Excel] Fetching version details for urn:adsk.wipprod:fs.file:vf.vcXiYLBrRjOqvDIFbiirlQ?version=83
+Fetch Excel: 1.642s
+[Matches] Excel rows: 5
+Fetch Top Folders: 483.047ms
+Recursive Search: 1.197s
+[Matches] Total DWG files found: 5
+Mapping: 1.496ms
+[Matches] Completed in 3326ms. Found 5 matches.
+[Backend Log] GET /api/auth/profile
+[Backend Log] GET /api/auth/profile
+[Backend Log] GET /api/acc/hubs
+[Backend Log] GET /api/acc/hubs
+[Backend Log] GET /api/user/preferences
+[Backend Log] GET /api/acc/projects?hubId=b.ae8c2a83-81e1-438a-8a59-4540e84779c0
+[Backend Log] GET /api/user/preferences
+[Backend Log] GET /api/acc/excel-files?projectId=b.04697a63-6349-4946-b928-9d5a05be99b0&hubId=b.ae8c2a83-81e1-438a-8a59-4540e84779c0
+[Backend Log] GET /api/acc/projects?hubId=b.ae8c2a83-81e1-438a-8a59-4540e84779c0
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.hcMKjKZ8QYaObhqUAam88g (Depth: 0)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.yZMO8EXeR5KlGQOIphOlxQ (Depth: 1)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.XuaiV4DnTG6WnclBHbBsGA (Depth: 2)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.ZC3TdrP4QL2boKQKlO9K7w (Depth: 2)
+[Backend Log] GET /api/acc/excel-files?projectId=b.04697a63-6349-4946-b928-9d5a05be99b0&hubId=b.ae8c2a83-81e1-438a-8a59-4540e84779c0
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.hcMKjKZ8QYaObhqUAam88g (Depth: 0)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.yZMO8EXeR5KlGQOIphOlxQ (Depth: 1)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.XuaiV4DnTG6WnclBHbBsGA (Depth: 2)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.ZC3TdrP4QL2boKQKlO9K7w (Depth: 2)
+[Backend Log] POST /api/automation/match
+[Matches] Request Received: {"hubId":"b.ae8c2a83-81e1-438a-8a59-4540e84779c0","projectId":"b.04697a63-6349-4946-b928-9d5a05be99b0","excelVersionId":"urn:adsk.wipprod:fs.file:vf.vcXiYLBrRjOqvDIFbiirlQ?version=83"}
+[Matches] Starting Match Process for project b.04697a63-6349-4946-b928-9d5a05be99b0
+[Excel Cache] Using cached rows for urn:adsk.wipprod:fs.file:vf.vcXiYLBrRjOqvDIFbiirlQ?version=83
+Fetch Excel: 0.072ms
+[Matches] Excel rows: 5
+Fetch Top Folders: 452.807ms
+Recursive Search: 1.107s
+[Matches] Total DWG files found: 5
+Mapping: 0.776ms
+[Matches] Completed in 1562ms. Found 5 matches.
+[Backend Log] POST /api/automation/preview-sync
+[Excel Cache] Using cached rows for urn:adsk.wipprod:fs.file:vf.vcXiYLBrRjOqvDIFbiirlQ?version=83
+[Backend Log] POST /api/automation/preview-sync
+[Excel Cache] Using cached rows for urn:adsk.wipprod:fs.file:vf.vcXiYLBrRjOqvDIFbiirlQ?version=83
+[Backend Log] POST /api/automation/preview-sync
+[Excel Cache] Using cached rows for urn:adsk.wipprod:fs.file:vf.vcXiYLBrRjOqvDIFbiirlQ?version=83
+[ACC Internal] Result keys: 25
+[Backend Log] POST /api/automation/update
+[ACC Internal] Result keys: 25
+[Backend Log] POST /api/automation/update
+[ACC Internal] Result keys: 25
+[Backend Log] POST /api/automation/update
+
+
+[DA Update Target] Dispatching update for D4C_Sample_Drawing2
+[DA Target Fix] Injecting default 'A1 Sheet1' LayoutName for D4C_Sample_Drawing2
+[DA Payload] Raw Excel Row Properties: {
+  "DrawingName": "D4C_Sample_Drawing2",
+  "LayoutName": "A1 Sheet1",
+  "BlockName": "ISO A1 Title Block",
+  "PROJECTNAME1": "EX_Namit -2",
+  "PROJECTADDRESS1": "EX_DYN_ADD102",
+  "PROJECTADDRESS2": "EX_DYN_ADD202",
+  "PROJECTADDRESS3": "EX_DYN_ADD302",
+  "PROJECTNAME2": "EX_DYN_PN202",
+  "DATE": "EX_DYN_Date",
+  "SCALE": "EX_DYN_Scale",
+  "Block Unit": "Millimeters",
+  "Handle": "249b",
+  "Layer": "Title Block",
+  "Name ": "Block Reference",
+  "Color": "",
+  "Linetype": "",
+  "Linetype scale": "",
+  "Plot style": "",
+  "Lineweight": "",
+  "Transparency": "",
+  "Material": "",
+  "Annotative": "",
+  "Scale X": "",
+  "Scale Y": "",
+  "Scale Z": "",
+  "Rotation": "",
+  "Unit factor": ""
+}
+
+
+[DA Update Target] Dispatching update for D4C_Sample_Drawing1
+[DA Target Fix] Injecting default 'A1 Sheet1' LayoutName for D4C_Sample_Drawing1
+[DA Payload] Raw Excel Row Properties: {
+  "DrawingName": "D4C_Sample_Drawing1",
+  "LayoutName": "A1 Sheet1",
+  "BlockName": "ISO A1 Title Block",
+  "PROJECTNAME1": "EX_Namit -1",
+  "PROJECTADDRESS1": "EX_DYN_ADD101",
+  "PROJECTADDRESS2": "EX_DYN_ADD201",
+  "PROJECTADDRESS3": "EX_DYN_ADD301",
+  "PROJECTNAME2": "EX_DYN_PN201",
+  "DATE": "EX_DYN_Date",
+  "SCALE": "EX_DYN_Scale",
+  "Block Unit": "Millimeters",
+  "Handle": "249b",
+  "Layer": "Title Block",
+  "Name ": "Block Reference",
+  "Color": "",
+  "Linetype": "",
+  "Linetype scale": "",
+  "Plot style": "",
+  "Lineweight": "",
+  "Transparency": "",
+  "Material": "",
+  "Annotative": "",
+  "Scale X": "",
+  "Scale Y": "",
+  "Scale Z": "",
+  "Rotation": "",
+  "Unit factor": ""
+}
+
+
+[DA Update Target] Dispatching update for D4C_Sample_Drawing3
+[DA Target Fix] Injecting default 'A1 Sheet1' LayoutName for D4C_Sample_Drawing3
+[DA Payload] Raw Excel Row Properties: {
+  "DrawingName": "D4C_Sample_Drawing3",
+  "LayoutName": "A1 Sheet1",
+  "BlockName": "ISO A1 Title Block",
+  "PROJECTNAME1": "EX_Namit -3",
+  "PROJECTADDRESS1": "EX_DYN_ADD -003",
+  "PROJECTADDRESS2": "EX_DYN_ADD203",
+  "PROJECTADDRESS3": "EX_DYN_ADD303",
+  "PROJECTNAME2": "EX_DYN_PN203",
+  "DATE": "EX_DYN_Date",
+  "SCALE": "EX_DYN_Scale",
+  "Block Unit": "Millimeters",
+  "Handle": "249b",
+  "Layer": "Title Block",
+  "Name ": "Block Reference",
+  "Color": "",
+  "Linetype": "",
+  "Linetype scale": "",
+  "Plot style": "",
+  "Lineweight": "",
+  "Transparency": "",
+  "Material": "",
+  "Annotative": "",
+  "Scale X": "",
+  "Scale Y": "",
+  "Scale Z": "",
+  "Rotation": "",
+  "Unit factor": ""
+}
+[Backend Log] POST /api/automation/push-attributes
+[ACC Push] Incoming request for project b.04697a63-6349-4946-b928-9d5a05be99b0, version urn:adsk.wipprod:fs.file:vf.5mg_kov3QEy0D0FOiV09Bg?version=43
+[Backend Log] POST /api/automation/push-attributes
+[ACC Push] Incoming request for project b.04697a63-6349-4946-b928-9d5a05be99b0, version urn:adsk.wipprod:fs.file:vf.Ng--FN6PRE2wqEd6piYRzw?version=52
+[Backend Log] POST /api/automation/push-attributes
+[ACC Push] Incoming request for project b.04697a63-6349-4946-b928-9d5a05be99b0, version urn:adsk.wipprod:fs.file:vf.95Cc6JMVRJ6VBZWuQZddLA?version=53
+[ACC Push] Resolved IDs - Project: 04697a63-6349-4946-b928-9d5a05be99b0, Folder: urn:adsk.wipprod:fs.folder:co.yZMO8EXeR5KlGQOIphOlxQ, Version: urn:adsk.wipprod:fs.file:vf.5mg_kov3QEy0D0FOiV09Bg
+[ACC Push] Resolved IDs - Project: 04697a63-6349-4946-b928-9d5a05be99b0, Folder: urn:adsk.wipprod:fs.folder:co.yZMO8EXeR5KlGQOIphOlxQ, Version: urn:adsk.wipprod:fs.file:vf.Ng--FN6PRE2wqEd6piYRzw
+[ACC Push] Resolved IDs - Project: 04697a63-6349-4946-b928-9d5a05be99b0, Folder: urn:adsk.wipprod:fs.folder:co.yZMO8EXeR5KlGQOIphOlxQ, Version: urn:adsk.wipprod:fs.file:vf.95Cc6JMVRJ6VBZWuQZddLA
+[ACC Push] Found 25 existing definitions
+[ACC Push] Found 25 existing definitions
+[ACC Push] Found 25 existing definitions
+[ACC Push] Sending batch-update for 25 attributes...
+[ACC Push] Payload Preview: [{"id":8650130,"value":""},{"id":8685628,"value":"EX_Namit -2"}]...
+[ACC Push] Attempting primary update with: urn:adsk.wipprod:fs.file:vf.95Cc6JMVRJ6VBZWuQZddLA?version=53
+[ACC Push] Sending batch-update for 25 attributes...
+[ACC Push] Payload Preview: [{"id":8650130,"value":""},{"id":8685628,"value":"EX_Namit -1"}]...
+[ACC Push] Attempting primary update with: urn:adsk.wipprod:fs.file:vf.5mg_kov3QEy0D0FOiV09Bg?version=43
+[ACC Push] Sending batch-update for 25 attributes...
+[ACC Push] Payload Preview: [{"id":8650130,"value":""},{"id":8685628,"value":"EX_Namit -3"}]...
+[ACC Push] Attempting primary update with: urn:adsk.wipprod:fs.file:vf.Ng--FN6PRE2wqEd6piYRzw?version=52
+[ACC Push] Success!
+[Backend Log] GET /api/automation/status/8035de3b44b54e2a9e53a345dd5145c2
+[Backend Log] GET /api/automation/status/b92a1e5fde83468aad0bf1e0ca41c80e
+[Backend Log] GET /api/automation/status/1f04bda13f7049309631f39ab069f65f
+[ACC Push] Success!
+[ACC Push] Success!
+[Backend Log] GET /api/automation/status/8035de3b44b54e2a9e53a345dd5145c2
+[Backend Log] GET /api/automation/status/b92a1e5fde83468aad0bf1e0ca41c80e
+[Backend Log] GET /api/automation/status/1f04bda13f7049309631f39ab069f65f
+
+[DA Execution Report] WorkItem 8035de3b44b54e2a9e53a345dd5145c2 completed with status: success
+[DA Execution Report] LOG URL: https://dasprod-store.s3.us-east-1.amazonaws.com/workItem/ZroG86fKk5oQ0g8RI2V05pydMh7BpawS2JiV1ZAQPtU3F6rF/8035de3b44b54e2a9e53a345dd5145c2/report?X-Amz-Expires=3600&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEJX%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLWVhc3QtMSJGMEQCIGE2HIIbUAFFUy%2FFvBFRqINYomO%2F55H%2BQdm1SI4GXbtzAiBlWqxl5D2BJW%2Btvz9sNyDYCaNmOdsv4ar9fgmeWzvwJyqHBAheEAQaDDIyMDQ3MzE1MjMxMCIMcM7f%2FxQyKwDRSoLHKuQDhm7%2BpUV2mfa6vnRpSssmiJeb03uPEjDtN69jX9KrhW7%2BuEP%2BlfMIuX3xdHGioDggi960zP0CrxxSl88WJ8TyQreJNyTM99%2B%2BeiGE7%2BtMAMQnr10E5AbwjNDZWezpw2CFIJ2cRCHZirmgcW0TCv0qcQBMKxooJpQkF4tTvTG1E2Bus%2BXSd5Tz5%2BVsS1Gh%2BkclyOYNIATqLhp%2FQ91Q03VGpmWXKzQeANVVlSfnibnW1F6wU%2FBRuHXiD6pIaZB3JfMkYUQAN%2FcAxmQTBV6mlduUSsdCH8SqMqKOQvR0npNnNc2rpH49LYUyZ8sCHcv9vIH8Wx095GHsOX2r8PNGhJ3YwrMpExIfusN6dOxQvjMwRlEKYEoSBcY9ClqoKdjLCazBb%2FcK63plGkjC9GwPMPVg9PpyzyQ39p4CgXk0npnOJ%2B2Fc6RZoGDsPEYgEeBxq7VKFc19WAQJdagctBdSISym2MfpLefoa2x18wr661dxDI4onS2jW1VwS3wGJTl%2B0QiqToYUSrkFgJzlOyvs2XokP8vThBms7zXhcOHiFbNwiqxFKaIOzZVfI4tklBkGo7%2FnCI40ZZv9PyZlwYtvTq%2FWeZ19fEvPYg1owgX30hTM6gaBM63PO33Mhshk9FbOXFO5MXcKdjDbhpfQBjqeAdFGQBqXvjirPa7i3bS1HkxSf24YA9wLYQ4p5WiF4Sxw9LPTjbfdZyOvJAksd3uvHjiXpxvC9ltpbVKkP3pZOmP5cK4Sgi7gYgWMXrVt4Ohk3kAtroh4o9RK1Gj4sXSm2x4BbWgODlmZYnXT0uFNl2%2FgrnLDk2UngvTPVnyavnTrCtqgdRDQ69lX0WdTr8BLljwsvdbZkbL6MhecjWgR&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIATGVJZKM3IHTO2ZZV%2F20260514%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260514T124307Z&X-Amz-SignedHeaders=host&X-Amz-Signature=0c8c4da28d8a9065e377882c54e61765bf6190816f069a7155d60fb94c7ab73f
+
+[DA Execution Report] WorkItem b92a1e5fde83468aad0bf1e0ca41c80e completed with status: success
+[DA Execution Report] LOG URL: https://dasprod-store.s3.us-east-1.amazonaws.com/workItem/ZroG86fKk5oQ0g8RI2V05pydMh7BpawS2JiV1ZAQPtU3F6rF/b92a1e5fde83468aad0bf1e0ca41c80e/report?X-Amz-Expires=3600&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEJX%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLWVhc3QtMSJHMEUCIQDn9suHYAieGF6QyZ%2FvOzhE6SXZzuD%2Fk%2Fg1ouyptrabZgIgPSZQOLANOk4iThwlOfNz%2BLfSdhUpRGQ0vRpJOQ7B0WEqhQQIXhAEGgwyMjA0NzMxNTIzMTAiDM38z12S%2F46vcpFoRyriAxb3PTMpH08dFRIdDP0XBudAtXGih1b4GagAUwNHNCmWTERsEsLMXXk3pUOglnXWlAXflNwLTyfr5L8FTBWW4rlFr1b165RX%2FpxLGj%2BD41ON9MUJW0I6tu3w0dJnD3L0XVTSfLulxTyQ%2Fs6IacYrc38fk6uyu1NMg4zT0f95571k9LdFk4nWYBcVCvOANJjY5jepsx%2FU4GXJSh20FUV71746ghx5ZWjoQ%2FYwMe8uvENpU%2BuCNX6v765E50lNlKwzDb7actuWXa%2FOccy4G2aAtlIyEZva3VI5zKibWTKmyFD73TkmoNqK1DHRCRyV%2F6ZafbSCTAgOqHfdvl8lmwRS40MZo0lF75PYJXGIXsTjoAYJCdZ8EfImV8zPL2Sh%2F8YGPe6WMpQq%2F2CfHTg07zOnH%2FwD1w65AMipWy6Mlo%2Fx%2Fb4aeT6sw7PTka5HqGkLg6UpazdcXJNYf1RdT0lVKhKxZ%2BHXvm%2B0aOXKIb9DMgxWIwkElOB%2BBLBTKJsSe43o2gE1E6joMtiE9gI8IGBxre5HlM2Hqs%2F9HGJy02nNJt2PdpET4TC%2FY4Fgs98%2FBGfXbxXYuj8to4N6pW2bnGgl4MZnfEMbSTQefefxGA2rR2qeiFH5IpEc67wqBzpGVPn4rb9X6lPmMNuGl9AGOp0Bc3D43a2bT1O%2Ftt7HS18lrENsz8RzdIDS1EenDS%2BunnbhDhv%2FQwIqNt9mPQ46L%2FdjNrWwxCXBCAugc37GLpFIqTgN1PIcFHgYU9SlSc2qSj1gmcM9d9Rk74ArC2QL%2Fcjf6lYopP6EvjUc0qYE9jaDkw42hyP6Qb4RltbSwgN0LJNFqhkam7pHKqO1ZB7XFWxg62cSolLA46DcCNNtnw%3D%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIATGVJZKM3KU4GLTPR%2F20260514%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260514T124307Z&X-Amz-SignedHeaders=host&X-Amz-Signature=af990d4d8a2350d8a85f61d1319d97bb616336e46693c91098ffa33fcf3d7b86
+[Commit Success] WorkItem 8035de3b44b54e2a9e53a345dd5145c2 committed as version 44. URN: urn:adsk.wipprod:fs.file:vf.5mg_kov3QEy0D0FOiV09Bg?version=44
+[Commit Success] WorkItem b92a1e5fde83468aad0bf1e0ca41c80e committed as version 53. URN: urn:adsk.wipprod:fs.file:vf.Ng--FN6PRE2wqEd6piYRzw?version=53
+[Backend Log] GET /api/automation/status/8035de3b44b54e2a9e53a345dd5145c2
+[Backend Log] GET /api/automation/status/b92a1e5fde83468aad0bf1e0ca41c80e
+[Backend Log] GET /api/automation/status/1f04bda13f7049309631f39ab069f65f
+
+[DA Execution Report] WorkItem 1f04bda13f7049309631f39ab069f65f completed with status: success
+[DA Execution Report] LOG URL: https://dasprod-store.s3.us-east-1.amazonaws.com/workItem/ZroG86fKk5oQ0g8RI2V05pydMh7BpawS2JiV1ZAQPtU3F6rF/1f04bda13f7049309631f39ab069f65f/report?X-Amz-Expires=3600&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEJX%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLWVhc3QtMSJHMEUCIQDIDtQlFcVAW5hHu1JlWSOTkFXSPcPL3i5kFOQz2J8ocgIgSzI9yVt8tjm5dB1%2FfYlb1O1RJBK3fI1755%2FwMHWj4A4qhQQIXhAEGgwyMjA0NzMxNTIzMTAiDBWcDSlMR8UntskUayriAyEvWrOlGpOYqb4w54U%2BqqsQkme9K54c1qxf2bv2RttZgKeEtZI628%2FQiQrPAYPIMkos4uJflMHvNnNWhEf6KmrVJ6%2FD6C7%2FdIXsqQooDam3yIysetbz8S%2BbmUtnSZV6YR1HHYlhxNywmWskNrGddH0fhpyN4xxxys7JSzK6fXuXT4NOoClupaJQ%2BYfr8t%2Fxo45CV76VNsAA%2BmdS29jrKNDRe1xIOK9E0E7e%2BIYMM5%2Bnlb27WEU%2BbzbzgeraZAZxfCYSYt0c6c2FUNoekroE8Zi0yzdGl5O9Jsi4DeLRaapYLwqn8rJEhSHIJ14Fu2hmSXYqAC0Fhg0y80tuRuwisLH17m4GCxd9bFtRxDXujrqg%2Bvc77Xg6675NXgArOd6a5WquWJpG6HnJnyxo6uEOIhzJJ9ewqa1SV%2FT1NCHEjZJTBpIvZemHi3vTDSUC%2BF%2BdcLjp6ERJ12Sdm14cRDgzDP6JQgOXuhtxXwcmL1coXZZXiqvrgYmz%2FlNNQ8ZH4aO4lPqeDEush4WyN143WWNr8MkfV8KgQzyVofMpE837msKP%2F9RkUPAB1pD4vPSe71It%2BafOg%2F0eS0yB%2BeKHA%2F9dOTwTxYAb4StYQ10FUp9zcwnyAenIHgd97sKaTCYfSOJkCEsjMN%2BGl9AGOp0BpscfS9ZdEDzhsLzN%2B4L28RrhNq3TnZ1j4NNnMg4mIMCVhcf87rTUd%2Flnb5vy0gs74%2Bf5Y98qxVWS5HcQvhS8QYV3hCp%2Byzzm2zEFdAM8o2a5goxns8y2W%2FftHDORP%2F%2FPbMLXpUSYWv9nttNVo1NY58c51paZgfjQlqF0mS2jQ8kehV2II8RxCbNTDVCb56OteGmy2gliEHxdowS1JQ%3D%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIATGVJZKM3LO2BTHYU%2F20260514%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260514T124311Z&X-Amz-SignedHeaders=host&X-Amz-Signature=2a8c9ec548298e437457a111431bb362ad24a4755ca7d4badf8f6204b678ebd2
+[Backend Log] GET /api/automation/status/1f04bda13f7049309631f39ab069f65f
+[Commit Success] WorkItem 1f04bda13f7049309631f39ab069f65f committed as version 54. URN: urn:adsk.wipprod:fs.file:vf.95Cc6JMVRJ6VBZWuQZddLA?version=54
+[Backend Log] GET /api/automation/status/1f04bda13f7049309631f39ab069f65f
+[Backend Log] GET /api/acc/excel-files?projectId=b.04697a63-6349-4946-b928-9d5a05be99b0&hubId=b.ae8c2a83-81e1-438a-8a59-4540e84779c0
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.hcMKjKZ8QYaObhqUAam88g (Depth: 0)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.yZMO8EXeR5KlGQOIphOlxQ (Depth: 1)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.XuaiV4DnTG6WnclBHbBsGA (Depth: 2)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.ZC3TdrP4QL2boKQKlO9K7w (Depth: 2)
+[Backend Log] POST /api/automation/preview-sync
+[ACC Internal] Result keys: 25
+[Preview Sync] Skipping interrogation for drawing target: D4C_Sample_Drawing1
+[Backend Log] POST /api/automation/update
+
+
+[DA Update Target] Dispatching update for D4C_Sample_Drawing1
+[DA Target Fix] Injecting default 'A1 Sheet1' LayoutName for D4C_Sample_Drawing1
+[DA Payload] Raw Excel Row Properties: {
+  "DrawingName": "D4C_Sample_Drawing1",
+  "LayoutName": "A1 Sheet1",
+  "BlockName": "ISO A1 Title Block",
+  "PROJECTNAME1": "EX_Namit -1",
+  "PROJECTADDRESS1": "EX_DYN_ADD101",
+  "PROJECTADDRESS2": "EX_DYN_ADD201",
+  "PROJECTADDRESS3": "EX_DYN_ADD301",
+  "PROJECTNAME2": "EX_DYN_PN201",
+  "DATE": "EX_DYN_Date",
+  "SCALE": "EX_DYN_Scale",
+  "Block Unit": "Millimeters",
+  "Handle": "249b",
+  "Layer": "Title Block",
+  "Name ": "Block Reference",
+  "Color": "",
+  "Linetype": "",
+  "Linetype scale": "",
+  "Plot style": "",
+  "Lineweight": "",
+  "Transparency": "",
+  "Material": "",
+  "Annotative": "",
+  "Scale X": "",
+  "Scale Y": "",
+  "Scale Z": "",
+  "Rotation": "",
+  "Unit factor": "",
+  "Name": "Block Reference"
+}
+[Backend Log] POST /api/automation/commit-extract
+[Excel] Fetching version details for urn:adsk.wipprod:fs.file:vf.vcXiYLBrRjOqvDIFbiirlQ?version=83
+[Backend Log] GET /api/automation/status/54685f05954d460e8d833a1663d7c100
+[Backend Log] GET /api/automation/status/54685f05954d460e8d833a1663d7c100
+
+[DA Execution Report] WorkItem 54685f05954d460e8d833a1663d7c100 completed with status: success
+[DA Execution Report] LOG URL: https://dasprod-store.s3.us-east-1.amazonaws.com/workItem/ZroG86fKk5oQ0g8RI2V05pydMh7BpawS2JiV1ZAQPtU3F6rF/54685f05954d460e8d833a1663d7c100/report?X-Amz-Expires=3600&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEJX%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLWVhc3QtMSJHMEUCIQDFNLDb2bFrlJmJRAZ3Di8G33au0attbnjjaekQkQ1bewIgd6KngzrAnh80k0Sim7PVdStp7IeNSoyahGXbGWhaR%2FUqhQQIXhAEGgwyMjA0NzMxNTIzMTAiDKzcwtWNf%2BAXRxhPDyriAw3wPUSK1jFgPeOc82bJc8c2PuECIJp6CmHK2K0N6lHG7hW2ZOTS7b9TyCAtzx0Q94x2vbzHtpfM4spBByJzSwZAJZ5KO2PkLGvJ8xRwpozIhN4RGJykAqKIX5Uu%2BEO0%2Fbl%2FM10JR0Bj45iXwr%2Fok3z%2FRij7tdp6klA9B1erWZ5Bx9BU9mbdEBjd7djP5fVbxWBGoS6uLBW0tfLn1efaQecAffSE%2FzGeFq%2FQkVJtQQ21t%2F2wrtD3WGNQ0mco%2BPVShNX1cKXpk8JmFGV1Gcj3Vev1M4XaaB8PPqIqruTV1BQ5WyC%2FSvwby3nQaN5XIT3Qh2doLXXvuP3ltake62DK5FEiFcXX0bei3pZUp4nIT7Cx3uMTDShGgmTl3eWP0%2F29PvdFAzZUMf2GvKdX5EHHun5gUsqUoth2wsEodBwVkKE1lJCciBU5L%2BgNj9FuRIKbni%2B4wZPxvMAvRHW4dfjxGc%2BGwude32UVAsOAqizW4gOPmCNt3%2FAnJyxxIQAWRafez%2F4YfPB0DVYkT4pNJLvvzCLtWBQBF%2BoAeaA0ONYJerGr2veFc9DAwJSH5W8PPhBTZ0GNi5W486C9SWm%2F0IanzhBaexjvYOeE8aLKPHnP%2BA4hMOpP4SoA77Z%2F3x1AMvqURWJKMMiHl9AGOp0Bv5WWTn3Odfy1FodMoTyZJB81%2FzaEzzDA31LnU9%2FcpU3Ov8EcYHokt4sbzkE4%2FLfQhahxmRtgiqW%2FTfji%2FLIw15kTY%2BdlOeB1RSyhmXGcdp2cewwKG1WHjrsIKbnC803BMlC2THO%2BJynkBakDUA%2F1E7Kv%2FZoKgz0V6yAEd65FHSDT7QXnW%2BYLiVjyt79zWeeIg9K%2B9A4mMQksJ%2B5P6Q%3D%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIATGVJZKM3AZMASAAT%2F20260514%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260514T124456Z&X-Amz-SignedHeaders=host&X-Amz-Signature=f783eed4ec216b003e9be837a3e2c068c0efd239c386947d5088f48e008012d6
+[Backend Log] GET /api/automation/status/54685f05954d460e8d833a1663d7c100
+[Commit Success] WorkItem 54685f05954d460e8d833a1663d7c100 committed as version 45. URN: urn:adsk.wipprod:fs.file:vf.5mg_kov3QEy0D0FOiV09Bg?version=45
+6:17:04 PM [vite] (client) hmr update /src/App.jsx
+sh: line 1: 92955 Terminated: 15          node index.js
+
+> aps-titleblock-automation-stable-2-0@1.0.0 dev
+> npm run dev:server & npm run dev:client
+
+
+> aps-titleblock-automation-stable-2-0@1.0.0 dev:server
+> cd server && node index.js
+
+
+> aps-titleblock-automation-stable-2-0@1.0.0 dev:client
+> cd client && npm run dev
+
+
+> client@1.0.0 dev
+> vite
+
+[dotenv@17.3.1] injecting env (6) from .env.local -- tip: 🛠️  run anywhere with `dotenvx run -- yourcommand`
+[dotenv@17.3.1] injecting env (6) from .env -- tip: ⚙️  specify custom .env file path with { path: '/custom/path/.env' }
+Stable Forensic Engine on 5175
+
+  VITE v8.0.3  ready in 140 ms
+
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: use --host to expose
+[Backend Log] GET /api/auth/profile
+[Backend Log] GET /api/auth/profile
+[Backend Log] GET /api/acc/hubs
+[Backend Log] GET /api/acc/hubs
+[Backend Log] GET /api/user/preferences
+[Backend Log] GET /api/acc/projects?hubId=b.ae8c2a83-81e1-438a-8a59-4540e84779c0
+[Backend Log] GET /api/user/preferences
+[Backend Log] GET /api/acc/excel-files?projectId=b.04697a63-6349-4946-b928-9d5a05be99b0&hubId=b.ae8c2a83-81e1-438a-8a59-4540e84779c0
+[Backend Log] GET /api/acc/projects?hubId=b.ae8c2a83-81e1-438a-8a59-4540e84779c0
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.hcMKjKZ8QYaObhqUAam88g (Depth: 0)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.yZMO8EXeR5KlGQOIphOlxQ (Depth: 1)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.XuaiV4DnTG6WnclBHbBsGA (Depth: 2)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.ZC3TdrP4QL2boKQKlO9K7w (Depth: 2)
+[Backend Log] GET /api/acc/excel-files?projectId=b.04697a63-6349-4946-b928-9d5a05be99b0&hubId=b.ae8c2a83-81e1-438a-8a59-4540e84779c0
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.hcMKjKZ8QYaObhqUAam88g (Depth: 0)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.yZMO8EXeR5KlGQOIphOlxQ (Depth: 1)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.XuaiV4DnTG6WnclBHbBsGA (Depth: 2)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.ZC3TdrP4QL2boKQKlO9K7w (Depth: 2)
+[Backend Log] GET /api/auth/profile
+[Backend Log] GET /api/auth/profile
+[Backend Log] GET /api/auth/profile
+[Backend Log] GET /api/auth/profile
+[Backend Log] GET /api/acc/hubs
+[Backend Log] GET /api/acc/hubs
+[Backend Log] GET /api/user/preferences
+[Backend Log] GET /api/auth/profile
+[Backend Log] GET /api/auth/profile
+[Backend Log] GET /api/auth/profile
+[Backend Log] GET /api/auth/profile
+[Backend Log] GET /api/auth/profile
+[Backend Log] GET /api/auth/profile
+[Backend Log] GET /api/acc/hubs
+[Backend Log] GET /api/acc/hubs
+[Backend Log] GET /api/user/preferences
+[Backend Log] GET /api/acc/projects?hubId=b.ae8c2a83-81e1-438a-8a59-4540e84779c0
+[Backend Log] GET /api/user/preferences
+[Backend Log] GET /api/acc/projects?hubId=b.ae8c2a83-81e1-438a-8a59-4540e84779c0
+[Backend Log] GET /api/acc/excel-files?projectId=b.04697a63-6349-4946-b928-9d5a05be99b0&hubId=b.ae8c2a83-81e1-438a-8a59-4540e84779c0
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.hcMKjKZ8QYaObhqUAam88g (Depth: 0)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.yZMO8EXeR5KlGQOIphOlxQ (Depth: 1)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.XuaiV4DnTG6WnclBHbBsGA (Depth: 2)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.ZC3TdrP4QL2boKQKlO9K7w (Depth: 2)
+[Backend Log] GET /api/acc/excel-files?projectId=b.04697a63-6349-4946-b928-9d5a05be99b0&hubId=b.ae8c2a83-81e1-438a-8a59-4540e84779c0
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.hcMKjKZ8QYaObhqUAam88g (Depth: 0)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.yZMO8EXeR5KlGQOIphOlxQ (Depth: 1)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.XuaiV4DnTG6WnclBHbBsGA (Depth: 2)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.ZC3TdrP4QL2boKQKlO9K7w (Depth: 2)
+[Backend Log] POST /api/automation/match
+[Matches] Request Received: {"hubId":"b.ae8c2a83-81e1-438a-8a59-4540e84779c0","projectId":"b.04697a63-6349-4946-b928-9d5a05be99b0","excelVersionId":"urn:adsk.wipprod:fs.file:vf.vcXiYLBrRjOqvDIFbiirlQ?version=84"}
+[Matches] Starting Match Process for project b.04697a63-6349-4946-b928-9d5a05be99b0
+[Excel] Fetching version details for urn:adsk.wipprod:fs.file:vf.vcXiYLBrRjOqvDIFbiirlQ?version=84
+Fetch Excel: 1.618s
+[Matches] Excel rows: 5
+Fetch Top Folders: 447.462ms
+Recursive Search: 1.171s
+[Matches] Total DWG files found: 5
+Mapping: 1.769ms
+[Matches] Completed in 3239ms. Found 5 matches.
+[Backend Log] POST /api/automation/preview-sync
+[ACC Internal] Result keys: 25
+[Excel Cache] Using cached rows for urn:adsk.wipprod:fs.file:vf.vcXiYLBrRjOqvDIFbiirlQ?version=84
+[Backend Log] POST /api/automation/update
+
+
+[DA Update Target] Dispatching update for D4C_Sample_Drawing1
+[DA Target Fix] Injecting default 'A1 Sheet1' LayoutName for D4C_Sample_Drawing1
+[DA Payload] Raw Excel Row Properties: {
+  "DrawingName": "D4C_Sample_Drawing1",
+  "LayoutName": "A1 Sheet1",
+  "BlockName": "ISO A1 Title Block",
+  "PROJECTNAME1": "EX_Namit -1 (change)",
+  "PROJECTADDRESS1": "EX_DYN_ 001",
+  "PROJECTADDRESS2": "EX_DYN_ADD201",
+  "PROJECTADDRESS3": "EX_DYN_ADD301",
+  "PROJECTNAME2": "EX_DYN_PN201",
+  "DATE": "EX_DYN_Date",
+  "SCALE": "EX_DYN_Scale",
+  "Block Unit": "Millimeters",
+  "Handle": "249b",
+  "Layer": "Title Block",
+  "Name ": "Block Reference",
+  "Color": "",
+  "Linetype": "",
+  "Linetype scale": "",
+  "Plot style": "",
+  "Lineweight": "",
+  "Transparency": "",
+  "Material": "",
+  "Annotative": "",
+  "Scale X": "",
+  "Scale Y": "",
+  "Scale Z": "",
+  "Rotation": "",
+  "Unit factor": "",
+  "Name": "Block Reference"
+}
+[Backend Log] POST /api/automation/commit-extract
+[Excel Cache] Using cached rows for urn:adsk.wipprod:fs.file:vf.vcXiYLBrRjOqvDIFbiirlQ?version=84
+[Backend Log] GET /api/automation/status/98c232fda8d946b981e7fdad69560fbe
+[Backend Log] GET /api/automation/status/98c232fda8d946b981e7fdad69560fbe
+
+[DA Execution Report] WorkItem 98c232fda8d946b981e7fdad69560fbe completed with status: success
+[DA Execution Report] LOG URL: https://dasprod-store.s3.us-east-1.amazonaws.com/workItem/ZroG86fKk5oQ0g8RI2V05pydMh7BpawS2JiV1ZAQPtU3F6rF/98c232fda8d946b981e7fdad69560fbe/report?X-Amz-Expires=3600&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEJX%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLWVhc3QtMSJGMEQCIHHjrJS5clETGW%2FMRhEroy%2BkFNEMc8jEIHMDTDneDPdAAiBrhbZ4Ac1XgRHxhkcdF4I7YlKCVuOaAVq62ZcD7QJo2SqGBAheEAQaDDIyMDQ3MzE1MjMxMCIMl07cEeqGTyLxrHvIKuMDF2bSxQ8oVllSvT50PxNCe%2BXDlvuQl%2BfWFNeh3FdMj2XUmSrWhWbiblMb0SmPscoHMKb8fCD6mRfzFRWat9is3%2FUqgmVz7gwKhlhuZN7F1btMCjGJS%2F4ev2bBwObKs7FyRXSKVh8tiW8T6nzHfrXCyFw9fnVdawfg3PSYfdDz1ztBoJQExCxkdPrbtCTVWvxDTPwoMm28o%2Be926UTmpFHCrpUWuVuBUp4DdV%2FeEXa9JBufA0Ij57VViz5XjCU3Fr9ZksLXKYFYRKt40Xx4BTXWQjugAVUMTD5rjZt2wietFLhLEtpJr6GvVZulfK8GO1CUM1zrRZi2aasPixMt5v%2FyWBPqppfCqfSKYFXOkhwHNoF%2FHYTC%2FNcfXi%2FliLdvjGqg1JaapECnLEMQL%2BFaMPqF%2Bp8sqF%2BsaSGwXjjgILgJcGQprTwpszK0AzmFBKo688zbYe9aW9JHRIUQxT1tswelSD4RMjFzJr7OD7eAvUpmdZZTSjyAQUYTpH5sxuRV5ZBWfphkLRHKtfE9AOqFp%2F%2FJPDLZuuxg0r7t1%2BsxcAZGdycDdHgprd3ZX%2FpZ2cbNIiSxn4Ml%2FO08YZ9vkar9bRG%2BLtNZzjxCg2Dntb5QPEbyc6HRnvoiGLaGnCZOy0uJI%2BljgYCMOaJl9AGOp4BqGyoJUxLHocS9iPLJBxsqb%2BWrF6sUVjtVY36vm4QBmoMf5z%2BPxNRYIAgLS3bs8AgwdCYUfFXuIRHuHHKZudZfyO9R5ldezCrKTZ0xM9Lm%2By%2FMgzTbr8Nkk3w2P%2FStdkvTmflBUS5sy5tulMU12CYa3Nzvw8AovlX1dl6rfSd1od%2B3ZgFAlMAlymG0IJHaRKiqMijiWspp0rHLhgggsg%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIATGVJZKM3N3X2CPH3%2F20260514%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260514T124942Z&X-Amz-SignedHeaders=host&X-Amz-Signature=a35d11b75055b4acdd0207b852af05ae7d1fabd43195c13a2a93525845077b1f
+[Commit Success] WorkItem 98c232fda8d946b981e7fdad69560fbe committed as version 46. URN: urn:adsk.wipprod:fs.file:vf.5mg_kov3QEy0D0FOiV09Bg?version=46
+[Backend Log] GET /api/automation/status/98c232fda8d946b981e7fdad69560fbe
+[Backend Log] POST /api/automation/match
+[Matches] Request Received: {"hubId":"b.ae8c2a83-81e1-438a-8a59-4540e84779c0","projectId":"b.04697a63-6349-4946-b928-9d5a05be99b0","excelVersionId":"urn:adsk.wipprod:fs.file:vf.vcXiYLBrRjOqvDIFbiirlQ?version=84"}
+[Matches] Starting Match Process for project b.04697a63-6349-4946-b928-9d5a05be99b0
+[Excel] Fetching version details for urn:adsk.wipprod:fs.file:vf.vcXiYLBrRjOqvDIFbiirlQ?version=84
+Fetch Excel: 1.758s
+[Matches] Excel rows: 5
+Fetch Top Folders: 489.835ms
+Recursive Search: 1.179s
+[Matches] Total DWG files found: 5
+Mapping: 2.593ms
+[Matches] Completed in 3431ms. Found 5 matches.
+[Backend Log] POST /api/automation/preview-sync
+[Excel Cache] Using cached rows for urn:adsk.wipprod:fs.file:vf.vcXiYLBrRjOqvDIFbiirlQ?version=84
+[Backend Log] POST /api/automation/preview-sync
+[ACC Internal] Result keys: 25
+[Backend Log] POST /api/automation/update
+[ACC Internal] Result keys: 25
+[Excel Cache] Using cached rows for urn:adsk.wipprod:fs.file:vf.vcXiYLBrRjOqvDIFbiirlQ?version=84
+[Backend Log] POST /api/automation/update
+
+
+[DA Update Target] Dispatching update for D4C_Sample_Drawing1
+[DA Target Fix] Injecting default 'A1 Sheet1' LayoutName for D4C_Sample_Drawing1
+[DA Payload] Raw Excel Row Properties: {
+  "DrawingName": "D4C_Sample_Drawing1",
+  "LayoutName": "A1 Sheet1",
+  "BlockName": "ISO A1 Title Block",
+  "PROJECTNAME1": "EX_Namit -1",
+  "PROJECTADDRESS1": "EX_DYN_ADD101",
+  "PROJECTADDRESS2": "EX_DYN_ADD201",
+  "PROJECTADDRESS3": "EX_DYN_ADD301",
+  "PROJECTNAME2": "EX_DYN_PN201",
+  "DATE": "EX_DYN_Date",
+  "SCALE": "EX_DYN_Scale",
+  "Block Unit": "Millimeters",
+  "Handle": "249b",
+  "Layer": "Title Block",
+  "Name ": "Block Reference",
+  "Color": "",
+  "Linetype": "",
+  "Linetype scale": "",
+  "Plot style": "",
+  "Lineweight": "",
+  "Transparency": "",
+  "Material": "",
+  "Annotative": "",
+  "Scale X": "",
+  "Scale Y": "",
+  "Scale Z": "",
+  "Rotation": "",
+  "Unit factor": "",
+  "Name": "Block Reference"
+}
+
+
+[DA Update Target] Dispatching update for D4C_Sample_Drawing2
+[DA Target Fix] Injecting default 'A1 Sheet1' LayoutName for D4C_Sample_Drawing2
+[DA Payload] Raw Excel Row Properties: {
+  "DrawingName": "D4C_Sample_Drawing2",
+  "LayoutName": "A1 Sheet1",
+  "BlockName": "ISO A1 Title Block",
+  "PROJECTNAME1": "EX_Namit -200",
+  "PROJECTADDRESS1": "EX_DYN_ADD102",
+  "PROJECTADDRESS2": "EX_DYN_ADD202",
+  "PROJECTADDRESS3": "EX_DYN_ADD302",
+  "PROJECTNAME2": "EX_DYN_PN202",
+  "DATE": "EX_DYN_Date",
+  "SCALE": "EX_DYN_Scale",
+  "Block Unit": "Millimeters",
+  "Handle": "249b",
+  "Layer": "Title Block",
+  "Name ": "Block Reference",
+  "Color": "",
+  "Linetype": "",
+  "Linetype scale": "",
+  "Plot style": "",
+  "Lineweight": "",
+  "Transparency": "",
+  "Material": "",
+  "Annotative": "",
+  "Scale X": "",
+  "Scale Y": "",
+  "Scale Z": "",
+  "Rotation": "",
+  "Unit factor": "",
+  "Name": "Block Reference"
+}
+[Backend Log] POST /api/automation/push-attributes
+[ACC Push] Incoming request for project b.04697a63-6349-4946-b928-9d5a05be99b0, version urn:adsk.wipprod:fs.file:vf.5mg_kov3QEy0D0FOiV09Bg?version=46
+[ACC Push] Resolved IDs - Project: 04697a63-6349-4946-b928-9d5a05be99b0, Folder: urn:adsk.wipprod:fs.folder:co.yZMO8EXeR5KlGQOIphOlxQ, Version: urn:adsk.wipprod:fs.file:vf.5mg_kov3QEy0D0FOiV09Bg
+[Backend Log] POST /api/automation/commit-extract
+[Excel Cache] Using cached rows for urn:adsk.wipprod:fs.file:vf.vcXiYLBrRjOqvDIFbiirlQ?version=84
+[ACC Push] Found 25 existing definitions
+[ACC Push] Sending batch-update for 26 attributes...
+[ACC Push] Payload Preview: [{"id":8650130,"value":""},{"id":8685628,"value":"EX_Namit -1"}]...
+[ACC Push] Attempting primary update with: urn:adsk.wipprod:fs.file:vf.5mg_kov3QEy0D0FOiV09Bg?version=46
+[Backend Log] GET /api/automation/status/0bd668043fca48ca9f7666ab530eee0e
+[Backend Log] GET /api/automation/status/0014370613ef41fbb154319741a603a8
+[ACC Push] Primary attempt failed, trying fallbacks...
+[Backend Log] GET /api/automation/status/0bd668043fca48ca9f7666ab530eee0e
+
+[DA Execution Report] WorkItem 0bd668043fca48ca9f7666ab530eee0e completed with status: success
+[DA Execution Report] LOG URL: https://dasprod-store.s3.us-east-1.amazonaws.com/workItem/ZroG86fKk5oQ0g8RI2V05pydMh7BpawS2JiV1ZAQPtU3F6rF/0bd668043fca48ca9f7666ab530eee0e/report?X-Amz-Expires=3600&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEJX%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLWVhc3QtMSJIMEYCIQC5BfLPDnBgtBbO33nq1fP74Wrz7sLPtAiFpPzuzR%2F3sQIhAPeK6LVcuPdS%2F%2FehKdURudL9Lg06AeIQx2tkMJgw1P43KoUECF4QBBoMMjIwNDczMTUyMzEwIgwq313mlPgdHp8lw6Aq4gP6tk1KNLTWA%2FRdXpQUEYAYfOCRvDWZbsA53970R%2FSem5jXEuGvGQ8W9Y1O6rW6AyKHcamtzsRkUJeFLJKRUevMqv3AjWY1ySe1OJWdeYuza2iImXVDzQ94SQcJLc9QVEY5LIibT7XbnCnLDdZQWuN9RnG2zbzi9w7I2cIZekvvJ51eR1mynGwwLMvommLeRX%2BeihXFehpIZ61AT4dpAuKg28A3T%2Fkd1o3OL%2BlZigAL3JsXgOAbOHKx126jvVpi1JnWBZQDHPTFSNol3y8hiHUZrUdtNHLHvHCf3N%2FA3CJxFo3FlGpVyBts%2F6wH3DV68ByE9BGnPPOI7%2BfsgvwQp2dhAwCkuIVbhx2BI5kqDbzMcvHUUaqGPE4FN3UKx7TnPRCCs%2BcRTsBepHteQmvlqoQootuwIBp9ADcWv9Od%2B03bRk3nk8wRQtmbIT5q1ptOvCRscjfi8RyUpAoeCkUWfrAsUxL51dS4qzk7YVf80kuPF6anfuvo08cYcVl1kqWh1VgwlQBO%2Fmq0swusFBTzypUwSxXrUmXcKOA86khSOKDKektmi%2Fh5lRZpfs9%2BOXVvk2kX0JO5YXOdO8lwin1l4nxEUF5oCc5znElYX%2BOsMNqYYLoBMq1hfGqsA2%2BmBa2%2BzmSzuzC7ipfQBjqcAUp5jgDDwSlWfRzYbktXWaeve0xsioi2nWuWp2Qu7g0RHMewFVerq%2BVdJaOF9mnJOjqNdIZJ591AoDLLe%2FXHensNTp0f%2BpUorkBkso9dv%2F3y74v%2BRLSiqQ%2FEXoPFa3yfSasrJCGMB3vsoSl84s43veJaPMl3fffi5ypjcGirVcKAQ%2Fd%2BUeVvvW7z6dnH5n7nkbB5HGG1mujSuaRqLQ%3D%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIATGVJZKM3F25KKDLA%2F20260514%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260514T125107Z&X-Amz-SignedHeaders=host&X-Amz-Signature=f5555ccfbb6d9fa47d3fb67333ded63ecbc9cbcea7a69a79a77ebbf8f9903278
+[ACC Attributes Error] {
+  code: 'ERR_BAD_INPUT',
+  title: 'The request has invalid header or body',
+  detail: 'The version id is invalid'
+}
+6:21:07 PM [vite] (client) [console.error] [Parallel Sync Error] ACC Push failed: AxiosError: Request failed with status code 500
+    at settle (http://localhost:5173/node_modules/.vite/deps/axios.js?v=a60462fe:1634:14)
+    at XMLHttpRequest.onloadend (http://localhost:5173/node_modules/.vite/deps/axios.js?v=a60462fe:1951:4)
+    at Axios$1.request (http://localhost:5173/node_modules/.vite/deps/axios.js?v=a60462fe:2520:37)
+[Backend Log] GET /api/automation/status/0014370613ef41fbb154319741a603a8
+
+[DA Execution Report] WorkItem 0014370613ef41fbb154319741a603a8 completed with status: success
+[DA Execution Report] LOG URL: https://dasprod-store.s3.us-east-1.amazonaws.com/workItem/ZroG86fKk5oQ0g8RI2V05pydMh7BpawS2JiV1ZAQPtU3F6rF/0014370613ef41fbb154319741a603a8/report?X-Amz-Expires=3600&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEJX%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLWVhc3QtMSJIMEYCIQDLi0KjeXxj8AqjyKe804EthbTWbeDm2mGLvwcuQzvqfAIhAPD%2Bn%2BjoNBAyNVxxok32xQ2kT42%2FbCDvX7tbO2%2BJtbYtKoYECF4QBBoMMjIwNDczMTUyMzEwIgzkf%2Ftyog6GcmKVMnMq4wO1oZGIscdYoFDglGOeji1HMDkWURXD%2FAIbuKp9Ck8n27UgrTwNkj1uKrszycYG4eueZeNdkWOwB6Qrcjwmj74v90xQGjXJb6Uax3PEqYmRjPisPJlFTZvSbmaRvw%2BQJxVX7s%2Bmv08gEiYM7BkrXbfWwQPO8YXg6zocIft2fJLr1GuTuso7GbQAn61yYLnWdGWRAdHo1Rk11%2BQktLCCQxAOsWS7eESMx6chE8ltL6i2GCM4Pmeii40byO7Dlrm2nFhC4%2FPEseChihiI5%2BXykL8PRU83gNpvGKao3V9ZrVCITd8b424dIkbvF1bnpOH1ZFeHk5HV3gOoVAYNJuQsRI0vKz137aOkbpOaYPzCsyYQi5on5QWdpRwCiRg0m1mXmFVUZR93u%2BU567bSFNXBbpMkCo%2BClkL8SErv20YvZMO%2B1o08XfN4knf07PqeuL9qQeoZMVhC2ZcLZ5Ja%2FdwcyuhM7SxYDbwmRXHD5MiiqCG70mD8%2BQVyCASIpd0EfRZI3FBT5iYT9Q7j13dHoSktor%2BXNWgcZwasjLXsZI06nsQLaN966zTehYp%2FGp%2Byn9JGxjQ%2BZI1qqaExOvqAw5TVGZaZukxmCq2jZFSpJP%2B3P0HVn8or%2FW3ZUZOy525%2BilJJMWebxfkwu4qX0AY6nAEuTIiHK1%2B2rYYkgqLh6yBnpja4mF7Jv%2FnIFhm1NFWLbuDOHIya7k9Iu6giQCOwgWawR4NAhQ9Jj9SI1dPB8gWmDeYjM48RWe5nbZacROsDLAfB7n3ooVALoTPMw2XurmK5tbiQe7f4cUxd5j3uwx4%2B7jUl1mUjkqE3a2j7W6kL0iZ3BZk2b52eSrn1JNI%2F2kwot5hE4yh6uavFkgU%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIATGVJZKM3JIKDJ2RK%2F20260514%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260514T125107Z&X-Amz-SignedHeaders=host&X-Amz-Signature=02d21830270220b58e5737b0a046b3669586839032c4432b7ab6893008c09826
+[Backend Log] GET /api/automation/status/0bd668043fca48ca9f7666ab530eee0e
+[Commit Success] WorkItem 0bd668043fca48ca9f7666ab530eee0e committed as version 47. URN: urn:adsk.wipprod:fs.file:vf.5mg_kov3QEy0D0FOiV09Bg?version=47
+[Commit Success] WorkItem 0014370613ef41fbb154319741a603a8 committed as version 55. URN: urn:adsk.wipprod:fs.file:vf.95Cc6JMVRJ6VBZWuQZddLA?version=55
+[Backend Log] GET /api/automation/status/0014370613ef41fbb154319741a603a8
+[Backend Log] GET /api/acc/excel-data?projectId=b.04697a63-6349-4946-b928-9d5a05be99b0&versionId=urn:adsk.wipprod:fs.file:vf.vcXiYLBrRjOqvDIFbiirlQ?version=84
+[Excel] Fetching version details for urn:adsk.wipprod:fs.file:vf.vcXiYLBrRjOqvDIFbiirlQ?version=84
+[Backend Log] GET /api/acc/excel-data?projectId=b.04697a63-6349-4946-b928-9d5a05be99b0&versionId=urn:adsk.wipprod:fs.file:vf.vcXiYLBrRjOqvDIFbiirlQ?version=84
+[Excel Cache] Using cached rows for urn:adsk.wipprod:fs.file:vf.vcXiYLBrRjOqvDIFbiirlQ?version=84
+[Backend Log] POST /api/automation/preview-sync
+[Excel] Fetching version details for urn:adsk.wipprod:fs.file:vf.vcXiYLBrRjOqvDIFbiirlQ?version=84
+[ACC Internal] Result keys: 25
+[Backend Log] POST /api/automation/update
+
+
+[DA Update Target] Dispatching update for D4C_Sample_Drawing1
+[DA Target Fix] Injecting default 'A1 Sheet1' LayoutName for D4C_Sample_Drawing1
+[DA Payload] Raw Excel Row Properties: {
+  "DrawingName": "D4C_Sample_Drawing1",
+  "LayoutName": "A1 Sheet1",
+  "BlockName": "ISO A1 Title Block",
+  "PROJECTNAME1": "EX_Namit -1",
+  "PROJECTADDRESS1": "EX_DYN_ADD101",
+  "PROJECTADDRESS2": "EX_DYN_ADD201",
+  "PROJECTADDRESS3": "EX_DYN_ADD301",
+  "PROJECTNAME2": "EX_DYN_PN201",
+  "DATE": "EX_DYN_Date",
+  "SCALE": "EX_DYN_Scale",
+  "Block Unit": "Millimeters",
+  "Handle": "249b",
+  "Layer": "Title Block",
+  "Name ": "Block Reference",
+  "Color": "",
+  "Linetype": "",
+  "Linetype scale": "",
+  "Plot style": "",
+  "Lineweight": "",
+  "Transparency": "",
+  "Material": "",
+  "Annotative": "",
+  "Scale X": "",
+  "Scale Y": "",
+  "Scale Z": "",
+  "Rotation": "",
+  "Unit factor": "",
+  "Name": "Block Reference"
+}
+[Backend Log] POST /api/automation/push-attributes
+[ACC Push] Incoming request for project b.04697a63-6349-4946-b928-9d5a05be99b0, version urn:adsk.wipprod:fs.file:vf.5mg_kov3QEy0D0FOiV09Bg?version=46
+[ACC Push] Resolved IDs - Project: 04697a63-6349-4946-b928-9d5a05be99b0, Folder: urn:adsk.wipprod:fs.folder:co.yZMO8EXeR5KlGQOIphOlxQ, Version: urn:adsk.wipprod:fs.file:vf.5mg_kov3QEy0D0FOiV09Bg
+[ACC Push] Found 25 existing definitions
+[ACC Push] Sending batch-update for 26 attributes...
+[ACC Push] Payload Preview: [{"id":8650130,"value":""},{"id":8685628,"value":"EX_Namit -1"}]...
+[ACC Push] Attempting primary update with: urn:adsk.wipprod:fs.file:vf.5mg_kov3QEy0D0FOiV09Bg?version=46
+[Backend Log] GET /api/automation/status/71ed422c20a745af97f8f0c71438b7c6
+[ACC Push] Primary attempt failed, trying fallbacks...
+[ACC Attributes Error] {
+  code: 'ERR_BAD_INPUT',
+  title: 'The request has invalid header or body',
+  detail: 'The version id is invalid'
+}
+6:25:00 PM [vite] (client) [console.error] [Parallel Sync Error] ACC Push failed: AxiosError: Request failed with status code 500
+    at settle (http://localhost:5173/node_modules/.vite/deps/axios.js?v=a60462fe:1634:14)
+    at XMLHttpRequest.onloadend (http://localhost:5173/node_modules/.vite/deps/axios.js?v=a60462fe:1951:4)
+    at Axios$1.request (http://localhost:5173/node_modules/.vite/deps/axios.js?v=a60462fe:2520:37)
+[Backend Log] GET /api/automation/status/71ed422c20a745af97f8f0c71438b7c6
+
+[DA Execution Report] WorkItem 71ed422c20a745af97f8f0c71438b7c6 completed with status: success
+[DA Execution Report] LOG URL: https://dasprod-store.s3.us-east-1.amazonaws.com/workItem/ZroG86fKk5oQ0g8RI2V05pydMh7BpawS2JiV1ZAQPtU3F6rF/71ed422c20a745af97f8f0c71438b7c6/report?X-Amz-Expires=3600&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEJX%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLWVhc3QtMSJHMEUCIBilWIh2XjA8cKOtwtOX606hnctjlxAZD5D%2FUhL%2B3bC0AiEAsILtZn9G%2Fw5QkOp%2F6uGEzqwqtdKwpIVleDV1ZIQsEQ8qhgQIXhAEGgwyMjA0NzMxNTIzMTAiDLQ9Hqbbr71IfqasyyrjA%2F35iUThB4UiIIiCMi6%2FbWuG8xItMt%2FRrpwMo58wurtLH5NQK5VrSB2lwWvp%2BeXB3FfhEt%2FmZr7qaSo1GMAbZ2o07GYF6q7S1%2F8T8AMqeNc7RnMM1JImoGG7ffZbBjuTcT2c%2FMNcj%2BS%2FCxlFSH9zucTDErOI3pjQ4e7d%2Fq3aK5bEaLEsy5cc9cBQD%2FV%2FJsMfj9hP%2FbgRQBDaDuTHKOSuRVf5n%2FlDED71a55E532Z07MIUOz9NnkbEryiePyAHfMBGYHOLo9vJ8Gko7UhpUl5gazzSwKN%2FonWotWe6Wrr7CBOnrTv3zzDYxv5T63lO0RbCuGgy1yZK9ddVemU%2ByflX%2BzKt74j9YNcn5TCJE8dPOvWSMIfuwZ18eSKgbdonaBeTm4mfugB7fbox1rmvz5ypi0b0wYcqPDaUEBGwPtR7DjCo1gu9tFYY4incN%2F4yvtl3MI9RwEotZMkOZ3MjSewUvHNhNBpno96lqQWPVsnBbxp9Qhj2NKk18mIHN0vuiXXPNRUhj44YnWbp%2Fpl7oOzaW72DoxV6iItvnmjcaO8a5E%2Fv9NVz%2BWhQSZ2eg2AAunFqdF2Gm913LYFJhVpQnanMgbY0ZNoS3v%2FbDki41G74XausUCALNFUT1HkBH6Roa8FSB8F%2BTCmjJfQBjqdAelTftaQYZX%2Fpfjjr3my6ufCCChhtWwDdXv%2BRj406%2BV6v0iNwokCDgJOKwjLwBYn%2BRItUWcrp4Gz2xmN2Gg%2BKdYAcYH2emYPJopVNgHhS7Dtctigd3HQMj2xCaFD2WOWYdoaYSg%2BGSO0oDPhUK8%2FGR2X4XVqw4lS93k8ba2x1f9xkcAAXe12cKfjI3On42wNTjTs08%2FMKY0QzTQUzqU%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIATGVJZKM3CNKEO4MX%2F20260514%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260514T125502Z&X-Amz-SignedHeaders=host&X-Amz-Signature=a11520da68bb052178c3ba6d8167f0e7b45881c45588180a922e85c70519cd36
+[Commit Success] WorkItem 71ed422c20a745af97f8f0c71438b7c6 committed as version 48. URN: urn:adsk.wipprod:fs.file:vf.5mg_kov3QEy0D0FOiV09Bg?version=48
+[Backend Log] GET /api/automation/status/71ed422c20a745af97f8f0c71438b7c6
+[Backend Log] GET /api/auth/profile
+[Backend Log] GET /api/auth/profile
+[Backend Log] GET /api/acc/hubs
+[Backend Log] GET /api/acc/hubs
+[Backend Log] GET /api/user/preferences
+[Backend Log] GET /api/acc/projects?hubId=b.ae8c2a83-81e1-438a-8a59-4540e84779c0
+[Backend Log] GET /api/user/preferences
+[Backend Log] GET /api/acc/excel-files?projectId=b.04697a63-6349-4946-b928-9d5a05be99b0&hubId=b.ae8c2a83-81e1-438a-8a59-4540e84779c0
+[Backend Log] GET /api/acc/projects?hubId=b.ae8c2a83-81e1-438a-8a59-4540e84779c0
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.hcMKjKZ8QYaObhqUAam88g (Depth: 0)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.yZMO8EXeR5KlGQOIphOlxQ (Depth: 1)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.XuaiV4DnTG6WnclBHbBsGA (Depth: 2)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.ZC3TdrP4QL2boKQKlO9K7w (Depth: 2)
+[Backend Log] GET /api/acc/excel-files?projectId=b.04697a63-6349-4946-b928-9d5a05be99b0&hubId=b.ae8c2a83-81e1-438a-8a59-4540e84779c0
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.hcMKjKZ8QYaObhqUAam88g (Depth: 0)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.yZMO8EXeR5KlGQOIphOlxQ (Depth: 1)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.XuaiV4DnTG6WnclBHbBsGA (Depth: 2)
+[Backend Log] POST /api/automation/match
+[Matches] Request Received: {"hubId":"b.ae8c2a83-81e1-438a-8a59-4540e84779c0","projectId":"b.04697a63-6349-4946-b928-9d5a05be99b0","excelVersionId":"urn:adsk.wipprod:fs.file:vf.vcXiYLBrRjOqvDIFbiirlQ?version=86"}
+[Matches] Starting Match Process for project b.04697a63-6349-4946-b928-9d5a05be99b0
+[Excel] Fetching version details for urn:adsk.wipprod:fs.file:vf.vcXiYLBrRjOqvDIFbiirlQ?version=86
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.ZC3TdrP4QL2boKQKlO9K7w (Depth: 2)
+Fetch Excel: 1.824s
+[Matches] Excel rows: 5
+Fetch Top Folders: 434.568ms
+Recursive Search: 1.171s
+[Matches] Total DWG files found: 5
+Mapping: 0.955ms
+[Matches] Completed in 3433ms. Found 5 matches.
+[Backend Log] POST /api/automation/preview-sync
+[Excel Cache] Using cached rows for urn:adsk.wipprod:fs.file:vf.vcXiYLBrRjOqvDIFbiirlQ?version=86
+[ACC Internal] Result keys: 25
+[Backend Log] POST /api/automation/update
+
+
+[DA Update Target] Dispatching update for D4C_Sample_Drawing1
+[DA Target Fix] Injecting default 'A1 Sheet1' LayoutName for D4C_Sample_Drawing1
+[DA Payload] Raw Excel Row Properties: {
+  "DrawingName": "D4C_Sample_Drawing1",
+  "LayoutName": "A1 Sheet1",
+  "BlockName": "ISO A1 Title Block",
+  "PROJECTNAME1": "EX_Namit -1",
+  "PROJECTADDRESS1": "EX_DYN_ADD101",
+  "PROJECTADDRESS2": "EX_DYN_ADD201",
+  "PROJECTADDRESS3": "EX_DYN_ADD301",
+  "PROJECTNAME2": "EX_DYN_PN201",
+  "DATE": "EX_DYN_Date",
+  "SCALE": "EX_DYN_Scale",
+  "Block Unit": "Millimeters",
+  "Handle": "249b",
+  "Layer": "Title Block",
+  "Name ": "Block Reference",
+  "Color": "",
+  "Linetype": "",
+  "Linetype scale": "",
+  "Plot style": "",
+  "Lineweight": "",
+  "Transparency": "",
+  "Material": "",
+  "Annotative": "",
+  "Scale X": "",
+  "Scale Y": "",
+  "Scale Z": "",
+  "Rotation": "",
+  "Unit factor": "",
+  "Name": "Block Reference"
+}
+[Backend Log] POST /api/automation/push-attributes
+[ACC Push] Incoming request for project b.04697a63-6349-4946-b928-9d5a05be99b0, version urn:adsk.wipprod:fs.file:vf.5mg_kov3QEy0D0FOiV09Bg?version=48
+[ACC Push] Resolved IDs - Project: 04697a63-6349-4946-b928-9d5a05be99b0, Folder: urn:adsk.wipprod:fs.folder:co.yZMO8EXeR5KlGQOIphOlxQ, Version: urn:adsk.wipprod:fs.file:vf.5mg_kov3QEy0D0FOiV09Bg
+[ACC Push] Found 25 existing definitions
+[ACC Push] Sending batch-update for 26 attributes...
+[ACC Push] Payload Preview: [{"id":8650130,"value":""},{"id":8685628,"value":"EX_Namit -1"}]...
+[ACC Push] Attempting primary update with: urn:adsk.wipprod:fs.file:vf.5mg_kov3QEy0D0FOiV09Bg?version=48
+[Backend Log] GET /api/automation/status/669cf66cec834aecbdbae4c33a2e9cb0
+[ACC Push] Primary attempt failed, trying fallbacks...
+[ACC Attributes Error] {
+  code: 'ERR_BAD_INPUT',
+  title: 'The request has invalid header or body',
+  detail: 'The version id is invalid'
+}
+6:25:43 PM [vite] (client) [console.error] [Parallel Sync Error] ACC Push failed: AxiosError: Request failed with status code 500
+    at settle (http://localhost:5173/node_modules/.vite/deps/axios.js?v=a60462fe:1634:14)
+    at XMLHttpRequest.onloadend (http://localhost:5173/node_modules/.vite/deps/axios.js?v=a60462fe:1951:4)
+    at Axios$1.request (http://localhost:5173/node_modules/.vite/deps/axios.js?v=a60462fe:2520:37)
+[Backend Log] GET /api/automation/status/669cf66cec834aecbdbae4c33a2e9cb0
+
+[DA Execution Report] WorkItem 669cf66cec834aecbdbae4c33a2e9cb0 completed with status: success
+[DA Execution Report] LOG URL: https://dasprod-store.s3.us-east-1.amazonaws.com/workItem/ZroG86fKk5oQ0g8RI2V05pydMh7BpawS2JiV1ZAQPtU3F6rF/669cf66cec834aecbdbae4c33a2e9cb0/report?X-Amz-Expires=3600&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEJX%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLWVhc3QtMSJGMEQCIEWop7ZqXHP3l1ZobDNSedizjfEeE8zE5kuEcKaS73O7AiBfVH9nrGaonpy2adq3gpOuUvGIB0CJjDiFBgtlGbgGfSqFBAheEAQaDDIyMDQ3MzE1MjMxMCIM1Dq0qSs8WUL9D3obKuIDWhw4WqZf6jWu2MDGPSVtnqqgjn6lN%2BqzYq55uxaFnhIUu11EiEUdTVKmbPAlRjo04abh4frGqkIMBw%2FFTKA33jnLQd1TSEnCKRr50OwkYb6RT5WHoVVrWhy9deSLSqh8dpqsXLqBrD3QEttY7B08ScIijT8WzwhJYrBpsngTHxBsNJMareiVuZpSKyBvRLIjiUF7rPot1jP%2Fd5Bkbxg%2B9VtwKvxZaMxG1q1SpFcdpV%2B2HtmSCPA3yJffjOW8lCIunkv%2FpOj%2FGi07DFzsuVVpBUc8LfZkTYWJ8E9LjwUW%2FjEtAW6iDRj6MJ3uBHnlaLLFvlZuz3TEU0fNOFaY1UFqCYIchqoo98i5%2FkfaiHGvO7d4GKbVlCESs195pWqVQnsekUiB3Fhmu3ArC3PUy8vbqORUC4NlMyYzSr0oJQMU5FHlR3qaFCF8%2F8vs5u2s4DEpsC7GRxeoRNthCvIbtLTUELDaHldXsGuCEi9df7NKIrfnhqdewXlcplQTus71hT7zo6TXXxExyq%2F%2FRdq0PNOsP5nQdunbUMRYvYhDLtUmcQOHH02A%2FyanXl9WWp%2BTuVldFcQTO%2FCHcUPJXj029b%2FnBFbENiJp6bv1e7RMRSV04rDRPPZXqazqGYBx3%2Fkw4eEnnuYw0IyX0AY6ngFdOv9ZIpFN1gyzGw6GSbMVnmlKsc3yH1XMjsQyOloQdx%2F0vyJAQuMS0iv4Q1kdr%2FgakIbL3gu%2BIcdDLQ5olBcRNQ4S60XAgKUoblxT6gezR8mxxGpErK6c7YVoLQHUDeOMfvdQEEULvz7wMxKxPJ3RIO%2FiYBf%2BaXgAN9tqxGYLjeocX%2Bzjsta132URngX2LYRIeSvp0y%2FgnPfQ%2B0NYPg%3D%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIATGVJZKM3PDVDCQGQ%2F20260514%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260514T125544Z&X-Amz-SignedHeaders=host&X-Amz-Signature=3dc9cf1a6949747d5a7a3fce32eae51fcfd48db066636d381fe6b4d679169e95
+[Commit Success] WorkItem 669cf66cec834aecbdbae4c33a2e9cb0 committed as version 49. URN: urn:adsk.wipprod:fs.file:vf.5mg_kov3QEy0D0FOiV09Bg?version=49
+[Backend Log] GET /api/automation/status/669cf66cec834aecbdbae4c33a2e9cb0
+sh: line 1: 93352 Terminated: 15          node index.js
+
+> aps-titleblock-automation-stable-2-0@1.0.0 dev
+> npm run dev:server & npm run dev:client
+
+
+> aps-titleblock-automation-stable-2-0@1.0.0 dev:client
+> cd client && npm run dev
+
+
+> aps-titleblock-automation-stable-2-0@1.0.0 dev:server
+> cd server && node index.js
+
+
+> client@1.0.0 dev
+> vite
+
+[dotenv@17.3.1] injecting env (6) from .env.local -- tip: 🔐 prevent committing .env to code: https://dotenvx.com/precommit
+[dotenv@17.3.1] injecting env (6) from .env -- tip: 🔐 prevent committing .env to code: https://dotenvx.com/precommit
+Stable Forensic Engine on 5175
+
+  VITE v8.0.3  ready in 136 ms
+
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: use --host to expose
+[Backend Log] GET /api/auth/profile
+[Backend Log] GET /api/auth/profile
+[Backend Log] GET /api/acc/hubs
+[Backend Log] GET /api/acc/hubs
+[Backend Log] GET /api/user/preferences
+[Backend Log] GET /api/acc/projects?hubId=b.ae8c2a83-81e1-438a-8a59-4540e84779c0
+[Backend Log] GET /api/user/preferences
+[Backend Log] GET /api/acc/excel-files?projectId=b.04697a63-6349-4946-b928-9d5a05be99b0&hubId=b.ae8c2a83-81e1-438a-8a59-4540e84779c0
+[Backend Log] GET /api/acc/projects?hubId=b.ae8c2a83-81e1-438a-8a59-4540e84779c0
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.hcMKjKZ8QYaObhqUAam88g (Depth: 0)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.yZMO8EXeR5KlGQOIphOlxQ (Depth: 1)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.XuaiV4DnTG6WnclBHbBsGA (Depth: 2)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.ZC3TdrP4QL2boKQKlO9K7w (Depth: 2)
+[Backend Log] GET /api/acc/excel-files?projectId=b.04697a63-6349-4946-b928-9d5a05be99b0&hubId=b.ae8c2a83-81e1-438a-8a59-4540e84779c0
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.hcMKjKZ8QYaObhqUAam88g (Depth: 0)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.yZMO8EXeR5KlGQOIphOlxQ (Depth: 1)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.XuaiV4DnTG6WnclBHbBsGA (Depth: 2)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.ZC3TdrP4QL2boKQKlO9K7w (Depth: 2)
+[Backend Log] GET /api/auth/profile
+[Backend Log] GET /api/auth/profile
+[Backend Log] GET /api/acc/hubs
+[Backend Log] GET /api/auth/profile
+[Backend Log] GET /api/auth/profile
+[Backend Log] GET /api/acc/hubs
+[Backend Log] GET /api/acc/hubs
+[Backend Log] GET /api/user/preferences
+[Backend Log] GET /api/acc/projects?hubId=b.ae8c2a83-81e1-438a-8a59-4540e84779c0
+[Backend Log] GET /api/user/preferences
+[Backend Log] GET /api/acc/excel-files?projectId=b.04697a63-6349-4946-b928-9d5a05be99b0&hubId=b.ae8c2a83-81e1-438a-8a59-4540e84779c0
+[Backend Log] GET /api/acc/projects?hubId=b.ae8c2a83-81e1-438a-8a59-4540e84779c0
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.hcMKjKZ8QYaObhqUAam88g (Depth: 0)
+[Backend Log] GET /api/auth/profile
+[Backend Log] GET /api/auth/profile
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.yZMO8EXeR5KlGQOIphOlxQ (Depth: 1)
+[Backend Log] GET /api/auth/profile
+[Backend Log] GET /api/auth/profile
+[Backend Log] GET /api/acc/hubs
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.XuaiV4DnTG6WnclBHbBsGA (Depth: 2)
+[Backend Log] GET /api/acc/hubs
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.ZC3TdrP4QL2boKQKlO9K7w (Depth: 2)
+[Backend Log] GET /api/user/preferences
+[Backend Log] GET /api/user/preferences
+[Backend Log] GET /api/acc/projects?hubId=b.ae8c2a83-81e1-438a-8a59-4540e84779c0
+[Backend Log] GET /api/acc/projects?hubId=b.ae8c2a83-81e1-438a-8a59-4540e84779c0
+[Backend Log] GET /api/acc/excel-files?projectId=b.04697a63-6349-4946-b928-9d5a05be99b0&hubId=b.ae8c2a83-81e1-438a-8a59-4540e84779c0
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.hcMKjKZ8QYaObhqUAam88g (Depth: 0)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.yZMO8EXeR5KlGQOIphOlxQ (Depth: 1)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.XuaiV4DnTG6WnclBHbBsGA (Depth: 2)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.ZC3TdrP4QL2boKQKlO9K7w (Depth: 2)
+[Backend Log] GET /api/acc/excel-files?projectId=b.04697a63-6349-4946-b928-9d5a05be99b0&hubId=b.ae8c2a83-81e1-438a-8a59-4540e84779c0
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.hcMKjKZ8QYaObhqUAam88g (Depth: 0)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.yZMO8EXeR5KlGQOIphOlxQ (Depth: 1)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.XuaiV4DnTG6WnclBHbBsGA (Depth: 2)
+[Backend Log] POST /api/automation/match
+[Matches] Request Received: {"hubId":"b.ae8c2a83-81e1-438a-8a59-4540e84779c0","projectId":"b.04697a63-6349-4946-b928-9d5a05be99b0","excelVersionId":"urn:adsk.wipprod:fs.file:vf.vcXiYLBrRjOqvDIFbiirlQ?version=86"}
+[Matches] Starting Match Process for project b.04697a63-6349-4946-b928-9d5a05be99b0
+[Excel] Fetching version details for urn:adsk.wipprod:fs.file:vf.vcXiYLBrRjOqvDIFbiirlQ?version=86
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.ZC3TdrP4QL2boKQKlO9K7w (Depth: 2)
+Fetch Excel: 2.015s
+[Matches] Excel rows: 5
+Fetch Top Folders: 466.346ms
+Recursive Search: 1.202s
+[Matches] Total DWG files found: 5
+Mapping: 2.283ms
+[Matches] Completed in 3687ms. Found 5 matches.
+[Backend Log] POST /api/automation/preview-sync
+[Excel Cache] Using cached rows for urn:adsk.wipprod:fs.file:vf.vcXiYLBrRjOqvDIFbiirlQ?version=86
+[ACC Internal] Result keys: 25
+[Backend Log] POST /api/automation/update
+
+
+[DA Update Target] Dispatching update for D4C_Sample_Drawing1
+[DA Target Fix] Injecting default 'A1 Sheet1' LayoutName for D4C_Sample_Drawing1
+[DA Payload] Raw Excel Row Properties: {
+  "DrawingName": "D4C_Sample_Drawing1",
+  "LayoutName": "A1 Sheet1",
+  "BlockName": "ISO A1 Title Block",
+  "PROJECTNAME1": "EX_Namit -1",
+  "PROJECTADDRESS1": "EX_DYN_ADD101",
+  "PROJECTADDRESS2": "EX_DYN_ADD201",
+  "PROJECTADDRESS3": "EX_DYN_ADD301",
+  "PROJECTNAME2": "EX_DYN_PN201",
+  "DATE": "EX_DYN_Date",
+  "SCALE": "EX_DYN_Scale",
+  "Block Unit": "Millimeters",
+  "Handle": "249b",
+  "Layer": "Title Block",
+  "Name ": "Block Reference",
+  "Color": "",
+  "Linetype": "",
+  "Linetype scale": "",
+  "Plot style": "",
+  "Lineweight": "",
+  "Transparency": "",
+  "Material": "",
+  "Annotative": "",
+  "Scale X": "",
+  "Scale Y": "",
+  "Scale Z": "",
+  "Rotation": "",
+  "Unit factor": "",
+  "Name": "Block Reference"
+}
+[Backend Log] POST /api/automation/push-attributes
+[ACC Push] Incoming request for project b.04697a63-6349-4946-b928-9d5a05be99b0, version urn:adsk.wipprod:fs.file:vf.5mg_kov3QEy0D0FOiV09Bg?version=49
+[ACC Push] Fetching version details for urn:adsk.wipprod:fs.file:vf.5mg_kov3QEy0D0FOiV09Bg?version=49...
+[ACC Push] Fetching item details for urn:adsk.wipprod:dm.lineage:5mg_kov3QEy0D0FOiV09Bg...
+[ACC Push] Resolved IDs - Project: 04697a63-6349-4946-b928-9d5a05be99b0, Folder: urn:adsk.wipprod:fs.folder:co.yZMO8EXeR5KlGQOIphOlxQ, Version: urn:adsk.wipprod:fs.file:vf.5mg_kov3QEy0D0FOiV09Bg
+[ACC Push] Found 25 existing definitions
+[ACC Push] Sending batch-update for 26 attributes...
+[ACC Push] Payload Preview: [{"id":8650130,"value":""},{"id":8685628,"value":"EX_Namit -1"}]...
+[ACC Push] Attempting primary update with: urn:adsk.wipprod:fs.file:vf.5mg_kov3QEy0D0FOiV09Bg?version=49
+[Backend Log] GET /api/automation/status/28b4ae2a01ec4bedaa3d80d2fbae13bb
+[ACC Push] Primary attempt failed, trying fallbacks...
+[ACC Attributes Error] {
+  code: 'ERR_BAD_INPUT',
+  title: 'The request has invalid header or body',
+  detail: 'The version id is invalid'
+}
+6:29:08 PM [vite] (client) [console.error] [Parallel Sync Error] ACC Push failed: AxiosError: Request failed with status code 500
+    at settle (http://localhost:5173/node_modules/.vite/deps/axios.js?v=a60462fe:1634:14)
+    at XMLHttpRequest.onloadend (http://localhost:5173/node_modules/.vite/deps/axios.js?v=a60462fe:1951:4)
+    at Axios$1.request (http://localhost:5173/node_modules/.vite/deps/axios.js?v=a60462fe:2520:37)
+[Backend Log] GET /api/automation/status/28b4ae2a01ec4bedaa3d80d2fbae13bb
+
+[DA Execution Report] WorkItem 28b4ae2a01ec4bedaa3d80d2fbae13bb completed with status: success
+[DA Execution Report] LOG URL: https://dasprod-store.s3.us-east-1.amazonaws.com/workItem/ZroG86fKk5oQ0g8RI2V05pydMh7BpawS2JiV1ZAQPtU3F6rF/28b4ae2a01ec4bedaa3d80d2fbae13bb/report?X-Amz-Expires=3600&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEJX%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLWVhc3QtMSJHMEUCIGTV3rqQJ9sf3UF3DBNRDhYGQzegs3JAAGU9qOAun7F9AiEA%2Bwhfwk2Hl38CJM4PCPg1fL1GNQxTR68gutTF5YgNWjAqhQQIXhAEGgwyMjA0NzMxNTIzMTAiDPtwwUsv8xbsAwdOlyriAxdhJXpHLxWBA22SdOUWWNzijD9FpKAW02KxKCzMLCqk9zlA0ldtXlAYsMnFbF0Y%2BmgftnKbV1Y99S%2Fl4JcdGgS7G1FlbLpZYvNyMrmgZG85DWHz0qzJoSuI55mJwCTPDRgh6eWHc%2BdIdsg%2Bw5Nr%2BxlHdGkw1NTIrsyyYp8v77J8e8aZYnOnCZ63JpiBgqO%2F3ySn7UTFY8lXwoVbk7Wu18ADH4E880dtLlr6g0ywJf6Kc1NBqWlg6KnsIr82LGfBi%2FE9ez1XfqQl0QRbUlUKr49qVXoZyabnWukAa0zoCUDCzeUHEMyd1p0aUfLaMNRFMiKnvGgR0pXn6BK%2FT%2F7OkZO9l%2FM2LpqUYn4EWl0pjK7H9x4qUxdyC%2BLEqZ7qAEY4A2TqfmDTDkY%2Bg2gDfYHlcvN9uXqHIl%2B5txDt%2FteAY3fWzKUWeijjybhwM7uZI37RNNIm5NARHEz4nJq0clk%2FktwBmG4%2Bh9C4XQCBmK3xZrfhZNR7UVabeZjBsRcou9Z2JLUWW%2FMCysiLp4S9bfTF3o8g9aqQ8m%2BOTbOLzGbnuDXgx5r6svbbM4AkZ8sutZerJbjkxNwueIeHASVcFVFiktOr71coFQEv%2FPbLxrNc5vxmEzTPc7sJR8ysj2DkYSv7GpcEMJ2Ol9AGOp0Busmb0M%2F5tg8j0N4X0aMuJsXkAYmzuL55ETHjKFRi8gMdVm4IogtHS0M3vzbLUVlKuicCMDd8ilp1EKB8JzOrCwxvSAM4hgEUTgMbEJpL8NwfeszD%2FE0UCmB6%2FvXYCNoeOQGZscuen2k%2FZIX9zEuErAZFyTaj7Uje5dYRgC8ABft1PF64o57N1DqyM9JZ0bv9Fkid01UgdO93ZJfqfA%3D%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIATGVJZKM3GZWOKCBA%2F20260514%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260514T125909Z&X-Amz-SignedHeaders=host&X-Amz-Signature=cdc0105a5d755ce59cd84605eedadd1d60474fcd64b51ad6b1a68be8745266fb
+[Backend Log] GET /api/automation/status/28b4ae2a01ec4bedaa3d80d2fbae13bb
+[Commit Success] WorkItem 28b4ae2a01ec4bedaa3d80d2fbae13bb committed as version 50. URN: urn:adsk.wipprod:fs.file:vf.5mg_kov3QEy0D0FOiV09Bg?version=50
+sh: line 1: 93663 Terminated: 15          node index.js
+
+> aps-titleblock-automation-stable-2-0@1.0.0 dev
+> npm run dev:server & npm run dev:client
+
+
+> aps-titleblock-automation-stable-2-0@1.0.0 dev:client
+> cd client && npm run dev
+
+
+> aps-titleblock-automation-stable-2-0@1.0.0 dev:server
+> cd server && node index.js
+
+
+> client@1.0.0 dev
+> vite
+
+[dotenv@17.3.1] injecting env (6) from .env.local -- tip: 🛠️  run anywhere with `dotenvx run -- yourcommand`
+[dotenv@17.3.1] injecting env (6) from .env -- tip: 🛡️ auth for agents: https://vestauth.com
+Stable Forensic Engine on 5175
+
+  VITE v8.0.3  ready in 137 ms
+
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: use --host to expose
+[Backend Log] GET /api/auth/profile
+[Backend Log] GET /api/auth/profile
+[Backend Log] GET /api/acc/hubs
+[Backend Log] GET /api/acc/hubs
+[Backend Log] GET /api/user/preferences
+[Backend Log] GET /api/acc/projects?hubId=b.ae8c2a83-81e1-438a-8a59-4540e84779c0
+[Backend Log] GET /api/user/preferences
+[Backend Log] GET /api/acc/excel-files?projectId=b.04697a63-6349-4946-b928-9d5a05be99b0&hubId=b.ae8c2a83-81e1-438a-8a59-4540e84779c0
+[Backend Log] GET /api/acc/projects?hubId=b.ae8c2a83-81e1-438a-8a59-4540e84779c0
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.hcMKjKZ8QYaObhqUAam88g (Depth: 0)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.yZMO8EXeR5KlGQOIphOlxQ (Depth: 1)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.XuaiV4DnTG6WnclBHbBsGA (Depth: 2)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.ZC3TdrP4QL2boKQKlO9K7w (Depth: 2)
+[Backend Log] GET /api/acc/excel-files?projectId=b.04697a63-6349-4946-b928-9d5a05be99b0&hubId=b.ae8c2a83-81e1-438a-8a59-4540e84779c0
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.hcMKjKZ8QYaObhqUAam88g (Depth: 0)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.yZMO8EXeR5KlGQOIphOlxQ (Depth: 1)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.XuaiV4DnTG6WnclBHbBsGA (Depth: 2)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.ZC3TdrP4QL2boKQKlO9K7w (Depth: 2)
+[Backend Log] POST /api/automation/match
+[Matches] Request Received: {"hubId":"b.ae8c2a83-81e1-438a-8a59-4540e84779c0","projectId":"b.04697a63-6349-4946-b928-9d5a05be99b0","excelVersionId":"urn:adsk.wipprod:fs.file:vf.vcXiYLBrRjOqvDIFbiirlQ?version=86"}
+[Matches] Starting Match Process for project b.04697a63-6349-4946-b928-9d5a05be99b0
+[Excel] Fetching version details for urn:adsk.wipprod:fs.file:vf.vcXiYLBrRjOqvDIFbiirlQ?version=86
+Fetch Excel: 1.822s
+[Matches] Excel rows: 5
+Fetch Top Folders: 440.8ms
+Recursive Search: 1.202s
+[Matches] Total DWG files found: 5
+Mapping: 1.913ms
+[Matches] Completed in 3469ms. Found 5 matches.
+[Backend Log] POST /api/automation/preview-sync
+[Excel Cache] Using cached rows for urn:adsk.wipprod:fs.file:vf.vcXiYLBrRjOqvDIFbiirlQ?version=86
+[ACC Internal] Result keys: 25
+[Backend Log] POST /api/automation/update
+
+
+[DA Update Target] Dispatching update for D4C_Sample_Drawing1
+[DA Target Fix] Injecting default 'A1 Sheet1' LayoutName for D4C_Sample_Drawing1
+[DA Payload] Raw Excel Row Properties: {
+  "DrawingName": "D4C_Sample_Drawing1",
+  "LayoutName": "A1 Sheet1",
+  "BlockName": "ISO A1 Title Block",
+  "PROJECTNAME1": "EX_Namit -1",
+  "PROJECTADDRESS1": "EX_DYN_ADD101",
+  "PROJECTADDRESS2": "EX_DYN_ADD201",
+  "PROJECTADDRESS3": "EX_DYN_ADD301",
+  "PROJECTNAME2": "EX_DYN_PN201",
+  "DATE": "EX_DYN_Date",
+  "SCALE": "EX_DYN_Scale",
+  "Block Unit": "Millimeters",
+  "Handle": "249b",
+  "Layer": "Title Block",
+  "Name ": "Block Reference",
+  "Color": "",
+  "Linetype": "",
+  "Linetype scale": "",
+  "Plot style": "",
+  "Lineweight": "",
+  "Transparency": "",
+  "Material": "",
+  "Annotative": "",
+  "Scale X": "",
+  "Scale Y": "",
+  "Scale Z": "",
+  "Rotation": "",
+  "Unit factor": "",
+  "Name": "Block Reference"
+}
+[Backend Log] POST /api/automation/push-attributes
+[ACC Push] Incoming request for project b.04697a63-6349-4946-b928-9d5a05be99b0, version urn:adsk.wipprod:fs.file:vf.5mg_kov3QEy0D0FOiV09Bg?version=50
+[ACC Push] Fetching version details for urn:adsk.wipprod:fs.file:vf.5mg_kov3QEy0D0FOiV09Bg?version=50...
+[ACC Push] Fetching item details for urn:adsk.wipprod:dm.lineage:5mg_kov3QEy0D0FOiV09Bg...
+[ACC Push] Resolved IDs - Project: 04697a63-6349-4946-b928-9d5a05be99b0, Folder: urn:adsk.wipprod:fs.folder:co.yZMO8EXeR5KlGQOIphOlxQ, Version: urn:adsk.wipprod:fs.file:vf.5mg_kov3QEy0D0FOiV09Bg
+[ACC Push] Found 25 existing definitions
+[ACC Push] Sending batch-update for 26 attributes...
+[ACC Push] Payload Preview: [{"id":8650130,"value":""},{"id":8685628,"value":"EX_Namit -1"}]...
+[ACC Push] Primary attempt with clean URN: urn:adsk.wipprod:fs.file:vf.5mg_kov3QEy0D0FOiV09Bg
+[ACC Push] Attempting update at: https://developer.api.autodesk.com/bim360/docs/v1/projects/04697a63-6349-4946-b928-9d5a05be99b0/versions/urn%3Aadsk.wipprod%3Afs.file%3Avf.5mg_kov3QEy0D0FOiV09Bg/custom-attributes:batch-update
+[ACC Push] Primary attempt failed: The version id is invalid
+[ACC Push] Fallback 1 with raw versionId: urn:adsk.wipprod:fs.file:vf.5mg_kov3QEy0D0FOiV09Bg?version=50
+[ACC Push] Attempting update at: https://developer.api.autodesk.com/bim360/docs/v1/projects/04697a63-6349-4946-b928-9d5a05be99b0/versions/urn%3Aadsk.wipprod%3Afs.file%3Avf.5mg_kov3QEy0D0FOiV09Bg/custom-attributes:batch-update
+[Backend Log] GET /api/automation/status/2888eaa8e36047b0b003757eb0cf0db4
+[ACC Push] Fallback 2 with stripped GUID: vf.5mg_kov3QEy0D0FOiV09Bg
+[ACC Push] Attempting update at: https://developer.api.autodesk.com/bim360/docs/v1/projects/04697a63-6349-4946-b928-9d5a05be99b0/versions/vf.5mg_kov3QEy0D0FOiV09Bg/custom-attributes:batch-update
+[ACC Attributes Error] {
+  code: 'ERR_BAD_INPUT',
+  title: 'The request has invalid header or body',
+  detail: 'The version id is invalid'
+}
+6:31:59 PM [vite] (client) [console.error] [Parallel Sync Error] ACC Push failed: AxiosError: Request failed with status code 500
+    at settle (http://localhost:5173/node_modules/.vite/deps/axios.js?v=a60462fe:1634:14)
+    at XMLHttpRequest.onloadend (http://localhost:5173/node_modules/.vite/deps/axios.js?v=a60462fe:1951:4)
+    at Axios$1.request (http://localhost:5173/node_modules/.vite/deps/axios.js?v=a60462fe:2520:37)
+[Backend Log] GET /api/automation/status/2888eaa8e36047b0b003757eb0cf0db4
+
+[DA Execution Report] WorkItem 2888eaa8e36047b0b003757eb0cf0db4 completed with status: success
+[DA Execution Report] LOG URL: https://dasprod-store.s3.us-east-1.amazonaws.com/workItem/ZroG86fKk5oQ0g8RI2V05pydMh7BpawS2JiV1ZAQPtU3F6rF/2888eaa8e36047b0b003757eb0cf0db4/report?X-Amz-Expires=3600&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEJX%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLWVhc3QtMSJHMEUCIQDs6VuizLNVPFXXaXjcgYpnvRB0Jayy98fb2TB43RH%2F%2BgIgZFVgj5kSBfxhmrk%2F7yplJCWGcq0trtkv2YCaEmMauhMqhQQIXhAEGgwyMjA0NzMxNTIzMTAiDIWHmaR9rK0Nfbj1hyriA2U3Ek8jaSGKkp%2BJQZMn%2Fb0CzqMCPMhAsnVDoFEF%2FE8ly4x6t5SZvAadnxkEVK36RgrQl1TmPLxdq3cWatt3bxG%2FmXv4mppkPEmdHW%2BxeNP6jdT5dePY9O9ABJFDd3tIKK3ndEIHmbhdgibq7ToSSdgdNKB%2FSGeW%2BKac6ovvp3K3O84%2Bp8%2BzyNqTzGk%2BB4Eyk8Sc7rRCpOPKIvWLW5h8k%2BzFaFz26m4pj0koj3AeqanwAlIQEL8yeM2fUCukjai6b6K%2BPIsStsPinjNLjdPvjXlGueA8JxP0eBSJXzK%2FZv8GtAq5M%2FfHqagozCOndJRT5gVLME1jAJI8WI7YeCmhe2oOxLiFWTtCFC%2Fi3Mu8LV%2BM1RC0TeOiw7PgAyaaPKWHqwFXZ99Do5oaslH523KcUygyzax0Pr%2B%2FKcTs2OagCjTDoxAE79ndqRNVgjBocfL4gpOTZ7scmjcPdL3Oh0VyHsmxruZfzn%2F3t9f3qhLn3PWiBBvFswNsnox6XpEG76IoVlyeo1GGpNLFHi8vRyhyaFaxDDDY7pKMeovWziIk3dc0gcVmqhfQDuSyinyo2ziGDfYfs1UY7LQ3jpx5B7lcy7nC0GV6pH3G4QqYBXdWD3fjuD%2B2URqK7uKDtlEBE7OJ4WxtMMmPl9AGOp0BeZdqXsCX4JlbhkA5TVgD%2BOsbdKoy8550siQIx3TNZMRMhcFdZBx%2FpoSlaIPoalmbU7OFaxWNxutpouUmbfEesyw6AqqaZVRMBk6la74wLwBxJUUIj1zJv60EE%2FfPj7thqPXGXFrb6wC15dPZDeWOcQSstBi88gIFD4s9AeocdKmLdcBUhaKHiPHexT4WGgcDpgQwR89MobbutFRjfA%3D%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIATGVJZKM3KWRTLTKB%2F20260514%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260514T130201Z&X-Amz-SignedHeaders=host&X-Amz-Signature=479691cffda82d3dc65c0cb331f46b6f6d6992150f5c3877ad1414bd3726b62d
+[Backend Log] GET /api/automation/status/2888eaa8e36047b0b003757eb0cf0db4
+[Commit Success] WorkItem 2888eaa8e36047b0b003757eb0cf0db4 committed as version 51. URN: urn:adsk.wipprod:fs.file:vf.5mg_kov3QEy0D0FOiV09Bg?version=51
+[Backend Log] POST /api/automation/preview-sync
+[Excel] Fetching version details for urn:adsk.wipprod:fs.file:vf.vcXiYLBrRjOqvDIFbiirlQ?version=86
+[ACC Internal] Result keys: 25
+[Backend Log] POST /api/automation/update
+
+
+[DA Update Target] Dispatching update for D4C_Sample_Drawing1
+[DA Target Fix] Injecting default 'A1 Sheet1' LayoutName for D4C_Sample_Drawing1
+[DA Payload] Raw Excel Row Properties: {
+  "DrawingName": "D4C_Sample_Drawing1",
+  "LayoutName": "A1 Sheet1",
+  "BlockName": "ISO A1 Title Block",
+  "PROJECTNAME1": "EX_Namit -1",
+  "PROJECTADDRESS1": "EX_DYN_ADD101",
+  "PROJECTADDRESS2": "EX_DYN_ADD201",
+  "PROJECTADDRESS3": "EX_DYN_ADD301",
+  "PROJECTNAME2": "EX_DYN_PN201",
+  "DATE": "EX_DYN_Date",
+  "SCALE": "EX_DYN_Scale",
+  "Block Unit": "Millimeters",
+  "Handle": "249b",
+  "Layer": "Title Block",
+  "Name ": "Block Reference",
+  "Color": "",
+  "Linetype": "",
+  "Linetype scale": "",
+  "Plot style": "",
+  "Lineweight": "",
+  "Transparency": "",
+  "Material": "",
+  "Annotative": "",
+  "Scale X": "",
+  "Scale Y": "",
+  "Scale Z": "",
+  "Rotation": "",
+  "Unit factor": "",
+  "Name": "Block Reference"
+}
+[Backend Log] POST /api/automation/push-attributes
+[ACC Push] Incoming request for project b.04697a63-6349-4946-b928-9d5a05be99b0, version urn:adsk.wipprod:fs.file:vf.5mg_kov3QEy0D0FOiV09Bg?version=50
+[ACC Push] Fetching version details for urn:adsk.wipprod:fs.file:vf.5mg_kov3QEy0D0FOiV09Bg?version=50...
+[ACC Push] Fetching item details for urn:adsk.wipprod:dm.lineage:5mg_kov3QEy0D0FOiV09Bg...
+[ACC Push] Resolved IDs - Project: 04697a63-6349-4946-b928-9d5a05be99b0, Folder: urn:adsk.wipprod:fs.folder:co.yZMO8EXeR5KlGQOIphOlxQ, Version: urn:adsk.wipprod:fs.file:vf.5mg_kov3QEy0D0FOiV09Bg
+[ACC Push] Found 25 existing definitions
+[ACC Push] Sending batch-update for 26 attributes...
+[ACC Push] Payload Preview: [{"id":8650130,"value":""},{"id":8685628,"value":"EX_Namit -1"}]...
+[ACC Push] Primary attempt with clean URN: urn:adsk.wipprod:fs.file:vf.5mg_kov3QEy0D0FOiV09Bg
+[ACC Push] Attempting update at: https://developer.api.autodesk.com/bim360/docs/v1/projects/04697a63-6349-4946-b928-9d5a05be99b0/versions/urn%3Aadsk.wipprod%3Afs.file%3Avf.5mg_kov3QEy0D0FOiV09Bg/custom-attributes:batch-update
+[Backend Log] GET /api/automation/status/24d23c77124d42548e85f6773429d652
+[ACC Push] Primary attempt failed: The version id is invalid
+[ACC Push] Fallback 1 with raw versionId: urn:adsk.wipprod:fs.file:vf.5mg_kov3QEy0D0FOiV09Bg?version=50
+[ACC Push] Attempting update at: https://developer.api.autodesk.com/bim360/docs/v1/projects/04697a63-6349-4946-b928-9d5a05be99b0/versions/urn%3Aadsk.wipprod%3Afs.file%3Avf.5mg_kov3QEy0D0FOiV09Bg/custom-attributes:batch-update
+[ACC Push] Fallback 2 with stripped GUID: vf.5mg_kov3QEy0D0FOiV09Bg
+[ACC Push] Attempting update at: https://developer.api.autodesk.com/bim360/docs/v1/projects/04697a63-6349-4946-b928-9d5a05be99b0/versions/vf.5mg_kov3QEy0D0FOiV09Bg/custom-attributes:batch-update
+[ACC Attributes Error] {
+  code: 'ERR_BAD_INPUT',
+  title: 'The request has invalid header or body',
+  detail: 'The version id is invalid'
+}
+6:32:27 PM [vite] (client) [console.error] [Parallel Sync Error] ACC Push failed: AxiosError: Request failed with status code 500
+    at settle (http://localhost:5173/node_modules/.vite/deps/axios.js?v=a60462fe:1634:14)
+    at XMLHttpRequest.onloadend (http://localhost:5173/node_modules/.vite/deps/axios.js?v=a60462fe:1951:4)
+    at Axios$1.request (http://localhost:5173/node_modules/.vite/deps/axios.js?v=a60462fe:2520:37)
+[Backend Log] GET /api/automation/status/24d23c77124d42548e85f6773429d652
+
+[DA Execution Report] WorkItem 24d23c77124d42548e85f6773429d652 completed with status: success
+[DA Execution Report] LOG URL: https://dasprod-store.s3.us-east-1.amazonaws.com/workItem/ZroG86fKk5oQ0g8RI2V05pydMh7BpawS2JiV1ZAQPtU3F6rF/24d23c77124d42548e85f6773429d652/report?X-Amz-Expires=3600&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEJX%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLWVhc3QtMSJIMEYCIQDhX%2BkYwoHLKCjiVeBi%2F9mQaHm7M3AC6WcaEIA56Va00AIhALrdaLlKPMwdksuiHdxeeETzPZ29qxaABv1uSXRqI9h7KoYECF4QBBoMMjIwNDczMTUyMzEwIgySKQ2YC%2BQ8SxLY9vAq4wMtwZhybC89%2BAdhrZX58M4pSGnT%2BW2dM1AxsRsK9jpdo4RkN7zA6GzYKTS1AXwLxG5rOnJn%2FmiZv7sHH36ACjRpmzRLyKPINnA6SzIDr2m5pt2JzhdSF94RY%2BtQBp1wESr0CdqUn7el%2BxiLrBv8l4neW9b%2FaWy6AikFaz2KwcfjAaQdXn0TEWJLgPCexdmGJ18M1DkQXNnWdLBGc8gZkqFokppvzIU3l5HC8sI8tMEG9kC3AU2n1RdlhegS%2FBR9k6koH2CXpkJQwkGS6NtbrgUaCi4%2F4gyVcMCFk81DrlLejI%2F%2Fky%2F4Nf%2FNvjX0fXh82wg%2BrPOPUaeVhJlufY%2F6DHCrhQxN4hYurls8JWWx71vfL4YHy7ZjGvUI1sokY2www2AiIUzHaF3%2BjZpUze4DmR2vtxtbXc1A%2BlXkO7I69vVjkTLTFjrcjSbafFfRfvFY7OUwo2Kl%2B75i6xZ8nZlZPgkVFtH4DrF0U4l5EMRfbjnV575g4bKm%2FTLwP6Ull8O8RHRQh1LHMe9SH7v850%2B%2Fr9FJ3D3sF8%2Fr9j4MisYQAVIQYUiDahIz8Z89l%2FjcSBk4Q1sRgGeTZ249pMiuVbEraxsjK4b2TehBEScJRwPoAkhmRRoRKYymE24HOFCO7h7Bnhgdtf0w44%2BX0AY6nAG%2B6%2BWyXvGnBM%2F5KYOTP5XiQpMNWb48MI88jMgfQjZx8Tc0B9Et6pjXf%2FOQY3BxNi%2BYcgPygkropAGnbbBoS5IygVk6J9EHQRFIZR%2FWWohTExozrw7AslSUF%2FgwfCAoxy2Ce5V551pso8%2BW4YabgKZvXI1P7%2FJ2lS9yOvcOqWNg%2FNrgzRU7uaJVGEvkG%2FFIc4%2BfoR3Eg%2FYgNnEsUKU%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIATGVJZKM3L57HP3RE%2F20260514%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260514T130227Z&X-Amz-SignedHeaders=host&X-Amz-Signature=7a8b21c55f3a65d1b50c1ffb48da43d9dcbfbbf89f4ba85cbb12b3a58b2e68f5
+[Commit Success] WorkItem 24d23c77124d42548e85f6773429d652 committed as version 52. URN: urn:adsk.wipprod:fs.file:vf.5mg_kov3QEy0D0FOiV09Bg?version=52
+[Backend Log] GET /api/automation/status/24d23c77124d42548e85f6773429d652
+sh: line 1: 93828 Terminated: 15          node index.js
+
+> aps-titleblock-automation-stable-2-0@1.0.0 dev
+> npm run dev:server & npm run dev:client
+
+
+> aps-titleblock-automation-stable-2-0@1.0.0 dev:client
+> cd client && npm run dev
+
+
+> aps-titleblock-automation-stable-2-0@1.0.0 dev:server
+> cd server && node index.js
+
+
+> client@1.0.0 dev
+> vite
+
+[dotenv@17.3.1] injecting env (6) from .env.local -- tip: 🔐 prevent committing .env to code: https://dotenvx.com/precommit
+[dotenv@17.3.1] injecting env (6) from .env -- tip: ⚙️  suppress all logs with { quiet: true }
+Stable Forensic Engine on 5175
+
+  VITE v8.0.3  ready in 138 ms
+
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: use --host to expose
+[Backend Log] GET /api/auth/profile
+[Backend Log] GET /api/auth/profile
+[Backend Log] GET /api/acc/hubs
+[Backend Log] GET /api/acc/hubs
+[Backend Log] GET /api/user/preferences
+[Backend Log] GET /api/acc/projects?hubId=b.ae8c2a83-81e1-438a-8a59-4540e84779c0
+[Backend Log] GET /api/user/preferences
+[Backend Log] GET /api/acc/excel-files?projectId=b.04697a63-6349-4946-b928-9d5a05be99b0&hubId=b.ae8c2a83-81e1-438a-8a59-4540e84779c0
+[Backend Log] GET /api/acc/projects?hubId=b.ae8c2a83-81e1-438a-8a59-4540e84779c0
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.hcMKjKZ8QYaObhqUAam88g (Depth: 0)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.yZMO8EXeR5KlGQOIphOlxQ (Depth: 1)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.XuaiV4DnTG6WnclBHbBsGA (Depth: 2)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.ZC3TdrP4QL2boKQKlO9K7w (Depth: 2)
+[Backend Log] GET /api/acc/excel-files?projectId=b.04697a63-6349-4946-b928-9d5a05be99b0&hubId=b.ae8c2a83-81e1-438a-8a59-4540e84779c0
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.hcMKjKZ8QYaObhqUAam88g (Depth: 0)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.yZMO8EXeR5KlGQOIphOlxQ (Depth: 1)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.XuaiV4DnTG6WnclBHbBsGA (Depth: 2)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.ZC3TdrP4QL2boKQKlO9K7w (Depth: 2)
+[Backend Log] GET /skill-demands
+NotFoundError: Not Found
+    at createHttpError (/Users/ranjann/.gemini/antigravity/scratch/aps-titleblock-automation-Stable-2.0/server/node_modules/send/index.js:861:12)
+    at SendStream.error (/Users/ranjann/.gemini/antigravity/scratch/aps-titleblock-automation-Stable-2.0/server/node_modules/send/index.js:168:31)
+    at SendStream.pipe (/Users/ranjann/.gemini/antigravity/scratch/aps-titleblock-automation-Stable-2.0/server/node_modules/send/index.js:468:14)
+    at sendfile (/Users/ranjann/.gemini/antigravity/scratch/aps-titleblock-automation-Stable-2.0/server/node_modules/express/lib/response.js:1014:8)
+    at ServerResponse.sendFile (/Users/ranjann/.gemini/antigravity/scratch/aps-titleblock-automation-Stable-2.0/server/node_modules/express/lib/response.js:411:3)
+    at /Users/ranjann/.gemini/antigravity/scratch/aps-titleblock-automation-Stable-2.0/server/index.js:798:13
+    at Layer.handleRequest (/Users/ranjann/.gemini/antigravity/scratch/aps-titleblock-automation-Stable-2.0/server/node_modules/router/lib/layer.js:152:17)
+    at trimPrefix (/Users/ranjann/.gemini/antigravity/scratch/aps-titleblock-automation-Stable-2.0/server/node_modules/router/index.js:342:13)
+    at /Users/ranjann/.gemini/antigravity/scratch/aps-titleblock-automation-Stable-2.0/server/node_modules/router/index.js:297:9
+    at processParams (/Users/ranjann/.gemini/antigravity/scratch/aps-titleblock-automation-Stable-2.0/server/node_modules/router/index.js:582:12)
+[Backend Log] GET /
+[Backend Log] GET /assets/index-ksfXy-CW.css
+[Backend Log] GET /assets/index-DrqrkDT2.js
+[Backend Log] GET /api/auth/profile
+[Backend Log] GET /vite.svg
+NotFoundError: Not Found
+    at createHttpError (/Users/ranjann/.gemini/antigravity/scratch/aps-titleblock-automation-Stable-2.0/server/node_modules/send/index.js:861:12)
+    at SendStream.error (/Users/ranjann/.gemini/antigravity/scratch/aps-titleblock-automation-Stable-2.0/server/node_modules/send/index.js:168:31)
+    at SendStream.pipe (/Users/ranjann/.gemini/antigravity/scratch/aps-titleblock-automation-Stable-2.0/server/node_modules/send/index.js:468:14)
+    at sendfile (/Users/ranjann/.gemini/antigravity/scratch/aps-titleblock-automation-Stable-2.0/server/node_modules/express/lib/response.js:1014:8)
+    at ServerResponse.sendFile (/Users/ranjann/.gemini/antigravity/scratch/aps-titleblock-automation-Stable-2.0/server/node_modules/express/lib/response.js:411:3)
+    at /Users/ranjann/.gemini/antigravity/scratch/aps-titleblock-automation-Stable-2.0/server/index.js:798:13
+    at Layer.handleRequest (/Users/ranjann/.gemini/antigravity/scratch/aps-titleblock-automation-Stable-2.0/server/node_modules/router/lib/layer.js:152:17)
+    at trimPrefix (/Users/ranjann/.gemini/antigravity/scratch/aps-titleblock-automation-Stable-2.0/server/node_modules/router/index.js:342:13)
+    at /Users/ranjann/.gemini/antigravity/scratch/aps-titleblock-automation-Stable-2.0/server/node_modules/router/index.js:297:9
+    at processParams (/Users/ranjann/.gemini/antigravity/scratch/aps-titleblock-automation-Stable-2.0/server/node_modules/router/index.js:582:12)
+[Backend Log] GET /api/acc/hubs
+[Backend Log] GET /
+[Backend Log] GET /assets/index-DrqrkDT2.js
+[Backend Log] GET /assets/index-ksfXy-CW.css
+[Backend Log] GET /api/auth/profile
+[Backend Log] GET /vite.svg
+NotFoundError: Not Found
+    at createHttpError (/Users/ranjann/.gemini/antigravity/scratch/aps-titleblock-automation-Stable-2.0/server/node_modules/send/index.js:861:12)
+    at SendStream.error (/Users/ranjann/.gemini/antigravity/scratch/aps-titleblock-automation-Stable-2.0/server/node_modules/send/index.js:168:31)
+    at SendStream.pipe (/Users/ranjann/.gemini/antigravity/scratch/aps-titleblock-automation-Stable-2.0/server/node_modules/send/index.js:468:14)
+    at sendfile (/Users/ranjann/.gemini/antigravity/scratch/aps-titleblock-automation-Stable-2.0/server/node_modules/express/lib/response.js:1014:8)
+    at ServerResponse.sendFile (/Users/ranjann/.gemini/antigravity/scratch/aps-titleblock-automation-Stable-2.0/server/node_modules/express/lib/response.js:411:3)
+    at /Users/ranjann/.gemini/antigravity/scratch/aps-titleblock-automation-Stable-2.0/server/index.js:798:13
+    at Layer.handleRequest (/Users/ranjann/.gemini/antigravity/scratch/aps-titleblock-automation-Stable-2.0/server/node_modules/router/lib/layer.js:152:17)
+    at trimPrefix (/Users/ranjann/.gemini/antigravity/scratch/aps-titleblock-automation-Stable-2.0/server/node_modules/router/index.js:342:13)
+    at /Users/ranjann/.gemini/antigravity/scratch/aps-titleblock-automation-Stable-2.0/server/node_modules/router/index.js:297:9
+    at processParams (/Users/ranjann/.gemini/antigravity/scratch/aps-titleblock-automation-Stable-2.0/server/node_modules/router/index.js:582:12)
+[Backend Log] GET /api/acc/hubs
+[Backend Log] GET /api/user/preferences
+[Backend Log] GET /api/acc/projects?hubId=b.ae8c2a83-81e1-438a-8a59-4540e84779c0
+[Backend Log] GET /api/acc/excel-files?projectId=b.04697a63-6349-4946-b928-9d5a05be99b0&hubId=b.ae8c2a83-81e1-438a-8a59-4540e84779c0
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.hcMKjKZ8QYaObhqUAam88g (Depth: 0)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.yZMO8EXeR5KlGQOIphOlxQ (Depth: 1)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.XuaiV4DnTG6WnclBHbBsGA (Depth: 2)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.ZC3TdrP4QL2boKQKlO9K7w (Depth: 2)
+[Backend Log] POST /api/automation/match
+[Matches] Request Received: {"hubId":"b.ae8c2a83-81e1-438a-8a59-4540e84779c0","projectId":"b.04697a63-6349-4946-b928-9d5a05be99b0","excelVersionId":"urn:adsk.wipprod:fs.file:vf.vcXiYLBrRjOqvDIFbiirlQ?version=86"}
+[Matches] Starting Match Process for project b.04697a63-6349-4946-b928-9d5a05be99b0
+[Excel] Fetching version details for urn:adsk.wipprod:fs.file:vf.vcXiYLBrRjOqvDIFbiirlQ?version=86
+Fetch Excel: 1.901s
+[Matches] Excel rows: 5
+Fetch Top Folders: 1.474s
+Recursive Search: 1.482s
+[Matches] Total DWG files found: 5
+Mapping: 2.554ms
+[Matches] Completed in 4862ms. Found 5 matches.
+[Backend Log] GET /api/auth/profile
+[Backend Log] GET /api/auth/profile
+[Backend Log] GET /api/acc/hubs
+[Backend Log] GET /api/auth/profile
+[Backend Log] GET /api/auth/profile
+[Backend Log] GET /api/acc/hubs
+[Backend Log] GET /api/acc/hubs
+[Backend Log] GET /api/user/preferences
+[Backend Log] GET /api/user/preferences
+[Backend Log] GET /api/acc/projects?hubId=b.ae8c2a83-81e1-438a-8a59-4540e84779c0
+[Backend Log] GET /api/acc/projects?hubId=b.ae8c2a83-81e1-438a-8a59-4540e84779c0
+[Backend Log] GET /api/acc/excel-files?projectId=b.04697a63-6349-4946-b928-9d5a05be99b0&hubId=b.ae8c2a83-81e1-438a-8a59-4540e84779c0
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.hcMKjKZ8QYaObhqUAam88g (Depth: 0)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.yZMO8EXeR5KlGQOIphOlxQ (Depth: 1)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.XuaiV4DnTG6WnclBHbBsGA (Depth: 2)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.ZC3TdrP4QL2boKQKlO9K7w (Depth: 2)
+[Backend Log] GET /api/acc/excel-files?projectId=b.04697a63-6349-4946-b928-9d5a05be99b0&hubId=b.ae8c2a83-81e1-438a-8a59-4540e84779c0
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.hcMKjKZ8QYaObhqUAam88g (Depth: 0)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.yZMO8EXeR5KlGQOIphOlxQ (Depth: 1)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.XuaiV4DnTG6WnclBHbBsGA (Depth: 2)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.ZC3TdrP4QL2boKQKlO9K7w (Depth: 2)
+[Backend Log] POST /api/automation/match
+[Matches] Request Received: {"hubId":"b.ae8c2a83-81e1-438a-8a59-4540e84779c0","projectId":"b.04697a63-6349-4946-b928-9d5a05be99b0","excelVersionId":"urn:adsk.wipprod:fs.file:vf.vcXiYLBrRjOqvDIFbiirlQ?version=86"}
+[Matches] Starting Match Process for project b.04697a63-6349-4946-b928-9d5a05be99b0
+[Excel Cache] Using cached rows for urn:adsk.wipprod:fs.file:vf.vcXiYLBrRjOqvDIFbiirlQ?version=86
+Fetch Excel: 0.062ms
+[Matches] Excel rows: 5
+Fetch Top Folders: 544.134ms
+Recursive Search: 1.220s
+[Matches] Total DWG files found: 5
+Mapping: 0.441ms
+[Matches] Completed in 1766ms. Found 5 matches.
+[Backend Log] POST /api/automation/preview-sync
+[Excel Cache] Using cached rows for urn:adsk.wipprod:fs.file:vf.vcXiYLBrRjOqvDIFbiirlQ?version=86
+[ACC Internal] Result keys: 25
+[Backend Log] POST /api/automation/update
+
+
+[DA Update Target] Dispatching update for D4C_Sample_Drawing1
+[DA Target Fix] Injecting default 'A1 Sheet1' LayoutName for D4C_Sample_Drawing1
+[DA Payload] Raw Excel Row Properties: {
+  "DrawingName": "D4C_Sample_Drawing1",
+  "LayoutName": "A1 Sheet1",
+  "BlockName": "ISO A1 Title Block",
+  "PROJECTNAME1": "EX_Namit -1",
+  "PROJECTADDRESS1": "EX_DYN_ADD101",
+  "PROJECTADDRESS2": "EX_DYN_ADD201",
+  "PROJECTADDRESS3": "EX_DYN_ADD301",
+  "PROJECTNAME2": "EX_DYN_PN201",
+  "DATE": "EX_DYN_Date",
+  "SCALE": "EX_DYN_Scale",
+  "Block Unit": "Millimeters",
+  "Handle": "249b",
+  "Layer": "Title Block",
+  "Name ": "Block Reference",
+  "Color": "",
+  "Linetype": "",
+  "Linetype scale": "",
+  "Plot style": "",
+  "Lineweight": "",
+  "Transparency": "",
+  "Material": "",
+  "Annotative": "",
+  "Scale X": "",
+  "Scale Y": "",
+  "Scale Z": "",
+  "Rotation": "",
+  "Unit factor": "",
+  "Name": "Block Reference"
+}
+[Backend Log] POST /api/automation/push-attributes
+[ACC Push] Incoming request for project b.04697a63-6349-4946-b928-9d5a05be99b0, version urn:adsk.wipprod:fs.file:vf.5mg_kov3QEy0D0FOiV09Bg?version=52
+[ACC Push] Fetching version details for urn:adsk.wipprod:fs.file:vf.5mg_kov3QEy0D0FOiV09Bg?version=52...
+[ACC Push] Fetching item details for urn:adsk.wipprod:dm.lineage:5mg_kov3QEy0D0FOiV09Bg...
+[ACC Push] Resolved IDs - Project: 04697a63-6349-4946-b928-9d5a05be99b0, Folder: urn:adsk.wipprod:fs.folder:co.yZMO8EXeR5KlGQOIphOlxQ, Version: urn:adsk.wipprod:fs.file:vf.5mg_kov3QEy0D0FOiV09Bg
+[ACC Push] Found 25 existing definitions
+[ACC Push] Sending batch-update for 26 attributes...
+[ACC Push] Payload Preview: [{"id":8650130,"value":""},{"id":8685628,"value":"EX_Namit -1"}]...
+[ACC Push] Primary attempt with clean URN: urn:adsk.wipprod:fs.file:vf.5mg_kov3QEy0D0FOiV09Bg
+[ACC Push] Attempting update at: https://developer.api.autodesk.com/bim360/docs/v1/projects/04697a63-6349-4946-b928-9d5a05be99b0/versions/urn:adsk.wipprod:fs.file:vf.5mg_kov3QEy0D0FOiV09Bg/custom-attributes:batch-update
+[Backend Log] GET /api/automation/status/92b898f03c8042739ed4e061f121df73
+[ACC Push] Primary attempt failed: The version id is invalid
+[ACC Push] Fallback 1 with raw versionId: urn:adsk.wipprod:fs.file:vf.5mg_kov3QEy0D0FOiV09Bg?version=52
+[ACC Push] Attempting update at: https://developer.api.autodesk.com/bim360/docs/v1/projects/04697a63-6349-4946-b928-9d5a05be99b0/versions/urn:adsk.wipprod:fs.file:vf.5mg_kov3QEy0D0FOiV09Bg/custom-attributes:batch-update
+[ACC Push] Fallback 2 with stripped GUID: vf.5mg_kov3QEy0D0FOiV09Bg
+[ACC Push] Attempting update at: https://developer.api.autodesk.com/bim360/docs/v1/projects/04697a63-6349-4946-b928-9d5a05be99b0/versions/vf.5mg_kov3QEy0D0FOiV09Bg/custom-attributes:batch-update
+[ACC Attributes Error] {
+  code: 'ERR_BAD_INPUT',
+  title: 'The request has invalid header or body',
+  detail: 'The version id is invalid'
+}
+6:34:35 PM [vite] (client) [console.error] [Parallel Sync Error] ACC Push failed: AxiosError: Request failed with status code 500
+    at settle (http://localhost:5173/node_modules/.vite/deps/axios.js?v=a60462fe:1634:14)
+    at XMLHttpRequest.onloadend (http://localhost:5173/node_modules/.vite/deps/axios.js?v=a60462fe:1951:4)
+    at Axios$1.request (http://localhost:5173/node_modules/.vite/deps/axios.js?v=a60462fe:2520:37)
+[Backend Log] GET /api/automation/status/92b898f03c8042739ed4e061f121df73
+[Backend Log] GET /api/automation/status/92b898f03c8042739ed4e061f121df73
+
+[DA Execution Report] WorkItem 92b898f03c8042739ed4e061f121df73 completed with status: success
+[DA Execution Report] LOG URL: https://dasprod-store.s3.us-east-1.amazonaws.com/workItem/ZroG86fKk5oQ0g8RI2V05pydMh7BpawS2JiV1ZAQPtU3F6rF/92b898f03c8042739ed4e061f121df73/report?X-Amz-Expires=3600&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEJb%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLWVhc3QtMSJIMEYCIQD2C7rfb26xBUEIunMNTjjXCmtClDi%2BwVh4twim4Y1kKwIhAO%2BBnihofIYDcq3BSEuB3VUoXGWMgq0CuEIgZFRARnVvKoUECF4QBBoMMjIwNDczMTUyMzEwIgyg6y1J%2FPNsKaULrYYq4gOWrzAuLWTcojo2ds3mHYDmETuuPT%2BQjlgd1HpJSUxUpBxX0%2FVv0bO0NVHNDuhlzJVI%2BxBblEL%2FAIuksRUJ2OukcInQTQQFk3zolo9CwDZ44iMzs2TIxI%2FmrmULehvFcS85%2BQ1NqfKp7TdldCHrgjYeOpA8C%2B4O6RhY6GKEW6kZLK8UUeVEYF%2BnMj0ZdMBnWpvdVPsnyz3%2BSrX05thyuLJtCHeXH%2BCVMdZTNFRyMHXcZ7y7q%2FwxltBvPOG6FM6YPWEP6uqxY%2BgznpayrNcCPPdX%2FLWKKQVtTqFjTs5SNjjN9lKvpG98GRC6w7vT5Cl0DrrNNwmQK%2FZQMGp%2FnyeRlrzDzVEyEfpnzvrbGHY%2Bjm8n%2F2g0RZdNti7Zrm4PVXDkd8l6uzaA0ewNkxYhq2rHcUIpr1TLNSH8gpNadFaWBasywr2BrgS8pA2TFpTV7QbvRLjCCbGFrw5WwOlfA2OT0Z3xIKhkLEJTCQYBIeFSSpQhORtSBnVCyd%2BJUErFp8fu6XWsRlwsLPkHxrwF6d6nbiobLGZr64xT7zBbUywY%2BwT8gdK4ycMVMh0bsehxHGgdJrcK3W%2F%2Bg5%2FnBtIw2KOffweeQsSxqesjc0%2FvLZXvxwMJguSR%2Fy4aBQR09XVCbSJX1WXLrDDokJfQBjqcAe9hDwg7mREIXjpCUmuygdP2MWwYuvarU8q1UW2NitDvV0GJudfGnC%2FUUn%2BiYh90yjo4wF8kSYKQkVKAFslkGRxHqq%2FbHozTphNxZVsrjUu%2B0Ii4JgcXvMGQ0odgVoESjySImBVxw7HvLn3ncrB6GN2BmJmYC4iO8YgC5lA0gYXnc8ZxMABw6nRdhwXNubjCbP%2BAklzo8hJBOHjVXg%3D%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIATGVJZKM3KKI5H3YX%2F20260514%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260514T130440Z&X-Amz-SignedHeaders=host&X-Amz-Signature=a3e8cc89ac494ca2f24566234b464c466b02e52bea3653852d8a967e99cc6801
+[Backend Log] GET /api/automation/status/92b898f03c8042739ed4e061f121df73
+[Commit Success] WorkItem 92b898f03c8042739ed4e061f121df73 committed as version 53. URN: urn:adsk.wipprod:fs.file:vf.5mg_kov3QEy0D0FOiV09Bg?version=53
+sh: line 1: 93953 Terminated: 15          node index.js
+
+> aps-titleblock-automation-stable-2-0@1.0.0 dev
+> npm run dev:server & npm run dev:client
+
+
+> aps-titleblock-automation-stable-2-0@1.0.0 dev:server
+> cd server && node index.js
+
+
+> aps-titleblock-automation-stable-2-0@1.0.0 dev:client
+> cd client && npm run dev
+
+
+> client@1.0.0 dev
+> vite
+
+[dotenv@17.3.1] injecting env (6) from .env.local -- tip: ⚙️  write to custom object with { processEnv: myObject }
+[dotenv@17.3.1] injecting env (6) from .env -- tip: ⚡️ secrets for agents: https://dotenvx.com/as2
+Stable Forensic Engine on 5175
+
+  VITE v8.0.3  ready in 123 ms
+
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: use --host to expose
+[Backend Log] GET /api/auth/profile
+[Backend Log] GET /api/auth/profile
+[Backend Log] GET /api/acc/hubs
+[Backend Log] GET /api/auth/profile
+[Backend Log] GET /api/auth/profile
+[Backend Log] GET /api/acc/hubs
+[Backend Log] GET /api/acc/hubs
+[Backend Log] GET /api/user/preferences
+[Backend Log] GET /api/user/preferences
+[Backend Log] GET /api/acc/projects?hubId=b.ae8c2a83-81e1-438a-8a59-4540e84779c0
+[Backend Log] GET /api/acc/projects?hubId=b.ae8c2a83-81e1-438a-8a59-4540e84779c0
+[Backend Log] GET /api/acc/excel-files?projectId=b.04697a63-6349-4946-b928-9d5a05be99b0&hubId=b.ae8c2a83-81e1-438a-8a59-4540e84779c0
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.hcMKjKZ8QYaObhqUAam88g (Depth: 0)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.yZMO8EXeR5KlGQOIphOlxQ (Depth: 1)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.XuaiV4DnTG6WnclBHbBsGA (Depth: 2)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.ZC3TdrP4QL2boKQKlO9K7w (Depth: 2)
+[Backend Log] GET /api/acc/excel-files?projectId=b.04697a63-6349-4946-b928-9d5a05be99b0&hubId=b.ae8c2a83-81e1-438a-8a59-4540e84779c0
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.hcMKjKZ8QYaObhqUAam88g (Depth: 0)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.yZMO8EXeR5KlGQOIphOlxQ (Depth: 1)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.XuaiV4DnTG6WnclBHbBsGA (Depth: 2)
+[Backend Log] POST /api/automation/match
+[Matches] Request Received: {"hubId":"b.ae8c2a83-81e1-438a-8a59-4540e84779c0","projectId":"b.04697a63-6349-4946-b928-9d5a05be99b0","excelVersionId":"urn:adsk.wipprod:fs.file:vf.vcXiYLBrRjOqvDIFbiirlQ?version=86"}
+[Matches] Starting Match Process for project b.04697a63-6349-4946-b928-9d5a05be99b0
+[Excel] Fetching version details for urn:adsk.wipprod:fs.file:vf.vcXiYLBrRjOqvDIFbiirlQ?version=86
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.ZC3TdrP4QL2boKQKlO9K7w (Depth: 2)
+Fetch Excel: 1.697s
+[Matches] Excel rows: 5
+Fetch Top Folders: 447.32ms
+Recursive Search: 1.127s
+[Matches] Total DWG files found: 5
+Mapping: 3.798ms
+[Matches] Completed in 3278ms. Found 5 matches.
+[Backend Log] POST /api/automation/preview-sync
+[Excel Cache] Using cached rows for urn:adsk.wipprod:fs.file:vf.vcXiYLBrRjOqvDIFbiirlQ?version=86
+[ACC Internal] Result keys: 25
+[Backend Log] POST /api/automation/update
+
+
+[DA Update Target] Dispatching update for D4C_Sample_Drawing1
+[DA Target Fix] Injecting default 'A1 Sheet1' LayoutName for D4C_Sample_Drawing1
+[DA Payload] Raw Excel Row Properties: {
+  "DrawingName": "D4C_Sample_Drawing1",
+  "LayoutName": "A1 Sheet1",
+  "BlockName": "ISO A1 Title Block",
+  "PROJECTNAME1": "EX_Namit -1",
+  "PROJECTADDRESS1": "EX_DYN_ADD101",
+  "PROJECTADDRESS2": "EX_DYN_ADD201",
+  "PROJECTADDRESS3": "EX_DYN_ADD301",
+  "PROJECTNAME2": "EX_DYN_PN201",
+  "DATE": "EX_DYN_Date",
+  "SCALE": "EX_DYN_Scale",
+  "Block Unit": "Millimeters",
+  "Handle": "249b",
+  "Layer": "Title Block",
+  "Name ": "Block Reference",
+  "Color": "",
+  "Linetype": "",
+  "Linetype scale": "",
+  "Plot style": "",
+  "Lineweight": "",
+  "Transparency": "",
+  "Material": "",
+  "Annotative": "",
+  "Scale X": "",
+  "Scale Y": "",
+  "Scale Z": "",
+  "Rotation": "",
+  "Unit factor": "",
+  "Name": "Block Reference"
+}
+[Backend Log] POST /api/automation/push-attributes
+[ACC Push] Incoming request for project b.04697a63-6349-4946-b928-9d5a05be99b0, version urn:adsk.wipprod:fs.file:vf.5mg_kov3QEy0D0FOiV09Bg?version=53
+[ACC Push] Fetching version details for urn:adsk.wipprod:fs.file:vf.5mg_kov3QEy0D0FOiV09Bg?version=53...
+[ACC Push] Fetching item details for urn:adsk.wipprod:dm.lineage:5mg_kov3QEy0D0FOiV09Bg...
+[ACC Push] Resolved IDs - Project: 04697a63-6349-4946-b928-9d5a05be99b0, Folder: urn:adsk.wipprod:fs.folder:co.yZMO8EXeR5KlGQOIphOlxQ, Version: urn:adsk.wipprod:fs.file:vf.5mg_kov3QEy0D0FOiV09Bg
+[ACC Push] Found 25 existing definitions
+[ACC Push] Sending batch-update for 26 attributes...
+[ACC Push] Payload Preview: [{"id":8650130,"value":""},{"id":8685628,"value":"EX_Namit -1"}]...
+[ACC Push] Primary: Clean Version URN
+[ACC Push] Attempting update at: https://developer.api.autodesk.com/bim360/docs/v1/projects/04697a63-6349-4946-b928-9d5a05be99b0/versions/urn:adsk.wipprod:fs.file:vf.5mg_kov3QEy0D0FOiV09Bg/custom-attributes:batch-update
+[Backend Log] GET /api/automation/status/afe49a21d35949c289d299b2090650d5
+[ACC Push] Primary failed: The version id is invalid
+[ACC Push] Fallback 1: Raw Version ID (with suffix)
+[ACC Push] Attempting update at: https://developer.api.autodesk.com/bim360/docs/v1/projects/04697a63-6349-4946-b928-9d5a05be99b0/versions/urn:adsk.wipprod:fs.file:vf.5mg_kov3QEy0D0FOiV09Bg/custom-attributes:batch-update
+[ACC Push] Fallback 2: Item URN instead of Version URN
+[ACC Push] Attempting update at: https://developer.api.autodesk.com/bim360/docs/v1/projects/04697a63-6349-4946-b928-9d5a05be99b0/versions/urn:adsk.wipprod:dm.lineage:5mg_kov3QEy0D0FOiV09Bg/custom-attributes:batch-update
+[ACC Push] Fallback 3: Project ID WITH b. prefix
+[ACC Push] Attempting update at: https://developer.api.autodesk.com/bim360/docs/v1/projects/b.04697a63-6349-4946-b928-9d5a05be99b0/versions/urn:adsk.wipprod:fs.file:vf.5mg_kov3QEy0D0FOiV09Bg/custom-attributes:batch-update
+[Backend Log] GET /api/automation/status/afe49a21d35949c289d299b2090650d5
+[ACC Push] Fallback 4: Stripped GUID (no prefix)
+[ACC Push] Attempting update at: https://developer.api.autodesk.com/bim360/docs/v1/projects/04697a63-6349-4946-b928-9d5a05be99b0/versions/vf.5mg_kov3QEy0D0FOiV09Bg/custom-attributes:batch-update
+
+[DA Execution Report] WorkItem afe49a21d35949c289d299b2090650d5 completed with status: success
+[DA Execution Report] LOG URL: https://dasprod-store.s3.us-east-1.amazonaws.com/workItem/ZroG86fKk5oQ0g8RI2V05pydMh7BpawS2JiV1ZAQPtU3F6rF/afe49a21d35949c289d299b2090650d5/report?X-Amz-Expires=3600&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEJb%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLWVhc3QtMSJIMEYCIQCThwoNbBIw00Tw91VRH1rZyt2aWRlAlUJZjXS09CZ1qQIhAIEg0n6tjpwVfBKxublfqoZWL0%2FiHY9kxruNBB%2BfS7V9KoUECF4QBBoMMjIwNDczMTUyMzEwIgxALD7NdT%2Bw2DEsU90q4gNKHZrZS0iGsoCJCfLyrqr8hxFbbO9Uov7LDeJqEu9Tm1jMGFD%2FQ6hMyorvY9SNY34pcq8ZHcL%2BhteRCA7irPyDxv6fQunWoZS7Et0POcA6djXZDP%2BujUO7Bosfr75%2Fb61tdlYAsq%2B3qjMCkqdV3efyfR3sdnjckZXPjb4h1289wPfA8v%2F2%2B3AZWyY1Sk943xXXN62iMj6NKDDKhH%2BJxAEvpyZdriPY5PmqJxoXg41eTinuSfpN%2FVQDh5fBEnkXByMZHlfsmN3Nrbzg%2F2OCgb6nlGikSxCCeMv1nr52PrTqzgDUIPtvrU8wl3Nsx9nHWfxnvfSknysKP0WEXU%2FaghI9CmklnCfBYRnkW1Ss%2FJJf2UhmrqdizocyGkTK6qZoRfFCGdjc95u5JquwHYZf6Y0jTjtNlAcHcxVlnBGaqgjaAdQw12UdbkQlWgmI8BtZNRtfgRj68sv%2FLSMIwXv1Ykf03kTFbpP2yq1TRNPssOL4DmdWxk49wjBEwYR0gp3hrliNCoq6oyDIM4keCks%2BV9HgyxCxHebpo2PfQzIgN2cd4cXPEYcHXiycZXymZ3ZM6A%2F0QMI2ZahRjyxbiBrkFZma2L8aQKyY4hrgZ1o%2FtZ68cF0ZxRFSzbOIfnvkMYtQd%2BZ2bzDdkpfQBjqcAe0cEcVozeQiDP%2BSN6MY6eomsDyNvnZk7k7sZgZx%2BgBS5PljNUtvU9rd0YizZRc0C%2FLMUDru5PgTRaZPvgBkZWCU9ykmymWulvcs%2BasxgqJrLRYsYFv77I4%2B7%2F9%2BtazLrUSnzEP1pZLZ4q6klJUjbXnHlPwjz0BT63mNwzXZUoS5ZQUayehJCQTKulKMD1eA9hrLRU2tQa3z46wDRQ%3D%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIATGVJZKM3JCMEDYL3%2F20260514%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260514T130845Z&X-Amz-SignedHeaders=host&X-Amz-Signature=6ba530edc379877e43e055ff93a0657fc7ba7282ad615f05e6caa3481d75e70c
+[ACC Attributes Error] {
+  code: 'ERR_BAD_INPUT',
+  title: 'The request has invalid header or body',
+  detail: 'The version id is invalid'
+}
+6:38:46 PM [vite] (client) [console.error] [Parallel Sync Error] ACC Push failed: AxiosError: Request failed with status code 500
+    at settle (http://localhost:5173/node_modules/.vite/deps/axios.js?v=a60462fe:1634:14)
+    at XMLHttpRequest.onloadend (http://localhost:5173/node_modules/.vite/deps/axios.js?v=a60462fe:1951:4)
+    at Axios$1.request (http://localhost:5173/node_modules/.vite/deps/axios.js?v=a60462fe:2520:37)
+[Commit Success] WorkItem afe49a21d35949c289d299b2090650d5 committed as version 54. URN: urn:adsk.wipprod:fs.file:vf.5mg_kov3QEy0D0FOiV09Bg?version=54
+[Backend Log] GET /api/automation/status/afe49a21d35949c289d299b2090650d5
+6:40:17 PM [vite] (client) hmr update /src/App.jsx
+6:40:27 PM [vite] (client) hmr update /src/App.jsx
+sh: line 1: 94114 Terminated: 15          node index.js
+
+> aps-titleblock-automation-stable-2-0@1.0.0 dev
+> npm run dev:server & npm run dev:client
+
+
+> aps-titleblock-automation-stable-2-0@1.0.0 dev:server
+> cd server && node index.js
+
+
+> aps-titleblock-automation-stable-2-0@1.0.0 dev:client
+> cd client && npm run dev
+
+
+> client@1.0.0 dev
+> vite
+
+[dotenv@17.3.1] injecting env (6) from .env.local -- tip: 🔐 encrypt with Dotenvx: https://dotenvx.com
+[dotenv@17.3.1] injecting env (6) from .env -- tip: ⚙️  override existing env vars with { override: true }
+Stable Forensic Engine on 5175
+
+  VITE v8.0.3  ready in 122 ms
+
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: use --host to expose
+[Backend Log] GET /api/auth/profile
+[Backend Log] GET /api/auth/profile
+[Backend Log] GET /api/acc/hubs
+[Backend Log] GET /api/acc/hubs
+[Backend Log] GET /api/user/preferences
+[Backend Log] GET /api/acc/projects?hubId=b.ae8c2a83-81e1-438a-8a59-4540e84779c0
+[Backend Log] GET /api/user/preferences
+[Backend Log] GET /api/acc/excel-files?projectId=b.04697a63-6349-4946-b928-9d5a05be99b0&hubId=b.ae8c2a83-81e1-438a-8a59-4540e84779c0
+[Backend Log] GET /api/acc/projects?hubId=b.ae8c2a83-81e1-438a-8a59-4540e84779c0
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.hcMKjKZ8QYaObhqUAam88g (Depth: 0)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.yZMO8EXeR5KlGQOIphOlxQ (Depth: 1)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.XuaiV4DnTG6WnclBHbBsGA (Depth: 2)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.ZC3TdrP4QL2boKQKlO9K7w (Depth: 2)
+[Backend Log] GET /api/acc/excel-files?projectId=b.04697a63-6349-4946-b928-9d5a05be99b0&hubId=b.ae8c2a83-81e1-438a-8a59-4540e84779c0
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.hcMKjKZ8QYaObhqUAam88g (Depth: 0)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.yZMO8EXeR5KlGQOIphOlxQ (Depth: 1)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.XuaiV4DnTG6WnclBHbBsGA (Depth: 2)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.ZC3TdrP4QL2boKQKlO9K7w (Depth: 2)
+[Backend Log] POST /api/automation/match
+[Matches] Request Received: {"hubId":"b.ae8c2a83-81e1-438a-8a59-4540e84779c0","projectId":"b.04697a63-6349-4946-b928-9d5a05be99b0","excelVersionId":"urn:adsk.wipprod:fs.file:vf.vcXiYLBrRjOqvDIFbiirlQ?version=86"}
+[Matches] Starting Match Process for project b.04697a63-6349-4946-b928-9d5a05be99b0
+[Excel] Fetching version details for urn:adsk.wipprod:fs.file:vf.vcXiYLBrRjOqvDIFbiirlQ?version=86
+Fetch Excel: 1.666s
+[Matches] Excel rows: 5
+Fetch Top Folders: 492.108ms
+Recursive Search: 1.213s
+[Matches] Total DWG files found: 5
+Mapping: 1.211ms
+[Matches] Completed in 3374ms. Found 5 matches.
+[Backend Log] POST /api/automation/preview-sync
+[Excel Cache] Using cached rows for urn:adsk.wipprod:fs.file:vf.vcXiYLBrRjOqvDIFbiirlQ?version=86
+[ACC Internal] Result keys: 25
+[Backend Log] POST /api/automation/update
+
+
+[DA Update Target] Dispatching update for D4C_Sample_Drawing1
+[DA Target Fix] Injecting default 'A1 Sheet1' LayoutName for D4C_Sample_Drawing1
+[DA Payload] Raw Excel Row Properties: {
+  "DrawingName": "D4C_Sample_Drawing1",
+  "LayoutName": "A1 Sheet1",
+  "BlockName": "ISO A1 Title Block",
+  "PROJECTNAME1": "EX_Namit -1",
+  "PROJECTADDRESS1": "EX_DYN_ADD101",
+  "PROJECTADDRESS2": "EX_DYN_ADD201",
+  "PROJECTADDRESS3": "EX_DYN_ADD301",
+  "PROJECTNAME2": "EX_DYN_PN201",
+  "DATE": "EX_DYN_Date",
+  "SCALE": "EX_DYN_Scale",
+  "Block Unit": "Millimeters",
+  "Handle": "249b",
+  "Layer": "Title Block",
+  "Name ": "Block Reference",
+  "Color": "",
+  "Linetype": "",
+  "Linetype scale": "",
+  "Plot style": "",
+  "Lineweight": "",
+  "Transparency": "",
+  "Material": "",
+  "Annotative": "",
+  "Scale X": "",
+  "Scale Y": "",
+  "Scale Z": "",
+  "Rotation": "",
+  "Unit factor": "",
+  "Name": "Block Reference"
+}
+[Backend Log] POST /api/automation/acc-push
+[ACC Push] Syncing attributes for version urn:adsk.wipprod:fs.file:vf.5mg_kov3QEy0D0FOiV09Bg?version=54 in project b.04697a63-6349-4946-b928-9d5a05be99b0
+[Backend Log] GET /api/automation/status/f1047eeb32aa4e6d9e77e6b1397c9e43
+
+[DA Execution Report] WorkItem f1047eeb32aa4e6d9e77e6b1397c9e43 completed with status: success
+[DA Execution Report] LOG URL: https://dasprod-store.s3.us-east-1.amazonaws.com/workItem/ZroG86fKk5oQ0g8RI2V05pydMh7BpawS2JiV1ZAQPtU3F6rF/f1047eeb32aa4e6d9e77e6b1397c9e43/report?X-Amz-Expires=3600&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEJb%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLWVhc3QtMSJIMEYCIQC2cHA%2BGGxLgQggzIwKjg1FrxQD8x04ng3ka3GZEP19JQIhAOvTJdOj0YDmfqavrcNRuS2zcjlvtOT%2Fx0go4ZTr%2BdHXKoUECF4QBBoMMjIwNDczMTUyMzEwIgz%2BaP78D6JvYzaF5ekq4gNQWpftbAEDsnWWXfm%2BwphHDDX0JPduDtFCerJCizsaxXKVkXVdHx4nvz%2B3AU2z%2B3vMihb0MzEpl9a7cyvevtMAlNm%2FVgnh0PTu%2BKV1uA22q0lZjhpJbQZ4Wic5EcVBbvuXjOBQ%2FHS5Rnhhlw2Z6KCQysKXtwdqv3DyAR24gnKdq9YD9T8GUcQDhQcUXQKEase6m1VHLbNMYsTc6HA8ml0fmXR%2FcFDd%2FTsCuD6mSAZBWL6VVhZ6oxWnohVWAXRqFpwb4m%2Fuxjiaz33kns85kfjIoLS93G9xX%2BB2D2%2FWKxulq75BPz%2BWmaqNIVVwjkVMTgCoEgM%2FohArJmdFto%2FFdaoEmVDNNr54Aon0fUbe%2BCARos214J%2BKoPGu%2F6h1sB74d9byiQJWepqThv3%2FHsAYYcrBpZr7Q%2FNi%2FrFwfzR3W1UnDWv3sVYRnKydnch2CgL20r0xo%2Fnc93pEZnW%2FrAif1FFTCCuaYbiYgX%2Fyzm6%2BqT5XTHqjkkJFBwSSNtN0A8LbYrFllAjXn1GqBEw5tdfmQ2ZDbFkoZcaS11pumy09l557t%2BNllsr5cUspqM%2Bc03y89Zrk8OMehsGJ7tOMX1REQavbi%2FO5vMuIQcmSiTDqX6JnwvR84jlInGLWQ%2BuiMQIWZi4O7TC5lJfQBjqcAVuoPxttHWvtbd0C9Z%2F1KUH1UQBFnQdIZYEN72PVawPqZGNv2CfhFrW5%2B%2BLPws2chwN9k4BiBrjf6ufngAwYfGgQl43vtDO%2BW4hdy9isvu3z8%2BrFFCuTqEmyDI3reBdf%2FWyoxIOcTrE5OLuXd0588paFUUjyWyGFLRj6QZT0kESA9nANaDyAIebhPX%2Fhsfank4ar56mCr2O39o2GRw%3D%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIATGVJZKM3A4BH7HWO%2F20260514%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260514T131225Z&X-Amz-SignedHeaders=host&X-Amz-Signature=c6abec4cc1308b6f1db1ecb5e3413c57d35a9e335d694498be60067add3c8a1f
+[Backend Log] GET /api/automation/status/f1047eeb32aa4e6d9e77e6b1397c9e43
+[Commit Success] WorkItem f1047eeb32aa4e6d9e77e6b1397c9e43 committed as version 55. URN: urn:adsk.wipprod:fs.file:vf.5mg_kov3QEy0D0FOiV09Bg?version=55
+[Backend Log] POST /api/automation/match
+[Matches] Request Received: {"hubId":"b.ae8c2a83-81e1-438a-8a59-4540e84779c0","projectId":"b.04697a63-6349-4946-b928-9d5a05be99b0","excelVersionId":"urn:adsk.wipprod:fs.file:vf.vcXiYLBrRjOqvDIFbiirlQ?version=86"}
+[Matches] Starting Match Process for project b.04697a63-6349-4946-b928-9d5a05be99b0
+[Excel] Fetching version details for urn:adsk.wipprod:fs.file:vf.vcXiYLBrRjOqvDIFbiirlQ?version=86
+Fetch Excel: 2.012s
+[Matches] Excel rows: 5
+Fetch Top Folders: 466.781ms
+6:43:22 PM [vite] (client) hmr update /src/App.jsx
+Recursive Search: 1.193s
+[Matches] Total DWG files found: 5
+Mapping: 0.542ms
+[Matches] Completed in 3673ms. Found 5 matches.
+[Backend Log] POST /api/automation/preview-sync
+[ACC Internal] Result keys: 25
+[Excel Cache] Using cached rows for urn:adsk.wipprod:fs.file:vf.vcXiYLBrRjOqvDIFbiirlQ?version=86
+[Backend Log] POST /api/automation/update
+
+
+[DA Update Target] Dispatching update for D4C_Sample_Drawing1
+[DA Target Fix] Injecting default 'A1 Sheet1' LayoutName for D4C_Sample_Drawing1
+[DA Payload] Raw Excel Row Properties: {
+  "DrawingName": "D4C_Sample_Drawing1",
+  "LayoutName": "A1 Sheet1",
+  "BlockName": "ISO A1 Title Block",
+  "PROJECTNAME1": "EX_Namit -12",
+  "PROJECTADDRESS1": "EX_DYN_ADD101",
+  "PROJECTADDRESS2": "EX_DYN_ADD201",
+  "PROJECTADDRESS3": "EX_DYN_ADD301",
+  "PROJECTNAME2": "EX_DYN_PN201",
+  "DATE": "EX_DYN_Date",
+  "SCALE": "EX_DYN_Scale",
+  "Block Unit": "Millimeters",
+  "Handle": "249b",
+  "Layer": "Title Block",
+  "Name ": "Block Reference",
+  "Color": "",
+  "Linetype": "",
+  "Linetype scale": "",
+  "Plot style": "",
+  "Lineweight": "",
+  "Transparency": "",
+  "Material": "",
+  "Annotative": "",
+  "Scale X": "",
+  "Scale Y": "",
+  "Scale Z": "",
+  "Rotation": "",
+  "Unit factor": "",
+  "Name": "Block Reference"
+}
+sh: line 1: 94277 Terminated: 15          node index.js
+
+> aps-titleblock-automation-stable-2-0@1.0.0 dev
+> npm run dev:server & npm run dev:client
+
+
+> aps-titleblock-automation-stable-2-0@1.0.0 dev:client
+> cd client && npm run dev
+
+
+> aps-titleblock-automation-stable-2-0@1.0.0 dev:server
+> cd server && node index.js
+
+
+> client@1.0.0 dev
+> vite
+
+[dotenv@17.3.1] injecting env (6) from .env.local -- tip: 🔐 prevent building .env in docker: https://dotenvx.com/prebuild
+[dotenv@17.3.1] injecting env (6) from .env -- tip: ⚡️ secrets for agents: https://dotenvx.com/as2
+Stable Forensic Engine on 5175
+
+  VITE v8.0.3  ready in 123 ms
+
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: use --host to expose
+[Backend Log] GET /api/auth/profile
+[Backend Log] GET /api/auth/profile
+[Backend Log] GET /api/acc/hubs
+[Backend Log] GET /api/acc/hubs
+[Backend Log] GET /api/user/preferences
+[Backend Log] GET /api/acc/projects?hubId=b.ae8c2a83-81e1-438a-8a59-4540e84779c0
+[Backend Log] GET /api/user/preferences
+[Backend Log] GET /api/acc/projects?hubId=b.ae8c2a83-81e1-438a-8a59-4540e84779c0
+[Backend Log] GET /api/acc/excel-files?projectId=b.04697a63-6349-4946-b928-9d5a05be99b0&hubId=b.ae8c2a83-81e1-438a-8a59-4540e84779c0
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.hcMKjKZ8QYaObhqUAam88g (Depth: 0)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.yZMO8EXeR5KlGQOIphOlxQ (Depth: 1)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.XuaiV4DnTG6WnclBHbBsGA (Depth: 2)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.ZC3TdrP4QL2boKQKlO9K7w (Depth: 2)
+[Backend Log] GET /api/acc/excel-files?projectId=b.04697a63-6349-4946-b928-9d5a05be99b0&hubId=b.ae8c2a83-81e1-438a-8a59-4540e84779c0
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.hcMKjKZ8QYaObhqUAam88g (Depth: 0)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.yZMO8EXeR5KlGQOIphOlxQ (Depth: 1)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.XuaiV4DnTG6WnclBHbBsGA (Depth: 2)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.ZC3TdrP4QL2boKQKlO9K7w (Depth: 2)
+[Backend Log] POST /api/automation/match
+[Matches] Request Received: {"hubId":"b.ae8c2a83-81e1-438a-8a59-4540e84779c0","projectId":"b.04697a63-6349-4946-b928-9d5a05be99b0","excelVersionId":"urn:adsk.wipprod:fs.file:vf.vcXiYLBrRjOqvDIFbiirlQ?version=86"}
+[Matches] Starting Match Process for project b.04697a63-6349-4946-b928-9d5a05be99b0
+[Excel] Fetching version details for urn:adsk.wipprod:fs.file:vf.vcXiYLBrRjOqvDIFbiirlQ?version=86
+Fetch Excel: 2.070s
+[Matches] Excel rows: 5
+Fetch Top Folders: 470.012ms
+Recursive Search: 1.185s
+[Matches] Total DWG files found: 5
+Mapping: 8.251ms
+[Matches] Completed in 3735ms. Found 5 matches.
+[Backend Log] POST /api/automation/preview-sync
+[ACC Internal] Result keys: 25
+[Excel Cache] Using cached rows for urn:adsk.wipprod:fs.file:vf.vcXiYLBrRjOqvDIFbiirlQ?version=86
+[Backend Log] POST /api/automation/update
+
+
+[DA Update Target] Dispatching update for D4C_Sample_Drawing1
+[DA Target Fix] Injecting default 'A1 Sheet1' LayoutName for D4C_Sample_Drawing1
+[DA Payload] Raw Excel Row Properties: {
+  "DrawingName": "D4C_Sample_Drawing1",
+  "LayoutName": "A1 Sheet1",
+  "BlockName": "ISO A1 Title Block",
+  "PROJECTNAME1": "EX_Namit -12",
+  "PROJECTADDRESS1": "EX_DYN_ADD101",
+  "PROJECTADDRESS2": "EX_DYN_ADD201",
+  "PROJECTADDRESS3": "EX_DYN_ADD301",
+  "PROJECTNAME2": "EX_DYN_PN201",
+  "DATE": "EX_DYN_Date",
+  "SCALE": "EX_DYN_Scale",
+  "Block Unit": "Millimeters",
+  "Handle": "249b",
+  "Layer": "Title Block",
+  "Name ": "Block Reference",
+  "Color": "",
+  "Linetype": "",
+  "Linetype scale": "",
+  "Plot style": "",
+  "Lineweight": "",
+  "Transparency": "",
+  "Material": "",
+  "Annotative": "",
+  "Scale X": "",
+  "Scale Y": "",
+  "Scale Z": "",
+  "Rotation": "",
+  "Unit factor": "",
+  "Name": "Block Reference"
+}
+[Backend Log] POST /api/automation/commit-extract
+[Excel Cache] Using cached rows for urn:adsk.wipprod:fs.file:vf.vcXiYLBrRjOqvDIFbiirlQ?version=86
+[Backend Log] GET /api/automation/status/9bb1bf26343548789399d84b221386f5
+[Backend Log] GET /api/automation/status/9bb1bf26343548789399d84b221386f5
+[Backend Log] GET /api/acc/excel-files?projectId=b.04697a63-6349-4946-b928-9d5a05be99b0&hubId=b.ae8c2a83-81e1-438a-8a59-4540e84779c0
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.hcMKjKZ8QYaObhqUAam88g (Depth: 0)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.yZMO8EXeR5KlGQOIphOlxQ (Depth: 1)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.XuaiV4DnTG6WnclBHbBsGA (Depth: 2)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.ZC3TdrP4QL2boKQKlO9K7w (Depth: 2)
+[Backend Log] GET /api/automation/status/9bb1bf26343548789399d84b221386f5
+
+[DA Execution Report] WorkItem 9bb1bf26343548789399d84b221386f5 completed with status: success
+[DA Execution Report] LOG URL: https://dasprod-store.s3.us-east-1.amazonaws.com/workItem/ZroG86fKk5oQ0g8RI2V05pydMh7BpawS2JiV1ZAQPtU3F6rF/9bb1bf26343548789399d84b221386f5/report?X-Amz-Expires=3600&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEJb%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLWVhc3QtMSJGMEQCIHHYkjZMMhYCv2r%2Fd0voKjllp54KMFtwPGWMRCszmLxTAiBCJQxLkTusJV3PYOWHVE0Mg%2F8XN1xfnqQZ2UuHJvxwpiqGBAheEAQaDDIyMDQ3MzE1MjMxMCIM2%2FEoN0WxRrreqCVnKuMDjryNdj5j4IGh%2FrNbyLRtTemeZ5hvm7AnxcYUR%2FKR1oe7Q3dvsKl%2F4%2Fc3IKHp5pvUd35AqHCQSSitdvVLQAO3Q%2FR4I2UEHdlg4Ghxg4nL2U%2FVlcjomS9JnYUFywc4RfnTglQda2oo%2FIuNs38D2bCz10Z7k%2BN1rPc6tOA1ZXqYmfqAk6vZlIq9C0pid%2F1WPaFnkyDM9M6DN1YM2Y%2FrGKDwG9fV%2BiESlZGqNqmQSeZgB%2F5eIwKELR5J1eVgCYwaUODL0F%2FU%2BEJFJF%2B6DDF1julicxriQro6%2FOMWpLS7FPKlOyBoOeVXc2eRG9fhAOrjExtviJ9gAOGPjV%2BJFBl4eJvPYVkAqAN2N2BWIxTQ0ryrC%2BxH0GZDsG6HtqJ6STH3zkQDBoJfzJtUOcFs9Mkf37GGOEv8efaPs0jUfxwKn0SSQu7EleRsiNO9%2FjmKEET0X53XGKqXdapEJwQpJATxEOLP79x2evYRRAiPyW%2BxQeLGd7d6V3ipeGvu9zPkkmvVuLXNxEfBPiisQt%2F7NEuk99bboiliLo0z2Z6ch%2FuMakaIhZSwVcuwzHXam50UxXf6W%2BWUEdpb%2B9Rl4P5tFFZery%2FmQtfZBFxp0tD1ufOiqcGeFhbXjjylIxBzJL2Gx7NQzLnbqyJ8MJyVl9AGOp4BMiIqt3zbMzFGuiArggAQTfFX6LPHiuHPpooQ0FthjNxeuQWoOBEceqfQCIVvsGHHDjHErJqE1gV%2BGiiAbEycEJSv72L1l6%2B8KLMH78aOaU8Gfp6N7tZfuI%2B2Q%2BQOOG%2FqHz2OiSRttD%2BFjBx2VxQxcKZIoFyRNgNl9A3d9QK5jQCO3ifs5PxnAP576Qf6SUdNIbXPe9vhvGhLoOhyh0k%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIATGVJZKM3PQO6BECF%2F20260514%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260514T131404Z&X-Amz-SignedHeaders=host&X-Amz-Signature=0e3f1e84b20ef3f8f1389269885097a57501df6a8df91b93bc37e5180cbaec48
+[Commit Success] WorkItem 9bb1bf26343548789399d84b221386f5 committed as version 56. URN: urn:adsk.wipprod:fs.file:vf.5mg_kov3QEy0D0FOiV09Bg?version=56
+[Backend Log] GET /api/automation/status/9bb1bf26343548789399d84b221386f5
+[Backend Log] GET /api/auth/profile
+[Backend Log] GET /api/auth/profile
+[Backend Log] GET /api/acc/hubs
+[Backend Log] GET /api/acc/hubs
+[Backend Log] GET /api/user/preferences
+[Backend Log] GET /api/acc/projects?hubId=b.ae8c2a83-81e1-438a-8a59-4540e84779c0
+[Backend Log] GET /api/user/preferences
+[Backend Log] GET /api/acc/excel-files?projectId=b.04697a63-6349-4946-b928-9d5a05be99b0&hubId=b.ae8c2a83-81e1-438a-8a59-4540e84779c0
+[Backend Log] GET /api/acc/projects?hubId=b.ae8c2a83-81e1-438a-8a59-4540e84779c0
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.hcMKjKZ8QYaObhqUAam88g (Depth: 0)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.yZMO8EXeR5KlGQOIphOlxQ (Depth: 1)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.XuaiV4DnTG6WnclBHbBsGA (Depth: 2)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.ZC3TdrP4QL2boKQKlO9K7w (Depth: 2)
+[Backend Log] GET /api/acc/excel-files?projectId=b.04697a63-6349-4946-b928-9d5a05be99b0&hubId=b.ae8c2a83-81e1-438a-8a59-4540e84779c0
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.hcMKjKZ8QYaObhqUAam88g (Depth: 0)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.yZMO8EXeR5KlGQOIphOlxQ (Depth: 1)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.XuaiV4DnTG6WnclBHbBsGA (Depth: 2)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.ZC3TdrP4QL2boKQKlO9K7w (Depth: 2)
+[Backend Log] POST /api/automation/match
+[Matches] Request Received: {"hubId":"b.ae8c2a83-81e1-438a-8a59-4540e84779c0","projectId":"b.04697a63-6349-4946-b928-9d5a05be99b0","excelVersionId":"urn:adsk.wipprod:fs.file:vf.vcXiYLBrRjOqvDIFbiirlQ?version=88"}
+[Matches] Starting Match Process for project b.04697a63-6349-4946-b928-9d5a05be99b0
+[Excel] Fetching version details for urn:adsk.wipprod:fs.file:vf.vcXiYLBrRjOqvDIFbiirlQ?version=88
+Fetch Excel: 1.735s
+[Matches] Excel rows: 5
+Fetch Top Folders: 532.752ms
+Recursive Search: 1.139s
+[Matches] Total DWG files found: 5
+Mapping: 2.49ms
+[Matches] Completed in 3410ms. Found 5 matches.
+[Backend Log] POST /api/automation/preview-sync
+[ACC Internal] Result keys: 25
+[Excel Cache] Using cached rows for urn:adsk.wipprod:fs.file:vf.vcXiYLBrRjOqvDIFbiirlQ?version=88
+[Backend Log] POST /api/automation/update
+
+
+[DA Update Target] Dispatching update for D4C_Sample_Drawing1
+[DA Target Fix] Injecting default 'A1 Sheet1' LayoutName for D4C_Sample_Drawing1
+[DA Payload] Raw Excel Row Properties: {
+  "DrawingName": "D4C_Sample_Drawing1",
+  "LayoutName": "A1 Sheet1",
+  "BlockName": "ISO A1 Title Block",
+  "PROJECTNAME1": "EX_Namit -123",
+  "PROJECTADDRESS1": "EX_DYN_ADD101",
+  "PROJECTADDRESS2": "EX_DYN_ADD201",
+  "PROJECTADDRESS3": "EX_DYN_ADD301",
+  "PROJECTNAME2": "EX_DYN_PN201",
+  "DATE": "EX_DYN_Date",
+  "SCALE": "EX_DYN_Scale",
+  "Block Unit": "Millimeters",
+  "Handle": "249b",
+  "Layer": "Title Block",
+  "Name ": "",
+  "Color": "",
+  "Linetype": "",
+  "Linetype scale": "",
+  "Plot style": "",
+  "Lineweight": "",
+  "Transparency": "",
+  "Material": "",
+  "Annotative": "",
+  "Scale X": "",
+  "Scale Y": "",
+  "Scale Z": "",
+  "Rotation": "",
+  "Unit factor": "",
+  "Name": "Block Reference"
+}
+[Backend Log] POST /api/automation/commit-extract
+[Excel Cache] Using cached rows for urn:adsk.wipprod:fs.file:vf.vcXiYLBrRjOqvDIFbiirlQ?version=88
+[Backend Log] GET /api/automation/status/9e5907ca6a7a4d9185d042107c60a794
+
+[DA Execution Report] WorkItem 9e5907ca6a7a4d9185d042107c60a794 completed with status: success
+[DA Execution Report] LOG URL: https://dasprod-store.s3.us-east-1.amazonaws.com/workItem/ZroG86fKk5oQ0g8RI2V05pydMh7BpawS2JiV1ZAQPtU3F6rF/9e5907ca6a7a4d9185d042107c60a794/report?X-Amz-Expires=3600&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEJb%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLWVhc3QtMSJGMEQCIAX3wQ1EOOELDnykDeK%2FD0CR1J0VQ%2BAqlKRauF78ga0bAiBDminnXUSMlnfWmQKwuyE7mwsn8Yd2Jl0cQTrg74yrwSqFBAheEAQaDDIyMDQ3MzE1MjMxMCIM%2FOT8r5dIrvgviV97KuID6ytRn6B%2BqXuvQqzn5s%2BdfPYhnrFRP55nuuM5XUFnvgBio5651LGhj3lGxzJJJkMM7CKXCHm%2Bzk7SeU1rx7yTWXlfInPQF0QOYPVGervaNRIlIGJTrqSm05N7zly%2FLojbtWFv2dDU5rqlZapoSEWW%2BKAAFDNTSszUvYY06Ltbs0%2Bj6JUUgOmaTXJGDORW4qHgLjF%2FqUBW8Pgo0tVqePE7WG73Zz53EiKvxKyDc70IfC3eioYLZlVvmx3F9lFF62a%2B3VBBafwUdC%2FR%2BIR1dIvB7jEzQDpjOvaRgyhK5WtJBaY4f23YYe%2F7X3STE0Lsqo6tpqC2BXbonGSYhURkSRxrdnWEt90xdBA6dfdl%2BW5JigEVi9tM6GxvFVvEciRtlb5w19%2FTFfbBE1h8PKtOXvD0H4xCbXxNpK6UT5FhSrC4WZcen7DWCRoR3KnEQYd4PExYQ54pa3dytsFE6XMsTAxAE7VPciE34dHa51r2QXCExpVVTnJkXgjfhU1d8juY8J7S%2FJ9hxfCRfqKK23l%2FY2PJuoqcbFWtRDeH%2FRjWyhOaD0KrXkIZyFZclZgG2wWcfo6YQC7GLUMfc%2BKuHrnndQUz1t9sTI2LfW7ahMlrlxjhhyzr%2BRIFlz3N8%2FZbTrqlNmMOnicwoJaX0AY6ngHPtWm%2FWeAhb15w8xq%2BD5bAYKVuB7mCvONA%2FsWVvJk%2FKnklE3YZerkVjJXnGwijR8kjAN84tZKrPleIqDVovaOM3Q%2BaHdkBd1h1Ng5gAp4Kpzb52WJtsMbavMdjRexkc7UiTVomCqW6HB6Yd%2FzcdnRJDzhKAAzjrbSOggu%2BDZPfx6sals8Vx7mhgORvm7JjkmQgMVikV810B89NHgiWjg%3D%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIATGVJZKM3MDIOM2UO%2F20260514%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260514T131616Z&X-Amz-SignedHeaders=host&X-Amz-Signature=d420041848448e56364dcdadbb81b5a385885040bc8f716beaf067af6fe7b170
+[Backend Log] GET /api/automation/status/9e5907ca6a7a4d9185d042107c60a794
+[Commit Success] WorkItem 9e5907ca6a7a4d9185d042107c60a794 committed as version 57. URN: urn:adsk.wipprod:fs.file:vf.5mg_kov3QEy0D0FOiV09Bg?version=57
+[Backend Log] GET /api/acc/excel-files?projectId=b.04697a63-6349-4946-b928-9d5a05be99b0&hubId=b.ae8c2a83-81e1-438a-8a59-4540e84779c0
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.hcMKjKZ8QYaObhqUAam88g (Depth: 0)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.yZMO8EXeR5KlGQOIphOlxQ (Depth: 1)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.XuaiV4DnTG6WnclBHbBsGA (Depth: 2)
+[Backend Log] GET /api/automation/status/9e5907ca6a7a4d9185d042107c60a794
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.ZC3TdrP4QL2boKQKlO9K7w (Depth: 2)
+[Backend Log] GET /api/auth/profile
+[Backend Log] GET /api/auth/profile
+[Backend Log] GET /api/acc/hubs
+[Backend Log] GET /api/acc/hubs
+[Backend Log] GET /api/user/preferences
+[Backend Log] GET /api/acc/projects?hubId=b.ae8c2a83-81e1-438a-8a59-4540e84779c0
+[Backend Log] GET /api/user/preferences
+[Backend Log] GET /api/acc/excel-files?projectId=b.04697a63-6349-4946-b928-9d5a05be99b0&hubId=b.ae8c2a83-81e1-438a-8a59-4540e84779c0
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.hcMKjKZ8QYaObhqUAam88g (Depth: 0)
+[Backend Log] GET /api/acc/projects?hubId=b.ae8c2a83-81e1-438a-8a59-4540e84779c0
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.yZMO8EXeR5KlGQOIphOlxQ (Depth: 1)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.XuaiV4DnTG6WnclBHbBsGA (Depth: 2)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.ZC3TdrP4QL2boKQKlO9K7w (Depth: 2)
+[Backend Log] GET /api/acc/excel-files?projectId=b.04697a63-6349-4946-b928-9d5a05be99b0&hubId=b.ae8c2a83-81e1-438a-8a59-4540e84779c0
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.hcMKjKZ8QYaObhqUAam88g (Depth: 0)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.yZMO8EXeR5KlGQOIphOlxQ (Depth: 1)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.XuaiV4DnTG6WnclBHbBsGA (Depth: 2)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.ZC3TdrP4QL2boKQKlO9K7w (Depth: 2)
+6:53:01 PM [vite] (client) hmr update /src/App.jsx
+[Backend Log] GET /api/auth/profile
+[Backend Log] GET /api/acc/hubs
+[Backend Log] GET /api/auth/profile
+[Backend Log] GET /api/user/preferences
+[Backend Log] GET /api/acc/hubs
+[Backend Log] GET /api/user/preferences
+[Backend Log] GET /api/acc/projects?hubId=b.ae8c2a83-81e1-438a-8a59-4540e84779c0
+[Backend Log] GET /api/acc/projects?hubId=b.ae8c2a83-81e1-438a-8a59-4540e84779c0
+[Backend Log] GET /api/acc/excel-files?projectId=b.04697a63-6349-4946-b928-9d5a05be99b0&hubId=b.ae8c2a83-81e1-438a-8a59-4540e84779c0
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.hcMKjKZ8QYaObhqUAam88g (Depth: 0)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.yZMO8EXeR5KlGQOIphOlxQ (Depth: 1)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.XuaiV4DnTG6WnclBHbBsGA (Depth: 2)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.ZC3TdrP4QL2boKQKlO9K7w (Depth: 2)
+[Backend Log] GET /api/acc/excel-files?projectId=b.04697a63-6349-4946-b928-9d5a05be99b0&hubId=b.ae8c2a83-81e1-438a-8a59-4540e84779c0
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.hcMKjKZ8QYaObhqUAam88g (Depth: 0)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.yZMO8EXeR5KlGQOIphOlxQ (Depth: 1)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.XuaiV4DnTG6WnclBHbBsGA (Depth: 2)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.ZC3TdrP4QL2boKQKlO9K7w (Depth: 2)
+6:53:24 PM [vite] (client) hmr update /src/App.jsx
+sh: line 1: 94502 Terminated: 15          node index.js
+
+> aps-titleblock-automation-stable-2-0@1.0.0 dev
+> npm run dev:server & npm run dev:client
+
+
+> aps-titleblock-automation-stable-2-0@1.0.0 dev:client
+> cd client && npm run dev
+
+
+> aps-titleblock-automation-stable-2-0@1.0.0 dev:server
+> cd server && node index.js
+
+
+> client@1.0.0 dev
+> vite
+
+[dotenv@17.3.1] injecting env (6) from .env.local -- tip: 🛠️  run anywhere with `dotenvx run -- yourcommand`
+[dotenv@17.3.1] injecting env (6) from .env -- tip: ⚙️  write to custom object with { processEnv: myObject }
+Stable Forensic Engine on 5175
+
+  VITE v8.0.3  ready in 141 ms
+
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: use --host to expose
+[Backend Log] GET /api/auth/profile
+[Backend Log] GET /api/auth/profile
+[Backend Log] GET /api/acc/hubs
+[Backend Log] GET /api/acc/hubs
+[Backend Log] GET /api/user/preferences
+[Backend Log] GET /api/acc/projects?hubId=b.ae8c2a83-81e1-438a-8a59-4540e84779c0
+[Backend Log] GET /api/user/preferences
+[Backend Log] GET /api/acc/projects?hubId=b.ae8c2a83-81e1-438a-8a59-4540e84779c0
+[Backend Log] GET /api/acc/excel-files?projectId=b.04697a63-6349-4946-b928-9d5a05be99b0&hubId=b.ae8c2a83-81e1-438a-8a59-4540e84779c0
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.hcMKjKZ8QYaObhqUAam88g (Depth: 0)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.yZMO8EXeR5KlGQOIphOlxQ (Depth: 1)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.XuaiV4DnTG6WnclBHbBsGA (Depth: 2)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.ZC3TdrP4QL2boKQKlO9K7w (Depth: 2)
+[Backend Log] GET /api/acc/excel-files?projectId=b.04697a63-6349-4946-b928-9d5a05be99b0&hubId=b.ae8c2a83-81e1-438a-8a59-4540e84779c0
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.hcMKjKZ8QYaObhqUAam88g (Depth: 0)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.yZMO8EXeR5KlGQOIphOlxQ (Depth: 1)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.XuaiV4DnTG6WnclBHbBsGA (Depth: 2)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.ZC3TdrP4QL2boKQKlO9K7w (Depth: 2)
+[Backend Log] GET /api/acc/folders?hubId=b.ae8c2a83-81e1-438a-8a59-4540e84779c0&projectId=b.04697a63-6349-4946-b928-9d5a05be99b0
+[Backend Log] POST /api/automation/match
+[Matches] Request Received: {"hubId":"b.ae8c2a83-81e1-438a-8a59-4540e84779c0","projectId":"b.04697a63-6349-4946-b928-9d5a05be99b0","excelVersionId":"urn:adsk.wipprod:fs.file:vf.vcXiYLBrRjOqvDIFbiirlQ?version=89","folderIds":["urn:adsk.wipprod:fs.folder:co.ZC3TdrP4QL2boKQKlO9K7w"]}
+[Excel] Fetching version details for urn:adsk.wipprod:fs.file:vf.vcXiYLBrRjOqvDIFbiirlQ?version=89
+Recursive Search: 352.834ms
+[Matches] Total DWG files found: 0
+Mapping: 2.895ms
+[Matches] Completed in 2376ms. Found 0 matches.
+[Backend Log] POST /api/automation/match
+[Matches] Request Received: {"hubId":"b.ae8c2a83-81e1-438a-8a59-4540e84779c0","projectId":"b.04697a63-6349-4946-b928-9d5a05be99b0","excelVersionId":"urn:adsk.wipprod:fs.file:vf.vcXiYLBrRjOqvDIFbiirlQ?version=89","folderIds":["urn:adsk.wipprod:fs.folder:co.XuaiV4DnTG6WnclBHbBsGA"]}
+[Excel Cache] Using cached rows for urn:adsk.wipprod:fs.file:vf.vcXiYLBrRjOqvDIFbiirlQ?version=89
+Recursive Search: 328.252ms
+[Matches] Total DWG files found: 0
+Mapping: 0.136ms
+[Matches] Completed in 329ms. Found 0 matches.
+[Backend Log] POST /api/automation/match
+[Matches] Request Received: {"hubId":"b.ae8c2a83-81e1-438a-8a59-4540e84779c0","projectId":"b.04697a63-6349-4946-b928-9d5a05be99b0","excelVersionId":"urn:adsk.wipprod:fs.file:vf.vcXiYLBrRjOqvDIFbiirlQ?version=89","folderIds":["urn:adsk.wipprod:fs.folder:co.yZMO8EXeR5KlGQOIphOlxQ"]}
+[Excel Cache] Using cached rows for urn:adsk.wipprod:fs.file:vf.vcXiYLBrRjOqvDIFbiirlQ?version=89
+Recursive Search: 825.996ms
+[Matches] Total DWG files found: 5
+Mapping: 1.665ms
+[Matches] Completed in 829ms. Found 5 matches.
+6:55:04 PM [vite] (client) hmr update /src/App.jsx
+[Backend Log] GET /api/auth/profile
+[Backend Log] GET /api/acc/hubs
+[Backend Log] GET /api/user/preferences
+[Backend Log] GET /api/acc/projects?hubId=b.ae8c2a83-81e1-438a-8a59-4540e84779c0
+[Backend Log] GET /api/acc/excel-files?projectId=b.04697a63-6349-4946-b928-9d5a05be99b0&hubId=b.ae8c2a83-81e1-438a-8a59-4540e84779c0
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.hcMKjKZ8QYaObhqUAam88g (Depth: 0)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.yZMO8EXeR5KlGQOIphOlxQ (Depth: 1)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.XuaiV4DnTG6WnclBHbBsGA (Depth: 2)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.tskqzXBjRZaYPd8Rrf1f1A (Depth: 3)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.ZC3TdrP4QL2boKQKlO9K7w (Depth: 2)
+sh: line 1: 94779 Terminated: 15          node index.js
+
+> aps-titleblock-automation-stable-2-0@1.0.0 dev
+> npm run dev:server & npm run dev:client
+
+
+> aps-titleblock-automation-stable-2-0@1.0.0 dev:client
+> cd client && npm run dev
+
+
+> aps-titleblock-automation-stable-2-0@1.0.0 dev:server
+> cd server && node index.js
+
+
+> client@1.0.0 dev
+> vite
+
+[dotenv@17.3.1] injecting env (6) from .env.local -- tip: ⚙️  override existing env vars with { override: true }
+[dotenv@17.3.1] injecting env (6) from .env -- tip: ⚙️  suppress all logs with { quiet: true }
+Stable Forensic Engine on 5175
+
+  VITE v8.0.3  ready in 129 ms
+
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: use --host to expose
+[Backend Log] GET /api/auth/profile
+[Backend Log] GET /api/auth/profile
+[Backend Log] GET /api/acc/hubs
+[Backend Log] GET /api/acc/hubs
+[Backend Log] GET /api/user/preferences
+[Backend Log] GET /api/acc/projects?hubId=b.ae8c2a83-81e1-438a-8a59-4540e84779c0
+[Backend Log] GET /api/user/preferences
+[Backend Log] GET /api/acc/excel-files?projectId=b.04697a63-6349-4946-b928-9d5a05be99b0&hubId=b.ae8c2a83-81e1-438a-8a59-4540e84779c0
+[Backend Log] GET /api/acc/projects?hubId=b.ae8c2a83-81e1-438a-8a59-4540e84779c0
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.hcMKjKZ8QYaObhqUAam88g (Depth: 0)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.yZMO8EXeR5KlGQOIphOlxQ (Depth: 1)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.XuaiV4DnTG6WnclBHbBsGA (Depth: 2)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.tskqzXBjRZaYPd8Rrf1f1A (Depth: 3)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.ZC3TdrP4QL2boKQKlO9K7w (Depth: 2)
+[Backend Log] GET /api/acc/excel-files?projectId=b.04697a63-6349-4946-b928-9d5a05be99b0&hubId=b.ae8c2a83-81e1-438a-8a59-4540e84779c0
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.hcMKjKZ8QYaObhqUAam88g (Depth: 0)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.yZMO8EXeR5KlGQOIphOlxQ (Depth: 1)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.XuaiV4DnTG6WnclBHbBsGA (Depth: 2)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.tskqzXBjRZaYPd8Rrf1f1A (Depth: 3)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.ZC3TdrP4QL2boKQKlO9K7w (Depth: 2)
+[Backend Log] GET /api/acc/folders?hubId=b.ae8c2a83-81e1-438a-8a59-4540e84779c0&projectId=b.04697a63-6349-4946-b928-9d5a05be99b0
+[Backend Log] POST /api/automation/match
+[Matches] Request Received: {"hubId":"b.ae8c2a83-81e1-438a-8a59-4540e84779c0","projectId":"b.04697a63-6349-4946-b928-9d5a05be99b0","excelVersionId":"urn:adsk.wipprod:fs.file:vf.vcXiYLBrRjOqvDIFbiirlQ?version=89","folderIds":["urn:adsk.wipprod:fs.folder:co.tskqzXBjRZaYPd8Rrf1f1A"]}
+[Excel] Fetching version details for urn:adsk.wipprod:fs.file:vf.vcXiYLBrRjOqvDIFbiirlQ?version=89
+Recursive Search: 321.789ms
+[Matches] Total DWG files found: 0
+Mapping: 0.764ms
+[Matches] Completed in 2380ms. Found 0 matches.
+[Backend Log] POST /api/automation/match
+[Matches] Request Received: {"hubId":"b.ae8c2a83-81e1-438a-8a59-4540e84779c0","projectId":"b.04697a63-6349-4946-b928-9d5a05be99b0","excelVersionId":"urn:adsk.wipprod:fs.file:vf.vcXiYLBrRjOqvDIFbiirlQ?version=89","folderIds":[]}
+[Excel Cache] Using cached rows for urn:adsk.wipprod:fs.file:vf.vcXiYLBrRjOqvDIFbiirlQ?version=89
+Recursive Search: 1.545s
+[Matches] Total DWG files found: 5
+Mapping: 1.102ms
+[Matches] Completed in 2017ms. Found 5 matches.
+[Backend Log] GET /api/auth/profile
+[Backend Log] GET /api/auth/profile
+[Backend Log] GET /api/acc/hubs
+7:37:50 AM [vite] (client) hmr update /src/App.jsx
+7:37:59 AM [vite] (client) hmr update /src/App.jsx
+7:38:12 AM [vite] (client) hmr update /src/App.jsx
+7:38:19 AM [vite] (client) hmr update /src/App.jsx
+[Backend Log] GET /
+[Backend Log] GET /assets/index-DrqrkDT2.js
+[Backend Log] GET /assets/index-ksfXy-CW.css
+[Backend Log] GET /api/auth/profile
+[Backend Log] GET /vite.svg
+NotFoundError: Not Found
+    at createHttpError (/Users/ranjann/.gemini/antigravity/scratch/aps-titleblock-automation-Stable-2.0/server/node_modules/send/index.js:861:12)
+    at SendStream.error (/Users/ranjann/.gemini/antigravity/scratch/aps-titleblock-automation-Stable-2.0/server/node_modules/send/index.js:168:31)
+    at SendStream.pipe (/Users/ranjann/.gemini/antigravity/scratch/aps-titleblock-automation-Stable-2.0/server/node_modules/send/index.js:468:14)
+    at sendfile (/Users/ranjann/.gemini/antigravity/scratch/aps-titleblock-automation-Stable-2.0/server/node_modules/express/lib/response.js:1014:8)
+    at ServerResponse.sendFile (/Users/ranjann/.gemini/antigravity/scratch/aps-titleblock-automation-Stable-2.0/server/node_modules/express/lib/response.js:411:3)
+    at /Users/ranjann/.gemini/antigravity/scratch/aps-titleblock-automation-Stable-2.0/server/index.js:777:13
+    at Layer.handleRequest (/Users/ranjann/.gemini/antigravity/scratch/aps-titleblock-automation-Stable-2.0/server/node_modules/router/lib/layer.js:152:17)
+    at trimPrefix (/Users/ranjann/.gemini/antigravity/scratch/aps-titleblock-automation-Stable-2.0/server/node_modules/router/index.js:342:13)
+    at /Users/ranjann/.gemini/antigravity/scratch/aps-titleblock-automation-Stable-2.0/server/node_modules/router/index.js:297:9
+    at processParams (/Users/ranjann/.gemini/antigravity/scratch/aps-titleblock-automation-Stable-2.0/server/node_modules/router/index.js:582:12)
+[Backend Log] GET /api/acc/hubs
+[Backend Log] GET /api/user/preferences
+[Backend Log] GET /api/acc/projects?hubId=b.ae8c2a83-81e1-438a-8a59-4540e84779c0
+[Backend Log] GET /api/acc/excel-files?projectId=b.04697a63-6349-4946-b928-9d5a05be99b0&hubId=b.ae8c2a83-81e1-438a-8a59-4540e84779c0
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.hcMKjKZ8QYaObhqUAam88g (Depth: 0)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.yZMO8EXeR5KlGQOIphOlxQ (Depth: 1)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.XuaiV4DnTG6WnclBHbBsGA (Depth: 2)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.tskqzXBjRZaYPd8Rrf1f1A (Depth: 3)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.ZC3TdrP4QL2boKQKlO9K7w (Depth: 2)
+[Backend Log] GET /
+[Backend Log] GET /assets/index-ksfXy-CW.css
+[Backend Log] GET /assets/index-DrqrkDT2.js
+[Backend Log] GET /api/auth/profile
+[Backend Log] GET /vite.svg
+NotFoundError: Not Found
+    at createHttpError (/Users/ranjann/.gemini/antigravity/scratch/aps-titleblock-automation-Stable-2.0/server/node_modules/send/index.js:861:12)
+    at SendStream.error (/Users/ranjann/.gemini/antigravity/scratch/aps-titleblock-automation-Stable-2.0/server/node_modules/send/index.js:168:31)
+    at SendStream.pipe (/Users/ranjann/.gemini/antigravity/scratch/aps-titleblock-automation-Stable-2.0/server/node_modules/send/index.js:468:14)
+    at sendfile (/Users/ranjann/.gemini/antigravity/scratch/aps-titleblock-automation-Stable-2.0/server/node_modules/express/lib/response.js:1014:8)
+    at ServerResponse.sendFile (/Users/ranjann/.gemini/antigravity/scratch/aps-titleblock-automation-Stable-2.0/server/node_modules/express/lib/response.js:411:3)
+    at /Users/ranjann/.gemini/antigravity/scratch/aps-titleblock-automation-Stable-2.0/server/index.js:777:13
+    at Layer.handleRequest (/Users/ranjann/.gemini/antigravity/scratch/aps-titleblock-automation-Stable-2.0/server/node_modules/router/lib/layer.js:152:17)
+    at trimPrefix (/Users/ranjann/.gemini/antigravity/scratch/aps-titleblock-automation-Stable-2.0/server/node_modules/router/index.js:342:13)
+    at /Users/ranjann/.gemini/antigravity/scratch/aps-titleblock-automation-Stable-2.0/server/node_modules/router/index.js:297:9
+    at processParams (/Users/ranjann/.gemini/antigravity/scratch/aps-titleblock-automation-Stable-2.0/server/node_modules/router/index.js:582:12)
+[Backend Log] GET /api/acc/hubs
+[Backend Log] GET /api/user/preferences
+[Backend Log] GET /api/acc/projects?hubId=b.ae8c2a83-81e1-438a-8a59-4540e84779c0
+[Backend Log] GET /api/acc/excel-files?projectId=b.04697a63-6349-4946-b928-9d5a05be99b0&hubId=b.ae8c2a83-81e1-438a-8a59-4540e84779c0
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.hcMKjKZ8QYaObhqUAam88g (Depth: 0)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.yZMO8EXeR5KlGQOIphOlxQ (Depth: 1)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.XuaiV4DnTG6WnclBHbBsGA (Depth: 2)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.tskqzXBjRZaYPd8Rrf1f1A (Depth: 3)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.ZC3TdrP4QL2boKQKlO9K7w (Depth: 2)
+[Backend Log] GET /api/auth/profile
+[Backend Log] GET /api/auth/profile
+[Backend Log] GET /api/acc/hubs
+[Backend Log] GET /api/acc/hubs
+[Backend Log] GET /api/user/preferences
+[Backend Log] GET /api/acc/projects?hubId=b.ae8c2a83-81e1-438a-8a59-4540e84779c0
+[Backend Log] GET /api/user/preferences
+[Backend Log] GET /api/acc/projects?hubId=b.ae8c2a83-81e1-438a-8a59-4540e84779c0
+[Backend Log] GET /api/acc/excel-files?projectId=b.04697a63-6349-4946-b928-9d5a05be99b0&hubId=b.ae8c2a83-81e1-438a-8a59-4540e84779c0
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.hcMKjKZ8QYaObhqUAam88g (Depth: 0)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.yZMO8EXeR5KlGQOIphOlxQ (Depth: 1)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.XuaiV4DnTG6WnclBHbBsGA (Depth: 2)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.tskqzXBjRZaYPd8Rrf1f1A (Depth: 3)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.ZC3TdrP4QL2boKQKlO9K7w (Depth: 2)
+[Backend Log] GET /api/acc/excel-files?projectId=b.04697a63-6349-4946-b928-9d5a05be99b0&hubId=b.ae8c2a83-81e1-438a-8a59-4540e84779c0
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.hcMKjKZ8QYaObhqUAam88g (Depth: 0)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.yZMO8EXeR5KlGQOIphOlxQ (Depth: 1)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.XuaiV4DnTG6WnclBHbBsGA (Depth: 2)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.tskqzXBjRZaYPd8Rrf1f1A (Depth: 3)
+[Excel Discovery] Scanning folder: urn:adsk.wipprod:fs.folder:co.ZC3TdrP4QL2boKQKlO9K7w (Depth: 2)
+sh: line 1: 94901 Killed: 9               node index.js
+sh: line 1: 94902 Killed: 9               npm run dev

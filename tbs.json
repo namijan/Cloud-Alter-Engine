@@ -1,0 +1,26 @@
+[
+  {
+    "objectid": 5,
+    "name": "ISO A1 Title Block [249B]",
+    "externalId": "249B",
+    "properties": {
+      "Misc": {
+        "Block Unit": "Millimeters"
+      },
+      "Attributes": {
+        "DATE": "EX_DYN_Date",
+        "PROJECTADDRESS1": "EX_DYN_ADD105",
+        "PROJECTADDRESS2": "EX_DYN_ADD205",
+        "PROJECTADDRESS3": "EX_DYN_ADD305",
+        "PROJECTNAME1": "EX_DYN_PN105",
+        "PROJECTNAME2": "EX_DYN_PN205",
+        "SCALE": "EX_DYN_Scale"
+      },
+      "General": {
+        "Handle": "249b",
+        "Layer": "Title Block",
+        "Name ": "Block Reference"
+      }
+    }
+  }
+]
