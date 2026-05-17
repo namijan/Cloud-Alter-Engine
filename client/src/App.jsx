@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import DocumentationPage from './DocumentationPage';
+import ReleaseNotesPage from './ReleaseNotesPage';
 import { Upload, FileText, CheckCircle, AlertCircle, Play, Loader2, Database, Search, Layout, LogOut, ChevronDown, ChevronRight, RefreshCw, CheckSquare, Square, Zap, Globe, HardDrive, Eye, X, Shield, Activity, Maximize2, Minimize2, Trash2, ArrowRight, Folder, Check, HelpCircle } from 'lucide-react';
 
 const ACC_THEME = {
@@ -435,6 +436,7 @@ const App = () => {
     const [jobHistory, setJobHistory] = useState([]);
     const [isAuthChecking, setIsAuthChecking] = useState(true);
     const [showDocumentation, setShowDocumentation] = useState(false);
+    const [showReleaseNotes, setShowReleaseNotes] = useState(false);
     const [actionPrompt, setActionPrompt] = useState({ show: false, index: null, source: '', target: '' });
      const [syncMode, setSyncMode] = useState('full'); // 'full' or 'acc'
     const [sortConfig, setSortConfig] = useState({ key: null, direction: 'asc' });
@@ -1163,6 +1165,7 @@ const App = () => {
         return (
             <div style={{ height: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#FAFBFC', fontFamily: "'Inter', sans-serif" }}>
                 {showDocumentation && <DocumentationPage onClose={() => setShowDocumentation(false)} />}
+                {showReleaseNotes && <ReleaseNotesPage onClose={() => setShowReleaseNotes(false)} />}
                 <div style={{ width: '100%', maxWidth: '440px', padding: '40px', background: 'white', borderRadius: '32px', boxShadow: '0 25px 50px -12px rgba(0,0,0,0.1)', border: '1px solid #f1f5f9' }}>
                     <div style={{ textAlign: 'center', marginBottom: '40px' }}>
                         <div style={{ display: 'inline-flex', background: ACC_THEME.primary, padding: '12px', borderRadius: '12px', marginBottom: '24px' }}>
@@ -1179,13 +1182,20 @@ const App = () => {
                         Sign in to Hub Control <ArrowRight size={18} />
                     </button>
 
-                    <div style={{ marginTop: '32px', borderTop: '1px solid #f1f5f9', paddingTop: '24px', textAlign: 'center' }}>
+                    <div style={{ marginTop: '32px', borderTop: '1px solid #f1f5f9', paddingTop: '24px', textAlign: 'center', display: 'flex', justifyContent: 'center', gap: '24px' }}>
                         <div 
                             onClick={() => setShowDocumentation(true)}
                             style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', color: ACC_THEME.primary, fontSize: '13px', fontWeight: '800', cursor: 'pointer', textTransform: 'uppercase', letterSpacing: '0.5px' }}
                         >
                             <HelpCircle size={16} />
                             <span>Operations Manual</span>
+                        </div>
+                        <div 
+                            onClick={() => setShowReleaseNotes(true)}
+                            style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', color: ACC_THEME.primary, fontSize: '13px', fontWeight: '800', cursor: 'pointer', textTransform: 'uppercase', letterSpacing: '0.5px' }}
+                        >
+                            <FileText size={16} />
+                            <span>Release Notes</span>
                         </div>
                     </div>
 
@@ -1197,6 +1207,7 @@ const App = () => {
     return (
         <div style={{ display: 'flex', height: '100vh', backgroundColor: ACC_THEME.bg, color: ACC_THEME.text, fontFamily: "'Inter', 'Segoe UI', sans-serif", overflow: 'hidden' }}>
             {showDocumentation && <DocumentationPage onClose={() => setShowDocumentation(false)} />}
+            {showReleaseNotes && <ReleaseNotesPage onClose={() => setShowReleaseNotes(false)} />}
             {selectedMatch && <StatusModal match={selectedMatch} onClose={() => setSelectedMatch(null)} />}
             {showDiffSummary && <DiffSummaryModal match={selectedDiffMatch} onClose={() => { setShowDiffSummary(false); setSelectedDiffMatch(null); }} />}
             {activeUrn && <APSViewer versionId={activeUrn} onClose={() => setActiveUrn(null)} />}
@@ -1461,12 +1472,21 @@ const App = () => {
                 </div>
 
                 <div style={{ padding: '16px 24px', borderTop: `1px solid ${ACC_THEME.border}`, background: '#f8f9fa' }}>
-                    <div 
-                        onClick={() => setShowDocumentation(true)}
-                        style={{ display: 'flex', alignItems: 'center', gap: '8px', color: ACC_THEME.primary, fontSize: '11px', fontWeight: '800', cursor: 'pointer', marginBottom: '12px', textTransform: 'uppercase', letterSpacing: '0.5px' }}
-                    >
-                        <HelpCircle size={14} />
-                        <span>Operations Manual</span>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '12px' }}>
+                        <div 
+                            onClick={() => setShowDocumentation(true)}
+                            style={{ display: 'flex', alignItems: 'center', gap: '6px', color: ACC_THEME.primary, fontSize: '11px', fontWeight: '800', cursor: 'pointer', textTransform: 'uppercase', letterSpacing: '0.5px' }}
+                        >
+                            <HelpCircle size={14} />
+                            <span>Manual</span>
+                        </div>
+                        <div 
+                            onClick={() => setShowReleaseNotes(true)}
+                            style={{ display: 'flex', alignItems: 'center', gap: '6px', color: ACC_THEME.primary, fontSize: '11px', fontWeight: '800', cursor: 'pointer', textTransform: 'uppercase', letterSpacing: '0.5px' }}
+                        >
+                            <FileText size={14} />
+                            <span>What's New</span>
+                        </div>
                     </div>
                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                         <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#94a3b8', fontSize: '11px', fontWeight: '600' }}>
@@ -1474,7 +1494,7 @@ const App = () => {
                             <span>powered by APS</span>
                         </div>
                         <div style={{ color: '#94a3b8', fontSize: '11px' }}>
-                            v2.1.0 stable
+                            v2.2.0 stable
                         </div>
                     </div>
                 </div>
