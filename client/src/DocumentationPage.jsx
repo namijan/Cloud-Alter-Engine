@@ -36,7 +36,7 @@ const DocumentationPage = ({ onClose }) => {
         error: '#EF4444'
     };
 
-    const CLIENT_ID = "ZroG86fKk5oQ0g8RI2V05pydMh7BpawS2JiV1ZAQPtU3F6rF";
+    const CLIENT_ID = import.meta.env.VITE_APS_CLIENT_ID || "ZroG86fKk5oQ0g8RI2V05pydMh7BpawS2JiV1ZAQPtU3F6rF";
 
     const Section = ({ icon: Icon, title, children }) => (
         <div style={{ marginBottom: '40px' }}>
