@@ -18,3 +18,15 @@ logs.txt
 
 # OS
 .DS_Store
+
+# Dynamic database state
+server/data/*.json
+
+# Reports and logs
+*.log
+*_log.txt
+client_dev_log.txt
+combined_logs.txt
+latest_wi_report.txt
+workitem_report.txt
+workitem_status.json

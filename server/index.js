@@ -10,7 +10,7 @@ const crypto = require('crypto');
 dotenv.config({ path: path.join(__dirname, '.env.local') });
 dotenv.config({ path: path.join(__dirname, '.env') });
 
-const PORT = process.env.PORT || 5175;
+const PORT = process.env.PORT || 5173;
 
 const DATA_DIR = path.join(__dirname, 'data');
 const TRACKER_PATH = path.join(DATA_DIR, 'tracker.json');
@@ -25,10 +25,483 @@ function saveTracker(data) { fs.writeFileSync(TRACKER_PATH, JSON.stringify(data,
 function getPreferences() { try { return JSON.parse(fs.readFileSync(PREFS_PATH, 'utf8')); } catch (e) { return {}; } }
 function savePreferences(data) { fs.writeFileSync(PREFS_PATH, JSON.stringify(data, null, 2)); }
 
+// DB Persistence Architecture for Railway
+let pgClient = null;
+let mongoDb = null;
+
+async function initDB() {
+    if (process.env.DATABASE_URL) {
+        try {
+            const { Client } = require('pg');
+            const client = new Client({
+                connectionString: process.env.DATABASE_URL,
+                ssl: { rejectUnauthorized: false }
+            });
+            await client.connect();
+            await client.query(`
+                CREATE TABLE IF NOT EXISTS user_preferences (
+                    user_id VARCHAR(100) PRIMARY KEY,
+                    prefs JSONB NOT NULL,
+                    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+                );
+            `);
+            pgClient = client;
+            console.log('[DB Architecture] PostgreSQL connected successfully on Railway');
+            return;
+        } catch (e) {
+            console.error('[DB Architecture] PostgreSQL connection failed, falling back...', e.message);
+        }
+    }
+    
+    if (process.env.MONGODB_URI) {
+        try {
+            const { MongoClient } = require('mongodb');
+            const client = new MongoClient(process.env.MONGODB_URI);
+            await client.connect();
+            mongoDb = client.db();
+            console.log('[DB Architecture] MongoDB connected successfully on Railway');
+            return;
+        } catch (e) {
+            console.error('[DB Architecture] MongoDB connection failed, falling back...', e.message);
+        }
+    }
+}
+
+initDB();
+
+async function getPreferencesAsync(userId = 'default_user') {
+    if (pgClient) {
+        try {
+            const res = await pgClient.query('SELECT prefs FROM user_preferences WHERE user_id = $1', [userId]);
+            if (res.rows.length > 0) return res.rows[0].prefs;
+            return {};
+        } catch (e) {
+            console.error('[DB Read Error]', e.message);
+        }
+    }
+    
+    if (mongoDb) {
+        try {
+            const col = mongoDb.collection('user_preferences');
+            const doc = await col.findOne({ userId });
+            return doc ? doc.prefs : {};
+        } catch (e) {
+            console.error('[DB Read Error]', e.message);
+        }
+    }
+    
+    // File fallback
+    try {
+        const fileContent = JSON.parse(fs.readFileSync(PREFS_PATH, 'utf8'));
+        return fileContent[userId] || {};
+    } catch (e) {
+        return {};
+    }
+}
+
+async function savePreferencesAsync(userId = 'default_user', prefs) {
+    if (pgClient) {
+        try {
+            await pgClient.query(`
+                INSERT INTO user_preferences (user_id, prefs, updated_at)
+                VALUES ($1, $2, CURRENT_TIMESTAMP)
+                ON CONFLICT (user_id)
+                DO UPDATE SET prefs = $2, updated_at = CURRENT_TIMESTAMP
+            `, [userId, JSON.stringify(prefs)]);
+            return;
+        } catch (e) {
+            console.error('[DB Write Error]', e.message);
+        }
+    }
+    
+    if (mongoDb) {
+        try {
+            const col = mongoDb.collection('user_preferences');
+            await col.updateOne({ userId }, { $set: { prefs, updatedAt: new Date() } }, { upsert: true });
+            return;
+        } catch (e) {
+            console.error('[DB Write Error]', e.message);
+        }
+    }
+    
+    // File fallback
+    try {
+        const fileContent = JSON.parse(fs.readFileSync(PREFS_PATH, 'utf8'));
+        fileContent[userId] = prefs;
+        fs.writeFileSync(PREFS_PATH, JSON.stringify(fileContent, null, 2));
+    } catch (e) {
+        console.error('[File Write Error]', e.message);
+    }
+}
+
 function calculateHash(data) {
     if (!data) return '';
     const sorted = Object.keys(data).sort().reduce((obj, key) => { obj[key] = data[key]; return obj; }, {});
     return crypto.createHash('sha256').update(JSON.stringify(sorted)).digest('hex');
+}
+
+function getAttributesForBlock(blockName) {
+    if (!blockName) return [];
+    try {
+        const tbsPath = path.join(__dirname, '../tbs.json');
+        if (fs.existsSync(tbsPath)) {
+            const tbs = JSON.parse(fs.readFileSync(tbsPath, 'utf8'));
+            const cleanName = String(blockName).toLowerCase().trim();
+            const matched = tbs.find(tb => {
+                const tbName = String(tb.name || '').toLowerCase().trim();
+                return tbName.includes(cleanName) || cleanName.includes(tbName);
+            });
+            if (matched && matched.properties && matched.properties.Attributes) {
+                return Object.keys(matched.properties.Attributes);
+            }
+        }
+    } catch (e) {
+        console.error('[getAttributesForBlock] Error:', e.message);
+    }
+    return [];
+}
+
+const FEEDBACK_FILE = path.join(__dirname, 'data/feedback.json');
+if (!fs.existsSync(path.dirname(FEEDBACK_FILE))) {
+    fs.mkdirSync(path.dirname(FEEDBACK_FILE), { recursive: true });
+}
+
+async function saveFeedback(feedback) {
+    if (process.env.MONGODB_URI) {
+        try {
+            const { MongoClient } = require('mongodb');
+            const client = new MongoClient(process.env.MONGODB_URI);
+            await client.connect();
+            const db = client.db();
+            await db.collection('feedbacks').insertOne(feedback);
+            await client.close();
+            return;
+        } catch (e) {
+            console.error('[DB Storage Error] MongoDB failed, falling back to local storage', e);
+        }
+    } else if (process.env.DATABASE_URL) {
+        try {
+            const { Client } = require('pg');
+            const client = new Client({ connectionString: process.env.DATABASE_URL });
+            await client.connect();
+            await client.query(`
+                CREATE TABLE IF NOT EXISTS feedbacks (
+                    id TEXT PRIMARY KEY,
+                    userName TEXT,
+                    userEmail TEXT,
+                    rating INTEGER,
+                    category TEXT,
+                    comment TEXT,
+                    screenshot TEXT,
+                    metadata TEXT,
+                    createdAt TEXT
+                )
+            `);
+            await client.query(`
+                INSERT INTO feedbacks (id, userName, userEmail, rating, category, comment, screenshot, metadata, createdAt)
+                VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)
+            `, [
+                feedback.id,
+                feedback.userName,
+                feedback.userEmail,
+                feedback.rating,
+                feedback.category,
+                feedback.comment,
+                feedback.screenshot,
+                JSON.stringify(feedback.metadata),
+                feedback.createdAt
+            ]);
+            await client.end();
+            return;
+        } catch (e) {
+            console.error('[DB Storage Error] Postgres failed, falling back to local storage', e);
+        }
+    }
+
+    let feedbacks = [];
+    if (fs.existsSync(FEEDBACK_FILE)) {
+        try { feedbacks = JSON.parse(fs.readFileSync(FEEDBACK_FILE, 'utf8')); } catch (e) {}
+    }
+    feedbacks.push(feedback);
+    fs.writeFileSync(FEEDBACK_FILE, JSON.stringify(feedbacks, null, 2));
+}
+
+async function getFeedbacks() {
+    if (process.env.MONGODB_URI) {
+        try {
+            const { MongoClient } = require('mongodb');
+            const client = new MongoClient(process.env.MONGODB_URI);
+            await client.connect();
+            const db = client.db();
+            const list = await db.collection('feedbacks').find({}).sort({ createdAt: -1 }).toArray();
+            await client.close();
+            return list;
+        } catch (e) {
+            console.error('[DB Fetch Error] MongoDB failed, falling back to local storage', e);
+        }
+    } else if (process.env.DATABASE_URL) {
+        try {
+            const { Client } = require('pg');
+            const client = new Client({ connectionString: process.env.DATABASE_URL });
+            await client.connect();
+            await client.query(`
+                CREATE TABLE IF NOT EXISTS feedbacks (
+                    id TEXT PRIMARY KEY,
+                    userName TEXT,
+                    userEmail TEXT,
+                    rating INTEGER,
+                    category TEXT,
+                    comment TEXT,
+                    screenshot TEXT,
+                    metadata TEXT,
+                    createdAt TEXT
+                )
+            `);
+            const res = await client.query('SELECT * FROM feedbacks ORDER BY createdAt DESC');
+            await client.end();
+            return res.rows.map(r => ({
+                ...r,
+                metadata: r.metadata ? JSON.parse(r.metadata) : {}
+            }));
+        } catch (e) {
+            console.error('[DB Fetch Error] Postgres failed, falling back to local storage', e);
+        }
+    }
+
+    if (fs.existsSync(FEEDBACK_FILE)) {
+        try {
+            const list = JSON.parse(fs.readFileSync(FEEDBACK_FILE, 'utf8'));
+            return list.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+        } catch (e) {}
+    }
+}
+
+async function deleteFeedback(feedbackId) {
+    if (process.env.MONGODB_URI) {
+        try {
+            const { MongoClient } = require('mongodb');
+            const client = new MongoClient(process.env.MONGODB_URI);
+            await client.connect();
+            const db = client.db();
+            await db.collection('feedbacks').deleteOne({ id: feedbackId });
+            await client.close();
+            return;
+        } catch (e) {
+            console.error('[DB Storage Error] MongoDB delete failed, falling back to local', e);
+        }
+    } else if (process.env.DATABASE_URL) {
+        try {
+            const { Client } = require('pg');
+            const client = new Client({ connectionString: process.env.DATABASE_URL });
+            await client.connect();
+            await client.query('DELETE FROM feedbacks WHERE id = $1', [feedbackId]);
+            await client.end();
+            return;
+        } catch (e) {
+            console.error('[DB Storage Error] Postgres delete failed, falling back to local', e);
+        }
+    }
+
+    if (fs.existsSync(FEEDBACK_FILE)) {
+        try {
+            let feedbacks = JSON.parse(fs.readFileSync(FEEDBACK_FILE, 'utf8'));
+            feedbacks = feedbacks.filter(f => f.id !== feedbackId);
+            fs.writeFileSync(FEEDBACK_FILE, JSON.stringify(feedbacks, null, 2));
+        } catch (e) {
+            console.error('[Local Storage Delete Error]', e);
+        }
+    }
+}
+
+const HISTORY_FILE = path.join(__dirname, 'data/history.json');
+if (!fs.existsSync(path.dirname(HISTORY_FILE))) {
+    fs.mkdirSync(path.dirname(HISTORY_FILE), { recursive: true });
+}
+
+async function saveHistory(job) {
+    if (process.env.MONGODB_URI) {
+        try {
+            const { MongoClient } = require('mongodb');
+            const client = new MongoClient(process.env.MONGODB_URI);
+            await client.connect();
+            const db = client.db();
+            await db.collection('history').insertOne(job);
+            await client.close();
+            return;
+        } catch (e) {
+            console.error('[DB Storage Error] MongoDB history failed, falling back to local', e);
+        }
+    } else if (process.env.DATABASE_URL) {
+        try {
+            const { Client } = require('pg');
+            const client = new Client({ connectionString: process.env.DATABASE_URL });
+            await client.connect();
+            await client.query(`
+                CREATE TABLE IF NOT EXISTS history (
+                    id TEXT PRIMARY KEY,
+                    status TEXT,
+                    completedAt TEXT,
+                    fileName TEXT,
+                    actionType TEXT,
+                    message TEXT,
+                    lastSyncDiff TEXT,
+                    payload TEXT
+                )
+            `);
+            await client.query(`
+                INSERT INTO history (id, status, completedAt, fileName, actionType, message, lastSyncDiff, payload)
+                VALUES ($1, $2, $3, $4, $5, $6, $7, $8)
+            `, [
+                job.id,
+                job.status,
+                job.completedAt,
+                job.fileName,
+                job.actionType,
+                job.message || '',
+                JSON.stringify(job.lastSyncDiff || {}),
+                JSON.stringify(job.payload || {})
+            ]);
+            await client.end();
+            return;
+        } catch (e) {
+            console.error('[DB Storage Error] Postgres history failed, falling back to local', e);
+        }
+    }
+
+    let history = [];
+    if (fs.existsSync(HISTORY_FILE)) {
+        try { history = JSON.parse(fs.readFileSync(HISTORY_FILE, 'utf8')); } catch (e) {}
+    }
+    history.push(job);
+    fs.writeFileSync(HISTORY_FILE, JSON.stringify(history, null, 2));
+}
+
+async function getHistory() {
+    if (process.env.MONGODB_URI) {
+        try {
+            const { MongoClient } = require('mongodb');
+            const client = new MongoClient(process.env.MONGODB_URI);
+            await client.connect();
+            const db = client.db();
+            const list = await db.collection('history').find({}).sort({ completedAt: -1 }).toArray();
+            await client.close();
+            return list;
+        } catch (e) {
+            console.error('[DB Fetch Error] MongoDB history failed, falling back to local', e);
+        }
+    } else if (process.env.DATABASE_URL) {
+        try {
+            const { Client } = require('pg');
+            const client = new Client({ connectionString: process.env.DATABASE_URL });
+            await client.connect();
+            await client.query(`
+                CREATE TABLE IF NOT EXISTS history (
+                    id TEXT PRIMARY KEY,
+                    status TEXT,
+                    completedAt TEXT,
+                    fileName TEXT,
+                    actionType TEXT,
+                    message TEXT,
+                    lastSyncDiff TEXT,
+                    payload TEXT
+                )
+            `);
+            const res = await client.query('SELECT * FROM history ORDER BY completedAt DESC');
+            await client.end();
+            return res.rows.map(r => ({
+                id: r.id,
+                status: r.status,
+                completedAt: r.completedat || r.completedAt,
+                fileName: r.filename || r.fileName,
+                actionType: r.actiontype || r.actionType,
+                message: r.message,
+                lastSyncDiff: r.lastsyncdiff ? JSON.parse(r.lastsyncdiff) : (r.lastSyncDiff ? JSON.parse(r.lastSyncDiff) : {}),
+                payload: r.payload ? JSON.parse(r.payload) : {}
+            }));
+        } catch (e) {
+            console.error('[DB Fetch Error] Postgres history failed, falling back to local', e);
+        }
+    }
+
+    if (fs.existsSync(HISTORY_FILE)) {
+        try {
+            const list = JSON.parse(fs.readFileSync(HISTORY_FILE, 'utf8'));
+            return list.sort((a, b) => new Date(b.completedAt) - new Date(a.completedAt));
+        } catch (e) {}
+    }
+    return [];
+}
+
+async function clearHistory() {
+    if (process.env.MONGODB_URI) {
+        try {
+            const { MongoClient } = require('mongodb');
+            const client = new MongoClient(process.env.MONGODB_URI);
+            await client.connect();
+            const db = client.db();
+            await db.collection('history').deleteMany({});
+            await client.close();
+            return;
+        } catch (e) {
+            console.error('[DB Storage Error] MongoDB clear history failed, falling back to local', e);
+        }
+    } else if (process.env.DATABASE_URL) {
+        try {
+            const { Client } = require('pg');
+            const client = new Client({ connectionString: process.env.DATABASE_URL });
+            await client.connect();
+            await client.query('DELETE FROM history');
+            await client.end();
+            return;
+        } catch (e) {
+            console.error('[DB Storage Error] Postgres clear history failed, falling back to local', e);
+        }
+    }
+
+    if (fs.existsSync(HISTORY_FILE)) {
+        try {
+            fs.writeFileSync(HISTORY_FILE, JSON.stringify([], null, 2));
+        } catch (e) {
+            console.error('[Local Storage Clear History Error]', e);
+        }
+    }
+}
+
+async function deleteHistoryItem(historyId) {
+    if (process.env.MONGODB_URI) {
+        try {
+            const { MongoClient } = require('mongodb');
+            const client = new MongoClient(process.env.MONGODB_URI);
+            await client.connect();
+            const db = client.db();
+            await db.collection('history').deleteOne({ id: historyId });
+            await client.close();
+            return;
+        } catch (e) {
+            console.error('[DB Storage Error] MongoDB delete history item failed, falling back to local', e);
+        }
+    } else if (process.env.DATABASE_URL) {
+        try {
+            const { Client } = require('pg');
+            const client = new Client({ connectionString: process.env.DATABASE_URL });
+            await client.connect();
+            await client.query('DELETE FROM history WHERE id = $1', [historyId]);
+            await client.end();
+            return;
+        } catch (e) {
+            console.error('[DB Storage Error] Postgres delete history item failed, falling back to local', e);
+        }
+    }
+
+    if (fs.existsSync(HISTORY_FILE)) {
+        try {
+            let history = JSON.parse(fs.readFileSync(HISTORY_FILE, 'utf8'));
+            history = history.filter(h => h.id !== historyId);
+            fs.writeFileSync(HISTORY_FILE, JSON.stringify(history, null, 2));
+        } catch (e) {
+            console.error('[Local Storage Delete History Item Error]', e);
+        }
+    }
 }
 
 const excelCache = new Map();
@@ -74,6 +547,8 @@ const { APS_CLIENT_ID, APS_CLIENT_SECRET, APS_CALLBACK_URL, SESSION_SECRET, HUB_
 
 const app = express();
 const pendingCommits = new Map();
+const pendingPrints = new Map();
+const pendingBulkJobs = new Map();
 
 app.use(express.json());
 app.set('trust proxy', 1);
@@ -198,7 +673,7 @@ async function extractDrawingAttributes(versionId, token) {
 
     if (!titleBlockObj) return {};
 
-    const cadData = {};
+    const cadData = { BlockName: titleBlockObj.name };
     Object.values(titleBlockObj.properties || {}).forEach(cat => { if (typeof cat === 'object') Object.assign(cadData, cat); });
     console.log(`[MD Extract] Identified ${Object.keys(cadData).length} properties for ${titleBlockObj.name}:`, Object.keys(cadData));
     return cadData;
@@ -285,8 +760,38 @@ app.post('/api/automation/preview-sync', async (req, res) => {
         } else if (targetType === 'acc') {
             targetData = await getACCAttributesInternal(projectId, drawingVersionId, token);
         }
+
+        // Determine the specified BlockName for the target drawing
+        let blockName = '';
+        if (excelVersionId) {
+            try {
+                const rows = await getCachedExcelRows(projectId, excelVersionId, token);
+                const row = rows.find(r => String(r.DrawingName) === String(drawingName));
+                if (row) {
+                    blockName = row.BlockName || row.blockName || row.BLOCKNAME;
+                }
+            } catch (e) {
+                console.error('Failed to get blockName from Excel', e);
+            }
+        }
+        if (!blockName) {
+            blockName = sourceData.BlockName || sourceData.blockName || sourceData.BLOCKNAME ||
+                        targetData.BlockName || targetData.blockName || targetData.BLOCKNAME;
+        }
+
+        const allowedAttributes = getAttributesForBlock(blockName);
+        console.log(`[Preview Sync] BlockName: '${blockName}', Allowed Attributes:`, allowedAttributes);
+
         const keys = Object.keys(sourceData).concat(Object.keys(targetData)).filter((v, i, a) => a.indexOf(v) === i);
-        const diff = keys.filter(k => k !== 'DrawingName' && k !== 'BlockName').map(key => {
+        const filteredKeys = keys.filter(k => {
+            if (['DrawingName', 'BlockName', 'LayoutName'].includes(k)) return false;
+            if (allowedAttributes.length > 0) {
+                return allowedAttributes.includes(k);
+            }
+            return true;
+        });
+
+        const diff = filteredKeys.map(key => {
             const sVal = String(sourceData[key] || ''); const tVal = String(targetData[key] || '');
             return { key, source: sVal, target: tVal, changed: sVal !== tVal };
         });
@@ -294,6 +799,117 @@ app.post('/api/automation/preview-sync', async (req, res) => {
     } catch (err) {
         console.error('[Preview Sync Error]', err.response ? JSON.stringify(err.response.data) : err.message);
         res.status(500).json({ error: err.message });
+    }
+});
+
+app.get('/api/automation/titleblocks', (req, res) => {
+    try {
+        const tbsPath = path.join(__dirname, '../tbs.json');
+        if (fs.existsSync(tbsPath)) {
+            const tbs = JSON.parse(fs.readFileSync(tbsPath, 'utf8'));
+            res.json(tbs);
+        } else {
+            res.json([]);
+        }
+    } catch (e) {
+        console.error('[TitleBlocks API Error]', e.message);
+        res.status(500).json({ error: e.message });
+    }
+});
+
+app.post('/api/feedback', async (req, res) => {
+    try {
+        const { userName, userEmail, rating, category, comment, screenshot, metadata } = req.body;
+        if (!rating || !category) {
+            return res.status(400).json({ error: 'Rating and Category are required.' });
+        }
+        const feedback = {
+            id: Math.random().toString(36).substr(2, 9),
+            userName: userName || 'Anonymous',
+            userEmail: userEmail || 'anonymous@example.com',
+            rating: parseInt(rating),
+            category,
+            comment: comment || '',
+            screenshot: screenshot || '',
+            metadata: metadata || {},
+            createdAt: new Date().toISOString()
+        };
+        await saveFeedback(feedback);
+        res.json({ success: true, feedback });
+    } catch (e) {
+        res.status(500).json({ error: e.message });
+    }
+});
+
+app.get('/api/feedback', async (req, res) => {
+    const adminSecret = req.headers['x-admin-secret'];
+    const expectedSecret = process.env.FEEDBACK_ADMIN_SECRET || 'admin123';
+    
+    if (adminSecret !== expectedSecret) {
+        return res.status(401).json({ error: 'Unauthorized: Invalid Admin Passcode' });
+    }
+    
+    try {
+        const list = await getFeedbacks();
+        res.json(list);
+    } catch (e) {
+        res.status(500).json({ error: e.message });
+    }
+});
+
+app.delete('/api/feedback/:id', async (req, res) => {
+    const adminSecret = req.headers['x-admin-secret'];
+    const expectedSecret = process.env.FEEDBACK_ADMIN_SECRET || 'admin123';
+    
+    if (adminSecret !== expectedSecret) {
+        return res.status(401).json({ error: 'Unauthorized: Invalid Admin Passcode' });
+    }
+    
+    try {
+        await deleteFeedback(req.params.id);
+        res.json({ success: true });
+    } catch (e) {
+        res.status(500).json({ error: e.message });
+    }
+});
+
+app.get('/api/history', async (req, res) => {
+    try {
+        const list = await getHistory();
+        res.json(list);
+    } catch (e) {
+        res.status(500).json({ error: e.message });
+    }
+});
+
+app.post('/api/history', async (req, res) => {
+    try {
+        const job = req.body;
+        if (!job.id || !job.status) {
+            return res.status(400).json({ error: 'Job ID and Status are required.' });
+        }
+        await saveHistory(job);
+        res.json({ success: true, job });
+    } catch (e) {
+        res.status(500).json({ error: e.message });
+    }
+});
+
+app.delete('/api/history', async (req, res) => {
+    try {
+        await clearHistory();
+        res.json({ success: true });
+    } catch (e) {
+        res.status(500).json({ error: e.message });
+    }
+});
+
+app.delete('/api/history/:id', async (req, res) => {
+    try {
+        await deleteHistoryItem(req.params.id);
+        res.json({ success: true });
+    } catch (e) {
+        res.status(500).json({ error: e.message });
     }
 });
 
@@ -350,8 +966,8 @@ async function refreshToken(req) {
 }
 
 async function getUserToken(req) {
-    if (!req.session.token || !req.session.expires_at || Date.now() >= req.session.expires_at - 60000) { 
-        if (req.session.refresh_token) {
+    if (!req.session?.token || !req.session?.expires_at || Date.now() >= req.session.expires_at - 60000) { 
+        if (req.session?.refresh_token) {
             return await refreshToken(req); 
         }
         throw new Error('Unauthorized'); 
@@ -382,7 +998,7 @@ app.get('/api/auth/token', async (req, res) => {
 app.get('/api/auth/profile', async (req, res) => {
     try {
         const token = await getUserToken(req);
-        let profile = { name: 'Autodesk User', email: '', picture: null };
+        let profile = { name: 'Namit Ranjan', email: '', picture: null };
         
         try {
             const profileRes = await axios.get('https://developer.api.autodesk.com/userprofile/v1/users/@me', {
@@ -476,17 +1092,18 @@ app.get('/api/acc/folders', async (req, res) => {
 app.get('/api/user/preferences', async (req, res) => {
     try {
         const token = await getUserToken(req);
-        // Bypassing profile fetch to prevent unauthorized_client errors
-        res.json(getPreferences()['default_user'] || {});
+        const prefs = await getPreferencesAsync('default_user');
+        res.json(prefs);
     } catch (err) { console.error('[Preferences Get Error]', err.response ? err.response.data : err.message); res.status(500).send(err.message); }
 });
 
 app.post('/api/user/preferences', async (req, res) => {
     try {
         const token = await getUserToken(req);
-        // Bypassing profile fetch
         const userId = 'default_user';
-        const currentPrefs = getPreferences(); currentPrefs[userId] = { ...currentPrefs[userId], ...req.body }; savePreferences(currentPrefs);
+        const currentPrefs = await getPreferencesAsync(userId);
+        const newPrefs = { ...currentPrefs, ...req.body };
+        await savePreferencesAsync(userId, newPrefs);
         res.json({ success: true });
     } catch (err) { console.error('[Preferences Post Error]', err.response ? err.response.data : err.message); res.status(500).send(err.message); }
 });
@@ -856,6 +1473,665 @@ app.get('/api/automation/status/:id', async (req, res) => {
         let finalStatus = status; if (commitInfo?.committed) finalStatus = 'finished'; else if (commitInfo?.committing) finalStatus = 'committing';
         res.json({ status: finalStatus, committed: commitInfo?.committed || false, newVersion: commitInfo?.newVersion });
     } catch (err) { console.error('[Commit Extract Error]', err.response ? err.response.data : err.message); res.status(500).send(err.message); }
+});
+
+// --- Premium Design Automation PDF Printing API Routes ---
+
+async function createACCFileItem(projectId, folderId, fileName, storageId, userToken) {
+    try {
+        const payload = {
+            jsonapi: { version: "1.0" },
+            data: {
+                type: "items",
+                attributes: {
+                    displayName: fileName,
+                    extension: {
+                        type: "items:autodesk.bim360:File",
+                        version: "1.0"
+                    }
+                },
+                relationships: {
+                    tip: {
+                        data: {
+                            type: "versions",
+                            id: "1"
+                        }
+                    },
+                    parent: {
+                        data: {
+                            type: "folders",
+                            id: folderId
+                        }
+                    }
+                }
+            },
+            included: [
+                {
+                    type: "versions",
+                    id: "1",
+                    attributes: {
+                        name: fileName,
+                        extension: {
+                            type: "versions:autodesk.bim360:File",
+                            version: "1.0"
+                        }
+                    },
+                    relationships: {
+                        storage: {
+                            data: {
+                                type: "objects",
+                                id: storageId
+                            }
+                        }
+                    }
+                }
+            ]
+        };
+
+        const res = await axios.post(
+            `https://developer.api.autodesk.com/data/v1/projects/${projectId}/items`,
+            payload,
+            { headers: { Authorization: `Bearer ${userToken}` } }
+        );
+        return res.data;
+    } catch (err) {
+        if (err.response && err.response.status === 409) {
+            console.log(`[ACC Create Item Conflict] File ${fileName} already exists. Searching folderContents...`);
+            const folderContentsRes = await axios.get(
+                `https://developer.api.autodesk.com/data/v1/projects/${projectId}/folders/${folderId}/contents`,
+                { headers: { Authorization: `Bearer ${userToken}` } }
+            );
+            const existingItem = folderContentsRes.data.data.find(
+                item => item.attributes.displayName === fileName || item.attributes.name === fileName
+            );
+            if (existingItem) {
+                console.log(`[ACC Create Item Conflict] Found existing item ID: ${existingItem.id}. Creating new version...`);
+                const versionPayload = {
+                    jsonapi: { version: "1.0" },
+                    data: {
+                        type: "versions",
+                        attributes: {
+                            name: fileName,
+                            displayName: fileName,
+                            extension: {
+                                type: "versions:autodesk.bim360:File",
+                                version: "1.0"
+                            }
+                        },
+                        relationships: {
+                            item: {
+                                data: {
+                                    type: "items",
+                                    id: existingItem.id
+                                }
+                            },
+                            storage: {
+                                data: {
+                                    type: "objects",
+                                    id: storageId
+                                }
+                            }
+                        }
+                    }
+                };
+                const versionRes = await axios.post(
+                    `https://developer.api.autodesk.com/data/v1/projects/${projectId}/versions`,
+                    versionPayload,
+                    { headers: { Authorization: `Bearer ${userToken}` } }
+                );
+                return versionRes.data;
+            }
+        }
+        throw err;
+    }
+}
+
+app.post('/api/acc/print', async (req, res) => {
+    const { versionId, projectId, hubId, paperSize, plotStyle, orientation, scale, plotArea, lineweights, transparency, destination, targetFolderId, targetFolderName } = req.body;
+
+    try {
+        const token = await getUserToken(req);
+        const internalToken = await getInternalToken();
+
+        const versionRes = await axios.get(`https://developer.api.autodesk.com/data/v1/projects/${projectId}/versions/${encodeURIComponent(versionId)}`, { headers: { Authorization: `Bearer ${token}` } });
+        const sourceStorageId = versionRes.data.data.relationships.storage.data.id;
+        const drawingName = versionRes.data.data.attributes.displayName;
+
+        const srcBucket = sourceStorageId.split('/')[0].split(':').pop(); 
+        const srcObject = sourceStorageId.split('/')[1];
+        const signedDownload = await axios.get(`https://developer.api.autodesk.com/oss/v2/buckets/${srcBucket}/objects/${encodeURIComponent(srcObject)}/signeds3download`, { headers: { Authorization: `Bearer ${token}` } });
+
+        let signedUploadUrl;
+        let uploadKey;
+        let accStorageId;
+
+        if (destination === 'acc') {
+            const pdfName = `${drawingName.replace(/\.[^/.]+$/, "")}.pdf`;
+            const storageRes = await axios.post(`https://developer.api.autodesk.com/data/v1/projects/${projectId}/storage`, {
+                jsonapi: { version: '1.0' },
+                data: {
+                    type: 'objects',
+                    attributes: { name: pdfName },
+                    relationships: { target: { data: { type: 'folders', id: targetFolderId } } }
+                }
+            }, { headers: { Authorization: `Bearer ${token}` } });
+
+            accStorageId = storageRes.data.data.id;
+            const accBucket = accStorageId.split('/')[0].split(':').pop(); 
+            const accObject = accStorageId.split('/')[1];
+
+            const signedUpload = await axios.get(`https://developer.api.autodesk.com/oss/v2/buckets/${accBucket}/objects/${encodeURIComponent(accObject)}/signeds3upload`, { headers: { Authorization: `Bearer ${token}` } });
+            signedUploadUrl = signedUpload.data.urls[0];
+            uploadKey = signedUpload.data.uploadKey;
+        } else {
+            const pdfName = `temp_print_${Date.now()}_${drawingName.replace(/\.[^/.]+$/, "")}.pdf`;
+            const itemId = versionRes.data.data.relationships.item.data.id;
+            const itemRes = await axios.get(`https://developer.api.autodesk.com/data/v1/projects/${projectId}/items/${encodeURIComponent(itemId)}`, { headers: { Authorization: `Bearer ${token}` } });
+            const parentFolderId = itemRes.data.data.relationships.parent.data.id;
+
+            const storageRes = await axios.post(`https://developer.api.autodesk.com/data/v1/projects/${projectId}/storage`, {
+                jsonapi: { version: '1.0' },
+                data: {
+                    type: 'objects',
+                    attributes: { name: pdfName },
+                    relationships: { target: { data: { type: 'folders', id: parentFolderId } } }
+                }
+            }, { headers: { Authorization: `Bearer ${token}` } });
+
+            accStorageId = storageRes.data.data.id;
+            const accBucket = accStorageId.split('/')[0].split(':').pop(); 
+            const accObject = accStorageId.split('/')[1];
+
+            const signedUpload = await axios.get(`https://developer.api.autodesk.com/oss/v2/buckets/${accBucket}/objects/${encodeURIComponent(accObject)}/signeds3upload`, { headers: { Authorization: `Bearer ${token}` } });
+            signedUploadUrl = signedUpload.data.urls[0];
+            uploadKey = signedUpload.data.uploadKey;
+        }
+
+        const paperSizeMap = {
+            'ISO_A0': 'ISO expand A0 (841.00 x 1189.00 MM)',
+            'ISO_A1': 'ISO expand A1 (594.00 x 841.00 MM)',
+            'ISO_A2': 'ISO expand A2 (420.00 x 594.00 MM)',
+            'ISO_A3': 'ISO expand A3 (420.00 x 297.00 MM)',
+            'ISO_A4': 'ISO expand A4 (210.00 x 297.00 MM)',
+            'ANSI_D': 'ANSI expand D (22.00 x 34.00 Inches)',
+            'ANSI_Letter': 'ANSI expand A (8.50 x 11.00 Inches)'
+        };
+        const canonicalPaperSize = paperSizeMap[paperSize] || 'ISO expand A3 (420.00 x 297.00 MM)';
+        const units = canonicalPaperSize.includes('Inches') ? 'Inches' : 'Millimeters';
+        const canonicalOrientation = orientation === 'Landscape' ? 'Landscape' : 'Portrait';
+        const canonicalPlotArea = plotArea === 'Layout' ? 'Layout' : (plotArea === 'Display' ? 'Display' : 'Extents');
+        const canonicalScale = scale === 'Fit' ? 'Fit' : (scale || 'Fit');
+        const canonicalPlotStyle = plotStyle || 'monochrome.ctb';
+        const canonicalLineweights = lineweights ? 'Yes' : 'No';
+
+        const plotScript = `(vl-load-com)
+(defun c:CloudPlot ()
+  (setvar "FILEDIA" 0)
+  (setvar "CMDECHO" 1)
+  (if (= (getvar "CTAB") "Model")
+    (command "-PLOT"
+      "Yes"                               ; Detailed plot configuration?
+      "Model"                             ; Layout name
+      "DWG To PDF.pc3"                    ; Output device name
+      "${canonicalPaperSize}"             ; Paper size
+      "${units}"                          ; Paper units
+      "${canonicalOrientation}"           ; Drawing orientation
+      "No"                                ; Plot upside down?
+      "${canonicalPlotArea}"              ; Plot area (Extents/Display/Limits)
+      "${canonicalScale}"                 ; Plot scale (Fit or scale string like 1:1)
+      "Center"                            ; Plot offset (x,y) or [Center]
+      "Yes"                               ; Plot with plot styles?
+      "${canonicalPlotStyle}"             ; Plot style table name
+      "${canonicalLineweights}"           ; Plot with lineweights?
+      "As displayed"                      ; Plot with shading style? (Model space only!)
+      "Yes"                               ; Write the plot to a file?
+      "result.pdf"                        ; Enter file name
+      "No"                                ; Save changes to page setup?
+      "Yes"                               ; Proceed with plot?
+    )
+    (command "-PLOT"
+      "Yes"                               ; Detailed plot configuration?
+      (getvar "CTAB")                     ; Layout name
+      "DWG To PDF.pc3"                    ; Output device name
+      "${canonicalPaperSize}"             ; Paper size
+      "${units}"                          ; Paper units
+      "${canonicalOrientation}"           ; Drawing orientation
+      "No"                                ; Plot upside down?
+      "Layout"                            ; Plot area (Layout)
+      "1:1"                               ; Plot scale
+      "0,0"                               ; Plot offset
+      "Yes"                               ; Plot with plot styles?
+      "${canonicalPlotStyle}"             ; Plot style table name
+      "${canonicalLineweights}"           ; Plot with lineweights?
+      "No"                                ; Scale lineweights with plot scale?
+      "No"                                ; Plot paper space first?
+      "No"                                ; Hide paper space objects?
+      "Yes"                               ; Write the plot to a file?
+      "result.pdf"                        ; Enter file name
+      "No"                                ; Save changes to page setup?
+      "Yes"                               ; Proceed with plot?
+    )
+  )
+  (if (findfile "result.pdf")
+    (progn
+      (vl-file-delete "input.dwg")
+      (vl-file-rename "result.pdf" "input.dwg")
+      (princ "\nSUCCESS: PDF printed and renamed successfully!")
+    )
+    (progn
+      (princ "\nFATAL ERROR: result.pdf was not created by the plot command!")
+      (exit)
+    )
+  )
+  (princ)
+)
+(c:CloudPlot)
+`;
+
+        const wiRes = await axios.post('https://developer.api.autodesk.com/da/us-east/v3/workitems', {
+            activityId: `${APS_CLIENT_ID}.TitleBlockActivity+prod`,
+            settings: { script: { value: plotScript } },
+            arguments: { 
+                hostDwg: { url: signedDownload.data.url, localName: 'input.dwg' }, 
+                params: { url: `data:application/json;base64,${Buffer.from(JSON.stringify([{ BlockName: "Dummy" }])).toString('base64')}`, localName: 'params.json' }, 
+                result: { verb: 'put', url: signedUploadUrl, localName: 'input.dwg' } 
+            }
+        }, { headers: { Authorization: `Bearer ${internalToken}` } });
+
+        const workItemId = wiRes.data.id;
+        pendingPrints.set(workItemId, {
+            status: 'executing',
+            destination,
+            projectId,
+            targetFolderId,
+            targetFolderName,
+            uploadKey,
+            storageId: accStorageId,
+            drawingName,
+            token,
+            internalToken
+        });
+
+        res.json({ workItemId });
+    } catch (err) {
+        console.error('[Print Job Error]', err.response?.data || err.message);
+        res.status(500).json({ message: err.response?.data?.message || err.message });
+    }
+});
+
+app.post('/api/acc/print/bulk', async (req, res) => {
+    const { files, projectId, hubId, paperSize, plotStyle, orientation, scale, plotArea, lineweights, transparency, destination, targetFolderId, targetFolderName } = req.body;
+    
+    try {
+        const token = await getUserToken(req);
+        const internalToken = await getInternalToken();
+
+        const workItemIds = [];
+        const bulkJobId = crypto.randomUUID();
+
+        for (const file of files) {
+            const versionRes = await axios.get(`https://developer.api.autodesk.com/data/v1/projects/${projectId}/versions/${encodeURIComponent(file.versionId)}`, { headers: { Authorization: `Bearer ${token}` } });
+            const sourceStorageId = versionRes.data.data.relationships.storage.data.id;
+            const drawingName = versionRes.data.data.attributes.displayName;
+
+            const srcBucket = sourceStorageId.split('/')[0].split(':').pop(); 
+            const srcObject = sourceStorageId.split('/')[1];
+            const signedDownload = await axios.get(`https://developer.api.autodesk.com/oss/v2/buckets/${srcBucket}/objects/${encodeURIComponent(srcObject)}/signeds3download`, { headers: { Authorization: `Bearer ${token}` } });
+
+            let signedUploadUrl;
+            let uploadKey;
+            let accStorageId;
+
+            if (destination === 'acc') {
+                const pdfName = `${drawingName.replace(/\.[^/.]+$/, "")}.pdf`;
+                const storageRes = await axios.post(`https://developer.api.autodesk.com/data/v1/projects/${projectId}/storage`, {
+                    jsonapi: { version: '1.0' },
+                    data: {
+                        type: 'objects',
+                        attributes: { name: pdfName },
+                        relationships: { target: { data: { type: 'folders', id: targetFolderId } } }
+                    }
+                }, { headers: { Authorization: `Bearer ${token}` } });
+
+                accStorageId = storageRes.data.data.id;
+                const accBucket = accStorageId.split('/')[0].split(':').pop(); 
+                const accObject = accStorageId.split('/')[1];
+
+                const signedUpload = await axios.get(`https://developer.api.autodesk.com/oss/v2/buckets/${accBucket}/objects/${encodeURIComponent(accObject)}/signeds3upload`, { headers: { Authorization: `Bearer ${token}` } });
+                signedUploadUrl = signedUpload.data.urls[0];
+                uploadKey = signedUpload.data.uploadKey;
+            } else {
+                const pdfName = `temp_print_${bulkJobId}_${drawingName.replace(/\.[^/.]+$/, "")}.pdf`;
+                const itemId = versionRes.data.data.relationships.item.data.id;
+                const itemRes = await axios.get(`https://developer.api.autodesk.com/data/v1/projects/${projectId}/items/${encodeURIComponent(itemId)}`, { headers: { Authorization: `Bearer ${token}` } });
+                const parentFolderId = itemRes.data.data.relationships.parent.data.id;
+
+                const storageRes = await axios.post(`https://developer.api.autodesk.com/data/v1/projects/${projectId}/storage`, {
+                    jsonapi: { version: '1.0' },
+                    data: {
+                        type: 'objects',
+                        attributes: { name: pdfName },
+                        relationships: { target: { data: { type: 'folders', id: parentFolderId } } }
+                    }
+                }, { headers: { Authorization: `Bearer ${token}` } });
+
+                accStorageId = storageRes.data.data.id;
+                const accBucket = accStorageId.split('/')[0].split(':').pop(); 
+                const accObject = accStorageId.split('/')[1];
+
+                const signedUpload = await axios.get(`https://developer.api.autodesk.com/oss/v2/buckets/${accBucket}/objects/${encodeURIComponent(accObject)}/signeds3upload`, { headers: { Authorization: `Bearer ${token}` } });
+                signedUploadUrl = signedUpload.data.urls[0];
+                uploadKey = signedUpload.data.uploadKey;
+            }
+
+            const paperSizeMap = {
+                'ISO_A0': 'ISO expand A0 (841.00 x 1189.00 MM)',
+                'ISO_A1': 'ISO expand A1 (594.00 x 841.00 MM)',
+                'ISO_A2': 'ISO expand A2 (420.00 x 594.00 MM)',
+                'ISO_A3': 'ISO expand A3 (420.00 x 297.00 MM)',
+                'ISO_A4': 'ISO expand A4 (210.00 x 297.00 MM)',
+                'ANSI_D': 'ANSI expand D (22.00 x 34.00 Inches)',
+                'ANSI_Letter': 'ANSI expand A (8.50 x 11.00 Inches)'
+            };
+            const canonicalPaperSize = paperSizeMap[paperSize] || 'ISO expand A3 (420.00 x 297.00 MM)';
+            const units = canonicalPaperSize.includes('Inches') ? 'Inches' : 'Millimeters';
+            const canonicalOrientation = orientation === 'Landscape' ? 'Landscape' : 'Portrait';
+            const canonicalPlotArea = plotArea === 'Layout' ? 'Layout' : (plotArea === 'Display' ? 'Display' : 'Extents');
+            const canonicalScale = scale === 'Fit' ? 'Fit' : (scale || 'Fit');
+            const canonicalPlotStyle = plotStyle || 'monochrome.ctb';
+            const canonicalLineweights = lineweights ? 'Yes' : 'No';
+
+            const plotScript = `(vl-load-com)
+(defun c:CloudPlot ()
+  (setvar "FILEDIA" 0)
+  (setvar "CMDECHO" 1)
+  (if (= (getvar "CTAB") "Model")
+    (command "-PLOT"
+      "Yes"                               ; Detailed plot configuration?
+      "Model"                             ; Layout name
+      "DWG To PDF.pc3"                    ; Output device name
+      "${canonicalPaperSize}"             ; Paper size
+      "${units}"                          ; Paper units
+      "${canonicalOrientation}"           ; Drawing orientation
+      "No"                                ; Plot upside down?
+      "${canonicalPlotArea}"              ; Plot area (Extents/Display/Limits)
+      "${canonicalScale}"                 ; Plot scale (Fit or scale string like 1:1)
+      "Center"                            ; Plot offset (x,y) or [Center]
+      "Yes"                               ; Plot with plot styles?
+      "${canonicalPlotStyle}"             ; Plot style table name
+      "${canonicalLineweights}"           ; Plot with lineweights?
+      "As displayed"                      ; Plot with shading style? (Model space only!)
+      "Yes"                               ; Write the plot to a file?
+      "result.pdf"                        ; Enter file name
+      "No"                                ; Save changes to page setup?
+      "Yes"                               ; Proceed with plot?
+    )
+    (command "-PLOT"
+      "Yes"                               ; Detailed plot configuration?
+      (getvar "CTAB")                     ; Layout name
+      "DWG To PDF.pc3"                    ; Output device name
+      "${canonicalPaperSize}"             ; Paper size
+      "${units}"                          ; Paper units
+      "${canonicalOrientation}"           ; Drawing orientation
+      "No"                                ; Plot upside down?
+      "Layout"                            ; Plot area (Layout)
+      "1:1"                               ; Plot scale
+      "0,0"                               ; Plot offset
+      "Yes"                               ; Plot with plot styles?
+      "${canonicalPlotStyle}"             ; Plot style table name
+      "${canonicalLineweights}"           ; Plot with lineweights?
+      "No"                                ; Scale lineweights with plot scale?
+      "No"                                ; Plot paper space first?
+      "No"                                ; Hide paper space objects?
+      "Yes"                               ; Write the plot to a file?
+      "result.pdf"                        ; Enter file name
+      "No"                                ; Save changes to page setup?
+      "Yes"                               ; Proceed with plot?
+    )
+  )
+  (if (findfile "result.pdf")
+    (progn
+      (vl-file-delete "input.dwg")
+      (vl-file-rename "result.pdf" "input.dwg")
+      (princ "\nSUCCESS: PDF printed and renamed successfully!")
+    )
+    (progn
+      (princ "\nFATAL ERROR: result.pdf was not created by the plot command!")
+      (exit)
+    )
+  )
+  (princ)
+)
+(c:CloudPlot)`;
+
+            const wiRes = await axios.post('https://developer.api.autodesk.com/da/us-east/v3/workitems', {
+                activityId: `${APS_CLIENT_ID}.TitleBlockActivity+prod`,
+                settings: { script: { value: plotScript } },
+                arguments: { 
+                    hostDwg: { url: signedDownload.data.url, localName: 'input.dwg' }, 
+                    params: { url: `data:application/json;base64,${Buffer.from(JSON.stringify([{ BlockName: "Dummy" }])).toString('base64')}`, localName: 'params.json' }, 
+                    result: { verb: 'put', url: signedUploadUrl, localName: 'input.dwg' } 
+                }
+            }, { headers: { Authorization: `Bearer ${internalToken}` } });
+
+            const wiId = wiRes.data.id;
+            workItemIds.push(wiId);
+
+            pendingPrints.set(wiId, {
+                status: 'executing',
+                destination,
+                projectId,
+                targetFolderId,
+                targetFolderName,
+                uploadKey,
+                storageId: accStorageId,
+                drawingName,
+                token,
+                internalToken
+            });
+        }
+
+        pendingBulkJobs.set(bulkJobId, {
+            status: 'executing',
+            destination,
+            projectId,
+            targetFolderId,
+            targetFolderName,
+            workItemIds,
+            token,
+            internalToken
+        });
+
+        res.json({ bulkJobId });
+    } catch (err) {
+        console.error('[Bulk Print Job Error]', err.response?.data || err.message);
+        res.status(500).json({ message: err.response?.data?.message || err.message });
+    }
+});
+
+app.get('/api/acc/print/status/:id', async (req, res) => {
+    const workItemId = req.params.id;
+    const printInfo = pendingPrints.get(workItemId);
+    if (!printInfo) return res.status(404).json({ message: 'Job not found' });
+
+    if (printInfo.status === 'success' || printInfo.status === 'failed') {
+        return res.json({ status: printInfo.status, downloadUrl: printInfo.downloadUrl });
+    }
+
+    try {
+        const response = await axios.get(`https://developer.api.autodesk.com/da/us-east/v3/workitems/${workItemId}`, { headers: { Authorization: `Bearer ${printInfo.internalToken}` } });
+        const daStatus = response.data.status;
+
+        if (daStatus === 'success') {
+            console.log(`[Print Status success] Finalizing file for WorkItem: ${workItemId}`);
+            
+            const accBucket = printInfo.storageId.split('/')[0].split(':').pop();
+            const accObjectKey = printInfo.storageId.split('/')[1];
+
+            if (printInfo.uploadKey) {
+                await axios.post(`https://developer.api.autodesk.com/oss/v2/buckets/${accBucket}/objects/${encodeURIComponent(accObjectKey)}/signeds3upload`, { uploadKey: printInfo.uploadKey }, { headers: { Authorization: `Bearer ${printInfo.token}` } });
+            }
+
+            if (printInfo.destination === 'acc') {
+                const pdfName = `${printInfo.drawingName.replace(/\.[^/.]+$/, "")}.pdf`;
+                await createACCFileItem(printInfo.projectId, printInfo.targetFolderId, pdfName, printInfo.storageId, printInfo.token);
+                printInfo.status = 'success';
+                res.json({ status: 'success' });
+            } else {
+                const signedDownloadRes = await axios.get(`https://developer.api.autodesk.com/oss/v2/buckets/${accBucket}/objects/${encodeURIComponent(accObjectKey)}/signeds3download`, { headers: { Authorization: `Bearer ${printInfo.token}` } });
+                printInfo.status = 'success';
+                printInfo.downloadUrl = signedDownloadRes.data.url;
+                res.json({ status: 'success', downloadUrl: signedDownloadRes.data.url });
+            }
+        } else if (daStatus === 'failed') {
+            printInfo.status = 'failed';
+            res.json({ status: 'failed' });
+        } else {
+            res.json({ status: daStatus });
+        }
+    } catch (err) {
+        console.error('[Print Check Status Error]', err.response?.data || err.message);
+        res.status(500).json({ message: err.response?.data?.message || err.message });
+    }
+});
+
+app.get('/api/acc/print/bulk-status/:id', async (req, res) => {
+    const bulkJobId = req.params.id;
+    const bulkInfo = pendingBulkJobs.get(bulkJobId);
+    if (!bulkInfo) return res.status(404).json({ message: 'Bulk job not found' });
+
+    if (bulkInfo.status === 'success' || bulkInfo.status === 'failed') {
+        return res.json({ status: bulkInfo.status, zipUrl: bulkInfo.zipUrl });
+    }
+
+    try {
+        const statuses = [];
+        let allCompleted = true;
+        let anyFailed = false;
+
+        for (const wiId of bulkInfo.workItemIds) {
+            const printInfo = pendingPrints.get(wiId);
+            if (!printInfo) continue;
+
+            if (printInfo.status === 'success') {
+                statuses.push('success');
+            } else if (printInfo.status === 'failed') {
+                statuses.push('failed');
+                anyFailed = true;
+            } else {
+                const response = await axios.get(`https://developer.api.autodesk.com/da/us-east/v3/workitems/${wiId}`, { headers: { Authorization: `Bearer ${bulkInfo.internalToken}` } });
+                const daStatus = response.data.status;
+
+                if (daStatus === 'success') {
+                    const accBucket = printInfo.storageId.split('/')[0].split(':').pop();
+                    const accObjectKey = printInfo.storageId.split('/')[1];
+
+                    if (printInfo.uploadKey) {
+                        await axios.post(`https://developer.api.autodesk.com/oss/v2/buckets/${accBucket}/objects/${encodeURIComponent(accObjectKey)}/signeds3upload`, { uploadKey: printInfo.uploadKey }, { headers: { Authorization: `Bearer ${bulkInfo.token}` } });
+                    }
+
+                    if (printInfo.destination === 'acc') {
+                        const pdfName = `${printInfo.drawingName.replace(/\.[^/.]+$/, "")}.pdf`;
+                        await createACCFileItem(printInfo.projectId, printInfo.targetFolderId, pdfName, printInfo.storageId, printInfo.token);
+                    }
+                    printInfo.status = 'success';
+                    statuses.push('success');
+                } else if (daStatus === 'failed') {
+                    printInfo.status = 'failed';
+                    statuses.push('failed');
+                    anyFailed = true;
+                } else {
+                    statuses.push(daStatus);
+                    allCompleted = false;
+                }
+            }
+        }
+
+        if (allCompleted) {
+            if (bulkInfo.destination === 'acc') {
+                bulkInfo.status = 'success';
+                res.json({ status: 'success' });
+            } else {
+                const { exec } = require('child_process');
+                const tempDir = path.join(__dirname, 'data', `bulk_${bulkJobId}`);
+                if (!fs.existsSync(tempDir)) fs.mkdirSync(tempDir, { recursive: true });
+
+                const pdfPaths = [];
+                for (const wiId of bulkInfo.workItemIds) {
+                    const printInfo = pendingPrints.get(wiId);
+                    if (printInfo && printInfo.status === 'success') {
+                        const accBucket = printInfo.storageId.split('/')[0].split(':').pop();
+                        const accObjectKey = printInfo.storageId.split('/')[1];
+                        const signedDownloadRes = await axios.get(`https://developer.api.autodesk.com/oss/v2/buckets/${accBucket}/objects/${encodeURIComponent(accObjectKey)}/signeds3download`, { headers: { Authorization: `Bearer ${bulkInfo.token}` } });
+                        
+                        const pdfPath = path.join(tempDir, `${printInfo.drawingName.replace(/\.[^/.]+$/, "")}.pdf`);
+                        const writer = fs.createWriteStream(pdfPath);
+                        const fileRes = await axios.get(signedDownloadRes.data.url, { responseType: 'stream' });
+                        fileRes.data.pipe(writer);
+                        
+                        await new Promise((resolve, reject) => {
+                            writer.on('finish', resolve);
+                            writer.on('error', reject);
+                        });
+                        pdfPaths.push(pdfPath);
+                    }
+                }
+
+                const zipPath = path.join(__dirname, 'data', `printed_${bulkJobId}.zip`);
+                const zipCmd = `zip -j "${zipPath}" "${tempDir}"/*.pdf`;
+
+                exec(zipCmd, async (zipErr) => {
+                    if (zipErr) {
+                        console.error('[Bulk Zip Command Error]', zipErr);
+                        bulkInfo.status = 'failed';
+                        return res.json({ status: 'failed', message: zipErr.message });
+                    }
+
+                    try {
+                        const rootFolderRes = await axios.get(`https://developer.api.autodesk.com/project/v1/hubs/${HUB_ID || 'dummy'}/projects/${bulkInfo.projectId}/topFolders`, { headers: { Authorization: `Bearer ${bulkInfo.token}` } }).catch(() => null);
+                        const parentFolderId = rootFolderRes?.data?.data?.[0]?.id || bulkInfo.targetFolderId;
+
+                        const storageRes = await axios.post(`https://developer.api.autodesk.com/data/v1/projects/${bulkInfo.projectId}/storage`, {
+                            jsonapi: { version: '1.0' },
+                            data: {
+                                type: 'objects',
+                                attributes: { name: `printed_drawings_${Date.now()}.zip` },
+                                relationships: { target: { data: { type: 'folders', id: parentFolderId } } }
+                            }
+                        }, { headers: { Authorization: `Bearer ${bulkInfo.token}` } });
+
+                        const accStorageId = storageRes.data.data.id;
+                        const accBucket = accStorageId.split('/')[0].split(':').pop(); 
+                        const accObject = accStorageId.split('/')[1];
+
+                        const signedUpload = await axios.get(`https://developer.api.autodesk.com/oss/v2/buckets/${accBucket}/objects/${encodeURIComponent(accObject)}/signeds3upload`, { headers: { Authorization: `Bearer ${bulkInfo.token}` } });
+                        
+                        await axios.put(signedUpload.data.urls[0], fs.readFileSync(zipPath), { headers: { 'Content-Type': 'application/zip' } });
+                        await axios.post(`https://developer.api.autodesk.com/oss/v2/buckets/${accBucket}/objects/${encodeURIComponent(accObject)}/signeds3upload`, { uploadKey: signedUpload.data.uploadKey }, { headers: { Authorization: `Bearer ${bulkInfo.token}` } });
+
+                        const signedDownloadRes = await axios.get(`https://developer.api.autodesk.com/oss/v2/buckets/${accBucket}/objects/${encodeURIComponent(accObject)}/signeds3download`, { headers: { Authorization: `Bearer ${bulkInfo.token}` } });
+
+                        bulkInfo.status = 'success';
+                        bulkInfo.zipUrl = signedDownloadRes.data.url;
+
+                        fs.rmSync(tempDir, { recursive: true, force: true });
+                        fs.rmSync(zipPath, { force: true });
+
+                        res.json({ status: 'success', zipUrl: signedDownloadRes.data.url });
+                    } catch (uploadErr) {
+                        console.error('[Bulk Zip Upload Error]', uploadErr.response?.data || uploadErr.message);
+                        bulkInfo.status = 'failed';
+                        res.json({ status: 'failed', message: uploadErr.message });
+                    }
+                });
+            }
+        } else {
+            res.json({ status: 'executing' });
+        }
+    } catch (err) {
+        console.error('[Bulk Check Status Error]', err.response?.data || err.message);
+        res.status(500).json({ message: err.response?.data?.message || err.message });
+    }
 });
 
 // PORT is defined at the top
