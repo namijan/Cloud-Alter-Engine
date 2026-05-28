@@ -1697,7 +1697,7 @@ const App = () => {
             const res = await axios.get('/api/feedback', {
                 headers: { 'x-admin-secret': passcodeToUse }
             });
-            setFeedbackList(res.data);
+            setFeedbackList(Array.isArray(res.data) ? res.data : []);
             return true;
         } catch (e) {
             console.error('Failed to fetch feedback registry', e);
@@ -4025,7 +4025,7 @@ const App = () => {
                 <header style={{ padding: '12px 32px', borderBottom: `1px solid ${ACC_THEME.border}`, display: 'flex', justifyContent: 'space-between', alignItems: 'center', background: 'white', minHeight: '64px' }}>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
                         <h1 style={{ fontSize: '18px', margin: 0, fontWeight: '800', color: '#0f172a' }}>{t('title')}</h1>
-                        <span style={{ fontSize: '12px', color: ACC_THEME.textSecondary, borderLeft: `1px solid ${ACC_THEME.border}`, paddingLeft: '16px' }}> {status}</span>
+                        <span style={{ fontSize: '12px', color: ACC_THEME.textSecondary, borderLeft: `1px solid ${ACC_THEME.border}`, paddingLeft: '16px' }}> {translateStatus(status)}</span>
                     </div>
 
                     <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>

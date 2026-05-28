@@ -274,6 +274,7 @@ async function getFeedbacks() {
             return list.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
         } catch (e) {}
     }
+    return [];
 }
 
 async function deleteFeedback(feedbackId) {
