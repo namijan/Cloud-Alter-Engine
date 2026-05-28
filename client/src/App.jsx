@@ -155,7 +155,8 @@ const TRANSLATIONS = {
         accPlusExcel: "ACC + EXCEL",
         onlyAcc: "ONLY ACC",
         syncingText: "SYNCING...",
-        refreshText: "REFRESH"
+        refreshText: "REFRESH",
+        refreshFeedbacks: "Refresh Registry"
     },
     es: {
         title: "Automatización de Bloques de Título y Sincronización en la Nube",
@@ -291,7 +292,8 @@ const TRANSLATIONS = {
         accPlusExcel: "ACC + EXCEL",
         onlyAcc: "SOLO ACC",
         syncingText: "SINCRONIZANDO...",
-        refreshText: "ACTUALIZAR"
+        refreshText: "ACTUALIZAR",
+        refreshFeedbacks: "Actualizar registro"
     },
     fr: {
         title: "Automatisation des Cartouches & Synchro Cloud",
@@ -427,7 +429,8 @@ const TRANSLATIONS = {
         accPlusExcel: "ACC + EXCEL",
         onlyAcc: "ACC UNIQUEMENT",
         syncingText: "SYNCHRONISATION...",
-        refreshText: "ACTUALISER"
+        refreshText: "ACTUALISER",
+        refreshFeedbacks: "Actualiser le registre"
     },
     de: {
         title: "Schriftkopf-Automatisierung & Cloud-Synchronisierung",
@@ -563,7 +566,8 @@ const TRANSLATIONS = {
         accPlusExcel: "ACC + EXCEL",
         onlyAcc: "NUR ACC",
         syncingText: "SYNCHRONISIERUNG...",
-        refreshText: "AKTUALISIEREN"
+        refreshText: "AKTUALISIEREN",
+        refreshFeedbacks: "Registrierung aktualisieren"
     },
     ja: {
         title: "図面タイトルブロック自動化 & クラウド同期",
@@ -699,7 +703,8 @@ const TRANSLATIONS = {
         accPlusExcel: "ACC + EXCEL",
         onlyAcc: "ACC のみ",
         syncingText: "同期中...",
-        refreshText: "更新"
+        refreshText: "更新",
+        refreshFeedbacks: "レジストリを更新"
     },
     zh: {
         title: "企业级图纸标题栏自动填充与云同步系统",
@@ -835,7 +840,8 @@ const TRANSLATIONS = {
         accPlusExcel: "ACC + EXCEL",
         onlyAcc: "仅限 ACC",
         syncingText: "正在同步...",
-        refreshText: "刷新"
+        refreshText: "刷新",
+        refreshFeedbacks: "刷新注册表"
     },
     hi: {
         title: "एंटरप्राइज टाइटल ब्लॉक ऑटोमेशन और क्लाउड सिंक्रनाइज़ेशन",
@@ -971,7 +977,8 @@ const TRANSLATIONS = {
         accPlusExcel: "ACC + एक्सेल",
         onlyAcc: "केवल ACC",
         syncingText: "सिंक हो रहा है...",
-        refreshText: "रीफ़्रेश"
+        refreshText: "रीफ़्रेश",
+        refreshFeedbacks: "रजिस्ट्री रीफ़्रेश करें"
     }
 };
 
@@ -1741,6 +1748,12 @@ const App = () => {
             verifySaved();
         }
     }, [adminPasscode]);
+
+    useEffect(() => {
+        if (showFeedbackHub && isAdminAuthenticated && adminPasscode) {
+            fetchFeedbacks(adminPasscode);
+        }
+    }, [showFeedbackHub, isAdminAuthenticated, adminPasscode]);
     
     useEffect(() => {
         console.log('[DEBUG State]', { 
@@ -3072,9 +3085,34 @@ const App = () => {
                             </div>
                             <p style={{ margin: '4px 0 0 0', fontSize: '12px', color: '#64748b', fontWeight: '500' }}>{t('feedbackHubSubtitle')}</p>
                         </div>
-                        <button onClick={() => setShowFeedbackHub(false)} style={{ width: '36px', height: '36px', borderRadius: '50%', background: '#f8fafc', border: 'none', cursor: 'pointer', color: '#94a3b8', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                            <X size={18} />
-                        </button>
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                            <button 
+                                onClick={() => fetchFeedbacks(adminPasscode)} 
+                                disabled={loadingFeedbackList}
+                                title={t('refreshFeedbacks')}
+                                style={{ 
+                                    width: '36px', 
+                                    height: '36px', 
+                                    borderRadius: '50%', 
+                                    background: '#f8fafc', 
+                                    border: 'none', 
+                                    cursor: 'pointer', 
+                                    color: '#64748b', 
+                                    display: 'flex', 
+                                    alignItems: 'center', 
+                                    justifyContent: 'center',
+                                    transition: 'all 0.2s',
+                                    outline: 'none'
+                                }}
+                                onMouseEnter={(e) => { e.currentTarget.style.background = '#f1f5f9'; e.currentTarget.style.color = ACC_THEME.primary; }}
+                                onMouseLeave={(e) => { e.currentTarget.style.background = '#f8fafc'; e.currentTarget.style.color = '#64748b'; }}
+                            >
+                                <RefreshCw size={18} className={loadingFeedbackList ? "animate-spin" : ""} style={{ color: loadingFeedbackList ? ACC_THEME.primary : 'inherit' }} />
+                            </button>
+                            <button onClick={() => setShowFeedbackHub(false)} style={{ width: '36px', height: '36px', borderRadius: '50%', background: '#f8fafc', border: 'none', cursor: 'pointer', color: '#94a3b8', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                                <X size={18} />
+                            </button>
+                        </div>
                     </div>
 
                     <div style={{ flex: 1, display: 'flex', overflow: 'hidden' }}>
