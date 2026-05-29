@@ -1088,41 +1088,229 @@ const APSViewer = ({ versionId, onClose, t }) => {
 
 
 
-const ExcelPreviewModal = ({ showExcelPreview, setShowExcelPreview, excelPreviewData, previewLoading, getSelectedExcelDetails }) => {
+const ExcelPreviewModal = ({ 
+    showExcelPreview, 
+    setShowExcelPreview, 
+    excelPreviewData, 
+    previewLoading, 
+    getSelectedExcelDetails,
+    selectedProject,
+    selectedHub,
+    selectedFolderIds,
+    selectedExcel,
+    setSelectedExcel,
+    fetchExcelFiles,
+    fetchExcelPreview
+}) => {
     if (!showExcelPreview) return null;
+
+    const [isEditing, setIsEditing] = useState(false);
+    const [gridData, setGridData] = useState([]);
+    const [isSaving, setIsSaving] = useState(false);
+    const [saveStatus, setSaveStatus] = useState('');
+    const [saveError, setSaveError] = useState('');
+    const [newVersionInfo, setNewVersionInfo] = useState(null);
+
+    useEffect(() => {
+        if (excelPreviewData) {
+            setGridData(JSON.parse(JSON.stringify(excelPreviewData)));
+            setNewVersionInfo(null);
+            setIsEditing(false);
+            setSaveError('');
+            setSaveStatus('');
+        }
+    }, [excelPreviewData, showExcelPreview]);
+
+    const handleCellChange = (rowIndex, key, value) => {
+        setGridData(prev => prev.map((row, idx) => {
+            if (idx === rowIndex) {
+                return { ...row, [key]: value };
+            }
+            return row;
+        }));
+    };
+
+    const handleCancel = () => {
+        if (window.confirm("Any changes you made will be lost. Are you sure you want to cancel?")) {
+            setGridData(JSON.parse(JSON.stringify(excelPreviewData)));
+            setIsEditing(false);
+        }
+    };
+
+    const handleSave = async () => {
+        setIsSaving(true);
+        setSaveError('');
+        setSaveStatus('Connecting to Autodesk Cloud Storage...');
+        try {
+            await new Promise(r => setTimeout(r, 800));
+            setSaveStatus('Writing updated Excel data structures...');
+            
+            await new Promise(r => setTimeout(r, 600));
+            setSaveStatus('Initiating secure S3 upload tunnel...');
+            
+            const res = await axios.post('/api/acc/save-excel', {
+                projectId: selectedProject,
+                excelVersionId: selectedExcel,
+                rows: gridData
+            });
+            
+            setSaveStatus('Finalizing document version registration...');
+            await new Promise(r => setTimeout(r, 800));
+            
+            setNewVersionInfo(res.data);
+            
+            setSaveStatus('Refreshing UI registry...');
+            await fetchExcelFiles(selectedHub, selectedProject, Array.from(selectedFolderIds));
+            
+            setSelectedExcel(res.data.newVersionId);
+            
+            setSaveStatus('Completed!');
+        } catch (e) {
+            console.error('Save Excel Error:', e);
+            setSaveError(e.response?.data?.error || e.message || 'Unknown network error');
+        } finally {
+            setIsSaving(false);
+        }
+    };
+
     return (
         <div style={{ position: 'fixed', top: 0, left: 0, right: 0, bottom: 0, background: 'rgba(0,0,0,0.6)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 1100 }}>
-            <div style={{ background: 'white', width: '90%', maxWidth: '1000px', maxHeight: '85vh', borderRadius: '12px', display: 'flex', flexDirection: 'column', overflow: 'hidden', boxShadow: '0 20px 40px rgba(0,0,0,0.2)' }}>
+            {/* Main Modal Panel */}
+            <div style={{ background: 'white', width: '90%', maxWidth: '1000px', maxHeight: '85vh', borderRadius: '12px', display: 'flex', flexDirection: 'column', overflow: 'hidden', boxShadow: '0 20px 40px rgba(0,0,0,0.2)', position: 'relative' }}>
+                
+                {/* Save Overlay / Status Lightbox */}
+                {(isSaving || saveStatus || newVersionInfo || saveError) && (
+                    <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, background: 'rgba(15, 23, 42, 0.4)', backdropFilter: 'blur(16px)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 1200, padding: '20px' }}>
+                        <div style={{ background: 'white', width: '100%', maxWidth: '440px', borderRadius: '24px', boxShadow: '0 25px 50px -12px rgba(0,0,0,0.25)', overflow: 'hidden', border: '1px solid #f1f5f9', padding: '32px', textAlign: 'center' }}>
+                            <div style={{ 
+                                background: saveError ? 'rgba(239, 68, 68, 0.1)' : newVersionInfo ? 'rgba(16, 185, 129, 0.1)' : 'rgba(6, 150, 215, 0.1)', 
+                                width: '64px', 
+                                height: '64px', 
+                                borderRadius: '50%', 
+                                display: 'flex', 
+                                alignItems: 'center', 
+                                justifyContent: 'center', 
+                                margin: '0 auto 24px', 
+                                border: `1px solid ${saveError ? 'rgba(239, 68, 68, 0.2)' : newVersionInfo ? 'rgba(16, 185, 129, 0.2)' : 'rgba(6, 150, 215, 0.2)'}` 
+                            }}>
+                                {saveError ? (
+                                    <span style={{ fontSize: '32px' }}>⚠️</span>
+                                ) : newVersionInfo ? (
+                                    <CheckCircle size={32} color="#10b981" />
+                                ) : (
+                                    <Loader2 size={32} className="animate-spin" color={ACC_THEME.primary} />
+                                )}
+                            </div>
+
+                            <h3 style={{ margin: '0 0 8px 0', fontSize: '20px', fontWeight: '800', color: '#0f172a' }}>
+                                {saveError ? 'Save Failed' : newVersionInfo ? 'Version Saved!' : 'Syncing changes'}
+                            </h3>
+                            
+                            <p style={{ margin: '0 0 24px 0', fontSize: '14px', color: '#64748b', fontWeight: '600', lineHeight: '1.5' }}>
+                                {saveError ? 'An error occurred during version creation.' : saveStatus}
+                            </p>
+
+                            {saveError && (
+                                <div style={{ background: '#fef2f2', border: '1px solid #fecaca', borderRadius: '12px', padding: '12px', color: '#ef4444', fontSize: '12px', fontWeight: '600', textAlign: 'left', marginBottom: '24px', overflowX: 'auto', fontFamily: 'monospace' }}>
+                                    {saveError}
+                                </div>
+                            )}
+
+                            {newVersionInfo && (
+                                <div style={{ background: '#ecfdf5', border: '1px solid #a7f3d0', borderRadius: '12px', padding: '16px', color: '#065f46', fontSize: '13px', fontWeight: '700', marginBottom: '24px', display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                                    <div>Dataset: {getSelectedExcelDetails()?.name}</div>
+                                    <div style={{ fontSize: '16px', fontWeight: '900' }}>Active Version: V{newVersionInfo.newVersionNumber}</div>
+                                </div>
+                            )}
+
+                            <div style={{ display: 'flex', gap: '12px', justifyContent: 'center' }}>
+                                {saveError && (
+                                    <button 
+                                        onClick={() => { setSaveError(''); setIsSaving(false); setSaveStatus(''); }} 
+                                        style={{ padding: '12px 24px', background: '#f1f5f9', color: '#475569', border: 'none', borderRadius: '12px', fontSize: '14px', fontWeight: '700', cursor: 'pointer' }}
+                                    >
+                                        Back to Editor
+                                    </button>
+                                )}
+                                {newVersionInfo && (
+                                    <button 
+                                        onClick={() => {
+                                            setNewVersionInfo(null);
+                                            setIsEditing(false);
+                                            setShowExcelPreview(false);
+                                        }} 
+                                        style={{ padding: '12px 32px', background: '#10b981', color: 'white', border: 'none', borderRadius: '12px', fontSize: '14px', fontWeight: '850', cursor: 'pointer', boxShadow: '0 4px 6px rgba(16, 185, 129, 0.2)' }}
+                                    >
+                                        Close Inspector
+                                    </button>
+                                )}
+                            </div>
+                        </div>
+                    </div>
+                )}
+
+                {/* Header */}
                 <div style={{ padding: '20px 32px', borderBottom: `1px solid ${ACC_THEME.border}`, display: 'flex', justifyContent: 'space-between', alignItems: 'center', background: ACC_THEME.sidebar }}>
                     <div>
-                        <h3 style={{ margin: 0, fontSize: '18px', fontWeight: '700' }}>Sync Data Inspector</h3>
+                        <h3 style={{ margin: 0, fontSize: '18px', fontWeight: '700' }}>Sync Data Inspector {isEditing ? '(Edit Mode)' : ''}</h3>
                         <p style={{ margin: '4px 0 0 0', fontSize: '12px', color: ACC_THEME.textSecondary }}>Previewing: {getSelectedExcelDetails()?.name || 'Dataset'}</p>
                     </div>
-                    <button onClick={() => setShowExcelPreview(false)} style={{ background: 'none', border: 'none', cursor: 'pointer', fontSize: '24px', opacity: 0.5 }}>&times;</button>
+                    <button onClick={() => {
+                        if (isEditing) {
+                            if (!window.confirm("Any changes you made will be lost. Are you sure you want to exit?")) return;
+                        }
+                        setShowExcelPreview(false);
+                    }} style={{ background: 'none', border: 'none', cursor: 'pointer', fontSize: '24px', opacity: 0.5 }}>&times;</button>
                 </div>
 
+                {/* Body Table */}
                 <div style={{ flex: 1, overflow: 'auto', padding: '24px' }}>
                     {previewLoading ? (
                         <div style={{ height: '300px', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '16px' }}>
                             <Loader2 className="animate-spin" size={32} color={ACC_THEME.primary} />
                             <p style={{ fontSize: '14px', color: ACC_THEME.textSecondary }}>Interrogating cloud data assets...</p>
                         </div>
-                    ) : excelPreviewData && excelPreviewData.length > 0 ? (
+                    ) : gridData && gridData.length > 0 ? (
                         <div style={{ border: `1px solid ${ACC_THEME.border}`, borderRadius: '4px' }}>
                             <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left', fontSize: '13px' }}>
-                                <thead style={{ background: ACC_THEME.tableHeader, position: 'sticky', top: 0 }}>
+                                <thead style={{ background: ACC_THEME.tableHeader, position: 'sticky', top: 0, zIndex: 10 }}>
                                     <tr>
-                                        {Object.keys(excelPreviewData[0]).map(key => (
-                                            <th key={key} style={{ padding: '12px 16px', borderBottom: `2px solid ${ACC_THEME.border}`, fontWeight: '700', textTransform: 'uppercase', fontSize: '11px', color: ACC_THEME.textSecondary }}>{key}</th>
+                                        {Object.keys(gridData[0] || {}).map(key => (
+                                            <th key={key} style={{ padding: '12px 16px', borderBottom: `2px solid ${ACC_THEME.border}`, fontWeight: '700', textTransform: 'uppercase', fontSize: '11px', color: ACC_THEME.textSecondary, background: '#f1f5f9' }}>{key}</th>
                                         ))}
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {excelPreviewData.map((row, i) => (
-                                        <tr key={i} style={{ borderBottom: `1px solid ${ACC_THEME.border}` }}>
-                                            {Object.values(row).map((val, j) => (
-                                                <td key={j} style={{ padding: '12px 16px' }}>{String(val)}</td>
-                                            ))}
+                                    {gridData.map((row, i) => (
+                                        <tr key={i} style={{ borderBottom: `1px solid ${ACC_THEME.border}`, background: i % 2 === 0 ? 'white' : '#f8fafc' }}>
+                                            {Object.keys(row).map((key, j) => {
+                                                const val = row[key];
+                                                return (
+                                                    <td key={j} style={{ padding: isEditing ? '6px 8px' : '12px 16px' }}>
+                                                        {isEditing ? (
+                                                            <input 
+                                                                type="text"
+                                                                value={String(val !== undefined && val !== null ? val : '')}
+                                                                onChange={(e) => handleCellChange(i, key, e.target.value)}
+                                                                style={{ 
+                                                                    width: '100%', 
+                                                                    padding: '8px 10px', 
+                                                                    border: '1px solid #cbd5e1', 
+                                                                    borderRadius: '6px', 
+                                                                    fontSize: '13px', 
+                                                                    outline: 'none', 
+                                                                    transition: 'border-color 0.15s, box-shadow 0.15s',
+                                                                    background: 'white' 
+                                                                }}
+                                                                onFocus={(e) => { e.target.style.borderColor = ACC_THEME.primary; e.target.style.boxShadow = `0 0 0 3px rgba(6, 150, 215, 0.15)`; }}
+                                                                onBlur={(e) => { e.target.style.borderColor = '#cbd5e1'; e.target.style.boxShadow = 'none'; }}
+                                                            />
+                                                        ) : (
+                                                            String(val !== undefined && val !== null ? val : '')
+                                                        )}
+                                                    </td>
+                                                );
+                                            })}
                                         </tr>
                                     ))}
                                 </tbody>
@@ -1133,8 +1321,47 @@ const ExcelPreviewModal = ({ showExcelPreview, setShowExcelPreview, excelPreview
                     )}
                 </div>
 
-                <div style={{ padding: '16px 32px', borderTop: `1px solid ${ACC_THEME.border}`, display: 'flex', justifyContent: 'flex-end' }}>
-                    <button onClick={() => setShowExcelPreview(false)} style={{ padding: '10px 24px', background: ACC_THEME.primary, color: 'white', border: 'none', borderRadius: '4px', cursor: 'pointer', fontWeight: '700' }}>Done</button>
+                {/* Footer Buttons */}
+                <div style={{ padding: '16px 32px', borderTop: `1px solid ${ACC_THEME.border}`, display: 'flex', justifyContent: 'flex-end', gap: '12px', background: '#f8fafc' }}>
+                    {isEditing ? (
+                        <>
+                            <button 
+                                onClick={handleCancel} 
+                                style={{ padding: '10px 20px', background: 'white', border: `1px solid ${ACC_THEME.border}`, color: '#475569', borderRadius: '6px', cursor: 'pointer', fontWeight: '700', fontSize: '13px', transition: 'all 0.15s' }}
+                                onMouseEnter={(e) => e.currentTarget.style.background = '#f1f5f9'}
+                                onMouseLeave={(e) => e.currentTarget.style.background = 'white'}
+                            >
+                                Cancel
+                            </button>
+                            <button 
+                                onClick={handleSave} 
+                                style={{ padding: '10px 24px', background: ACC_THEME.primary, color: 'white', border: 'none', borderRadius: '6px', cursor: 'pointer', fontWeight: '800', fontSize: '13px', display: 'flex', alignItems: 'center', gap: '8px', boxShadow: '0 2px 4px rgba(6, 150, 215, 0.2)' }}
+                                onMouseEnter={(e) => e.currentTarget.style.background = '#057da3'}
+                                onMouseLeave={(e) => e.currentTarget.style.background = ACC_THEME.primary}
+                            >
+                                <Database size={14} /> Save
+                            </button>
+                        </>
+                    ) : (
+                        <>
+                            <button 
+                                onClick={() => setIsEditing(true)} 
+                                style={{ padding: '10px 20px', background: 'white', border: `1px solid ${ACC_THEME.primary}`, color: ACC_THEME.primary, borderRadius: '6px', cursor: 'pointer', fontWeight: '700', fontSize: '13px', display: 'flex', alignItems: 'center', gap: '8px', transition: 'all 0.15s' }}
+                                onMouseEnter={(e) => e.currentTarget.style.background = 'rgba(6, 150, 215, 0.05)'}
+                                onMouseLeave={(e) => e.currentTarget.style.background = 'white'}
+                            >
+                                Edit
+                            </button>
+                            <button 
+                                onClick={() => setShowExcelPreview(false)} 
+                                style={{ padding: '10px 24px', background: '#475569', color: 'white', border: 'none', borderRadius: '6px', cursor: 'pointer', fontWeight: '700', fontSize: '13px' }}
+                                onMouseEnter={(e) => e.currentTarget.style.background = '#334155'}
+                                onMouseLeave={(e) => e.currentTarget.style.background = '#475569'}
+                            >
+                                Done
+                            </button>
+                        </>
+                    )}
                 </div>
             </div>
         </div>
@@ -3782,7 +4009,20 @@ const App = () => {
                     lang={lang}
                 />
             )}
-            <ExcelPreviewModal showExcelPreview={showExcelPreview} setShowExcelPreview={setShowExcelPreview} excelPreviewData={excelPreviewData} previewLoading={previewLoading} getSelectedExcelDetails={getSelectedExcelDetails} />
+            <ExcelPreviewModal 
+                showExcelPreview={showExcelPreview} 
+                setShowExcelPreview={setShowExcelPreview} 
+                excelPreviewData={excelPreviewData} 
+                previewLoading={previewLoading} 
+                getSelectedExcelDetails={getSelectedExcelDetails} 
+                selectedProject={selectedProject}
+                selectedHub={selectedHub}
+                selectedFolderIds={selectedFolderIds}
+                selectedExcel={selectedExcel}
+                setSelectedExcel={setSelectedExcel}
+                fetchExcelFiles={fetchExcelFiles}
+                fetchExcelPreview={fetchExcelPreview}
+            />
             <PrintConfigModal />
 
             <div style={{ width: '300px', background: ACC_THEME.sidebar, borderRight: `1px solid ${ACC_THEME.border}`, display: 'flex', flexDirection: 'column' }}>

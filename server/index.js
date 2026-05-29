@@ -1275,6 +1275,72 @@ app.post('/api/automation/commit-extract', async (req, res) => {
     } catch (err) { console.error('[Commit Extract Error]', err.response ? err.response.data : err.message); res.status(500).send(err.message); }
 });
 
+app.post('/api/acc/save-excel', async (req, res) => {
+    try {
+        const token = await getUserToken(req);
+        const { projectId, excelVersionId, rows } = req.body;
+        if (!projectId || !excelVersionId || !rows) {
+            return res.status(400).json({ error: 'projectId, excelVersionId, and rows are required.' });
+        }
+        
+        const excelVersionDetails = await axios.get(`https://developer.api.autodesk.com/data/v1/projects/${projectId}/versions/${encodeURIComponent(excelVersionId)}`, { headers: { Authorization: `Bearer ${token}` } });
+        const excelItemId = excelVersionDetails.data.data.relationships.item.data.id;
+        const excelParentFolderId = (await axios.get(`https://developer.api.autodesk.com/data/v1/projects/${projectId}/items/${encodeURIComponent(excelItemId)}`, { headers: { Authorization: `Bearer ${token}` } })).data.data.relationships.parent.data.id;
+        const displayName = excelVersionDetails.data.data.attributes.displayName;
+        
+        const newWorkbook = xlsx.utils.book_new();
+        xlsx.utils.book_append_sheet(newWorkbook, xlsx.utils.json_to_sheet(rows), "Sheet1");
+        const outBuffer = xlsx.write(newWorkbook, { type: 'buffer' });
+        
+        const storageRes = await axios.post(`https://developer.api.autodesk.com/data/v1/projects/${projectId}/storage`, {
+            jsonapi: { version: '1.0' },
+            data: {
+                type: 'objects',
+                attributes: { name: displayName },
+                relationships: { target: { data: { type: 'folders', id: excelParentFolderId } } }
+            }
+        }, { headers: { Authorization: `Bearer ${token}` } });
+        
+        const storageId = storageRes.data.data.id;
+        const bucketKey = storageId.split('/')[0].split(':').pop();
+        const objectKey = storageId.split('/')[1];
+        
+        const signedRes = await axios.get(`https://developer.api.autodesk.com/oss/v2/buckets/${bucketKey}/objects/${encodeURIComponent(objectKey)}/signeds3upload`, { headers: { Authorization: `Bearer ${token}` } });
+        await axios.put(signedRes.data.urls[0], outBuffer);
+        await axios.post(`https://developer.api.autodesk.com/oss/v2/buckets/${bucketKey}/objects/${encodeURIComponent(objectKey)}/signeds3upload`, { uploadKey: signedRes.data.uploadKey }, { headers: { Authorization: `Bearer ${token}` } });
+        
+        const versionsRes = await axios.post(`https://developer.api.autodesk.com/data/v1/projects/${projectId}/versions`, {
+            jsonapi: { version: '1.0' },
+            data: {
+                type: 'versions',
+                attributes: {
+                    name: displayName,
+                    displayName: displayName,
+                    extension: { type: 'versions:autodesk.bim360:File', version: '1.0' }
+                },
+                relationships: {
+                    item: { data: { type: 'items', id: excelItemId } },
+                    storage: { data: { type: 'objects', id: storageId } }
+                }
+            }
+        }, { headers: { Authorization: `Bearer ${token}` } });
+        
+        const newVersionNum = versionsRes.data.data.attributes.versionNumber;
+        const newVersionId = versionsRes.data.data.id;
+        
+        excelCache.set(newVersionId, { rows, timestamp: Date.now() });
+        
+        res.json({
+            success: true,
+            newVersionNumber: newVersionNum,
+            newVersionId: newVersionId
+        });
+    } catch (err) {
+        console.error('[Save Excel Error]', err.response ? err.response.data : err.message);
+        res.status(500).json({ error: err.response ? JSON.stringify(err.response.data) : err.message });
+    }
+});
+
 async function pushAttributesInternal(projectId, versionId, attributes, token) {
     const cleanProjectId = projectId.startsWith('b.') ? projectId.substring(2) : projectId;
     const versionRes = await axios.get(`https://developer.api.autodesk.com/data/v1/projects/${projectId}/versions/${encodeURIComponent(versionId)}`, { headers: { Authorization: `Bearer ${token}` } });
